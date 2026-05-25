@@ -1,11 +1,16 @@
 import os
 import tempfile
 import subprocess
+from utils.logger import setup_logger
 
+logger = setup_logger()
 
 class SandboxRunner:
 
-    def execute(self, code:str):
+    def execute(self, run_id: str, code:str):
+
+        logger.info(f"[Run {run_id}] Sandbox execution started")
+
         with tempfile.NamedTemporaryFile(
             suffix=".py",
             delete=False,
@@ -22,13 +27,19 @@ class SandboxRunner:
                 text=True,
                 timeout=5
             )
+
+            logger.info(f"[Run {run_id}] Sandbox execution completed")
+            logger.info(f"[Run {run_id}] Execution result: {result}")
+
             return {
                 "success": result.returncode == 0,
                 "stdout": result.stdout,
                 "stderr": result.stderr,
             }
         
+        
         except Exception as e:
+            logger.error(f"[Run {run_id}] Execution failed in sandbox: {e}")
             return {
                 "success": False,
                 "stdout": "",

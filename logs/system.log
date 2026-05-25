@@ -1,0 +1,101 @@
+2026-05-25 11:30:59,911 - INFO - Debug orchestration started
+2026-05-25 11:30:59,911 - INFO - AnalyzerAgent started
+2026-05-25 11:30:59,911 - INFO - Code analysis completed
+2026-05-25 11:30:59,911 - INFO - Analysis result: {'root_cause': 'Possible division by zero.', 'suspected_lines': [3], 'reasoning': 'ZeroDivisionError: division by zero'}
+2026-05-25 11:30:59,911 - INFO - FixerAgent started
+2026-05-25 11:30:59,911 - INFO - Code fixed successfully
+2026-05-25 11:30:59,911 - INFO - Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 11:30:59,912 - INFO - Sandbox execution started
+2026-05-25 11:30:59,944 - INFO - Sandbox execution completed
+2026-05-25 11:30:59,944 - INFO - Execution result: CompletedProcess(args=['python', '/tmp/tmpn9l3beda.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 11:30:59,944 - INFO - EvaluatorAgent started
+2026-05-25 11:30:59,944 - INFO - Evaluation completed
+2026-05-25 11:30:59,944 - INFO - Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 11:30:59,944 - INFO - Debug orchestration completed
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] Debug orchestration started
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] AnalyzerAgent started
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] Code analysis completed
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] Analysis result: {'root_cause': 'Possible division by zero.', 'suspected_lines': [3], 'reasoning': 'ZeroDivisionError: division by zero'}
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] FixerAgent started
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] Code fixed successfully
+2026-05-25 11:44:44,429 - INFO - [Run459ae0f5] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 11:44:44,430 - INFO - [Run459ae0f5] Sandbox execution started
+2026-05-25 11:44:44,446 - INFO - [Run459ae0f5] Sandbox execution completed
+2026-05-25 11:44:44,446 - INFO - [Run459ae0f5] Execution result: CompletedProcess(args=['python', '/tmp/tmp4h9k47qv.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 11:44:44,446 - INFO - [Run459ae0f5] EvaluatorAgent started
+2026-05-25 11:44:44,447 - INFO - [Run459ae0f5] Evaluation completed
+2026-05-25 11:44:44,447 - INFO - [Run459ae0f5] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 11:44:44,447 - INFO - [Run459ae0f5] Debug orchestration completed
+2026-05-25 11:46:29,301 - INFO - [Run 074744b1] Debug orchestration started
+2026-05-25 11:46:29,301 - INFO - [Run 074744b1] AnalyzerAgent started
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] Code analysis completed
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] Analysis result: {'root_cause': 'Possible division by zero.', 'suspected_lines': [3], 'reasoning': 'ZeroDivisionError: division by zero'}
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] FixerAgent started
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] Code fixed successfully
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 11:46:29,302 - INFO - [Run 074744b1] Sandbox execution started
+2026-05-25 11:46:29,328 - INFO - [Run 074744b1] Sandbox execution completed
+2026-05-25 11:46:29,328 - INFO - [Run 074744b1] Execution result: CompletedProcess(args=['python', '/tmp/tmp2si6k2ja.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 11:46:29,328 - INFO - [Run 074744b1] EvaluatorAgent started
+2026-05-25 11:46:29,329 - INFO - [Run 074744b1] Evaluation completed
+2026-05-25 11:46:29,329 - INFO - [Run 074744b1] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 11:46:29,329 - INFO - [Run 074744b1] Debug orchestration completed
+2026-05-25 11:47:04,746 - INFO - [Run dc7fe9c5] Debug orchestration started
+2026-05-25 11:47:04,746 - INFO - [Run dc7fe9c5] AnalyzerAgent started
+2026-05-25 11:47:04,746 - INFO - [Run dc7fe9c5] Code analysis completed
+2026-05-25 11:47:04,747 - INFO - [Run dc7fe9c5] Analysis result: {'root_cause': 'Possible division by zero.', 'suspected_lines': [3], 'reasoning': 'ZeroDivisionError: division by zero'}
+2026-05-25 11:47:04,747 - INFO - [Run dc7fe9c5] FixerAgent started
+2026-05-25 11:47:04,747 - INFO - [Run dc7fe9c5] Code fixed successfully
+2026-05-25 11:47:04,747 - INFO - [Run dc7fe9c5] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 11:47:04,747 - INFO - [Run dc7fe9c5] Sandbox execution started
+2026-05-25 11:47:04,780 - INFO - [Run dc7fe9c5] Sandbox execution completed
+2026-05-25 11:47:04,781 - INFO - [Run dc7fe9c5] Execution result: CompletedProcess(args=['python', '/tmp/tmppvtkttju.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 11:47:04,781 - INFO - [Run dc7fe9c5] EvaluatorAgent started
+2026-05-25 11:47:04,781 - INFO - [Run dc7fe9c5] Evaluation completed
+2026-05-25 11:47:04,781 - INFO - [Run dc7fe9c5] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 11:47:04,781 - INFO - [Run dc7fe9c5] Debug orchestration completed
+
+
+
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Debug orchestration started
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] AnalyzerAgent started
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Code analysis completed
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Analysis result: {'root_cause': 'Possible division by zero.', 'suspected_lines': [3], 'reasoning': 'ZeroDivisionError: division by zero'}
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] FixerAgent started
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Code fixed successfully
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 11:47:19,856 - INFO - [Run 2e61e3b3] Sandbox execution started
+2026-05-25 11:47:19,887 - INFO - [Run 2e61e3b3] Sandbox execution completed
+2026-05-25 11:47:19,887 - INFO - [Run 2e61e3b3] Execution result: CompletedProcess(args=['python', '/tmp/tmptzzjcjy1.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 11:47:19,888 - INFO - [Run 2e61e3b3] EvaluatorAgent started
+2026-05-25 11:47:19,888 - INFO - [Run 2e61e3b3] Evaluation completed
+2026-05-25 11:47:19,888 - INFO - [Run 2e61e3b3] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 11:47:19,888 - INFO - [Run 2e61e3b3] Debug orchestration completed
+
+
+
