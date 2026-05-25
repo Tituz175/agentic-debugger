@@ -48,9 +48,9 @@ class DebugOrchestrator:
         context["execution_success"] = execution["success"]
         context["execution_result"] = execution
         context["metrics"] = {
-            "analysis_latency": analysis_time,
-            "fix_latency": fix_time,
-            "execution_latency": execution_time
+            "analysis_latency": f"{analysis_time:.4f}s",
+            "fix_latency": f"{fix_time:.4f}s",
+            "execution_latency": f"{execution_time:.4f}s"
         }
 
 
