@@ -4,7 +4,6 @@ from orchestrator.orchestrator import DebugOrchestrator
 buggy_code = """
 x = 10
 y = 0
-
 print(x / y)
 """
 

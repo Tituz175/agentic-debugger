@@ -99,3 +99,298 @@ print(x / (y + 1))
 
 
 
+2026-05-25 15:42:39,478 - INFO - [Run 4406e004] Debug orchestration started
+2026-05-25 15:42:39,479 - INFO - [Run 4406e004] AnalyzerAgent started
+2026-05-25 15:46:42,663 - INFO - [Run be87a8a0] Debug orchestration started
+2026-05-25 15:46:42,663 - INFO - [Run be87a8a0] AnalyzerAgent started
+2026-05-25 15:46:50,348 - ERROR - Failed to extract JSON from LLM output
+2026-05-25 15:46:50,348 - INFO - [Run be87a8a0] FixerAgent started
+2026-05-25 15:46:50,348 - INFO - [Run be87a8a0] Code fixed successfully
+2026-05-25 15:46:50,348 - INFO - [Run be87a8a0] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 15:46:50,348 - INFO - [Run be87a8a0] Sandbox execution started
+2026-05-25 15:46:50,360 - INFO - [Run be87a8a0] Sandbox execution completed
+2026-05-25 15:46:50,360 - INFO - [Run be87a8a0] Execution result: CompletedProcess(args=['python', '/tmp/tmpeod3r1iz.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 15:46:50,361 - INFO - [Run be87a8a0] EvaluatorAgent started
+2026-05-25 15:46:50,361 - INFO - [Run be87a8a0] Evaluation completed
+2026-05-25 15:46:50,361 - INFO - [Run be87a8a0] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 15:46:50,361 - INFO - [Run be87a8a0] Debug orchestration completed
+
+
+
+2026-05-25 15:47:41,900 - INFO - [Run fbf6fb65] Debug orchestration started
+2026-05-25 15:47:41,900 - INFO - [Run fbf6fb65] AnalyzerAgent started
+2026-05-25 15:47:49,486 - ERROR - Failed to extract JSON from LLM output
+2026-05-25 15:47:49,486 - INFO - [Run fbf6fb65] FixerAgent started
+2026-05-25 15:47:49,486 - INFO - [Run fbf6fb65] Code fixed successfully
+2026-05-25 15:47:49,486 - INFO - [Run fbf6fb65] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 15:47:49,486 - INFO - [Run fbf6fb65] Sandbox execution started
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] Sandbox execution completed
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] Execution result: CompletedProcess(args=['python', '/tmp/tmp0ksgzk_2.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] EvaluatorAgent started
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] Evaluation completed
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 15:47:49,514 - INFO - [Run fbf6fb65] Debug orchestration completed
+
+
+
+2026-05-25 15:54:29,209 - INFO - [Run 5a6ca963] Debug orchestration started
+2026-05-25 15:54:29,209 - INFO - [Run 5a6ca963] AnalyzerAgent started
+2026-05-25 15:54:36,900 - INFO - [Run 5a6ca963] FixerAgent started
+2026-05-25 15:54:36,900 - INFO - [Run 5a6ca963] Code fixed successfully
+2026-05-25 15:54:36,900 - INFO - [Run 5a6ca963] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 15:54:36,900 - INFO - [Run 5a6ca963] Sandbox execution started
+2026-05-25 15:54:36,912 - INFO - [Run 5a6ca963] Sandbox execution completed
+2026-05-25 15:54:36,913 - INFO - [Run 5a6ca963] Execution result: CompletedProcess(args=['python', '/tmp/tmpk0f8e3kr.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 15:54:36,913 - INFO - [Run 5a6ca963] EvaluatorAgent started
+2026-05-25 15:54:36,913 - INFO - [Run 5a6ca963] Evaluation completed
+2026-05-25 15:54:36,913 - INFO - [Run 5a6ca963] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 15:54:36,913 - INFO - [Run 5a6ca963] Debug orchestration completed
+
+
+
+2026-05-25 15:58:09,525 - INFO - [Run be50343e] Debug orchestration started
+2026-05-25 15:58:09,525 - INFO - [Run be50343e] AnalyzerAgent started
+2026-05-25 15:58:17,268 - INFO - [Run be50343e] FixerAgent started
+2026-05-25 15:58:17,268 - INFO - [Run be50343e] Code fixed successfully
+2026-05-25 15:58:17,268 - INFO - [Run be50343e] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 15:58:17,268 - INFO - [Run be50343e] Sandbox execution started
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] Sandbox execution completed
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] Execution result: CompletedProcess(args=['python', '/tmp/tmpcb53gw1z.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] EvaluatorAgent started
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] Evaluation completed
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 15:58:17,295 - INFO - [Run be50343e] Debug orchestration completed
+
+
+
+2026-05-25 16:00:45,960 - INFO - [Run 1eda75e1] Debug orchestration started
+2026-05-25 16:00:45,960 - INFO - [Run 1eda75e1] AnalyzerAgent started
+2026-05-25 16:00:45,960 - INFO - [Run 1eda75e1] Analyzer attempt 1
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] Analysis latency: 1.2385s
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1],
+    "reasoning": "attempted to divide by zero"
+}
+</json>
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] JSON extraction successful
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] FixerAgent started
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] Code fixed successfully
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] Fixed code: 
+x = 10
+y = 0
+
+print(x / (y + 1))
+
+2026-05-25 16:00:47,199 - INFO - [Run 1eda75e1] Sandbox execution started
+2026-05-25 16:00:47,212 - INFO - [Run 1eda75e1] Sandbox execution completed
+2026-05-25 16:00:47,212 - INFO - [Run 1eda75e1] Execution result: CompletedProcess(args=['python', '/tmp/tmp2_de4rn6.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:00:47,212 - INFO - [Run 1eda75e1] EvaluatorAgent started
+2026-05-25 16:00:47,213 - INFO - [Run 1eda75e1] Evaluation completed
+2026-05-25 16:00:47,213 - INFO - [Run 1eda75e1] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:00:47,213 - INFO - [Run 1eda75e1] Debug orchestration completed
+
+
+
+2026-05-25 16:01:49,531 - INFO - [Run 41570120] Debug orchestration started
+2026-05-25 16:01:49,531 - INFO - [Run 41570120] AnalyzerAgent started
+2026-05-25 16:01:49,531 - INFO - [Run 41570120] Analyzer attempt 1
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] Analysis latency: 1.2635s
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1],
+    "reasoning": "attempted to divide by zero"
+}
+</json>
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] JSON extraction successful
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] FixerAgent started
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] Code fixed successfully
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:01:50,795 - INFO - [Run 41570120] Sandbox execution started
+2026-05-25 16:01:50,821 - INFO - [Run 41570120] Sandbox execution completed
+2026-05-25 16:01:50,821 - INFO - [Run 41570120] Execution result: CompletedProcess(args=['python', '/tmp/tmpgxebh8r0.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:01:50,821 - INFO - [Run 41570120] EvaluatorAgent started
+2026-05-25 16:01:50,821 - INFO - [Run 41570120] Evaluation completed
+2026-05-25 16:01:50,822 - INFO - [Run 41570120] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:01:50,822 - INFO - [Run 41570120] Debug orchestration completed
+
+
+
+2026-05-25 16:02:58,053 - INFO - [Run 1286ab13] Debug orchestration started
+2026-05-25 16:02:58,054 - INFO - [Run 1286ab13] AnalyzerAgent started
+2026-05-25 16:02:58,054 - INFO - [Run 1286ab13] Analyzer attempt 1
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] Analysis latency: 1.3778s
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1],
+    "reasoning": "attempted to divide by zero"
+}
+</json>
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] JSON extraction successful
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] FixerAgent started
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] Code fixed successfully
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:02:59,432 - INFO - [Run 1286ab13] Sandbox execution started
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] Sandbox execution completed
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] Execution result: CompletedProcess(args=['python', '/tmp/tmpoogdv3ih.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] EvaluatorAgent started
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] Evaluation completed
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:02:59,445 - INFO - [Run 1286ab13] Debug orchestration completed
+
+
+
+2026-05-25 16:30:38,626 - INFO - [Run 523d43ea] Debug orchestration started
+2026-05-25 16:30:38,626 - INFO - [Run 523d43ea] AnalyzerAgent started
+2026-05-25 16:30:38,626 - INFO - [Run 523d43ea] Analyzer attempt 1
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] Analysis latency: 1.3921s
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1, 2],
+    "reasoning": "attempted to divide by zero"
+}
+</json>
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] JSON extraction successful
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] FixerAgent started
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] Code fixed successfully
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:30:40,018 - INFO - [Run 523d43ea] Sandbox execution started
+2026-05-25 16:30:40,043 - INFO - [Run 523d43ea] Sandbox execution completed
+2026-05-25 16:30:40,043 - INFO - [Run 523d43ea] Execution result: CompletedProcess(args=['python', '/tmp/tmpmxh0hn2r.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:30:40,044 - INFO - [Run 523d43ea] EvaluatorAgent started
+2026-05-25 16:30:40,044 - INFO - [Run 523d43ea] Evaluation completed
+2026-05-25 16:30:40,044 - INFO - [Run 523d43ea] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:30:40,044 - INFO - [Run 523d43ea] Debug orchestration completed
+
+
+
+2026-05-25 16:31:10,868 - INFO - [Run dadaf1d5] Debug orchestration started
+2026-05-25 16:31:10,869 - INFO - [Run dadaf1d5] AnalyzerAgent started
+2026-05-25 16:31:10,869 - INFO - [Run dadaf1d5] Analyzer attempt 1
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] Analysis latency: 1.2681s
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1],
+    "reasoning": "x / y"
+}
+</json>
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] JSON extraction successful
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] FixerAgent started
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] Code fixed successfully
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:31:12,137 - INFO - [Run dadaf1d5] Sandbox execution started
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] Sandbox execution completed
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] Execution result: CompletedProcess(args=['python', '/tmp/tmpv1wu0aeg.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] EvaluatorAgent started
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] Evaluation completed
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:31:12,168 - INFO - [Run dadaf1d5] Debug orchestration completed
+
+
+
+2026-05-25 16:31:36,945 - INFO - [Run fc5a955f] Debug orchestration started
+2026-05-25 16:31:36,945 - INFO - [Run fc5a955f] AnalyzerAgent started
+2026-05-25 16:31:36,945 - INFO - [Run fc5a955f] Analyzer attempt 1
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] Analysis latency: 1.4350s
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "suspected_lines": [1, 2],
+    "reasoning": "attempted to divide by zero"
+}
+</json>
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] JSON extraction successful
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] FixerAgent started
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] Code fixed successfully
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:31:38,380 - INFO - [Run fc5a955f] Sandbox execution started
+2026-05-25 16:31:38,392 - INFO - [Run fc5a955f] Sandbox execution completed
+2026-05-25 16:31:38,393 - INFO - [Run fc5a955f] Execution result: CompletedProcess(args=['python', '/tmp/tmp2e2j9pay.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:31:38,393 - INFO - [Run fc5a955f] EvaluatorAgent started
+2026-05-25 16:31:38,393 - INFO - [Run fc5a955f] Evaluation completed
+2026-05-25 16:31:38,393 - INFO - [Run fc5a955f] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:31:38,393 - INFO - [Run fc5a955f] Debug orchestration completed
+
+
+
+2026-05-25 16:34:07,998 - INFO - [Run 5eab4bd5] Debug orchestration started
+2026-05-25 16:34:07,999 - INFO - [Run 5eab4bd5] AnalyzerAgent started
+2026-05-25 16:34:07,999 - INFO - [Run 5eab4bd5] Analyzer attempt 1
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] Analysis latency: 1.2619s
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] JSON extraction successful
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] FixerAgent started
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] Code fixed successfully
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-25 16:34:09,261 - INFO - [Run 5eab4bd5] Sandbox execution started
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] Sandbox execution completed
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] Execution result: CompletedProcess(args=['python', '/tmp/tmpjyfa9lgv.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] EvaluatorAgent started
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] Evaluation completed
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-25 16:34:09,290 - INFO - [Run 5eab4bd5] Debug orchestration completed
+
+
+
