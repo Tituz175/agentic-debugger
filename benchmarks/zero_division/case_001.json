@@ -1,0 +1,14 @@
+{
+  "id": "zero_division_001",
+  "bug_type": "ZeroDivisionError",
+
+  "buggy_code": "x = 10\ny = 0\nprint(x / y)",
+
+  "traceback": "ZeroDivisionError: division by zero",
+
+  "expected_error_line": 3,
+
+  "expected_fix_behavior": "prevent division by zero",
+
+  "difficulty": "easy"
+}
