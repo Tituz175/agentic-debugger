@@ -95,8 +95,6 @@ Traceback:
             context["code"]
         )
 
-        print(f"[Run {run_id}] Formatted code with line numbers:\n{context['formatted_code']}")
-
         prompt = self.build_prompt(context)
 
         last_error = None
@@ -128,7 +126,7 @@ Traceback:
 
                 parsed_output = self.extract_json(output)
 
-                parsed_output["latency"] = (
+                parsed_output["analyzer_latency"] = (
                     f"{latency:.4f}s"
                 )
 

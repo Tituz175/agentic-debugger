@@ -394,3 +394,220 @@ print(x / (y + 1))
 
 
 
+2026-05-26 09:31:14,408 - INFO - [Run 5587fbac] Debug orchestration started
+2026-05-26 09:31:14,408 - INFO - [Run 5587fbac] AnalyzerAgent started
+2026-05-26 09:31:14,408 - INFO - [Run 5587fbac] Analyzer attempt 1
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] Analysis latency: 1.2927s
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] JSON extraction successful
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] FixerAgent started
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] Code fixed successfully
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-26 09:31:15,701 - INFO - [Run 5587fbac] Sandbox execution started
+2026-05-26 09:31:15,713 - INFO - [Run 5587fbac] Sandbox execution completed
+2026-05-26 09:31:15,713 - INFO - [Run 5587fbac] Execution result: CompletedProcess(args=['python', '/tmp/tmp0805m1lu.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-26 09:31:15,713 - INFO - [Run 5587fbac] EvaluatorAgent started
+2026-05-26 09:31:15,713 - INFO - [Run 5587fbac] Evaluation completed
+2026-05-26 09:31:15,714 - INFO - [Run 5587fbac] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 09:31:15,714 - INFO - [Run 5587fbac] Debug orchestration completed
+
+
+
+2026-05-26 09:44:56,978 - INFO - [Run 6ab5fa74] Debug orchestration started
+2026-05-26 09:44:56,979 - INFO - [Run 6ab5fa74] AnalyzerAgent started
+2026-05-26 09:44:56,979 - INFO - [Run 6ab5fa74] Analyzer attempt 1
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] Analysis latency: 1.2787s
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] JSON extraction successful
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] FixerAgent started
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] Code fixed successfully
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-26 09:44:58,258 - INFO - [Run 6ab5fa74] Sandbox execution started
+2026-05-26 09:44:58,271 - INFO - [Run 6ab5fa74] Sandbox execution completed
+2026-05-26 09:44:58,272 - INFO - [Run 6ab5fa74] Execution result: CompletedProcess(args=['python', '/tmp/tmphz5n2l7n.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-26 09:44:58,272 - INFO - [Run 6ab5fa74] EvaluatorAgent started
+2026-05-26 09:44:58,272 - INFO - [Run 6ab5fa74] Evaluation completed
+2026-05-26 09:44:58,272 - INFO - [Run 6ab5fa74] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 09:44:58,272 - INFO - [Run 6ab5fa74] Debug orchestration completed
+
+
+
+2026-05-26 09:55:33,818 - INFO - [Run b13123e9] Debug orchestration started
+2026-05-26 09:55:33,819 - INFO - [Run b13123e9] AnalyzerAgent started
+2026-05-26 09:55:33,819 - INFO - [Run b13123e9] Analyzer attempt 1
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] Analysis latency: 1.2760s
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] JSON extraction successful
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] FixerAgent started
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] Code fixed successfully
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] Fixed code: 
+x = 10
+y = 0
+print(x / (y + 1))
+
+2026-05-26 09:55:35,095 - INFO - [Run b13123e9] Sandbox execution started
+2026-05-26 09:55:35,124 - INFO - [Run b13123e9] Sandbox execution completed
+2026-05-26 09:55:35,125 - INFO - [Run b13123e9] Execution result: CompletedProcess(args=['python', '/tmp/tmpoeiciy4r.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-26 09:55:35,125 - INFO - [Run b13123e9] EvaluatorAgent started
+2026-05-26 09:55:35,125 - INFO - [Run b13123e9] Evaluation completed
+2026-05-26 09:55:35,125 - INFO - [Run b13123e9] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 09:55:35,125 - INFO - [Run b13123e9] Debug orchestration completed
+
+
+
+2026-05-26 13:43:32,517 - INFO - [Run d776a50e] Debug orchestration started
+2026-05-26 13:43:32,517 - INFO - [Run d776a50e] AnalyzerAgent started
+2026-05-26 13:43:32,517 - INFO - [Run d776a50e] Analyzer attempt 1
+2026-05-26 13:43:33,817 - INFO - [Run d776a50e] Analysis latency: 1.3001s
+2026-05-26 13:43:33,817 - INFO - [Run d776a50e] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 13:43:33,818 - INFO - [Run d776a50e] JSON extraction successful
+2026-05-26 13:43:33,818 - INFO - [Run d776a50e] FixerAgent started
+2026-05-26 13:43:33,818 - INFO - [Run d776a50e] Fixer attempt 1
+2026-05-26 13:43:33,818 - ERROR - [Run d776a50e] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:43:33,818 - INFO - [Run d776a50e] Fixer attempt 2
+2026-05-26 13:43:33,818 - ERROR - [Run d776a50e] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:43:33,818 - ERROR - [Run d776a50e] FixerAgent failed after retries
+2026-05-26 13:45:32,691 - INFO - [Run b99db93c] Debug orchestration started
+2026-05-26 13:45:32,691 - INFO - [Run b99db93c] AnalyzerAgent started
+2026-05-26 13:45:32,692 - INFO - [Run b99db93c] Analyzer attempt 1
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] Analysis latency: 1.2719s
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] JSON extraction successful
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] FixerAgent started
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] Fixer attempt 1
+2026-05-26 13:45:33,964 - ERROR - [Run b99db93c] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:45:33,964 - INFO - [Run b99db93c] Fixer attempt 2
+2026-05-26 13:45:33,964 - ERROR - [Run b99db93c] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:45:33,964 - ERROR - [Run b99db93c] FixerAgent failed after retries
+2026-05-26 13:47:10,068 - INFO - [Run 53b29949] Debug orchestration started
+2026-05-26 13:47:10,069 - INFO - [Run 53b29949] AnalyzerAgent started
+2026-05-26 13:47:10,069 - INFO - [Run 53b29949] Analyzer attempt 1
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] Analysis latency: 1.2808s
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] JSON extraction successful
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] FixerAgent started
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] Fixer attempt 1
+2026-05-26 13:47:11,350 - ERROR - [Run 53b29949] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:47:11,350 - INFO - [Run 53b29949] Fixer attempt 2
+2026-05-26 13:47:11,350 - ERROR - [Run 53b29949] Fixer attempt failed: 'builtin_function_or_method' object has no attribute 'perf_counter'
+2026-05-26 13:47:11,350 - ERROR - [Run 53b29949] FixerAgent failed after retries
+2026-05-26 13:53:25,591 - INFO - [Run ef9b1984] Debug orchestration started
+2026-05-26 13:53:25,591 - INFO - [Run ef9b1984] AnalyzerAgent started
+2026-05-26 13:53:25,592 - INFO - [Run ef9b1984] Analyzer attempt 1
+2026-05-26 13:53:26,853 - INFO - [Run ef9b1984] Analysis latency: 1.2609s
+2026-05-26 13:53:26,853 - INFO - [Run ef9b1984] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 13:53:26,853 - INFO - [Run ef9b1984] JSON extraction successful
+2026-05-26 13:53:26,853 - INFO - [Run ef9b1984] FixerAgent started
+2026-05-26 13:53:26,853 - INFO - [Run ef9b1984] Fixer attempt 1
+2026-05-26 13:53:28,074 - INFO - [Run ef9b1984] Fixer latency: 1.2211s
+2026-05-26 13:53:28,074 - INFO - [Run ef9b1984] Raw LLM output:
+<json>
+{
+    "patched_code": "try:\n    x = 10\n    y = 0\n    print(x / y)\nexcept ZeroDivisionError:\n    print('Error: division by zero')",
+    "explanation": ""
+}
+</json>
+2026-05-26 13:53:28,074 - INFO - [Run ef9b1984] Patch validation successful
+2026-05-26 13:53:28,074 - INFO - [Run ef9b1984] JSON extraction successful
+2026-05-26 13:53:28,074 - INFO - [Run ef9b1984] Sandbox execution started
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] Sandbox execution completed
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] Execution result: CompletedProcess(args=['python', '/tmp/tmpws_6qppp.py'], returncode=0, stdout='Error: division by zero\n', stderr='')
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] EvaluatorAgent started
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] Evaluation completed
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 13:53:28,088 - INFO - [Run ef9b1984] Debug orchestration completed
+
+
+
+2026-05-26 13:58:32,394 - INFO - [Run 3c261ad6] Debug orchestration started
+2026-05-26 13:58:32,394 - INFO - [Run 3c261ad6] AnalyzerAgent started
+2026-05-26 13:58:32,394 - INFO - [Run 3c261ad6] Analyzer attempt 1
+2026-05-26 13:58:33,681 - INFO - [Run 3c261ad6] Analysis latency: 1.2864s
+2026-05-26 13:58:33,681 - INFO - [Run 3c261ad6] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 13:58:33,681 - INFO - [Run 3c261ad6] JSON extraction successful
+2026-05-26 13:58:33,681 - INFO - [Run 3c261ad6] FixerAgent started
+2026-05-26 13:58:33,681 - INFO - [Run 3c261ad6] Fixer attempt 1
+2026-05-26 13:58:34,943 - INFO - [Run 3c261ad6] Fixer latency: 1.2618s
+2026-05-26 13:58:34,943 - INFO - [Run 3c261ad6] Raw LLM output:
+<json>
+{
+    "patched_code": "try:\n    x = 10\n    y = 0\n    print(x / y)\nexcept ZeroDivisionError:\n    print('Error: division by zero')",
+    "explanation": ""
+}
+</json>
+2026-05-26 13:58:34,943 - INFO - [Run 3c261ad6] Patch validation successful
+2026-05-26 13:58:34,943 - INFO - [Run 3c261ad6] JSON extraction successful
+2026-05-26 13:58:34,943 - INFO - [Run 3c261ad6] Sandbox execution started
+2026-05-26 13:58:34,956 - INFO - [Run 3c261ad6] Sandbox execution completed
+2026-05-26 13:58:34,956 - INFO - [Run 3c261ad6] Execution result: CompletedProcess(args=['python', '/tmp/tmpwh98cl59.py'], returncode=0, stdout='Error: division by zero\n', stderr='')
+2026-05-26 13:58:34,956 - INFO - [Run 3c261ad6] EvaluatorAgent started
+2026-05-26 13:58:34,957 - INFO - [Run 3c261ad6] Evaluation completed
+2026-05-26 13:58:34,957 - INFO - [Run 3c261ad6] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 13:58:34,957 - INFO - [Run 3c261ad6] Debug orchestration completed
+
+
+
