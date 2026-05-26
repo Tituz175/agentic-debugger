@@ -53,16 +53,19 @@ class FixerAgent(BaseAgent):
 
     def build_prompt(self, context: dict) -> str:
 
-        code = context["code"].strip()
-
-        analysis = context["analysis"]
-
         return f"""
 You are an expert software repair agent.
 
 Your task is to fix the provided Python code.
 
 Return ONLY valid JSON wrapped inside <json> tags.
+
+Rules:
+- Do NOT use markdown
+- Do NOT use triple backticks
+- Do NOT use triple quotes
+- patched_code must be a single JSON string
+- Escape newlines using \n
 
 Format:
 
@@ -74,24 +77,28 @@ Format:
 </json>
 
 Rules:
-- Preserve original behavior when possible
+- Return the COMPLETE corrected program
+- Preserve all existing code unless necessary to modify
+- Do not omit variable definitions
+- Do not return partial snippets
 - Fix only the identified issue
-- Make the smallest possible code change
 - Return executable Python code
-- Return ONLY valid JSON
-- Do not include markdown
-- Do not include explanations outside JSON
+- Do not include markdown formatting
 
 Original Code:
-{code}
+{context["code"]}
 
-Analysis:
-- Root Cause: {analysis["root_cause"]}
-- Error Line: {analysis["error_line"]}
-- Reasoning: {analysis["reasoning"]}
+Code With Line Numbers:
+{context["formatted_code"]}
 
-Traceback:
-{context["traceback"]}
+Detected Error:
+{context["analysis"]["root_cause"]}
+
+Error Line:
+{context["analysis"]["error_line"]}
+
+Reasoning:
+{context["analysis"]["reasoning"]}
 """
 
     def run(self, context: dict) -> dict:
@@ -122,8 +129,6 @@ Traceback:
                 latency = (
                     time.perf_counter() - start_time
                 )
-
-                print(f"[Run {run_id}] LLM output:\n{output}")
 
                 logger.info(
                     f"[Run {run_id}] "

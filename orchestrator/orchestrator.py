@@ -40,8 +40,6 @@ class DebugOrchestrator:
         fix_time = time.perf_counter() - start_time
         context["fix"] = fix
 
-        print(context)
-
         start_time = time.perf_counter()
         execution = self.runner.execute(
             run_id,

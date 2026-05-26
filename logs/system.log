@@ -611,3 +611,1308 @@ print(x / (y + 1))
 
 
 
+2026-05-26 15:00:43,280 - INFO - [Run e8a9a132] Debug orchestration started
+2026-05-26 15:00:43,281 - INFO - [Run e8a9a132] AnalyzerAgent started
+2026-05-26 15:00:43,281 - INFO - [Run e8a9a132] Analyzer attempt 1
+2026-05-26 15:00:44,935 - INFO - [Run e8a9a132] Analysis latency: 1.6538s
+2026-05-26 15:00:44,935 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 3,
+    "reasoning": "x and y are of different types, cannot be concatenated"
+}
+</json>
+2026-05-26 15:00:44,935 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:44,935 - INFO - [Run e8a9a132] FixerAgent started
+2026-05-26 15:00:44,935 - INFO - [Run e8a9a132] Fixer attempt 1
+2026-05-26 15:00:45,744 - INFO - [Run e8a9a132] Fixer latency: 0.8092s
+2026-05-26 15:00:45,744 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "patched_code": "x = int(x) + y",
+    "explanation": "Converted x to int before concatenation"
+}
+</json>
+2026-05-26 15:00:45,745 - INFO - [Run e8a9a132] Patch validation successful
+2026-05-26 15:00:45,745 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:45,745 - INFO - [Run e8a9a132] Sandbox execution started
+2026-05-26 15:00:45,769 - INFO - [Run e8a9a132] Sandbox execution completed
+2026-05-26 15:00:45,769 - INFO - [Run e8a9a132] Execution result: CompletedProcess(args=['python', '/tmp/tmprcnxx2yi.py'], returncode=1, stdout='', stderr='Traceback (most recent call last):\n  File "/tmp/tmprcnxx2yi.py", line 1, in <module>\n    x = int(x) + y\n            ^\nNameError: name \'x\' is not defined\n')
+2026-05-26 15:00:45,770 - INFO - [Run e8a9a132] EvaluatorAgent started
+2026-05-26 15:00:45,770 - INFO - [Run e8a9a132] Evaluation completed
+2026-05-26 15:00:45,770 - INFO - [Run e8a9a132] Evaluation result: {'passed': False, 'score': 0.0}
+2026-05-26 15:00:45,770 - INFO - [Run e8a9a132] Debug orchestration completed
+
+
+
+2026-05-26 15:00:45,771 - INFO - [Run e8a9a132] Debug orchestration started
+2026-05-26 15:00:45,771 - INFO - [Run e8a9a132] AnalyzerAgent started
+2026-05-26 15:00:45,771 - INFO - [Run e8a9a132] Analyzer attempt 1
+2026-05-26 15:00:46,846 - INFO - [Run e8a9a132] Analysis latency: 1.0749s
+2026-05-26 15:00:46,846 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 15:00:46,846 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:46,846 - INFO - [Run e8a9a132] FixerAgent started
+2026-05-26 15:00:46,846 - INFO - [Run e8a9a132] Fixer attempt 1
+2026-05-26 15:00:47,821 - INFO - [Run e8a9a132] Fixer latency: 0.9753s
+2026-05-26 15:00:47,821 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "patched_code": "y = 5\nx = y\nprint(x)\n",
+    "explanation": "Fixed the NameError by defining y before using it."
+}
+</json>
+2026-05-26 15:00:47,822 - INFO - [Run e8a9a132] Patch validation successful
+2026-05-26 15:00:47,822 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:47,822 - INFO - [Run e8a9a132] Sandbox execution started
+2026-05-26 15:00:47,833 - INFO - [Run e8a9a132] Sandbox execution completed
+2026-05-26 15:00:47,833 - INFO - [Run e8a9a132] Execution result: CompletedProcess(args=['python', '/tmp/tmpbz66ge3v.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 15:00:47,833 - INFO - [Run e8a9a132] EvaluatorAgent started
+2026-05-26 15:00:47,833 - INFO - [Run e8a9a132] Evaluation completed
+2026-05-26 15:00:47,833 - INFO - [Run e8a9a132] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:00:47,834 - INFO - [Run e8a9a132] Debug orchestration completed
+
+
+
+2026-05-26 15:00:47,834 - INFO - [Run e8a9a132] Debug orchestration started
+2026-05-26 15:00:47,834 - INFO - [Run e8a9a132] AnalyzerAgent started
+2026-05-26 15:00:47,835 - INFO - [Run e8a9a132] Analyzer attempt 1
+2026-05-26 15:00:48,633 - INFO - [Run e8a9a132] Analysis latency: 0.7979s
+2026-05-26 15:00:48,633 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 15:00:48,633 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:48,633 - INFO - [Run e8a9a132] FixerAgent started
+2026-05-26 15:00:48,633 - INFO - [Run e8a9a132] Fixer attempt 1
+2026-05-26 15:00:49,863 - INFO - [Run e8a9a132] Fixer latency: 1.2302s
+2026-05-26 15:00:49,863 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "patched_code": "try:\n    x = 10\n    y = 0\n    print(x / y)\nexcept ZeroDivisionError:\n    print('Error: division by zero')",
+    "explanation": ""
+}
+</json>
+2026-05-26 15:00:49,863 - INFO - [Run e8a9a132] Patch validation successful
+2026-05-26 15:00:49,863 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:49,863 - INFO - [Run e8a9a132] Sandbox execution started
+2026-05-26 15:00:49,876 - INFO - [Run e8a9a132] Sandbox execution completed
+2026-05-26 15:00:49,876 - INFO - [Run e8a9a132] Execution result: CompletedProcess(args=['python', '/tmp/tmpumtllb19.py'], returncode=0, stdout='Error: division by zero\n', stderr='')
+2026-05-26 15:00:49,876 - INFO - [Run e8a9a132] EvaluatorAgent started
+2026-05-26 15:00:49,876 - INFO - [Run e8a9a132] Evaluation completed
+2026-05-26 15:00:49,877 - INFO - [Run e8a9a132] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:00:49,877 - INFO - [Run e8a9a132] Debug orchestration completed
+
+
+
+2026-05-26 15:00:49,878 - INFO - [Run e8a9a132] Debug orchestration started
+2026-05-26 15:00:49,878 - INFO - [Run e8a9a132] AnalyzerAgent started
+2026-05-26 15:00:49,878 - INFO - [Run e8a9a132] Analyzer attempt 1
+2026-05-26 15:00:50,859 - INFO - [Run e8a9a132] Analysis latency: 0.9809s
+2026-05-26 15:00:50,859 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:00:50,859 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:50,859 - INFO - [Run e8a9a132] FixerAgent started
+2026-05-26 15:00:50,859 - INFO - [Run e8a9a132] Fixer attempt 1
+2026-05-26 15:00:51,782 - INFO - [Run e8a9a132] Fixer latency: 0.9234s
+2026-05-26 15:00:51,783 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:00:51,783 - INFO - [Run e8a9a132] Patch validation successful
+2026-05-26 15:00:51,783 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:51,783 - INFO - [Run e8a9a132] Sandbox execution started
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] Sandbox execution completed
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] Execution result: CompletedProcess(args=['python', '/tmp/tmpp8bsnvcw.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] EvaluatorAgent started
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] Evaluation completed
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:00:51,810 - INFO - [Run e8a9a132] Debug orchestration completed
+
+
+
+2026-05-26 15:00:51,811 - INFO - [Run e8a9a132] Debug orchestration started
+2026-05-26 15:00:51,811 - INFO - [Run e8a9a132] AnalyzerAgent started
+2026-05-26 15:00:51,811 - INFO - [Run e8a9a132] Analyzer attempt 1
+2026-05-26 15:00:52,756 - INFO - [Run e8a9a132] Analysis latency: 0.9450s
+2026-05-26 15:00:52,756 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 15:00:52,756 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:52,756 - INFO - [Run e8a9a132] FixerAgent started
+2026-05-26 15:00:52,756 - INFO - [Run e8a9a132] Fixer attempt 1
+2026-05-26 15:00:53,746 - INFO - [Run e8a9a132] Fixer latency: 0.9892s
+2026-05-26 15:00:53,746 - INFO - [Run e8a9a132] Raw LLM output:
+<json>
+{
+    "patched_code": "if len(numbers) > 5: print(numbers[5])",
+    "explanation": "Added a length check to prevent index out of range error"
+}
+</json>
+2026-05-26 15:00:53,746 - INFO - [Run e8a9a132] Patch validation successful
+2026-05-26 15:00:53,746 - INFO - [Run e8a9a132] JSON extraction successful
+2026-05-26 15:00:53,746 - INFO - [Run e8a9a132] Sandbox execution started
+2026-05-26 15:00:53,805 - INFO - [Run e8a9a132] Sandbox execution completed
+2026-05-26 15:00:53,806 - INFO - [Run e8a9a132] Execution result: CompletedProcess(args=['python', '/tmp/tmpsf9uhvnx.py'], returncode=1, stdout='', stderr='Traceback (most recent call last):\n  File "/tmp/tmpsf9uhvnx.py", line 1, in <module>\n    if len(numbers) > 5: print(numbers[5])\n           ^^^^^^^\nNameError: name \'numbers\' is not defined. Did you forget to import \'numbers\'?\n')
+2026-05-26 15:00:53,806 - INFO - [Run e8a9a132] EvaluatorAgent started
+2026-05-26 15:00:53,806 - INFO - [Run e8a9a132] Evaluation completed
+2026-05-26 15:00:53,806 - INFO - [Run e8a9a132] Evaluation result: {'passed': False, 'score': 0.0}
+2026-05-26 15:00:53,806 - INFO - [Run e8a9a132] Debug orchestration completed
+
+
+
+2026-05-26 15:04:31,685 - INFO - [Run 509e55df] Debug orchestration started
+2026-05-26 15:04:31,685 - INFO - [Run 509e55df] AnalyzerAgent started
+2026-05-26 15:04:31,685 - INFO - [Run 509e55df] Analyzer attempt 1
+2026-05-26 15:04:33,249 - INFO - [Run 509e55df] Analysis latency: 1.5643s
+2026-05-26 15:04:33,249 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 1,
+    "reasoning": "x and y are of different types"
+}
+</json>
+2026-05-26 15:04:33,250 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:33,250 - INFO - [Run 509e55df] FixerAgent started
+2026-05-26 15:04:33,250 - INFO - [Run 509e55df] Fixer attempt 1
+2026-05-26 15:04:34,653 - INFO - [Run 509e55df] Fixer latency: 1.4034s
+2026-05-26 15:04:34,653 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+x = int('5')
+y = 2
+print(x + y)
+""",
+    "explanation": "The error occurred because x and y are of different types. To fix this, we need to convert x to an integer using int() function."
+}
+</json>
+2026-05-26 15:04:34,653 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:34,653 - INFO - [Run 509e55df] Fixer attempt 2
+2026-05-26 15:04:35,669 - INFO - [Run 509e55df] Fixer latency: 1.0156s
+2026-05-26 15:04:35,669 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+x = int('5')
+y = 2
+print(x + y)
+""",
+    "explanation": "Fixed TypeError by converting string to integer for addition."
+}
+</json>
+2026-05-26 15:04:35,669 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:35,669 - ERROR - [Run 509e55df] FixerAgent failed after retries
+2026-05-26 15:04:35,669 - INFO - [Run 509e55df] Sandbox execution started
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] Sandbox execution completed
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] Execution result: CompletedProcess(args=['python', '/tmp/tmpplqyg431.py'], returncode=0, stdout='', stderr='')
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] EvaluatorAgent started
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] Evaluation completed
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:04:35,681 - INFO - [Run 509e55df] Debug orchestration completed
+
+
+
+2026-05-26 15:04:35,683 - INFO - [Run 509e55df] Debug orchestration started
+2026-05-26 15:04:35,683 - INFO - [Run 509e55df] AnalyzerAgent started
+2026-05-26 15:04:35,683 - INFO - [Run 509e55df] Analyzer attempt 1
+2026-05-26 15:04:36,747 - INFO - [Run 509e55df] Analysis latency: 1.0638s
+2026-05-26 15:04:36,747 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' referenced in loop"
+}
+</json>
+2026-05-26 15:04:36,747 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:36,747 - INFO - [Run 509e55df] FixerAgent started
+2026-05-26 15:04:36,747 - INFO - [Run 509e55df] Fixer attempt 1
+2026-05-26 15:04:37,998 - INFO - [Run 509e55df] Fixer latency: 1.2509s
+2026-05-26 15:04:37,998 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+x = 5
+print(x)
+""",
+    "explanation": "The variable 'y' was not defined, so it was causing a NameError. I replaced 'y' with 'x' to fix the issue."
+}
+</json>
+2026-05-26 15:04:37,998 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:37,998 - INFO - [Run 509e55df] Fixer attempt 2
+2026-05-26 15:04:38,989 - INFO - [Run 509e55df] Fixer latency: 0.9909s
+2026-05-26 15:04:38,989 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "Variable 'y' was not defined, so it was replaced with 'x'."
+}
+</json>
+2026-05-26 15:04:38,989 - INFO - [Run 509e55df] Patch validation successful
+2026-05-26 15:04:38,989 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:38,989 - INFO - [Run 509e55df] Sandbox execution started
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] Sandbox execution completed
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] Execution result: CompletedProcess(args=['python', '/tmp/tmpua4c5uu_.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] EvaluatorAgent started
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] Evaluation completed
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:04:39,001 - INFO - [Run 509e55df] Debug orchestration completed
+
+
+
+2026-05-26 15:04:39,002 - INFO - [Run 509e55df] Debug orchestration started
+2026-05-26 15:04:39,002 - INFO - [Run 509e55df] AnalyzerAgent started
+2026-05-26 15:04:39,003 - INFO - [Run 509e55df] Analyzer attempt 1
+2026-05-26 15:04:39,791 - INFO - [Run 509e55df] Analysis latency: 0.7886s
+2026-05-26 15:04:39,791 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 15:04:39,791 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:39,791 - INFO - [Run 509e55df] FixerAgent started
+2026-05-26 15:04:39,791 - INFO - [Run 509e55df] Fixer attempt 1
+2026-05-26 15:04:41,275 - INFO - [Run 509e55df] Fixer latency: 1.4837s
+2026-05-26 15:04:41,275 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+x = 10
+y = 0
+print(x / y)
+""",
+    "explanation": "To avoid division by zero, we need to add a condition to check if y is zero before performing the division. We can use the 'if' statement for this purpose."
+}
+</json>
+2026-05-26 15:04:41,275 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:41,275 - INFO - [Run 509e55df] Fixer attempt 2
+2026-05-26 15:04:42,114 - INFO - [Run 509e55df] Fixer latency: 0.8381s
+2026-05-26 15:04:42,114 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+x = 10
+y = 10  # Changed y to a non-zero value
+print(x / y)
+"""
+}
+</json>
+2026-05-26 15:04:42,114 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:42,114 - ERROR - [Run 509e55df] FixerAgent failed after retries
+2026-05-26 15:04:42,114 - INFO - [Run 509e55df] Sandbox execution started
+2026-05-26 15:04:42,127 - INFO - [Run 509e55df] Sandbox execution completed
+2026-05-26 15:04:42,128 - INFO - [Run 509e55df] Execution result: CompletedProcess(args=['python', '/tmp/tmpwmmiq57h.py'], returncode=0, stdout='', stderr='')
+2026-05-26 15:04:42,128 - INFO - [Run 509e55df] EvaluatorAgent started
+2026-05-26 15:04:42,128 - INFO - [Run 509e55df] Evaluation completed
+2026-05-26 15:04:42,128 - INFO - [Run 509e55df] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:04:42,128 - INFO - [Run 509e55df] Debug orchestration completed
+
+
+
+2026-05-26 15:04:42,129 - INFO - [Run 509e55df] Debug orchestration started
+2026-05-26 15:04:42,129 - INFO - [Run 509e55df] AnalyzerAgent started
+2026-05-26 15:04:42,129 - INFO - [Run 509e55df] Analyzer attempt 1
+2026-05-26 15:04:43,099 - INFO - [Run 509e55df] Analysis latency: 0.9695s
+2026-05-26 15:04:43,099 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:04:43,099 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:43,099 - INFO - [Run 509e55df] FixerAgent started
+2026-05-26 15:04:43,099 - INFO - [Run 509e55df] Fixer attempt 1
+2026-05-26 15:04:44,017 - INFO - [Run 509e55df] Fixer latency: 0.9180s
+2026-05-26 15:04:44,017 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+for i in range(5):
+    print(i)
+""",
+    "explanation": "Missing colon at the end of the for loop declaration."
+}
+</json>
+2026-05-26 15:04:44,017 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:44,017 - INFO - [Run 509e55df] Fixer attempt 2
+2026-05-26 15:04:44,954 - INFO - [Run 509e55df] Fixer latency: 0.9363s
+2026-05-26 15:04:44,954 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+for i in range(5):
+    print(i)
+""",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:04:44,954 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:44,954 - ERROR - [Run 509e55df] FixerAgent failed after retries
+2026-05-26 15:04:44,954 - INFO - [Run 509e55df] Sandbox execution started
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] Sandbox execution completed
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] Execution result: CompletedProcess(args=['python', '/tmp/tmpiv9qcmy3.py'], returncode=0, stdout='', stderr='')
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] EvaluatorAgent started
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] Evaluation completed
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:04:44,968 - INFO - [Run 509e55df] Debug orchestration completed
+
+
+
+2026-05-26 15:04:44,969 - INFO - [Run 509e55df] Debug orchestration started
+2026-05-26 15:04:44,969 - INFO - [Run 509e55df] AnalyzerAgent started
+2026-05-26 15:04:44,969 - INFO - [Run 509e55df] Analyzer attempt 1
+2026-05-26 15:04:45,928 - INFO - [Run 509e55df] Analysis latency: 0.9589s
+2026-05-26 15:04:45,928 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 15:04:45,928 - INFO - [Run 509e55df] JSON extraction successful
+2026-05-26 15:04:45,928 - INFO - [Run 509e55df] FixerAgent started
+2026-05-26 15:04:45,929 - INFO - [Run 509e55df] Fixer attempt 1
+2026-05-26 15:04:47,661 - INFO - [Run 509e55df] Fixer latency: 1.7328s
+2026-05-26 15:04:47,662 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+numbers = [1, 2, 3]
+print(numbers[0])
+""",
+    "explanation": "The error occurs because the list index is out of range. In Python, list indices start at 0, so the maximum index for a list of length 3 is 2. Trying to access index 5 raises an IndexError."
+}
+</json>
+2026-05-26 15:04:47,662 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:47,662 - INFO - [Run 509e55df] Fixer attempt 2
+2026-05-26 15:04:48,969 - INFO - [Run 509e55df] Fixer latency: 1.3073s
+2026-05-26 15:04:48,969 - INFO - [Run 509e55df] Raw LLM output:
+<json>
+{
+    "patched_code": """
+numbers = [1, 2, 3]
+print(numbers[0])
+""",
+    "explanation": "List index out of range error occurred because the list only has 3 elements, and the index 5 does not exist."
+}
+</json>
+2026-05-26 15:04:48,969 - ERROR - [Run 509e55df] Fixer attempt failed: Expecting ',' delimiter: line 2 column 23 (char 24)
+2026-05-26 15:04:48,969 - ERROR - [Run 509e55df] FixerAgent failed after retries
+2026-05-26 15:04:48,969 - INFO - [Run 509e55df] Sandbox execution started
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] Sandbox execution completed
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] Execution result: CompletedProcess(args=['python', '/tmp/tmpjognqsya.py'], returncode=0, stdout='', stderr='')
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] EvaluatorAgent started
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] Evaluation completed
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:04:48,981 - INFO - [Run 509e55df] Debug orchestration completed
+
+
+
+2026-05-26 15:52:19,796 - INFO - [Run ff8fd527] Debug orchestration started
+2026-05-26 15:52:19,797 - INFO - [Run ff8fd527] AnalyzerAgent started
+2026-05-26 15:52:19,797 - INFO - [Run ff8fd527] Analyzer attempt 1
+2026-05-26 15:52:21,347 - INFO - [Run ff8fd527] Analysis latency: 1.5498s
+2026-05-26 15:52:21,347 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 1,
+    "reasoning": "x and y are of different types"
+}
+</json>
+2026-05-26 15:52:21,347 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:21,347 - INFO - [Run ff8fd527] FixerAgent started
+2026-05-26 15:52:21,347 - INFO - [Run ff8fd527] Fixer attempt 1
+2026-05-26 15:52:22,813 - INFO - [Run ff8fd527] Fixer latency: 1.4659s
+2026-05-26 15:52:22,813 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 2\nprint(x + y)\n",
+    "explanation": "The error occurred because x and y were of different types. In this corrected code, x is an integer and y is also an integer, allowing the addition operation."
+}
+</json>
+2026-05-26 15:52:22,813 - INFO - [Run ff8fd527] Patch validation successful
+2026-05-26 15:52:22,813 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:22,813 - INFO - [Run ff8fd527] Sandbox execution started
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] Sandbox execution completed
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] Execution result: CompletedProcess(args=['python', '/tmp/tmp27ms6vc7.py'], returncode=0, stdout='7\n', stderr='')
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] EvaluatorAgent started
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] Evaluation completed
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:52:22,828 - INFO - [Run ff8fd527] Debug orchestration completed
+
+
+
+2026-05-26 15:52:22,830 - INFO - [Run ff8fd527] Debug orchestration started
+2026-05-26 15:52:22,830 - INFO - [Run ff8fd527] AnalyzerAgent started
+2026-05-26 15:52:22,830 - INFO - [Run ff8fd527] Analyzer attempt 1
+2026-05-26 15:52:23,897 - INFO - [Run ff8fd527] Analysis latency: 1.0671s
+2026-05-26 15:52:23,897 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 15:52:23,897 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:23,898 - INFO - [Run ff8fd527] FixerAgent started
+2026-05-26 15:52:23,898 - INFO - [Run ff8fd527] Fixer attempt 1
+2026-05-26 15:52:24,965 - INFO - [Run ff8fd527] Fixer latency: 1.0669s
+2026-05-26 15:52:24,965 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "The variable y was not defined, so we need to replace it with x to fix the error."
+}
+</json>
+2026-05-26 15:52:24,965 - INFO - [Run ff8fd527] Patch validation successful
+2026-05-26 15:52:24,965 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:24,965 - INFO - [Run ff8fd527] Sandbox execution started
+2026-05-26 15:52:24,976 - INFO - [Run ff8fd527] Sandbox execution completed
+2026-05-26 15:52:24,977 - INFO - [Run ff8fd527] Execution result: CompletedProcess(args=['python', '/tmp/tmph7qsh7yz.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 15:52:24,977 - INFO - [Run ff8fd527] EvaluatorAgent started
+2026-05-26 15:52:24,977 - INFO - [Run ff8fd527] Evaluation completed
+2026-05-26 15:52:24,977 - INFO - [Run ff8fd527] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:52:24,977 - INFO - [Run ff8fd527] Debug orchestration completed
+
+
+
+2026-05-26 15:52:24,978 - INFO - [Run ff8fd527] Debug orchestration started
+2026-05-26 15:52:24,978 - INFO - [Run ff8fd527] AnalyzerAgent started
+2026-05-26 15:52:24,978 - INFO - [Run ff8fd527] Analyzer attempt 1
+2026-05-26 15:52:25,776 - INFO - [Run ff8fd527] Analysis latency: 0.7978s
+2026-05-26 15:52:25,776 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 15:52:25,776 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:25,776 - INFO - [Run ff8fd527] FixerAgent started
+2026-05-26 15:52:25,776 - INFO - [Run ff8fd527] Fixer attempt 1
+2026-05-26 15:52:27,156 - INFO - [Run ff8fd527] Fixer latency: 1.3792s
+2026-05-26 15:52:27,156 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Error: Division by zero')",
+    "explanation": "Added a check to prevent division by zero."
+}
+</json>
+2026-05-26 15:52:27,156 - INFO - [Run ff8fd527] Patch validation successful
+2026-05-26 15:52:27,156 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:27,156 - INFO - [Run ff8fd527] Sandbox execution started
+2026-05-26 15:52:27,168 - INFO - [Run ff8fd527] Sandbox execution completed
+2026-05-26 15:52:27,168 - INFO - [Run ff8fd527] Execution result: CompletedProcess(args=['python', '/tmp/tmpzzu4aq8p.py'], returncode=0, stdout='Error: Division by zero\n', stderr='')
+2026-05-26 15:52:27,168 - INFO - [Run ff8fd527] EvaluatorAgent started
+2026-05-26 15:52:27,168 - INFO - [Run ff8fd527] Evaluation completed
+2026-05-26 15:52:27,168 - INFO - [Run ff8fd527] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:52:27,169 - INFO - [Run ff8fd527] Debug orchestration completed
+
+
+
+2026-05-26 15:52:27,169 - INFO - [Run ff8fd527] Debug orchestration started
+2026-05-26 15:52:27,170 - INFO - [Run ff8fd527] AnalyzerAgent started
+2026-05-26 15:52:27,170 - INFO - [Run ff8fd527] Analyzer attempt 1
+2026-05-26 15:52:28,146 - INFO - [Run ff8fd527] Analysis latency: 0.9767s
+2026-05-26 15:52:28,147 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:52:28,147 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:28,147 - INFO - [Run ff8fd527] FixerAgent started
+2026-05-26 15:52:28,147 - INFO - [Run ff8fd527] Fixer attempt 1
+2026-05-26 15:52:29,061 - INFO - [Run ff8fd527] Fixer latency: 0.9140s
+2026-05-26 15:52:29,061 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 15:52:29,061 - INFO - [Run ff8fd527] Patch validation successful
+2026-05-26 15:52:29,061 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:29,061 - INFO - [Run ff8fd527] Sandbox execution started
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] Sandbox execution completed
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] Execution result: CompletedProcess(args=['python', '/tmp/tmppdq2ag_w.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] EvaluatorAgent started
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] Evaluation completed
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:52:29,073 - INFO - [Run ff8fd527] Debug orchestration completed
+
+
+
+2026-05-26 15:52:29,074 - INFO - [Run ff8fd527] Debug orchestration started
+2026-05-26 15:52:29,074 - INFO - [Run ff8fd527] AnalyzerAgent started
+2026-05-26 15:52:29,074 - INFO - [Run ff8fd527] Analyzer attempt 1
+2026-05-26 15:52:29,999 - INFO - [Run ff8fd527] Analysis latency: 0.9247s
+2026-05-26 15:52:29,999 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 15:52:29,999 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:30,000 - INFO - [Run ff8fd527] FixerAgent started
+2026-05-26 15:52:30,000 - INFO - [Run ff8fd527] Fixer attempt 1
+2026-05-26 15:52:31,703 - INFO - [Run ff8fd527] Fixer latency: 1.7032s
+2026-05-26 15:52:31,703 - INFO - [Run ff8fd527] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[0])",
+    "explanation": "The error occurs because the list index is out of range. The list only has 3 elements, so the maximum valid index is 2. We should access the first element of the list instead of the fifth."
+}
+</json>
+2026-05-26 15:52:31,703 - INFO - [Run ff8fd527] Patch validation successful
+2026-05-26 15:52:31,703 - INFO - [Run ff8fd527] JSON extraction successful
+2026-05-26 15:52:31,703 - INFO - [Run ff8fd527] Sandbox execution started
+2026-05-26 15:52:31,716 - INFO - [Run ff8fd527] Sandbox execution completed
+2026-05-26 15:52:31,716 - INFO - [Run ff8fd527] Execution result: CompletedProcess(args=['python', '/tmp/tmp6beksw5m.py'], returncode=0, stdout='1\n', stderr='')
+2026-05-26 15:52:31,716 - INFO - [Run ff8fd527] EvaluatorAgent started
+2026-05-26 15:52:31,716 - INFO - [Run ff8fd527] Evaluation completed
+2026-05-26 15:52:31,716 - INFO - [Run ff8fd527] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 15:52:31,717 - INFO - [Run ff8fd527] Debug orchestration completed
+
+
+
+2026-05-26 16:01:04,033 - INFO - [Run dbcaa809] Debug orchestration started
+2026-05-26 16:01:04,034 - INFO - [Run dbcaa809] AnalyzerAgent started
+2026-05-26 16:01:04,034 - INFO - [Run dbcaa809] Analyzer attempt 1
+2026-05-26 16:01:05,589 - INFO - [Run dbcaa809] Analysis latency: 1.5551s
+2026-05-26 16:01:05,589 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 1,
+    "reasoning": "x and y are of different types"
+}
+</json>
+2026-05-26 16:01:05,589 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:05,589 - INFO - [Run dbcaa809] FixerAgent started
+2026-05-26 16:01:05,589 - INFO - [Run dbcaa809] Fixer attempt 1
+2026-05-26 16:01:07,076 - INFO - [Run dbcaa809] Fixer latency: 1.4869s
+2026-05-26 16:01:07,076 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 2\nprint(x + y)\n",
+    "explanation": "The error occurred because x and y were of different types. In this corrected code, x is an integer and y is also an integer, allowing the addition operation."
+}
+</json>
+2026-05-26 16:01:07,076 - INFO - [Run dbcaa809] Patch validation successful
+2026-05-26 16:01:07,076 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:07,076 - INFO - [Run dbcaa809] Sandbox execution started
+2026-05-26 16:01:07,088 - INFO - [Run dbcaa809] Sandbox execution completed
+2026-05-26 16:01:07,088 - INFO - [Run dbcaa809] Execution result: CompletedProcess(args=['python', '/tmp/tmpxqe5gxxd.py'], returncode=0, stdout='7\n', stderr='')
+2026-05-26 16:01:07,089 - INFO - [Run dbcaa809] EvaluatorAgent started
+2026-05-26 16:01:07,089 - INFO - [Run dbcaa809] Evaluation completed
+2026-05-26 16:01:07,089 - INFO - [Run dbcaa809] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:07,089 - INFO - [Run dbcaa809] Debug orchestration completed
+
+
+
+2026-05-26 16:01:07,090 - INFO - [Run dbcaa809] Debug orchestration started
+2026-05-26 16:01:07,090 - INFO - [Run dbcaa809] AnalyzerAgent started
+2026-05-26 16:01:07,091 - INFO - [Run dbcaa809] Analyzer attempt 1
+2026-05-26 16:01:08,169 - INFO - [Run dbcaa809] Analysis latency: 1.0786s
+2026-05-26 16:01:08,169 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 16:01:08,169 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:08,169 - INFO - [Run dbcaa809] FixerAgent started
+2026-05-26 16:01:08,169 - INFO - [Run dbcaa809] Fixer attempt 1
+2026-05-26 16:01:09,291 - INFO - [Run dbcaa809] Fixer latency: 1.1219s
+2026-05-26 16:01:09,291 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "The variable 'y' was not defined, so we replaced it with 'x' to fix the error."
+}
+</json>
+2026-05-26 16:01:09,292 - INFO - [Run dbcaa809] Patch validation successful
+2026-05-26 16:01:09,292 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:09,292 - INFO - [Run dbcaa809] Sandbox execution started
+2026-05-26 16:01:09,304 - INFO - [Run dbcaa809] Sandbox execution completed
+2026-05-26 16:01:09,304 - INFO - [Run dbcaa809] Execution result: CompletedProcess(args=['python', '/tmp/tmpoycodb9x.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 16:01:09,304 - INFO - [Run dbcaa809] EvaluatorAgent started
+2026-05-26 16:01:09,304 - INFO - [Run dbcaa809] Evaluation completed
+2026-05-26 16:01:09,304 - INFO - [Run dbcaa809] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:09,305 - INFO - [Run dbcaa809] Debug orchestration completed
+
+
+
+2026-05-26 16:01:09,305 - INFO - [Run dbcaa809] Debug orchestration started
+2026-05-26 16:01:09,305 - INFO - [Run dbcaa809] AnalyzerAgent started
+2026-05-26 16:01:09,306 - INFO - [Run dbcaa809] Analyzer attempt 1
+2026-05-26 16:01:10,102 - INFO - [Run dbcaa809] Analysis latency: 0.7966s
+2026-05-26 16:01:10,102 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 16:01:10,102 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:10,102 - INFO - [Run dbcaa809] FixerAgent started
+2026-05-26 16:01:10,102 - INFO - [Run dbcaa809] Fixer attempt 1
+2026-05-26 16:01:11,485 - INFO - [Run dbcaa809] Fixer latency: 1.3826s
+2026-05-26 16:01:11,485 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Error: Division by zero')",
+    "explanation": "Added a check to prevent division by zero."
+}
+</json>
+2026-05-26 16:01:11,485 - INFO - [Run dbcaa809] Patch validation successful
+2026-05-26 16:01:11,485 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:11,485 - INFO - [Run dbcaa809] Sandbox execution started
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] Sandbox execution completed
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] Execution result: CompletedProcess(args=['python', '/tmp/tmpmdnmasq9.py'], returncode=0, stdout='Error: Division by zero\n', stderr='')
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] EvaluatorAgent started
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] Evaluation completed
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:11,497 - INFO - [Run dbcaa809] Debug orchestration completed
+
+
+
+2026-05-26 16:01:11,498 - INFO - [Run dbcaa809] Debug orchestration started
+2026-05-26 16:01:11,498 - INFO - [Run dbcaa809] AnalyzerAgent started
+2026-05-26 16:01:11,498 - INFO - [Run dbcaa809] Analyzer attempt 1
+2026-05-26 16:01:12,475 - INFO - [Run dbcaa809] Analysis latency: 0.9768s
+2026-05-26 16:01:12,475 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:01:12,475 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:12,475 - INFO - [Run dbcaa809] FixerAgent started
+2026-05-26 16:01:12,475 - INFO - [Run dbcaa809] Fixer attempt 1
+2026-05-26 16:01:13,416 - INFO - [Run dbcaa809] Fixer latency: 0.9406s
+2026-05-26 16:01:13,416 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:01:13,416 - INFO - [Run dbcaa809] Patch validation successful
+2026-05-26 16:01:13,426 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:13,427 - INFO - [Run dbcaa809] Sandbox execution started
+2026-05-26 16:01:13,459 - INFO - [Run dbcaa809] Sandbox execution completed
+2026-05-26 16:01:13,459 - INFO - [Run dbcaa809] Execution result: CompletedProcess(args=['python', '/tmp/tmppao2cvk4.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 16:01:13,459 - INFO - [Run dbcaa809] EvaluatorAgent started
+2026-05-26 16:01:13,459 - INFO - [Run dbcaa809] Evaluation completed
+2026-05-26 16:01:13,459 - INFO - [Run dbcaa809] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:13,460 - INFO - [Run dbcaa809] Debug orchestration completed
+
+
+
+2026-05-26 16:01:13,460 - INFO - [Run dbcaa809] Debug orchestration started
+2026-05-26 16:01:13,460 - INFO - [Run dbcaa809] AnalyzerAgent started
+2026-05-26 16:01:13,460 - INFO - [Run dbcaa809] Analyzer attempt 1
+2026-05-26 16:01:14,406 - INFO - [Run dbcaa809] Analysis latency: 0.9451s
+2026-05-26 16:01:14,406 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 16:01:14,406 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:14,406 - INFO - [Run dbcaa809] FixerAgent started
+2026-05-26 16:01:14,406 - INFO - [Run dbcaa809] Fixer attempt 1
+2026-05-26 16:01:16,243 - INFO - [Run dbcaa809] Fixer latency: 1.8373s
+2026-05-26 16:01:16,243 - INFO - [Run dbcaa809] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[0])",
+    "explanation": "The error occurs because the list index 5 is out of range. Python lists are 0-indexed, meaning the first element is at index 0, not 1. The corrected code checks the first element of the list instead."
+}
+</json>
+2026-05-26 16:01:16,243 - INFO - [Run dbcaa809] Patch validation successful
+2026-05-26 16:01:16,243 - INFO - [Run dbcaa809] JSON extraction successful
+2026-05-26 16:01:16,243 - INFO - [Run dbcaa809] Sandbox execution started
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] Sandbox execution completed
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] Execution result: CompletedProcess(args=['python', '/tmp/tmp25y1dzdn.py'], returncode=0, stdout='1\n', stderr='')
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] EvaluatorAgent started
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] Evaluation completed
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:16,270 - INFO - [Run dbcaa809] Debug orchestration completed
+
+
+
+2026-05-26 16:01:53,476 - INFO - [Run 4d9d5ae2] Debug orchestration started
+2026-05-26 16:01:53,476 - INFO - [Run 4d9d5ae2] AnalyzerAgent started
+2026-05-26 16:01:53,476 - INFO - [Run 4d9d5ae2] Analyzer attempt 1
+2026-05-26 16:01:55,130 - INFO - [Run 4d9d5ae2] Analysis latency: 1.6539s
+2026-05-26 16:01:55,130 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 3,
+    "reasoning": "x and y are of different types, cannot be added together"
+}
+</json>
+2026-05-26 16:01:55,130 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:01:55,130 - INFO - [Run 4d9d5ae2] FixerAgent started
+2026-05-26 16:01:55,130 - INFO - [Run 4d9d5ae2] Fixer attempt 1
+2026-05-26 16:01:56,659 - INFO - [Run 4d9d5ae2] Fixer latency: 1.5290s
+2026-05-26 16:01:56,659 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 2\nprint(x + y)\n",
+    "explanation": "The issue was that x and y were of different types (string and integer), which cannot be added together. To fix this, we changed the value of x to an integer."
+}
+</json>
+2026-05-26 16:01:56,660 - INFO - [Run 4d9d5ae2] Patch validation successful
+2026-05-26 16:01:56,660 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:01:56,660 - INFO - [Run 4d9d5ae2] Sandbox execution started
+2026-05-26 16:01:56,689 - INFO - [Run 4d9d5ae2] Sandbox execution completed
+2026-05-26 16:01:56,689 - INFO - [Run 4d9d5ae2] Execution result: CompletedProcess(args=['python', '/tmp/tmpbmm0617q.py'], returncode=0, stdout='7\n', stderr='')
+2026-05-26 16:01:56,690 - INFO - [Run 4d9d5ae2] EvaluatorAgent started
+2026-05-26 16:01:56,690 - INFO - [Run 4d9d5ae2] Evaluation completed
+2026-05-26 16:01:56,690 - INFO - [Run 4d9d5ae2] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:56,690 - INFO - [Run 4d9d5ae2] Debug orchestration completed
+
+
+
+2026-05-26 16:01:56,691 - INFO - [Run 4d9d5ae2] Debug orchestration started
+2026-05-26 16:01:56,691 - INFO - [Run 4d9d5ae2] AnalyzerAgent started
+2026-05-26 16:01:56,691 - INFO - [Run 4d9d5ae2] Analyzer attempt 1
+2026-05-26 16:01:57,768 - INFO - [Run 4d9d5ae2] Analysis latency: 1.0770s
+2026-05-26 16:01:57,768 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 16:01:57,768 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:01:57,768 - INFO - [Run 4d9d5ae2] FixerAgent started
+2026-05-26 16:01:57,768 - INFO - [Run 4d9d5ae2] Fixer attempt 1
+2026-05-26 16:01:59,027 - INFO - [Run 4d9d5ae2] Fixer latency: 1.2590s
+2026-05-26 16:01:59,028 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "The variable 'y' was not defined, so it was causing a NameError. I added the line 'print(x)' to fix the issue."
+}
+</json>
+2026-05-26 16:01:59,028 - INFO - [Run 4d9d5ae2] Patch validation successful
+2026-05-26 16:01:59,028 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:01:59,028 - INFO - [Run 4d9d5ae2] Sandbox execution started
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] Sandbox execution completed
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] Execution result: CompletedProcess(args=['python', '/tmp/tmp0hzg1yhw.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] EvaluatorAgent started
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] Evaluation completed
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:01:59,040 - INFO - [Run 4d9d5ae2] Debug orchestration completed
+
+
+
+2026-05-26 16:01:59,041 - INFO - [Run 4d9d5ae2] Debug orchestration started
+2026-05-26 16:01:59,041 - INFO - [Run 4d9d5ae2] AnalyzerAgent started
+2026-05-26 16:01:59,041 - INFO - [Run 4d9d5ae2] Analyzer attempt 1
+2026-05-26 16:01:59,837 - INFO - [Run 4d9d5ae2] Analysis latency: 0.7952s
+2026-05-26 16:01:59,837 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 16:01:59,837 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:01:59,837 - INFO - [Run 4d9d5ae2] FixerAgent started
+2026-05-26 16:01:59,837 - INFO - [Run 4d9d5ae2] Fixer attempt 1
+2026-05-26 16:02:01,244 - INFO - [Run 4d9d5ae2] Fixer latency: 1.4069s
+2026-05-26 16:02:01,244 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Error: Division by zero')",
+    "explanation": "Added a check to prevent division by zero."
+}
+</json>
+2026-05-26 16:02:01,244 - INFO - [Run 4d9d5ae2] Patch validation successful
+2026-05-26 16:02:01,244 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:02:01,244 - INFO - [Run 4d9d5ae2] Sandbox execution started
+2026-05-26 16:02:01,256 - INFO - [Run 4d9d5ae2] Sandbox execution completed
+2026-05-26 16:02:01,256 - INFO - [Run 4d9d5ae2] Execution result: CompletedProcess(args=['python', '/tmp/tmpb9_82brx.py'], returncode=0, stdout='Error: Division by zero\n', stderr='')
+2026-05-26 16:02:01,256 - INFO - [Run 4d9d5ae2] EvaluatorAgent started
+2026-05-26 16:02:01,257 - INFO - [Run 4d9d5ae2] Evaluation completed
+2026-05-26 16:02:01,257 - INFO - [Run 4d9d5ae2] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:01,257 - INFO - [Run 4d9d5ae2] Debug orchestration completed
+
+
+
+2026-05-26 16:02:01,258 - INFO - [Run 4d9d5ae2] Debug orchestration started
+2026-05-26 16:02:01,258 - INFO - [Run 4d9d5ae2] AnalyzerAgent started
+2026-05-26 16:02:01,258 - INFO - [Run 4d9d5ae2] Analyzer attempt 1
+2026-05-26 16:02:02,282 - INFO - [Run 4d9d5ae2] Analysis latency: 1.0239s
+2026-05-26 16:02:02,282 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:02:02,282 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:02:02,282 - INFO - [Run 4d9d5ae2] FixerAgent started
+2026-05-26 16:02:02,282 - INFO - [Run 4d9d5ae2] Fixer attempt 1
+2026-05-26 16:02:03,243 - INFO - [Run 4d9d5ae2] Fixer latency: 0.9610s
+2026-05-26 16:02:03,243 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:02:03,243 - INFO - [Run 4d9d5ae2] Patch validation successful
+2026-05-26 16:02:03,243 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:02:03,243 - INFO - [Run 4d9d5ae2] Sandbox execution started
+2026-05-26 16:02:03,256 - INFO - [Run 4d9d5ae2] Sandbox execution completed
+2026-05-26 16:02:03,256 - INFO - [Run 4d9d5ae2] Execution result: CompletedProcess(args=['python', '/tmp/tmp6abu4efl.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 16:02:03,256 - INFO - [Run 4d9d5ae2] EvaluatorAgent started
+2026-05-26 16:02:03,256 - INFO - [Run 4d9d5ae2] Evaluation completed
+2026-05-26 16:02:03,256 - INFO - [Run 4d9d5ae2] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:03,257 - INFO - [Run 4d9d5ae2] Debug orchestration completed
+
+
+
+2026-05-26 16:02:03,257 - INFO - [Run 4d9d5ae2] Debug orchestration started
+2026-05-26 16:02:03,257 - INFO - [Run 4d9d5ae2] AnalyzerAgent started
+2026-05-26 16:02:03,258 - INFO - [Run 4d9d5ae2] Analyzer attempt 1
+2026-05-26 16:02:04,236 - INFO - [Run 4d9d5ae2] Analysis latency: 0.9781s
+2026-05-26 16:02:04,236 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 16:02:04,236 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:02:04,236 - INFO - [Run 4d9d5ae2] FixerAgent started
+2026-05-26 16:02:04,236 - INFO - [Run 4d9d5ae2] Fixer attempt 1
+2026-05-26 16:02:06,163 - INFO - [Run 4d9d5ae2] Fixer latency: 1.9273s
+2026-05-26 16:02:06,163 - INFO - [Run 4d9d5ae2] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[0])",
+    "explanation": "The error occurs because the list index is out of range. In Python, list indices start at 0, so the maximum index for a list of length 3 is 2. The code is trying to access index 5, which does not exist."
+}
+</json>
+2026-05-26 16:02:06,164 - INFO - [Run 4d9d5ae2] Patch validation successful
+2026-05-26 16:02:06,164 - INFO - [Run 4d9d5ae2] JSON extraction successful
+2026-05-26 16:02:06,164 - INFO - [Run 4d9d5ae2] Sandbox execution started
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] Sandbox execution completed
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] Execution result: CompletedProcess(args=['python', '/tmp/tmpag68yq0v.py'], returncode=0, stdout='1\n', stderr='')
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] EvaluatorAgent started
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] Evaluation completed
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:06,176 - INFO - [Run 4d9d5ae2] Debug orchestration completed
+
+
+
+2026-05-26 16:02:35,321 - INFO - [Run cf74f198] Debug orchestration started
+2026-05-26 16:02:35,321 - INFO - [Run cf74f198] AnalyzerAgent started
+2026-05-26 16:02:35,321 - INFO - [Run cf74f198] Analyzer attempt 1
+2026-05-26 16:02:36,891 - INFO - [Run cf74f198] Analysis latency: 1.5702s
+2026-05-26 16:02:36,892 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 1,
+    "reasoning": "x and y are of different types"
+}
+</json>
+2026-05-26 16:02:36,892 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:36,892 - INFO - [Run cf74f198] FixerAgent started
+2026-05-26 16:02:36,892 - INFO - [Run cf74f198] Fixer attempt 1
+2026-05-26 16:02:38,384 - INFO - [Run cf74f198] Fixer latency: 1.4926s
+2026-05-26 16:02:38,385 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 2\nprint(x + y)\n",
+    "explanation": "The error occurred because x and y were of different types. In this corrected code, x is an integer and y is also an integer, allowing the addition operation."
+}
+</json>
+2026-05-26 16:02:38,385 - INFO - [Run cf74f198] Patch validation successful
+2026-05-26 16:02:38,385 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:38,385 - INFO - [Run cf74f198] Sandbox execution started
+2026-05-26 16:02:38,396 - INFO - [Run cf74f198] Sandbox execution completed
+2026-05-26 16:02:38,396 - INFO - [Run cf74f198] Execution result: CompletedProcess(args=['python', '/tmp/tmpd5zrr8mc.py'], returncode=0, stdout='7\n', stderr='')
+2026-05-26 16:02:38,397 - INFO - [Run cf74f198] EvaluatorAgent started
+2026-05-26 16:02:38,397 - INFO - [Run cf74f198] Evaluation completed
+2026-05-26 16:02:38,397 - INFO - [Run cf74f198] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:38,397 - INFO - [Run cf74f198] Debug orchestration completed
+
+
+
+2026-05-26 16:02:38,398 - INFO - [Run cf74f198] Debug orchestration started
+2026-05-26 16:02:38,398 - INFO - [Run cf74f198] AnalyzerAgent started
+2026-05-26 16:02:38,398 - INFO - [Run cf74f198] Analyzer attempt 1
+2026-05-26 16:02:39,479 - INFO - [Run cf74f198] Analysis latency: 1.0811s
+2026-05-26 16:02:39,479 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 16:02:39,480 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:39,480 - INFO - [Run cf74f198] FixerAgent started
+2026-05-26 16:02:39,480 - INFO - [Run cf74f198] Fixer attempt 1
+2026-05-26 16:02:40,602 - INFO - [Run cf74f198] Fixer latency: 1.1227s
+2026-05-26 16:02:40,602 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "The variable 'y' was not defined, so we replaced it with 'x' to fix the error."
+}
+</json>
+2026-05-26 16:02:40,602 - INFO - [Run cf74f198] Patch validation successful
+2026-05-26 16:02:40,603 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:40,603 - INFO - [Run cf74f198] Sandbox execution started
+2026-05-26 16:02:40,615 - INFO - [Run cf74f198] Sandbox execution completed
+2026-05-26 16:02:40,615 - INFO - [Run cf74f198] Execution result: CompletedProcess(args=['python', '/tmp/tmpvhvja1wq.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 16:02:40,616 - INFO - [Run cf74f198] EvaluatorAgent started
+2026-05-26 16:02:40,616 - INFO - [Run cf74f198] Evaluation completed
+2026-05-26 16:02:40,616 - INFO - [Run cf74f198] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:40,616 - INFO - [Run cf74f198] Debug orchestration completed
+
+
+
+2026-05-26 16:02:40,617 - INFO - [Run cf74f198] Debug orchestration started
+2026-05-26 16:02:40,617 - INFO - [Run cf74f198] AnalyzerAgent started
+2026-05-26 16:02:40,617 - INFO - [Run cf74f198] Analyzer attempt 1
+2026-05-26 16:02:41,421 - INFO - [Run cf74f198] Analysis latency: 0.8045s
+2026-05-26 16:02:41,421 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 16:02:41,422 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:41,422 - INFO - [Run cf74f198] FixerAgent started
+2026-05-26 16:02:41,422 - INFO - [Run cf74f198] Fixer attempt 1
+2026-05-26 16:02:42,841 - INFO - [Run cf74f198] Fixer latency: 1.4193s
+2026-05-26 16:02:42,841 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Error: Division by zero')",
+    "explanation": "Added a check to prevent division by zero."
+}
+</json>
+2026-05-26 16:02:42,841 - INFO - [Run cf74f198] Patch validation successful
+2026-05-26 16:02:42,841 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:42,841 - INFO - [Run cf74f198] Sandbox execution started
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] Sandbox execution completed
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] Execution result: CompletedProcess(args=['python', '/tmp/tmpabzpp043.py'], returncode=0, stdout='Error: Division by zero\n', stderr='')
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] EvaluatorAgent started
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] Evaluation completed
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:42,853 - INFO - [Run cf74f198] Debug orchestration completed
+
+
+
+2026-05-26 16:02:42,854 - INFO - [Run cf74f198] Debug orchestration started
+2026-05-26 16:02:42,854 - INFO - [Run cf74f198] AnalyzerAgent started
+2026-05-26 16:02:42,854 - INFO - [Run cf74f198] Analyzer attempt 1
+2026-05-26 16:02:43,841 - INFO - [Run cf74f198] Analysis latency: 0.9870s
+2026-05-26 16:02:43,841 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:02:43,841 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:43,841 - INFO - [Run cf74f198] FixerAgent started
+2026-05-26 16:02:43,841 - INFO - [Run cf74f198] Fixer attempt 1
+2026-05-26 16:02:44,791 - INFO - [Run cf74f198] Fixer latency: 0.9492s
+2026-05-26 16:02:44,791 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:02:44,791 - INFO - [Run cf74f198] Patch validation successful
+2026-05-26 16:02:44,791 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:44,791 - INFO - [Run cf74f198] Sandbox execution started
+2026-05-26 16:02:44,818 - INFO - [Run cf74f198] Sandbox execution completed
+2026-05-26 16:02:44,818 - INFO - [Run cf74f198] Execution result: CompletedProcess(args=['python', '/tmp/tmpynxxwaqa.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] EvaluatorAgent started
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] Evaluation completed
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] Debug orchestration completed
+
+
+
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] Debug orchestration started
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] AnalyzerAgent started
+2026-05-26 16:02:44,819 - INFO - [Run cf74f198] Analyzer attempt 1
+2026-05-26 16:02:45,766 - INFO - [Run cf74f198] Analysis latency: 0.9468s
+2026-05-26 16:02:45,766 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 16:02:45,766 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:45,766 - INFO - [Run cf74f198] FixerAgent started
+2026-05-26 16:02:45,766 - INFO - [Run cf74f198] Fixer attempt 1
+2026-05-26 16:02:47,442 - INFO - [Run cf74f198] Fixer latency: 1.6761s
+2026-05-26 16:02:47,443 - INFO - [Run cf74f198] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[0])",
+    "explanation": "The error occurs because the list index 5 is out of range. In Python, list indices start at 0, so the maximum valid index for a list of length 3 is 2."
+}
+</json>
+2026-05-26 16:02:47,443 - INFO - [Run cf74f198] Patch validation successful
+2026-05-26 16:02:47,443 - INFO - [Run cf74f198] JSON extraction successful
+2026-05-26 16:02:47,443 - INFO - [Run cf74f198] Sandbox execution started
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] Sandbox execution completed
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] Execution result: CompletedProcess(args=['python', '/tmp/tmp58ta0zsz.py'], returncode=0, stdout='1\n', stderr='')
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] EvaluatorAgent started
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] Evaluation completed
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:02:47,468 - INFO - [Run cf74f198] Debug orchestration completed
+
+
+
+2026-05-26 16:03:08,750 - INFO - [Run b55bb32b] Debug orchestration started
+2026-05-26 16:03:08,750 - INFO - [Run b55bb32b] AnalyzerAgent started
+2026-05-26 16:03:08,751 - INFO - [Run b55bb32b] Analyzer attempt 1
+2026-05-26 16:03:10,413 - INFO - [Run b55bb32b] Analysis latency: 1.6621s
+2026-05-26 16:03:10,413 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError: can only concatenate str (not 'int') to str",
+    "error_line": 3,
+    "reasoning": "x and y are of different types, cannot be added together"
+}
+</json>
+2026-05-26 16:03:10,413 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:10,413 - INFO - [Run b55bb32b] FixerAgent started
+2026-05-26 16:03:10,413 - INFO - [Run b55bb32b] Fixer attempt 1
+2026-05-26 16:03:12,071 - INFO - [Run b55bb32b] Fixer latency: 1.6584s
+2026-05-26 16:03:12,072 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 2\nprint(str(x) + str(y))",
+    "explanation": "The issue was that x and y were of different types (string and integer), so they couldn't be added together. To fix this, we converted both x and y to strings before adding them."
+}
+</json>
+2026-05-26 16:03:12,072 - INFO - [Run b55bb32b] Patch validation successful
+2026-05-26 16:03:12,072 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:12,072 - INFO - [Run b55bb32b] Sandbox execution started
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] Sandbox execution completed
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] Execution result: CompletedProcess(args=['python', '/tmp/tmpizh7gohn.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] EvaluatorAgent started
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] Evaluation completed
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:03:12,084 - INFO - [Run b55bb32b] Debug orchestration completed
+
+
+
+2026-05-26 16:03:12,086 - INFO - [Run b55bb32b] Debug orchestration started
+2026-05-26 16:03:12,086 - INFO - [Run b55bb32b] AnalyzerAgent started
+2026-05-26 16:03:12,086 - INFO - [Run b55bb32b] Analyzer attempt 1
+2026-05-26 16:03:13,147 - INFO - [Run b55bb32b] Analysis latency: 1.0616s
+2026-05-26 16:03:13,148 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError: name 'y' is not defined",
+    "error_line": 2,
+    "reasoning": "Unbound local variable 'y' in outer scope"
+}
+</json>
+2026-05-26 16:03:13,148 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:13,158 - INFO - [Run b55bb32b] FixerAgent started
+2026-05-26 16:03:13,158 - INFO - [Run b55bb32b] Fixer attempt 1
+2026-05-26 16:03:14,450 - INFO - [Run b55bb32b] Fixer latency: 1.2920s
+2026-05-26 16:03:14,450 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\nprint(x)\n",
+    "explanation": "The variable 'y' was not defined, so it was causing a NameError. I added the line 'print(x)' to fix the issue."
+}
+</json>
+2026-05-26 16:03:14,451 - INFO - [Run b55bb32b] Patch validation successful
+2026-05-26 16:03:14,451 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:14,451 - INFO - [Run b55bb32b] Sandbox execution started
+2026-05-26 16:03:14,463 - INFO - [Run b55bb32b] Sandbox execution completed
+2026-05-26 16:03:14,463 - INFO - [Run b55bb32b] Execution result: CompletedProcess(args=['python', '/tmp/tmp8ajbyy32.py'], returncode=0, stdout='5\n', stderr='')
+2026-05-26 16:03:14,464 - INFO - [Run b55bb32b] EvaluatorAgent started
+2026-05-26 16:03:14,464 - INFO - [Run b55bb32b] Evaluation completed
+2026-05-26 16:03:14,464 - INFO - [Run b55bb32b] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:03:14,464 - INFO - [Run b55bb32b] Debug orchestration completed
+
+
+
+2026-05-26 16:03:14,465 - INFO - [Run b55bb32b] Debug orchestration started
+2026-05-26 16:03:14,465 - INFO - [Run b55bb32b] AnalyzerAgent started
+2026-05-26 16:03:14,465 - INFO - [Run b55bb32b] Analyzer attempt 1
+2026-05-26 16:03:15,264 - INFO - [Run b55bb32b] Analysis latency: 0.7984s
+2026-05-26 16:03:15,264 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "root_cause": "division by zero",
+    "error_line": 3,
+    "reasoning": "division by zero"
+}
+</json>
+2026-05-26 16:03:15,264 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:15,264 - INFO - [Run b55bb32b] FixerAgent started
+2026-05-26 16:03:15,264 - INFO - [Run b55bb32b] Fixer attempt 1
+2026-05-26 16:03:16,659 - INFO - [Run b55bb32b] Fixer latency: 1.3951s
+2026-05-26 16:03:16,659 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Error: Division by zero')",
+    "explanation": "Added a check to prevent division by zero."
+}
+</json>
+2026-05-26 16:03:16,659 - INFO - [Run b55bb32b] Patch validation successful
+2026-05-26 16:03:16,659 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:16,659 - INFO - [Run b55bb32b] Sandbox execution started
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] Sandbox execution completed
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] Execution result: CompletedProcess(args=['python', '/tmp/tmpnqei0l90.py'], returncode=0, stdout='Error: Division by zero\n', stderr='')
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] EvaluatorAgent started
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] Evaluation completed
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:03:16,672 - INFO - [Run b55bb32b] Debug orchestration completed
+
+
+
+2026-05-26 16:03:16,673 - INFO - [Run b55bb32b] Debug orchestration started
+2026-05-26 16:03:16,673 - INFO - [Run b55bb32b] AnalyzerAgent started
+2026-05-26 16:03:16,673 - INFO - [Run b55bb32b] Analyzer attempt 1
+2026-05-26 16:03:17,662 - INFO - [Run b55bb32b] Analysis latency: 0.9885s
+2026-05-26 16:03:17,662 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError: expected ':'",
+    "error_line": 1,
+    "reasoning": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:03:17,662 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:17,662 - INFO - [Run b55bb32b] FixerAgent started
+2026-05-26 16:03:17,662 - INFO - [Run b55bb32b] Fixer attempt 1
+2026-05-26 16:03:18,590 - INFO - [Run b55bb32b] Fixer latency: 0.9281s
+2026-05-26 16:03:18,590 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Missing colon at the end of the for loop declaration"
+}
+</json>
+2026-05-26 16:03:18,590 - INFO - [Run b55bb32b] Patch validation successful
+2026-05-26 16:03:18,591 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:18,591 - INFO - [Run b55bb32b] Sandbox execution started
+2026-05-26 16:03:18,618 - INFO - [Run b55bb32b] Sandbox execution completed
+2026-05-26 16:03:18,618 - INFO - [Run b55bb32b] Execution result: CompletedProcess(args=['python', '/tmp/tmp_unoh_ct.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] EvaluatorAgent started
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] Evaluation completed
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] Debug orchestration completed
+
+
+
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] Debug orchestration started
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] AnalyzerAgent started
+2026-05-26 16:03:18,619 - INFO - [Run b55bb32b] Analyzer attempt 1
+2026-05-26 16:03:19,555 - INFO - [Run b55bb32b] Analysis latency: 0.9361s
+2026-05-26 16:03:19,555 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError: list index out of range",
+    "error_line": 2,
+    "reasoning": "list index out of range"
+}
+</json>
+2026-05-26 16:03:19,555 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:19,556 - INFO - [Run b55bb32b] FixerAgent started
+2026-05-26 16:03:19,556 - INFO - [Run b55bb32b] Fixer attempt 1
+2026-05-26 16:03:21,242 - INFO - [Run b55bb32b] Fixer latency: 1.6863s
+2026-05-26 16:03:21,242 - INFO - [Run b55bb32b] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[0])",
+    "explanation": "The error occurs because the list index 5 is out of range. Python lists are 0-indexed, meaning the last valid index is 4. We should access the first element of the list instead."
+}
+</json>
+2026-05-26 16:03:21,242 - INFO - [Run b55bb32b] Patch validation successful
+2026-05-26 16:03:21,242 - INFO - [Run b55bb32b] JSON extraction successful
+2026-05-26 16:03:21,242 - INFO - [Run b55bb32b] Sandbox execution started
+2026-05-26 16:03:21,255 - INFO - [Run b55bb32b] Sandbox execution completed
+2026-05-26 16:03:21,256 - INFO - [Run b55bb32b] Execution result: CompletedProcess(args=['python', '/tmp/tmpaciqvimo.py'], returncode=0, stdout='1\n', stderr='')
+2026-05-26 16:03:21,256 - INFO - [Run b55bb32b] EvaluatorAgent started
+2026-05-26 16:03:21,256 - INFO - [Run b55bb32b] Evaluation completed
+2026-05-26 16:03:21,256 - INFO - [Run b55bb32b] Evaluation result: {'passed': True, 'score': 1.0}
+2026-05-26 16:03:21,256 - INFO - [Run b55bb32b] Debug orchestration completed
+
+
+

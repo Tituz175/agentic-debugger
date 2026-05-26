@@ -1,20 +1,17 @@
 from pprint import pprint
 from orchestrator.orchestrator import DebugOrchestrator
+from utils.benchmark_loader import BenchmarkLoader
 
-buggy_code = """
-x = 10
-y = 0
-print(x / y)
-"""
-
-traceback = "ZeroDivisionError: division by zero"
-
+benchmark_loader = BenchmarkLoader()
+benchmark_cases = benchmark_loader.load_all_cases()
 
 orchestrator = DebugOrchestrator()
 
-result = orchestrator.run(
-    code=buggy_code,
-    traceback=traceback
-)
+for case in benchmark_cases:
 
-pprint(result)
+    result = orchestrator.run(
+        code = case["buggy_code"],
+        traceback = case["traceback"]
+    )
+
+    pprint(result)
