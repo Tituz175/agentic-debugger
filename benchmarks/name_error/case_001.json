@@ -1,0 +1,14 @@
+{
+  "id": "name_error_001",
+  "bug_type": "NameError",
+
+  "buggy_code": "x = 5\nprint(y)",
+
+  "traceback": "NameError: name 'y' is not defined",
+
+  "expected_error_line": 2,
+
+  "expected_fix_behavior": "define variable before use",
+
+  "difficulty": "easy"
+}
