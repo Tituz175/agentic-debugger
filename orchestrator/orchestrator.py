@@ -5,6 +5,7 @@ from utils.logger import setup_logger
 from agents.fixer import FixerAgent
 from agents.analyzer import AnalyzerAgent
 from agents.evaluator import EvaluatorAgent
+from models.llm import LLMModel
 
 from sandbox.runner import SandboxRunner
 
@@ -15,9 +16,13 @@ run_id = str(uuid.uuid4())[:8]
 class DebugOrchestrator:
 
     def __init__(self):
-        self.analyzer = AnalyzerAgent()
-        self.fixer = FixerAgent()
-        self.evaluator = EvaluatorAgent()
+        self.llm = LLMModel(
+            "meta-llama/Llama-3.2-3B-Instruct"
+        )
+
+        self.analyzer = AnalyzerAgent(self.llm)
+        self.fixer = FixerAgent(self.llm)
+        self.evaluator = EvaluatorAgent(self.llm)
         self.runner = SandboxRunner()
 
     def run(self, code: str, traceback: str):

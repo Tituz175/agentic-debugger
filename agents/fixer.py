@@ -3,7 +3,6 @@ import re
 import time
 
 from agents.base_agent import BaseAgent
-from models.llm import LLMModel
 from utils.logger import setup_logger
 
 
@@ -12,11 +11,9 @@ logger = setup_logger()
 
 class FixerAgent(BaseAgent):
 
-    def __init__(self):
+    def __init__(self, llm):
 
-        self.llm = LLMModel(
-            "meta-llama/Llama-3.2-3B-Instruct"
-        )
+        self.llm = llm
 
         self.max_retries = 2
 
@@ -109,7 +106,8 @@ Reasoning:
             f"[Run {run_id}] FixerAgent started"
         )
 
-        prompt = self.build_prompt(context)
+        system_prompt = "You are an expert software repair agent."
+        user_prompt = self.build_prompt(context)
 
         last_error = None
 
@@ -124,7 +122,7 @@ Reasoning:
 
                 start_time = time.perf_counter()
 
-                output = self.llm.generate(prompt)
+                output = self.llm.generate(system_prompt, user_prompt)
 
                 latency = (
                     time.perf_counter() - start_time
@@ -173,7 +171,7 @@ Reasoning:
                     f"Fixer attempt failed: {e}"
                 )
 
-                prompt += """
+                user_prompt += """
 
 Your previous response failed validation.
 

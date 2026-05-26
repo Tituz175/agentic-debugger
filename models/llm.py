@@ -12,10 +12,10 @@ class LLMModel:
         )
 
 
-    def generate(self, prompt):
+    def generate(self, system_prompt, user_prompt):
         messages = [
-            {"role": "system", "content": "You are a helpful assistant that helps debug code."},
-            {"role": "user", "content": prompt}
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
         ]
 
         inputs = self.tokenizer.apply_chat_template(

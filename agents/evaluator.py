@@ -6,6 +6,9 @@ logger = setup_logger()
 
 class EvaluatorAgent(BaseAgent):
 
+    def __init__(self, llm):
+        pass
+
     def run(self, context: dict) -> dict:
         # Implement the logic to evaluate the effectiveness of the fixes
         # For example, you can run tests or compare outputs before and after the fix
