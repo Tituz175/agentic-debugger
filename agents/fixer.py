@@ -51,21 +51,11 @@ class FixerAgent(BaseAgent):
     def build_prompt(self, context: dict) -> str:
 
         return f"""
-You are an expert software repair agent.
+You are an expert Python debugging agent.
 
-Your task is to fix the provided Python code.
+Fix the code based on the detected error.
 
-Return ONLY valid JSON wrapped inside <json> tags.
-
-STRICT OUTPUT RULES:
-- Do NOT use markdown
-- Do NOT use triple backticks
-- Do NOT use triple quotes
-- patched_code must be a single valid JSON string
-- Escape newlines using \\n
-- Return ONLY JSON inside <json> tags
-
-Format:
+Return ONLY valid JSON:
 
 <json>
 {{
@@ -74,44 +64,19 @@ Format:
 }}
 </json>
 
-REPAIR STRATEGY RULES:
-- Return the COMPLETE corrected program
-- Preserve original program intent
-- Keep the original program structure whenever possible
-- Minimize unnecessary code changes
-- Fix ONLY the identified issue
-- Do NOT remove existing functionality
-- Do NOT replace values arbitrarily
-- Do NOT hardcode unrelated values
-- Prefer defensive programming fixes
-- Preserve variable names unless necessary
-- Preserve original control flow unless required
+Rules:
+- Return the FULL corrected program
+- Preserve original intent
+- Fix ONLY the reported issue
 - Return executable Python code
-
-GOOD FIX EXAMPLES:
-- Add missing variable definitions
-- Add boundary checks
-- Add zero-division protection
-- Correct invalid syntax
-- Convert incompatible types safely
-
-BAD FIX EXAMPLES:
-- Replacing failing values with unrelated constants
-- Removing important logic
-- Deleting failing lines without replacement
-- Changing program behavior unnecessarily
+- Escape newlines using \\n
+- No markdown
 
 Original Code:
 {context["code"]}
 
-Code With Line Numbers:
-{context["formatted_code"]}
-
-Detected Error:
+Error:
 {context["analysis"]["root_cause"]}
-
-Error Line:
-{context["analysis"]["error_line"]}
 
 Reasoning:
 {context["analysis"]["reasoning"]}

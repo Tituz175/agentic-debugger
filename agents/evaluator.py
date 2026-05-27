@@ -1,3 +1,6 @@
+import re
+import json
+
 from agents.base_agent import BaseAgent
 from utils.logger import setup_logger
 
@@ -7,7 +10,31 @@ logger = setup_logger()
 class EvaluatorAgent(BaseAgent):
 
     def __init__(self, llm):
-        pass
+        self.llm = llm
+
+        self.max_retries = 2
+
+    def extract_json(self, text: str) -> dict:
+
+        """
+        Extract JSON content wrapped inside <json> tags.
+        """
+
+        match = re.search(
+            r"<json>(.*?)</json>",
+            text,
+            re.DOTALL
+        )
+
+        if not match:
+            raise ValueError("No JSON block found")
+
+        json_text = match.group(1).strip()
+
+        return json.loads(json_text)
+    
+    
+
 
     def run(self, context: dict) -> dict:
         # Implement the logic to evaluate the effectiveness of the fixes
