@@ -57,12 +57,13 @@ Your task is to fix the provided Python code.
 
 Return ONLY valid JSON wrapped inside <json> tags.
 
-Rules:
+STRICT OUTPUT RULES:
 - Do NOT use markdown
 - Do NOT use triple backticks
 - Do NOT use triple quotes
-- patched_code must be a single JSON string
-- Escape newlines using \n
+- patched_code must be a single valid JSON string
+- Escape newlines using \\n
+- Return ONLY JSON inside <json> tags
 
 Format:
 
@@ -73,14 +74,32 @@ Format:
 }}
 </json>
 
-Rules:
+REPAIR STRATEGY RULES:
 - Return the COMPLETE corrected program
-- Preserve all existing code unless necessary to modify
-- Do not omit variable definitions
-- Do not return partial snippets
-- Fix only the identified issue
+- Preserve original program intent
+- Keep the original program structure whenever possible
+- Minimize unnecessary code changes
+- Fix ONLY the identified issue
+- Do NOT remove existing functionality
+- Do NOT replace values arbitrarily
+- Do NOT hardcode unrelated values
+- Prefer defensive programming fixes
+- Preserve variable names unless necessary
+- Preserve original control flow unless required
 - Return executable Python code
-- Do not include markdown formatting
+
+GOOD FIX EXAMPLES:
+- Add missing variable definitions
+- Add boundary checks
+- Add zero-division protection
+- Correct invalid syntax
+- Convert incompatible types safely
+
+BAD FIX EXAMPLES:
+- Replacing failing values with unrelated constants
+- Removing important logic
+- Deleting failing lines without replacement
+- Changing program behavior unnecessarily
 
 Original Code:
 {context["code"]}

@@ -29,12 +29,14 @@ class LLMModel:
             max_new_tokens=512,
             do_sample=True,
             temperature=0.1,
-            top_p=0.9
+            top_p=0.9,
+            pad_token_id=self.tokenizer.eos_token_id
         )
 
         response = self.tokenizer.decode(
             outputs[0][inputs.input_ids.shape[1]:], 
-            skip_special_tokens=True
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
         )
 
         return response.strip()

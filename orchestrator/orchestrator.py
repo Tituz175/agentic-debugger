@@ -10,7 +10,7 @@ from models.llm import LLMModel
 from sandbox.runner import SandboxRunner
 
 logger = setup_logger()
-run_id = str(uuid.uuid4())[:8]
+
 
 
 class DebugOrchestrator:
@@ -26,7 +26,7 @@ class DebugOrchestrator:
         self.runner = SandboxRunner()
 
     def run(self, code: str, traceback: str):
-
+        run_id = str(uuid.uuid4())[:8]
         logger.info(f"[Run {run_id}] Debug orchestration started")
 
         context = {
