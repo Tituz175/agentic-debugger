@@ -17,7 +17,7 @@ class DebugOrchestrator:
 
     def __init__(self):
         self.llm = LLMModel(
-            "meta-llama/Llama-3.2-3B-Instruct"
+            "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ"
         )
 
         self.analyzer = AnalyzerAgent(self.llm)
