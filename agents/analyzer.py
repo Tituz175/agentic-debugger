@@ -51,27 +51,34 @@ class AnalyzerAgent(BaseAgent):
     def build_prompt(self, context: dict) -> str:
 
         return f"""
-You are an expert software debugging agent.
+You are a Python static analysis engine.
 
-Analyze the following Python code and traceback.
+Analyze the Python code and traceback.
 
-Return ONLY valid JSON wrapped inside <json> tags.
+Your task:
+1. Identify the root cause
+2. Identify the failing line
+3. Explain the bug briefly
 
-Format:
+Return ONLY this exact format:
 
 <json>
 {{
     "root_cause": "...",
-    "error_line": integer,
+    "error_line": 0,
     "reasoning": "..."
 }}
 </json>
 
-Rules:
-- Do not include explanations outside the tags
-- Do not include markdown
-- suspected_lines must contain integers
-- Return valid JSON only
+STRICT RULES:
+- Output ONLY the JSON block
+- No markdown
+- No extra text
+- error_line must be an integer
+- reasoning must be concise
+- root_cause must contain the actual exception type when possible
+- Do not suggest fixes
+- Do not rewrite code
 
 Code:
 {context["formatted_code"]}
@@ -92,7 +99,7 @@ Traceback:
             context["code"]
         )
 
-        system_prompt = "You are a helpful assistant that helps debug code."
+        system_prompt =  "You are an expert Python static analysis engine."
         user_prompt = self.build_prompt(context)
 
         last_error = None

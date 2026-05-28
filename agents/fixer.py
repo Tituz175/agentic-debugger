@@ -17,6 +17,20 @@ class FixerAgent(BaseAgent):
 
         self.max_retries = 2
 
+        self.system_prompt = """
+You are an advanced autonomous Python debugging agent.
+
+You specialize in:
+- traceback analysis
+- minimal code repair
+- semantic preservation
+- defensive programming
+- generating executable fixes
+
+You must preserve original program intent whenever possible.
+Avoid unnecessary rewrites and unrelated behavioral changes.
+"""
+
     def extract_json(self, text: str) -> dict:
 
         """
@@ -51,11 +65,11 @@ class FixerAgent(BaseAgent):
     def build_prompt(self, context: dict) -> str:
 
         return f"""
-You are an expert Python debugging agent.
+You are an expert Python repair engine.
 
-Fix the code based on the detected error.
+Fix the provided Python program.
 
-Return ONLY valid JSON:
+Return ONLY:
 
 <json>
 {{
@@ -64,22 +78,30 @@ Return ONLY valid JSON:
 }}
 </json>
 
-Rules:
-- Return the FULL corrected program
+STRICT RULES:
+- Output ONLY the JSON block
+- No markdown
+- No backticks
+- patched_code must contain the COMPLETE corrected program
 - Preserve original intent
-- Fix ONLY the reported issue
+- Make the MINIMAL necessary fix
+- Do not remove functionality
+- Do not invent unrelated values
+- Do not rewrite the whole program unnecessarily
 - Return executable Python code
 - Escape newlines using \\n
-- No markdown
+
+Bug Type:
+{context["analysis"]["root_cause"]}
+
+Reason:
+{context["analysis"]["reasoning"]}
+
+Failing Line:
+{context["analysis"]["error_line"]}
 
 Original Code:
 {context["code"]}
-
-Error:
-{context["analysis"]["root_cause"]}
-
-Reasoning:
-{context["analysis"]["reasoning"]}
 """
 
     def run(self, context: dict) -> dict:
@@ -90,7 +112,7 @@ Reasoning:
             f"[Run {run_id}] FixerAgent started"
         )
 
-        system_prompt = "You are an expert software repair agent."
+        system_prompt = self.system_prompt
         user_prompt = self.build_prompt(context)
 
         last_error = None
