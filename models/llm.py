@@ -12,7 +12,7 @@ class LLMModel:
         )
 
 
-    def generate(self, system_prompt, user_prompt):
+    def generate(self, system_prompt, user_prompt, do_sample=True, temperature=0.1, top_p=0.9):
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
@@ -27,9 +27,9 @@ class LLMModel:
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=512,
-            do_sample=True,
-            temperature=0.1,
-            top_p=0.9,
+            do_sample=do_sample,
+            temperature=temperature,
+            top_p=top_p,
             pad_token_id=self.tokenizer.eos_token_id
         )
 
