@@ -1,66 +1,117 @@
 import time
 import uuid
-from utils.logger import setup_logger
 
-from agents.fixer import FixerAgent
 from agents.analyzer import AnalyzerAgent
+from agents.fixer import FixerAgent
 from agents.evaluator import EvaluatorAgent
 from models.llm import LLMModel
-
 from sandbox.runner import SandboxRunner
+from utils.logger import setup_logger
 
 logger = setup_logger()
 
 
-
 class DebugOrchestrator:
+    """
+    Coordinates the full debug pipeline:
+        Analyzer → Fixer → SandboxRunner → Evaluator
 
-    def __init__(self):
-        self.llm = LLMModel(
-            "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ"
-        )
+    Each stage adds its output to a shared `context` dict that is
+    passed forward, so every agent has full visibility into prior results.
+    """
 
-        self.analyzer = AnalyzerAgent(self.llm)
-        self.fixer = FixerAgent(self.llm)
+    def __init__(self, model_name: str = "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ"):
+        logger.info("Initialising DebugOrchestrator")
+        self.llm       = LLMModel(model_name)
+        self.analyzer  = AnalyzerAgent(self.llm)
+        self.fixer     = FixerAgent(self.llm)
         self.evaluator = EvaluatorAgent(self.llm)
-        self.runner = SandboxRunner()
+        self.runner    = SandboxRunner()
 
-    def run(self, code: str, traceback: str):
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _timed(fn, *args, **kwargs):
+        """Call fn(*args, **kwargs) and return (result, elapsed_seconds)."""
+        t0 = time.perf_counter()
+        result = fn(*args, **kwargs)
+        return result, time.perf_counter() - t0
+
+    # ------------------------------------------------------------------
+    # Entry point
+    # ------------------------------------------------------------------
+
+    def run(self, code: str, traceback: str) -> dict:
         run_id = str(uuid.uuid4())[:8]
-        logger.info(f"[Run {run_id}] Debug orchestration started")
+        logger.info(f"[Run {run_id}] Orchestration started")
 
         context = {
-            "run_id": run_id,
-            "code": code,
-            "traceback": traceback
+            "run_id":    run_id,
+            "code":      code,
+            "traceback": traceback,
         }
 
-        start_time = time.perf_counter()
-        analysis = self.analyzer.run(context)
-        analysis_time = time.perf_counter() - start_time
+        # --- Stage 1: Analyze -------------------------------------------
+        analysis, analysis_latency = self._timed(self.analyzer.run, context)
         context["analysis"] = analysis
 
-        start_time = time.perf_counter()
-        fix = self.fixer.run(context)
-        fix_time = time.perf_counter() - start_time
+        if not analysis.get("parse_success"):
+            logger.error(f"[Run {run_id}] Analysis failed — aborting pipeline")
+            return self._failure_result(context, analysis_latency, "analysis")
+
+        # --- Stage 2: Fix -----------------------------------------------
+        fix, fix_latency = self._timed(self.fixer.run, context)
         context["fix"] = fix
 
-        start_time = time.perf_counter()
-        execution = self.runner.execute(
-            run_id,
-            fix["patched_code"]
+        if not fix.get("parse_success") or not fix.get("patched_code"):
+            logger.error(f"[Run {run_id}] Fix failed — aborting pipeline")
+            return self._failure_result(
+                context, analysis_latency, "fix", fix_latency=fix_latency
+            )
+
+        # --- Stage 3: Execute -------------------------------------------
+        execution, execution_latency = self._timed(
+            self.runner.execute, run_id, fix["patched_code"]
         )
-        execution_time = time.perf_counter() - start_time
+        context["execution_result"]  = execution
         context["execution_success"] = execution["success"]
-        context["execution_result"] = execution
-        context["metrics"] = {
-            "analysis_latency": f"{analysis_time:.4f}s",
-            "fix_latency": f"{fix_time:.4f}s",
-            "execution_latency": f"{execution_time:.4f}s"
-        }
-        evaluation = self.evaluator.run(context)
+
+        # --- Stage 4: Evaluate ------------------------------------------
+        evaluation, eval_latency = self._timed(self.evaluator.run, context)
         context["evaluation"] = evaluation
 
-        logger.info(f"[Run {run_id}] Debug orchestration completed\n\n\n")
+        # --- Metrics ----------------------------------------------------
+        context["metrics"] = {
+            "analysis_latency":  f"{analysis_latency:.4f}s",
+            "fix_latency":       f"{fix_latency:.4f}s",
+            "execution_latency": f"{execution_latency:.4f}s",
+            "eval_latency":      f"{eval_latency:.4f}s",
+            "total_latency":     f"{analysis_latency + fix_latency + execution_latency + eval_latency:.4f}s",
+        }
 
+        logger.info(f"[Run {run_id}] Orchestration completed — passed={evaluation.get('passed')}")
+        return context
+
+    # ------------------------------------------------------------------
+    # Failure path
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _failure_result(context: dict, analysis_latency: float, failed_at: str, fix_latency: float = 0.0) -> dict:
+        context["execution_result"]  = {"success": False, "stdout": "", "stderr": ""}
+        context["execution_success"] = False
+        context["evaluation"]        = {
+            "passed": False,
+            "score":  0.0,
+            "reasoning": f"Pipeline aborted at {failed_at} stage.",
+        }
+        context["metrics"] = {
+            "analysis_latency":  f"{analysis_latency:.4f}s",
+            "fix_latency":       f"{fix_latency:.4f}s",
+            "execution_latency": "0.0000s",
+            "eval_latency":      "0.0000s",
+            "total_latency":     f"{analysis_latency + fix_latency:.4f}s",
+        }
         return context

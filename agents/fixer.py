@@ -1,120 +1,70 @@
-import json
-import re
-import time
-
 from agents.base_agent import BaseAgent
 from utils.logger import setup_logger
-
 
 logger = setup_logger()
 
 
 class FixerAgent(BaseAgent):
+    """
+    Generates a minimal patch for a Python bug identified by the AnalyzerAgent.
 
-    def __init__(self, llm):
+    Contract
+    --------
+    - Returns the smallest possible change to make the code run correctly.
+    - Never adds try/except, defensive checks, or arbitrary fallback values.
+    - Validates the patch compiles before returning it.
+    """
 
-        self.llm = llm
+    max_retries = 2
 
-        self.max_retries = 2
-
-        self.system_prompt = """
+    _SYSTEM_PROMPT = """
 You are an advanced autonomous Python debugging agent.
 
-You specialize in:
-- traceback analysis
-- minimal code repair
-- semantic preservation
+Your goal is to minimally repair buggy Python programs.
+
+Preserve original intent whenever possible.
+
+Avoid:
+- arbitrary values
+- unnecessary rewrites
 - defensive programming
-- generating executable fixes
+- try/except blocks
+- fallback logic
+""".strip()
+    
+    def __init__(self, llm):
+        super().__init__(llm)
 
-You must preserve original program intent whenever possible.
-Avoid unnecessary rewrites and unrelated behavioral changes.
-"""
+    # ------------------------------------------------------------------
+    # Prompt construction
+    # ------------------------------------------------------------------
 
-    def validate_patch(self, patched_code: str):
-
-        """
-        Validate generated Python code before execution.
-        """
-
-        compile(
-            patched_code,
-            "<string>",
-            "exec"
-        )
-
-    def build_prompt(self, context: dict) -> str:
-
+    def _build_prompt(self, context: dict) -> str:
         return f"""
-You are an expert Python repair engine.
+Fix the Python program below.
 
-Your task is to minimally repair the provided Python program.
+Return ONLY:
 
-You MUST respond ONLY with valid XML-style JSON tags in this exact structure:
+<json>
+{{
+  "patched_code": "...",
+  "explanation": "..."
+}}
+</json>
 
-ABSOLUTE OUTPUT RULES:
+RULES:
+- patched_code must contain the FULL corrected program.
+- Make the SMALLEST possible change.
+- Preserve original intent.
+- Do not add try/except.
+- Do not invent arbitrary values.
+- Do not add fallback behavior.
+- Do not refactor unrelated code.
 
-- Output NOTHING before
-- Output NOTHING after
-- Do NOT use markdown
-- Do NOT use code fences
-- Response must be valid JSON inside the tags
-- patched_code must contain executable Python code
-- Escape newlines as \n
-- Escape quotes correctly
-
-REPAIR RULES:
-
-- Make the SMALLEST possible fix
-- Preserve the original intent exactly
-- Modify as few tokens as possible
-- Prefer changing literals/indices/operators over adding logic
-- Do NOT add defensive programming
-- Do NOT add try/except
-- Do NOT add conditionals unless absolutely required
-- Do NOT add fallback behaviors
-- Do NOT invent arbitrary values
-- Do NOT refactor
-- Do NOT rename variables
-- Do NOT change formatting unnecessarily
-
-GOOD FIX EXAMPLES:
-
-Example 1:
-Buggy:
-x = "5"
-y = 2
-print(x + y)
-
-Good Fix:
-print(x + str(y))
-
-Bad Fix:
-if isinstance(y, int):
-print(x + str(y))
-
-Example 2:
-Buggy:
-numbers = [1,2,3]
-print(numbers[5])
-
-Good Fix:
-print(numbers[2])
-
-Bad Fix:
-if len(numbers) > 5:
-print(numbers[5])
-else:
-print("Index out of range")
-
-Example 3:
-Buggy:
-for i in range(5)
-print(i)
-
-Good Fix:
-for i in range(5):
-print(i)
+IMPORTANT:
+- Output valid JSON only.
+- Do not use markdown.
+- Do not include commentary outside the JSON block.
 
 Bug Type:
 {context["analysis"]["root_cause"]}
@@ -127,100 +77,57 @@ Failing Line:
 
 Original Code:
 {context["code"]}
-"""
+""".strip()
+
+    # ------------------------------------------------------------------
+    # parse_and_validate callback
+    # ------------------------------------------------------------------
+
+    def _parse(self, raw: str, latency: float) -> dict:
+        parsed = self.extract_json(raw)
+
+        required = {"patched_code", "explanation"}
+        missing = required - parsed.keys()
+        if missing:
+            raise ValueError(f"Missing keys in fixer output: {missing}")
+
+        patched_code = parsed["patched_code"]
+        if not patched_code or not patched_code.strip():
+            raise ValueError("patched_code is empty")
+
+        # Compile-check before accepting the patch
+        try:
+            compile(patched_code, "<patch>", "exec")
+        except SyntaxError as e:
+            raise ValueError(f"Patch failed compile check: {e}")
+
+        parsed["fixer_latency"] = f"{latency:.4f}s"
+        parsed["parse_success"] = True
+        return parsed
+
+    # ------------------------------------------------------------------
+    # Entry point
+    # ------------------------------------------------------------------
 
     def run(self, context: dict) -> dict:
-
         run_id = context.get("run_id", "unknown")
+        logger.info(f"[Run {run_id}] FixerAgent started")
 
-        logger.info(
-            f"[Run {run_id}] FixerAgent started"
+        result = self._run_with_retries(
+            run_id=run_id,
+            label="Fixer",
+            system_prompt=self._SYSTEM_PROMPT,
+            user_prompt=self._build_prompt(context),
+            parse_and_validate=self._parse,
         )
 
-        system_prompt = self.system_prompt
-        user_prompt = self.build_prompt(context)
+        if result is None:
+            logger.error(f"[Run {run_id}] FixerAgent returning failure sentinel")
+            return {
+                "patched_code": "",
+                "explanation": "All retry attempts failed.",
+                "parse_success": False,
+            }
 
-        last_error = None
-
-        for attempt in range(self.max_retries):
-
-            try:
-
-                logger.info(
-                    f"[Run {run_id}] "
-                    f"Fixer attempt {attempt + 1}"
-                )
-
-                start_time = time.perf_counter()
-
-                output = self.llm.generate(system_prompt, user_prompt)
-
-                latency = (
-                    time.perf_counter() - start_time
-                )
-
-                logger.info(
-                    f"[Run {run_id}] "
-                    f"Fixer latency: {latency:.4f}s"
-                )
-
-                logger.info(
-                    f"[Run {run_id}] "
-                    f"Raw LLM output:\n{output}"
-                )
-
-                parsed_output = self.extract_json(output)
-
-                self.validate_patch(
-                    parsed_output["patched_code"]
-                )
-
-                parsed_output["fixer_latency"] = (
-                    f"{latency:.4f}s"
-                )
-
-                parsed_output["parse_success"] = True
-
-                logger.info(
-                    f"[Run {run_id}] "
-                    f"Patch validation successful"
-                )
-
-                logger.info(
-                    f"[Run {run_id}] "
-                    f"JSON extraction successful"
-                )
-
-                return parsed_output
-
-            except Exception as e:
-
-                last_error = str(e)
-
-                logger.error(
-                    f"[Run {run_id}] "
-                    f"Fixer attempt failed: {e}"
-                )
-
-                user_prompt += """
-
-Your previous response failed validation.
-
-IMPORTANT:
-- Return ONLY valid JSON
-- Wrap JSON inside <json> tags
-- Return executable Python code
-- Do not include markdown
-- Do not include explanations outside JSON
-"""
-
-        logger.error(
-            f"[Run {run_id}] "
-            f"FixerAgent failed after retries"
-        )
-
-        return {
-            "patched_code": "",
-            "explanation": last_error,
-            "parse_success": False
-        }
+        logger.info(f"[Run {run_id}] FixerAgent completed")
+        return result

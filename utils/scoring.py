@@ -1,41 +1,111 @@
-from utils.ast_utils import structural_change_ratio, detect_new_control_flow, operator_changed
+import difflib
 
-def compute_heuristic_score(original_code, patched_code, execution_success):
 
+# ---------------------------------------------------------------------------
+# Heuristic scoring
+# ---------------------------------------------------------------------------
+
+# Weight used when blending heuristic and LLM evaluation scores.
+HEURISTIC_WEIGHT = 0.4
+LLM_WEIGHT       = 0.6
+
+# Penalty applied to the heuristic score for each triggered rule.
+_PENALTIES = {
+    "execution_failed":      0.5,   # patch doesn't even run
+    "large_structural_change": 0.2, # too many tokens changed
+    "empty_patch":           1.0,   # fixer returned nothing
+}
+
+# A patch that changes more than this fraction of tokens is "large".
+_LARGE_CHANGE_THRESHOLD = 0.30
+
+
+def _token_ratio(original: str, patched: str) -> float:
+    """SequenceMatcher ratio over whitespace-split tokens."""
+    a = original.split()
+    b = patched.split()
+    return difflib.SequenceMatcher(None, a, b).ratio()
+
+
+def compute_heuristic_score(
+    original_code: str,
+    patched_code: str,
+    execution_success: bool,
+) -> dict:
+    """
+    Return a heuristic assessment of the patch quality.
+
+    Keys
+    ----
+    score            : float in [0, 1]
+    structural_ratio : fraction of tokens that changed  (0 = identical)
+    penalties        : list of penalty names that fired
+    """
+    penalties: list[str] = []
     score = 1.0
 
-    penalties = []
+    if not patched_code or not patched_code.strip():
+        penalties.append("empty_patch")
+        score -= _PENALTIES["empty_patch"]
+        return {
+            "score": max(score, 0.0),
+            "structural_ratio": 1.0,
+            "penalties": penalties,
+        }
 
     if not execution_success:
-
-        score -= 0.5
-
         penalties.append("execution_failed")
+        score -= _PENALTIES["execution_failed"]
 
-    ratio = structural_change_ratio(original_code, patched_code)
+    similarity = _token_ratio(original_code, patched_code)
+    structural_ratio = round(1.0 - similarity, 6)
 
-    if ratio > 0.3:
-
-        score -= 0.2
-
+    if structural_ratio > _LARGE_CHANGE_THRESHOLD:
         penalties.append("large_structural_change")
-
-    if detect_new_control_flow(original_code, patched_code):
-
-        score -= 0.15
-
-        penalties.append("new_control_flow")
-
-    if operator_changed(original_code, patched_code):
-
-        score -= 0.25
-
-        penalties.append("operator_semantics_changed")
-
-    score = max(score, 0.0)
+        score -= _PENALTIES["large_structural_change"]
 
     return {
-        "score": round(score, 2),
+        "score": round(max(score, 0.0), 4),
+        "structural_ratio": structural_ratio,
         "penalties": penalties,
-        "structural_ratio": ratio
     }
+
+
+# ---------------------------------------------------------------------------
+# Final blended score
+# ---------------------------------------------------------------------------
+
+def compute_final_score(heuristics: dict, llm_eval: dict) -> float:
+    """
+    Blend the heuristic score with the LLM evaluator's boolean signals
+    into a single float in [0, 1].
+
+    LLM component weights
+    ---------------------
+    intent_preserved      : 0.40  — most important
+    root_cause_fixed      : 0.40  — equally important
+    not introduced_regression : 0.20  — tiebreaker
+    """
+    llm_score = (
+        float(llm_eval.get("intent_preserved", False))      * 0.40
+        + float(llm_eval.get("root_cause_fixed", False))    * 0.40
+        + float(not llm_eval.get("introduced_regression", True)) * 0.20
+    )
+
+    blended = (
+        HEURISTIC_WEIGHT * heuristics["score"]
+        + LLM_WEIGHT     * llm_score
+    )
+    return round(blended, 4)
+
+
+def passed_threshold(
+    execution_success: bool,
+    final_score: float,
+    threshold: float = 0.75,
+) -> bool:
+    """
+    A run passes iff it executed successfully AND the blended score
+    meets the threshold.  Both conditions are required.
+    """
+    return execution_success and final_score >= threshold

@@ -5593,3 +5593,708 @@ print(x / y)
 
 
 
+2026-05-29 08:30:45,902 - INFO - Initialising DebugOrchestrator
+2026-05-29 08:30:45,902 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 08:30:57,583 - INFO - Model loaded and set to eval mode
+2026-05-29 08:32:12,308 - INFO - Initialising DebugOrchestrator
+2026-05-29 08:32:12,308 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 08:32:23,855 - INFO - Model loaded and set to eval mode
+2026-05-29 08:32:35,244 - INFO - Initialising DebugOrchestrator
+2026-05-29 08:32:35,244 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 08:32:46,750 - INFO - Model loaded and set to eval mode
+2026-05-29 08:32:46,750 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 08:32:46,750 - INFO - [Run 49978796] Orchestration started
+2026-05-29 08:32:46,750 - INFO - [Run 49978796] AnalyzerAgent started
+2026-05-29 08:32:46,750 - INFO - [Run 49978796] Analyzer attempt 1
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] Analysis latency: 2.8647s
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] JSON extraction successful
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] FixerAgent started
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] Fixer attempt 1/2
+2026-05-29 08:32:49,615 - ERROR - [Run 49978796] Fixer attempt 1 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:49,615 - INFO - [Run 49978796] Fixer attempt 2/2
+2026-05-29 08:32:49,615 - ERROR - [Run 49978796] Fixer attempt 2 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:49,615 - ERROR - [Run 49978796] Fixer failed after 2 attempts
+2026-05-29 08:32:49,615 - ERROR - [Run 49978796] FixerAgent returning failure sentinel
+2026-05-29 08:32:49,615 - ERROR - [Run 49978796] Fix failed — aborting pipeline
+2026-05-29 08:32:49,616 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 08:32:49,616 - INFO - [Run 9c69fa3d] Orchestration started
+2026-05-29 08:32:49,616 - INFO - [Run 9c69fa3d] AnalyzerAgent started
+2026-05-29 08:32:49,616 - INFO - [Run 9c69fa3d] Analyzer attempt 1
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] Analysis latency: 2.7689s
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "The variable 'y' is used before it is defined."
+}
+</json>
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] JSON extraction successful
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] FixerAgent started
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] Fixer attempt 1/2
+2026-05-29 08:32:52,385 - ERROR - [Run 9c69fa3d] Fixer attempt 1 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:52,385 - INFO - [Run 9c69fa3d] Fixer attempt 2/2
+2026-05-29 08:32:52,385 - ERROR - [Run 9c69fa3d] Fixer attempt 2 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:52,385 - ERROR - [Run 9c69fa3d] Fixer failed after 2 attempts
+2026-05-29 08:32:52,385 - ERROR - [Run 9c69fa3d] FixerAgent returning failure sentinel
+2026-05-29 08:32:52,385 - ERROR - [Run 9c69fa3d] Fix failed — aborting pipeline
+2026-05-29 08:32:52,386 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 08:32:52,386 - INFO - [Run 7d3b68db] Orchestration started
+2026-05-29 08:32:52,386 - INFO - [Run 7d3b68db] AnalyzerAgent started
+2026-05-29 08:32:52,386 - INFO - [Run 7d3b68db] Analyzer attempt 1
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] Analysis latency: 3.0319s
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] JSON extraction successful
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] FixerAgent started
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] Fixer attempt 1/2
+2026-05-29 08:32:55,418 - ERROR - [Run 7d3b68db] Fixer attempt 1 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:55,418 - INFO - [Run 7d3b68db] Fixer attempt 2/2
+2026-05-29 08:32:55,418 - ERROR - [Run 7d3b68db] Fixer attempt 2 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:55,418 - ERROR - [Run 7d3b68db] Fixer failed after 2 attempts
+2026-05-29 08:32:55,418 - ERROR - [Run 7d3b68db] FixerAgent returning failure sentinel
+2026-05-29 08:32:55,418 - ERROR - [Run 7d3b68db] Fix failed — aborting pipeline
+2026-05-29 08:32:55,418 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 08:32:55,418 - INFO - [Run 75c3d152] Orchestration started
+2026-05-29 08:32:55,418 - INFO - [Run 75c3d152] AnalyzerAgent started
+2026-05-29 08:32:55,418 - INFO - [Run 75c3d152] Analyzer attempt 1
+2026-05-29 08:32:58,409 - INFO - [Run 75c3d152] Analysis latency: 2.9911s
+2026-05-29 08:32:58,410 - INFO - [Run 75c3d152] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-29 08:32:58,410 - INFO - [Run 75c3d152] JSON extraction successful
+2026-05-29 08:32:58,410 - INFO - [Run 75c3d152] FixerAgent started
+2026-05-29 08:32:58,410 - INFO - [Run 75c3d152] Fixer attempt 1/2
+2026-05-29 08:32:58,410 - ERROR - [Run 75c3d152] Fixer attempt 1 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:58,410 - INFO - [Run 75c3d152] Fixer attempt 2/2
+2026-05-29 08:32:58,410 - ERROR - [Run 75c3d152] Fixer attempt 2 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:32:58,410 - ERROR - [Run 75c3d152] Fixer failed after 2 attempts
+2026-05-29 08:32:58,410 - ERROR - [Run 75c3d152] FixerAgent returning failure sentinel
+2026-05-29 08:32:58,410 - ERROR - [Run 75c3d152] Fix failed — aborting pipeline
+2026-05-29 08:32:58,410 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 08:32:58,410 - INFO - [Run 7780eb6d] Orchestration started
+2026-05-29 08:32:58,410 - INFO - [Run 7780eb6d] AnalyzerAgent started
+2026-05-29 08:32:58,410 - INFO - [Run 7780eb6d] Analyzer attempt 1
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] Analysis latency: 3.7203s
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] JSON extraction successful
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] FixerAgent started
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] Fixer attempt 1/2
+2026-05-29 08:33:02,131 - ERROR - [Run 7780eb6d] Fixer attempt 1 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:33:02,131 - INFO - [Run 7780eb6d] Fixer attempt 2/2
+2026-05-29 08:33:02,131 - ERROR - [Run 7780eb6d] Fixer attempt 2 failed: 'FixerAgent' object has no attribute 'llm'
+2026-05-29 08:33:02,131 - ERROR - [Run 7780eb6d] Fixer failed after 2 attempts
+2026-05-29 08:33:02,131 - ERROR - [Run 7780eb6d] FixerAgent returning failure sentinel
+2026-05-29 08:33:02,131 - ERROR - [Run 7780eb6d] Fix failed — aborting pipeline
+2026-05-29 08:34:15,012 - INFO - Initialising DebugOrchestrator
+2026-05-29 08:34:15,012 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 08:34:26,530 - INFO - Model loaded and set to eval mode
+2026-05-29 08:34:26,530 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 08:34:26,530 - INFO - [Run 4eaccc48] Orchestration started
+2026-05-29 08:34:26,530 - INFO - [Run 4eaccc48] AnalyzerAgent started
+2026-05-29 08:34:26,530 - INFO - [Run 4eaccc48] Analyzer attempt 1/2
+2026-05-29 08:34:26,530 - ERROR - [Run 4eaccc48] Analyzer attempt 1 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,530 - INFO - [Run 4eaccc48] Analyzer attempt 2/2
+2026-05-29 08:34:26,530 - ERROR - [Run 4eaccc48] Analyzer attempt 2 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,530 - ERROR - [Run 4eaccc48] Analyzer failed after 2 attempts
+2026-05-29 08:34:26,530 - ERROR - [Run 4eaccc48] AnalyzerAgent returning failure sentinel
+2026-05-29 08:34:26,530 - ERROR - [Run 4eaccc48] Analysis failed — aborting pipeline
+2026-05-29 08:34:26,530 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 08:34:26,530 - INFO - [Run c8791c8c] Orchestration started
+2026-05-29 08:34:26,530 - INFO - [Run c8791c8c] AnalyzerAgent started
+2026-05-29 08:34:26,530 - INFO - [Run c8791c8c] Analyzer attempt 1/2
+2026-05-29 08:34:26,530 - ERROR - [Run c8791c8c] Analyzer attempt 1 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,530 - INFO - [Run c8791c8c] Analyzer attempt 2/2
+2026-05-29 08:34:26,530 - ERROR - [Run c8791c8c] Analyzer attempt 2 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,530 - ERROR - [Run c8791c8c] Analyzer failed after 2 attempts
+2026-05-29 08:34:26,530 - ERROR - [Run c8791c8c] AnalyzerAgent returning failure sentinel
+2026-05-29 08:34:26,531 - ERROR - [Run c8791c8c] Analysis failed — aborting pipeline
+2026-05-29 08:34:26,531 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 08:34:26,531 - INFO - [Run 05c8e631] Orchestration started
+2026-05-29 08:34:26,531 - INFO - [Run 05c8e631] AnalyzerAgent started
+2026-05-29 08:34:26,531 - INFO - [Run 05c8e631] Analyzer attempt 1/2
+2026-05-29 08:34:26,531 - ERROR - [Run 05c8e631] Analyzer attempt 1 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - INFO - [Run 05c8e631] Analyzer attempt 2/2
+2026-05-29 08:34:26,531 - ERROR - [Run 05c8e631] Analyzer attempt 2 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - ERROR - [Run 05c8e631] Analyzer failed after 2 attempts
+2026-05-29 08:34:26,531 - ERROR - [Run 05c8e631] AnalyzerAgent returning failure sentinel
+2026-05-29 08:34:26,531 - ERROR - [Run 05c8e631] Analysis failed — aborting pipeline
+2026-05-29 08:34:26,531 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 08:34:26,531 - INFO - [Run 5f07dad1] Orchestration started
+2026-05-29 08:34:26,531 - INFO - [Run 5f07dad1] AnalyzerAgent started
+2026-05-29 08:34:26,531 - INFO - [Run 5f07dad1] Analyzer attempt 1/2
+2026-05-29 08:34:26,531 - ERROR - [Run 5f07dad1] Analyzer attempt 1 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - INFO - [Run 5f07dad1] Analyzer attempt 2/2
+2026-05-29 08:34:26,531 - ERROR - [Run 5f07dad1] Analyzer attempt 2 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - ERROR - [Run 5f07dad1] Analyzer failed after 2 attempts
+2026-05-29 08:34:26,531 - ERROR - [Run 5f07dad1] AnalyzerAgent returning failure sentinel
+2026-05-29 08:34:26,531 - ERROR - [Run 5f07dad1] Analysis failed — aborting pipeline
+2026-05-29 08:34:26,531 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 08:34:26,531 - INFO - [Run 45fb4b3d] Orchestration started
+2026-05-29 08:34:26,531 - INFO - [Run 45fb4b3d] AnalyzerAgent started
+2026-05-29 08:34:26,531 - INFO - [Run 45fb4b3d] Analyzer attempt 1/2
+2026-05-29 08:34:26,531 - ERROR - [Run 45fb4b3d] Analyzer attempt 1 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - INFO - [Run 45fb4b3d] Analyzer attempt 2/2
+2026-05-29 08:34:26,531 - ERROR - [Run 45fb4b3d] Analyzer attempt 2 failed: 'AnalyzerAgent' object has no attribute 'llm'
+2026-05-29 08:34:26,531 - ERROR - [Run 45fb4b3d] Analyzer failed after 2 attempts
+2026-05-29 08:34:26,531 - ERROR - [Run 45fb4b3d] AnalyzerAgent returning failure sentinel
+2026-05-29 08:34:26,531 - ERROR - [Run 45fb4b3d] Analysis failed — aborting pipeline
+2026-05-29 08:49:37,339 - INFO - Initialising DebugOrchestrator
+2026-05-29 08:49:37,339 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 08:49:48,873 - INFO - Model loaded and set to eval mode
+2026-05-29 08:49:48,873 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 08:49:48,873 - INFO - [Run 00ef3227] Orchestration started
+2026-05-29 08:49:48,873 - INFO - [Run 00ef3227] AnalyzerAgent started
+2026-05-29 08:49:48,873 - INFO - [Run 00ef3227] Analyzer attempt 1/2
+2026-05-29 08:49:52,504 - INFO - [Run 00ef3227] Analyzer latency: 3.6309s
+2026-05-29 08:49:52,504 - INFO - [Run 00ef3227] Analyzer succeeded on attempt 1
+2026-05-29 08:49:52,504 - INFO - [Run 00ef3227] AnalyzerAgent completed: TypeError
+2026-05-29 08:49:52,504 - INFO - [Run 00ef3227] FixerAgent started
+2026-05-29 08:49:52,504 - INFO - [Run 00ef3227] Fixer attempt 1/2
+2026-05-29 08:49:55,963 - INFO - [Run 00ef3227] Fixer latency: 3.4587s
+2026-05-29 08:49:55,963 - INFO - [Run 00ef3227] Fixer succeeded on attempt 1
+2026-05-29 08:49:55,963 - INFO - [Run 00ef3227] FixerAgent completed
+2026-05-29 08:49:55,963 - INFO - [Run 00ef3227] Sandbox execution started
+2026-05-29 08:49:55,974 - INFO - [Run 00ef3227] Sandbox finished — returncode=0
+2026-05-29 08:49:55,975 - INFO - [Run 00ef3227] EvaluatorAgent started
+2026-05-29 08:49:55,975 - INFO - [Run 00ef3227] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 08:49:55,975 - INFO - [Run 00ef3227] Evaluator attempt 1/2
+2026-05-29 08:50:00,513 - INFO - [Run 00ef3227] Evaluator latency: 4.5375s
+2026-05-29 08:50:00,513 - INFO - [Run 00ef3227] Evaluator succeeded on attempt 1
+2026-05-29 08:50:00,513 - INFO - [Run 00ef3227] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer to a string, allowing concatenation with another string without changing the original intent or introducing new issues.'}
+2026-05-29 08:50:00,513 - INFO - [Run 00ef3227] Orchestration completed — passed=True
+2026-05-29 08:50:00,513 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 08:50:00,513 - INFO - [Run dbd50175] Orchestration started
+2026-05-29 08:50:00,513 - INFO - [Run dbd50175] AnalyzerAgent started
+2026-05-29 08:50:00,513 - INFO - [Run dbd50175] Analyzer attempt 1/2
+2026-05-29 08:50:03,361 - INFO - [Run dbd50175] Analyzer latency: 2.8473s
+2026-05-29 08:50:03,361 - INFO - [Run dbd50175] Analyzer succeeded on attempt 1
+2026-05-29 08:50:03,361 - INFO - [Run dbd50175] AnalyzerAgent completed: NameError
+2026-05-29 08:50:03,361 - INFO - [Run dbd50175] FixerAgent started
+2026-05-29 08:50:03,361 - INFO - [Run dbd50175] Fixer attempt 1/2
+2026-05-29 08:50:06,706 - INFO - [Run dbd50175] Fixer latency: 3.3448s
+2026-05-29 08:50:06,706 - INFO - [Run dbd50175] Fixer succeeded on attempt 1
+2026-05-29 08:50:06,706 - INFO - [Run dbd50175] FixerAgent completed
+2026-05-29 08:50:06,706 - INFO - [Run dbd50175] Sandbox execution started
+2026-05-29 08:50:06,721 - INFO - [Run dbd50175] Sandbox finished — returncode=0
+2026-05-29 08:50:06,721 - INFO - [Run dbd50175] EvaluatorAgent started
+2026-05-29 08:50:06,722 - INFO - [Run dbd50175] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 08:50:06,722 - INFO - [Run dbd50175] Evaluator attempt 1/2
+2026-05-29 08:50:11,212 - INFO - [Run dbd50175] Evaluator latency: 4.4903s
+2026-05-29 08:50:11,212 - INFO - [Run dbd50175] Evaluator succeeded on attempt 1
+2026-05-29 08:50:11,212 - INFO - [Run dbd50175] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch initializes the variable 'y' with a value, fixing the NameError without altering the original intent or introducing new behavior."}
+2026-05-29 08:50:11,212 - INFO - [Run dbd50175] Orchestration completed — passed=True
+2026-05-29 08:50:11,213 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 08:50:11,213 - INFO - [Run 56b612c8] Orchestration started
+2026-05-29 08:50:11,213 - INFO - [Run 56b612c8] AnalyzerAgent started
+2026-05-29 08:50:11,213 - INFO - [Run 56b612c8] Analyzer attempt 1/2
+2026-05-29 08:50:14,257 - INFO - [Run 56b612c8] Analyzer latency: 3.0446s
+2026-05-29 08:50:14,257 - INFO - [Run 56b612c8] Analyzer succeeded on attempt 1
+2026-05-29 08:50:14,257 - INFO - [Run 56b612c8] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 08:50:14,257 - INFO - [Run 56b612c8] FixerAgent started
+2026-05-29 08:50:14,257 - INFO - [Run 56b612c8] Fixer attempt 1/2
+2026-05-29 08:50:17,700 - INFO - [Run 56b612c8] Fixer latency: 3.4422s
+2026-05-29 08:50:17,700 - INFO - [Run 56b612c8] Fixer succeeded on attempt 1
+2026-05-29 08:50:17,700 - INFO - [Run 56b612c8] FixerAgent completed
+2026-05-29 08:50:17,700 - INFO - [Run 56b612c8] Sandbox execution started
+2026-05-29 08:50:17,710 - INFO - [Run 56b612c8] Sandbox finished — returncode=0
+2026-05-29 08:50:17,711 - INFO - [Run 56b612c8] EvaluatorAgent started
+2026-05-29 08:50:17,711 - INFO - [Run 56b612c8] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 08:50:17,711 - INFO - [Run 56b612c8] Evaluator attempt 1/2
+2026-05-29 08:50:23,186 - INFO - [Run 56b612c8] Evaluator latency: 5.4747s
+2026-05-29 08:50:23,186 - INFO - [Run 56b612c8] Evaluator succeeded on attempt 1
+2026-05-29 08:50:23,186 - INFO - [Run 56b612c8] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch changes the value of 'y' to avoid division by zero, but it does not address the root cause of why 'y' was zero. This change alters the original program's intent."}
+2026-05-29 08:50:23,186 - INFO - [Run 56b612c8] Orchestration completed — passed=False
+2026-05-29 08:50:23,186 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 08:50:23,186 - INFO - [Run bd309071] Orchestration started
+2026-05-29 08:50:23,187 - INFO - [Run bd309071] AnalyzerAgent started
+2026-05-29 08:50:23,187 - INFO - [Run bd309071] Analyzer attempt 1/2
+2026-05-29 08:50:26,006 - INFO - [Run bd309071] Analyzer latency: 2.8194s
+2026-05-29 08:50:26,006 - INFO - [Run bd309071] Analyzer succeeded on attempt 1
+2026-05-29 08:50:26,006 - INFO - [Run bd309071] AnalyzerAgent completed: SyntaxError
+2026-05-29 08:50:26,006 - INFO - [Run bd309071] FixerAgent started
+2026-05-29 08:50:26,006 - INFO - [Run bd309071] Fixer attempt 1/2
+2026-05-29 08:50:29,380 - INFO - [Run bd309071] Fixer latency: 3.3735s
+2026-05-29 08:50:29,380 - INFO - [Run bd309071] Fixer succeeded on attempt 1
+2026-05-29 08:50:29,380 - INFO - [Run bd309071] FixerAgent completed
+2026-05-29 08:50:29,380 - INFO - [Run bd309071] Sandbox execution started
+2026-05-29 08:50:29,391 - INFO - [Run bd309071] Sandbox finished — returncode=0
+2026-05-29 08:50:29,391 - INFO - [Run bd309071] EvaluatorAgent started
+2026-05-29 08:50:29,391 - INFO - [Run bd309071] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 08:50:29,391 - INFO - [Run bd309071] Evaluator attempt 1/2
+2026-05-29 08:50:34,336 - INFO - [Run bd309071] Evaluator latency: 4.9449s
+2026-05-29 08:50:34,336 - INFO - [Run bd309071] Evaluator succeeded on attempt 1
+2026-05-29 08:50:34,336 - INFO - [Run bd309071] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any new issues.'}
+2026-05-29 08:50:34,336 - INFO - [Run bd309071] Orchestration completed — passed=True
+2026-05-29 08:50:34,337 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 08:50:34,337 - INFO - [Run b53c0a11] Orchestration started
+2026-05-29 08:50:34,337 - INFO - [Run b53c0a11] AnalyzerAgent started
+2026-05-29 08:50:34,337 - INFO - [Run b53c0a11] Analyzer attempt 1/2
+2026-05-29 08:50:38,235 - INFO - [Run b53c0a11] Analyzer latency: 3.8981s
+2026-05-29 08:50:38,235 - INFO - [Run b53c0a11] Analyzer succeeded on attempt 1
+2026-05-29 08:50:38,235 - INFO - [Run b53c0a11] AnalyzerAgent completed: IndexError
+2026-05-29 08:50:38,235 - INFO - [Run b53c0a11] FixerAgent started
+2026-05-29 08:50:38,235 - INFO - [Run b53c0a11] Fixer attempt 1/2
+2026-05-29 08:50:42,006 - INFO - [Run b53c0a11] Fixer latency: 3.7705s
+2026-05-29 08:50:42,006 - INFO - [Run b53c0a11] Fixer succeeded on attempt 1
+2026-05-29 08:50:42,006 - INFO - [Run b53c0a11] FixerAgent completed
+2026-05-29 08:50:42,006 - INFO - [Run b53c0a11] Sandbox execution started
+2026-05-29 08:50:42,018 - INFO - [Run b53c0a11] Sandbox finished — returncode=0
+2026-05-29 08:50:42,018 - INFO - [Run b53c0a11] EvaluatorAgent started
+2026-05-29 08:50:42,018 - INFO - [Run b53c0a11] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 08:50:42,018 - INFO - [Run b53c0a11] Evaluator attempt 1/2
+2026-05-29 08:50:48,446 - INFO - [Run b53c0a11] Evaluator latency: 6.4277s
+2026-05-29 08:50:48,446 - INFO - [Run b53c0a11] Evaluator succeeded on attempt 1
+2026-05-29 08:50:48,446 - INFO - [Run b53c0a11] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch changes the index from 5 to 2, which does not address the root cause of the bug (accessing an out-of-range index). It also does not preserve the original program's intent, as the original code was attempting to access the sixth element of a three-element list."}
+2026-05-29 08:50:48,446 - INFO - [Run b53c0a11] Orchestration completed — passed=False
+2026-05-29 09:12:37,870 - INFO - Initialising DebugOrchestrator
+2026-05-29 09:12:37,870 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 09:12:49,611 - INFO - Model loaded and set to eval mode
+2026-05-29 09:12:49,611 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 09:12:49,611 - INFO - [Run 42e17358] Orchestration started
+2026-05-29 09:12:49,611 - INFO - [Run 42e17358] AnalyzerAgent started
+2026-05-29 09:12:49,612 - INFO - [Run 42e17358] Analyzer attempt 1/2
+2026-05-29 09:12:53,031 - INFO - [Run 42e17358] Analyzer latency: 3.4198s
+2026-05-29 09:12:53,032 - INFO - [Run 42e17358] Analyzer succeeded on attempt 1
+2026-05-29 09:12:53,032 - INFO - [Run 42e17358] AnalyzerAgent completed: TypeError
+2026-05-29 09:12:53,032 - INFO - [Run 42e17358] FixerAgent started
+2026-05-29 09:12:53,032 - INFO - [Run 42e17358] Fixer attempt 1/2
+2026-05-29 09:12:56,429 - INFO - [Run 42e17358] Fixer latency: 3.3971s
+2026-05-29 09:12:56,429 - INFO - [Run 42e17358] Fixer succeeded on attempt 1
+2026-05-29 09:12:56,429 - INFO - [Run 42e17358] FixerAgent completed
+2026-05-29 09:12:56,429 - INFO - [Run 42e17358] Sandbox execution started
+2026-05-29 09:12:56,452 - INFO - [Run 42e17358] Sandbox finished — returncode=0
+2026-05-29 09:12:56,452 - INFO - [Run 42e17358] EvaluatorAgent started
+2026-05-29 09:12:56,453 - INFO - [Run 42e17358] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 09:31:00,386 - INFO - Initialising DebugOrchestrator
+2026-05-29 09:31:00,386 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 09:31:11,969 - INFO - Model loaded and set to eval mode
+2026-05-29 09:31:11,969 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 09:31:11,969 - INFO - [Run ef35593b] Orchestration started
+2026-05-29 09:31:11,969 - INFO - [Run ef35593b] AnalyzerAgent started
+2026-05-29 09:31:11,969 - INFO - [Run ef35593b] Analyzer attempt 1/2
+2026-05-29 09:31:15,588 - INFO - [Run ef35593b] Analyzer latency: 3.6189s
+2026-05-29 09:31:15,589 - INFO - [Run ef35593b] Analyzer succeeded on attempt 1
+2026-05-29 09:31:15,589 - INFO - [Run ef35593b] AnalyzerAgent completed: TypeError
+2026-05-29 09:31:15,589 - INFO - [Run ef35593b] FixerAgent started
+2026-05-29 09:31:15,589 - INFO - [Run ef35593b] Fixer attempt 1/2
+2026-05-29 09:31:19,030 - INFO - [Run ef35593b] Fixer latency: 3.4418s
+2026-05-29 09:31:19,031 - INFO - [Run ef35593b] Fixer succeeded on attempt 1
+2026-05-29 09:31:19,031 - INFO - [Run ef35593b] FixerAgent completed
+2026-05-29 09:31:19,031 - INFO - [Run ef35593b] Sandbox execution started
+2026-05-29 09:31:19,056 - INFO - [Run ef35593b] Sandbox finished — returncode=0
+2026-05-29 09:31:19,056 - INFO - [Run ef35593b] EvaluatorAgent started
+2026-05-29 09:31:19,056 - INFO - [Run ef35593b] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 09:31:19,056 - INFO - [Run ef35593b] Evaluator attempt 1/2
+2026-05-29 09:31:24,117 - INFO - [Run ef35593b] Evaluator latency: 5.0606s
+2026-05-29 09:31:24,117 - INFO - [Run ef35593b] Evaluator succeeded on attempt 1
+2026-05-29 09:31:24,117 - INFO - [Run ef35593b] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly casts the integer to a string to resolve the TypeError, preserving the original intent of concatenating two strings.'}
+2026-05-29 09:31:24,117 - INFO - [Run ef35593b] Orchestration completed — passed=True
+2026-05-29 09:31:24,118 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 09:31:24,118 - INFO - [Run 3a8ec1f8] Orchestration started
+2026-05-29 09:31:24,118 - INFO - [Run 3a8ec1f8] AnalyzerAgent started
+2026-05-29 09:31:24,118 - INFO - [Run 3a8ec1f8] Analyzer attempt 1/2
+2026-05-29 09:31:26,971 - INFO - [Run 3a8ec1f8] Analyzer latency: 2.8525s
+2026-05-29 09:31:26,971 - INFO - [Run 3a8ec1f8] Analyzer succeeded on attempt 1
+2026-05-29 09:31:26,971 - INFO - [Run 3a8ec1f8] AnalyzerAgent completed: NameError
+2026-05-29 09:31:26,971 - INFO - [Run 3a8ec1f8] FixerAgent started
+2026-05-29 09:31:26,971 - INFO - [Run 3a8ec1f8] Fixer attempt 1/2
+2026-05-29 09:31:30,362 - INFO - [Run 3a8ec1f8] Fixer latency: 3.3909s
+2026-05-29 09:31:30,362 - INFO - [Run 3a8ec1f8] Fixer succeeded on attempt 1
+2026-05-29 09:31:30,362 - INFO - [Run 3a8ec1f8] FixerAgent completed
+2026-05-29 09:31:30,362 - INFO - [Run 3a8ec1f8] Sandbox execution started
+2026-05-29 09:31:30,388 - INFO - [Run 3a8ec1f8] Sandbox finished — returncode=0
+2026-05-29 09:31:30,389 - INFO - [Run 3a8ec1f8] EvaluatorAgent started
+2026-05-29 09:31:30,389 - INFO - [Run 3a8ec1f8] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 09:31:30,389 - INFO - [Run 3a8ec1f8] Evaluator attempt 1/2
+2026-05-29 09:31:35,836 - INFO - [Run 3a8ec1f8] Evaluator latency: 5.4468s
+2026-05-29 09:31:35,836 - INFO - [Run 3a8ec1f8] Evaluator succeeded on attempt 1
+2026-05-29 09:31:35,836 - INFO - [Run 3a8ec1f8] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 09:31:35,836 - INFO - [Run 3a8ec1f8] Orchestration completed — passed=False
+2026-05-29 09:31:35,837 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 09:31:35,837 - INFO - [Run 4bc513dc] Orchestration started
+2026-05-29 09:31:35,837 - INFO - [Run 4bc513dc] AnalyzerAgent started
+2026-05-29 09:31:35,837 - INFO - [Run 4bc513dc] Analyzer attempt 1/2
+2026-05-29 09:31:39,469 - INFO - [Run 4bc513dc] Analyzer latency: 3.6325s
+2026-05-29 09:31:39,469 - INFO - [Run 4bc513dc] Analyzer succeeded on attempt 1
+2026-05-29 09:31:39,469 - INFO - [Run 4bc513dc] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 09:31:39,469 - INFO - [Run 4bc513dc] FixerAgent started
+2026-05-29 09:31:39,470 - INFO - [Run 4bc513dc] Fixer attempt 1/2
+2026-05-29 09:31:42,967 - INFO - [Run 4bc513dc] Fixer latency: 3.4977s
+2026-05-29 09:31:42,967 - INFO - [Run 4bc513dc] Fixer succeeded on attempt 1
+2026-05-29 09:31:42,968 - INFO - [Run 4bc513dc] FixerAgent completed
+2026-05-29 09:31:42,968 - INFO - [Run 4bc513dc] Sandbox execution started
+2026-05-29 09:31:42,992 - INFO - [Run 4bc513dc] Sandbox finished — returncode=0
+2026-05-29 09:31:42,992 - INFO - [Run 4bc513dc] EvaluatorAgent started
+2026-05-29 09:31:42,992 - INFO - [Run 4bc513dc] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 09:31:42,992 - INFO - [Run 4bc513dc] Evaluator attempt 1/2
+2026-05-29 09:31:49,034 - INFO - [Run 4bc513dc] Evaluator latency: 6.0413s
+2026-05-29 09:31:49,034 - INFO - [Run 4bc513dc] Evaluator succeeded on attempt 1
+2026-05-29 09:31:49,034 - INFO - [Run 4bc513dc] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the divisor from 0 to 1, which bypasses the error without addressing why the divisor was zero. This changes the program's behavior and does not preserve the original intent."}
+2026-05-29 09:31:49,034 - INFO - [Run 4bc513dc] Orchestration completed — passed=False
+2026-05-29 09:31:49,035 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 09:31:49,035 - INFO - [Run 2a67af31] Orchestration started
+2026-05-29 09:31:49,035 - INFO - [Run 2a67af31] AnalyzerAgent started
+2026-05-29 09:31:49,035 - INFO - [Run 2a67af31] Analyzer attempt 1/2
+2026-05-29 09:31:52,029 - INFO - [Run 2a67af31] Analyzer latency: 2.9948s
+2026-05-29 09:31:52,030 - INFO - [Run 2a67af31] Analyzer succeeded on attempt 1
+2026-05-29 09:31:52,030 - INFO - [Run 2a67af31] AnalyzerAgent completed: SyntaxError
+2026-05-29 09:31:52,030 - INFO - [Run 2a67af31] FixerAgent started
+2026-05-29 09:31:52,030 - INFO - [Run 2a67af31] Fixer attempt 1/2
+2026-05-29 09:31:55,454 - INFO - [Run 2a67af31] Fixer latency: 3.4248s
+2026-05-29 09:31:55,455 - INFO - [Run 2a67af31] Fixer succeeded on attempt 1
+2026-05-29 09:31:55,455 - INFO - [Run 2a67af31] FixerAgent completed
+2026-05-29 09:31:55,455 - INFO - [Run 2a67af31] Sandbox execution started
+2026-05-29 09:31:55,473 - INFO - [Run 2a67af31] Sandbox finished — returncode=0
+2026-05-29 09:31:55,473 - INFO - [Run 2a67af31] EvaluatorAgent started
+2026-05-29 09:31:55,473 - INFO - [Run 2a67af31] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 09:31:55,473 - INFO - [Run 2a67af31] Evaluator attempt 1/2
+2026-05-29 09:32:00,448 - INFO - [Run 2a67af31] Evaluator latency: 4.9750s
+2026-05-29 09:32:00,449 - INFO - [Run 2a67af31] Evaluator succeeded on attempt 1
+2026-05-29 09:32:00,449 - INFO - [Run 2a67af31] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon, fixing the syntax error without altering the original intent or introducing new behavior.'}
+2026-05-29 09:32:00,449 - INFO - [Run 2a67af31] Orchestration completed — passed=True
+2026-05-29 09:32:00,449 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 09:32:00,449 - INFO - [Run 44d5426d] Orchestration started
+2026-05-29 09:32:00,449 - INFO - [Run 44d5426d] AnalyzerAgent started
+2026-05-29 09:32:00,449 - INFO - [Run 44d5426d] Analyzer attempt 1/2
+2026-05-29 09:32:04,414 - INFO - [Run 44d5426d] Analyzer latency: 3.9646s
+2026-05-29 09:32:04,414 - INFO - [Run 44d5426d] Analyzer succeeded on attempt 1
+2026-05-29 09:32:04,414 - INFO - [Run 44d5426d] AnalyzerAgent completed: IndexError
+2026-05-29 09:32:04,414 - INFO - [Run 44d5426d] FixerAgent started
+2026-05-29 09:32:04,414 - INFO - [Run 44d5426d] Fixer attempt 1/2
+2026-05-29 09:32:08,370 - INFO - [Run 44d5426d] Fixer latency: 3.9554s
+2026-05-29 09:32:08,370 - INFO - [Run 44d5426d] Fixer succeeded on attempt 1
+2026-05-29 09:32:08,370 - INFO - [Run 44d5426d] FixerAgent completed
+2026-05-29 09:32:08,370 - INFO - [Run 44d5426d] Sandbox execution started
+2026-05-29 09:32:08,394 - INFO - [Run 44d5426d] Sandbox finished — returncode=0
+2026-05-29 09:32:08,394 - INFO - [Run 44d5426d] EvaluatorAgent started
+2026-05-29 09:32:08,394 - INFO - [Run 44d5426d] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 09:32:08,394 - INFO - [Run 44d5426d] Evaluator attempt 1/2
+2026-05-29 09:32:13,935 - INFO - [Run 44d5426d] Evaluator latency: 5.5409s
+2026-05-29 09:32:13,935 - INFO - [Run 44d5426d] Evaluator succeeded on attempt 1
+2026-05-29 09:32:13,935 - INFO - [Run 44d5426d] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 09:32:13,935 - INFO - [Run 44d5426d] Orchestration completed — passed=False
+2026-05-29 10:12:39,109 - INFO - Initialising DebugOrchestrator
+2026-05-29 10:12:39,109 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 10:12:50,926 - INFO - Model loaded and set to eval mode
+2026-05-29 10:12:50,927 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 10:12:50,927 - INFO - [Run 1737581e] Orchestration started
+2026-05-29 10:12:50,927 - INFO - [Run 1737581e] AnalyzerAgent started
+2026-05-29 10:12:50,927 - INFO - [Run 1737581e] Analyzer attempt 1/2
+2026-05-29 10:12:54,293 - INFO - [Run 1737581e] Analyzer latency: 3.3666s
+2026-05-29 10:12:54,294 - INFO - [Run 1737581e] Analyzer succeeded on attempt 1
+2026-05-29 10:12:54,294 - INFO - [Run 1737581e] AnalyzerAgent completed: TypeError
+2026-05-29 10:12:54,294 - INFO - [Run 1737581e] FixerAgent started
+2026-05-29 10:12:54,294 - INFO - [Run 1737581e] Fixer attempt 1/2
+2026-05-29 10:12:56,245 - INFO - [Run 1737581e] Fixer latency: 1.9516s
+2026-05-29 10:12:56,246 - ERROR - [Run 1737581e] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = '5'\ny = 2\nprint(x + str(y))</patched_code>
+2026-05-29 10:12:56,246 - INFO - [Run 1737581e] Fixer attempt 2/2
+2026-05-29 10:12:58,402 - INFO - [Run 1737581e] Fixer latency: 2.1562s
+2026-05-29 10:12:58,402 - ERROR - [Run 1737581e] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:12:58,402 - ERROR - [Run 1737581e] Fixer failed after 2 attempts
+2026-05-29 10:12:58,402 - ERROR - [Run 1737581e] FixerAgent returning failure sentinel
+2026-05-29 10:12:58,402 - ERROR - [Run 1737581e] Fix failed — aborting pipeline
+2026-05-29 10:12:58,403 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 10:12:58,403 - INFO - [Run 1d599d6f] Orchestration started
+2026-05-29 10:12:58,403 - INFO - [Run 1d599d6f] AnalyzerAgent started
+2026-05-29 10:12:58,403 - INFO - [Run 1d599d6f] Analyzer attempt 1/2
+2026-05-29 10:13:01,202 - INFO - [Run 1d599d6f] Analyzer latency: 2.7992s
+2026-05-29 10:13:01,202 - INFO - [Run 1d599d6f] Analyzer succeeded on attempt 1
+2026-05-29 10:13:01,202 - INFO - [Run 1d599d6f] AnalyzerAgent completed: NameError
+2026-05-29 10:13:01,202 - INFO - [Run 1d599d6f] FixerAgent started
+2026-05-29 10:13:01,202 - INFO - [Run 1d599d6f] Fixer attempt 1/2
+2026-05-29 10:13:03,249 - INFO - [Run 1d599d6f] Fixer latency: 2.0467s
+2026-05-29 10:13:03,249 - ERROR - [Run 1d599d6f] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = 5\ny = None\nprint(y)</patched_code>
+<confidence>Low</confidence>
+2026-05-29 10:13:03,249 - INFO - [Run 1d599d6f] Fixer attempt 2/2
+2026-05-29 10:13:05,119 - INFO - [Run 1d599d6f] Fixer latency: 1.8702s
+2026-05-29 10:13:05,120 - ERROR - [Run 1d599d6f] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:13:05,120 - ERROR - [Run 1d599d6f] Fixer failed after 2 attempts
+2026-05-29 10:13:05,120 - ERROR - [Run 1d599d6f] FixerAgent returning failure sentinel
+2026-05-29 10:13:05,120 - ERROR - [Run 1d599d6f] Fix failed — aborting pipeline
+2026-05-29 10:13:05,120 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 10:13:05,120 - INFO - [Run 4c1b6e43] Orchestration started
+2026-05-29 10:13:05,120 - INFO - [Run 4c1b6e43] AnalyzerAgent started
+2026-05-29 10:13:05,120 - INFO - [Run 4c1b6e43] Analyzer attempt 1/2
+2026-05-29 10:13:08,120 - INFO - [Run 4c1b6e43] Analyzer latency: 2.9998s
+2026-05-29 10:13:08,120 - INFO - [Run 4c1b6e43] Analyzer succeeded on attempt 1
+2026-05-29 10:13:08,120 - INFO - [Run 4c1b6e43] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 10:13:08,120 - INFO - [Run 4c1b6e43] FixerAgent started
+2026-05-29 10:13:08,120 - INFO - [Run 4c1b6e43] Fixer attempt 1/2
+2026-05-29 10:13:11,730 - INFO - [Run 4c1b6e43] Fixer latency: 3.6095s
+2026-05-29 10:13:11,730 - ERROR - [Run 4c1b6e43] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = 10\ny = 0\n# print(x / y)\n</patched_code>\n<low_confidence>Commented out the division by zero to prevent the error while preserving the original structure.</low_confidence>
+2026-05-29 10:13:11,730 - INFO - [Run 4c1b6e43] Fixer attempt 2/2
+2026-05-29 10:13:14,601 - INFO - [Run 4c1b6e43] Fixer latency: 2.8715s
+2026-05-29 10:13:14,602 - ERROR - [Run 4c1b6e43] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:13:14,602 - ERROR - [Run 4c1b6e43] Fixer failed after 2 attempts
+2026-05-29 10:13:14,602 - ERROR - [Run 4c1b6e43] FixerAgent returning failure sentinel
+2026-05-29 10:13:14,602 - ERROR - [Run 4c1b6e43] Fix failed — aborting pipeline
+2026-05-29 10:13:14,602 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 10:13:14,602 - INFO - [Run dd9ce691] Orchestration started
+2026-05-29 10:13:14,602 - INFO - [Run dd9ce691] AnalyzerAgent started
+2026-05-29 10:13:14,602 - INFO - [Run dd9ce691] Analyzer attempt 1/2
+2026-05-29 10:13:17,515 - INFO - [Run dd9ce691] Analyzer latency: 2.9134s
+2026-05-29 10:13:17,516 - INFO - [Run dd9ce691] Analyzer succeeded on attempt 1
+2026-05-29 10:13:17,516 - INFO - [Run dd9ce691] AnalyzerAgent completed: SyntaxError
+2026-05-29 10:13:17,516 - INFO - [Run dd9ce691] FixerAgent started
+2026-05-29 10:13:17,516 - INFO - [Run dd9ce691] Fixer attempt 1/2
+2026-05-29 10:13:19,255 - INFO - [Run dd9ce691] Fixer latency: 1.7388s
+2026-05-29 10:13:19,255 - ERROR - [Run dd9ce691] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-29 10:13:19,255 - INFO - [Run dd9ce691] Fixer attempt 2/2
+2026-05-29 10:13:21,102 - INFO - [Run dd9ce691] Fixer latency: 1.8473s
+2026-05-29 10:13:21,102 - ERROR - [Run dd9ce691] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:13:21,102 - ERROR - [Run dd9ce691] Fixer failed after 2 attempts
+2026-05-29 10:13:21,102 - ERROR - [Run dd9ce691] FixerAgent returning failure sentinel
+2026-05-29 10:13:21,102 - ERROR - [Run dd9ce691] Fix failed — aborting pipeline
+2026-05-29 10:13:21,103 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 10:13:21,103 - INFO - [Run 139214ad] Orchestration started
+2026-05-29 10:13:21,103 - INFO - [Run 139214ad] AnalyzerAgent started
+2026-05-29 10:13:21,103 - INFO - [Run 139214ad] Analyzer attempt 1/2
+2026-05-29 10:13:24,948 - INFO - [Run 139214ad] Analyzer latency: 3.8450s
+2026-05-29 10:13:24,948 - INFO - [Run 139214ad] Analyzer succeeded on attempt 1
+2026-05-29 10:13:24,948 - INFO - [Run 139214ad] AnalyzerAgent completed: IndexError
+2026-05-29 10:13:24,948 - INFO - [Run 139214ad] FixerAgent started
+2026-05-29 10:13:24,948 - INFO - [Run 139214ad] Fixer attempt 1/2
+2026-05-29 10:13:27,436 - INFO - [Run 139214ad] Fixer latency: 2.4877s
+2026-05-29 10:13:27,436 - ERROR - [Run 139214ad] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+<confidence>low</confidence>
+2026-05-29 10:13:27,436 - INFO - [Run 139214ad] Fixer attempt 2/2
+2026-05-29 10:13:29,674 - INFO - [Run 139214ad] Fixer latency: 2.2384s
+2026-05-29 10:13:29,674 - ERROR - [Run 139214ad] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:13:29,674 - ERROR - [Run 139214ad] Fixer failed after 2 attempts
+2026-05-29 10:13:29,674 - ERROR - [Run 139214ad] FixerAgent returning failure sentinel
+2026-05-29 10:13:29,674 - ERROR - [Run 139214ad] Fix failed — aborting pipeline
+2026-05-29 10:13:57,022 - INFO - Initialising DebugOrchestrator
+2026-05-29 10:13:57,022 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 10:14:08,692 - INFO - Model loaded and set to eval mode
+2026-05-29 10:14:08,692 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 10:14:08,693 - INFO - [Run 88bbee79] Orchestration started
+2026-05-29 10:14:08,693 - INFO - [Run 88bbee79] AnalyzerAgent started
+2026-05-29 10:14:08,693 - INFO - [Run 88bbee79] Analyzer attempt 1/2
+2026-05-29 10:14:12,090 - INFO - [Run 88bbee79] Analyzer latency: 3.3969s
+2026-05-29 10:14:12,090 - INFO - [Run 88bbee79] Analyzer succeeded on attempt 1
+2026-05-29 10:14:12,090 - INFO - [Run 88bbee79] AnalyzerAgent completed: TypeError
+2026-05-29 10:14:12,090 - INFO - [Run 88bbee79] FixerAgent started
+2026-05-29 10:14:12,090 - INFO - [Run 88bbee79] Fixer attempt 1/2
+2026-05-29 10:14:14,030 - INFO - [Run 88bbee79] Fixer latency: 1.9399s
+2026-05-29 10:14:14,030 - ERROR - [Run 88bbee79] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = '5'\ny = 2\nprint(x + str(y))</patched_code>
+2026-05-29 10:14:14,030 - INFO - [Run 88bbee79] Fixer attempt 2/2
+2026-05-29 10:14:16,203 - INFO - [Run 88bbee79] Fixer latency: 2.1729s
+2026-05-29 10:14:16,203 - ERROR - [Run 88bbee79] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:14:16,203 - ERROR - [Run 88bbee79] Fixer failed after 2 attempts
+2026-05-29 10:14:16,203 - ERROR - [Run 88bbee79] FixerAgent returning failure sentinel
+2026-05-29 10:14:16,203 - ERROR - [Run 88bbee79] Fix failed — aborting pipeline
+2026-05-29 10:14:16,204 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 10:14:16,204 - INFO - [Run 1af98cfa] Orchestration started
+2026-05-29 10:14:16,204 - INFO - [Run 1af98cfa] AnalyzerAgent started
+2026-05-29 10:14:16,204 - INFO - [Run 1af98cfa] Analyzer attempt 1/2
+2026-05-29 10:14:18,948 - INFO - [Run 1af98cfa] Analyzer latency: 2.7439s
+2026-05-29 10:14:18,948 - INFO - [Run 1af98cfa] Analyzer succeeded on attempt 1
+2026-05-29 10:14:18,948 - INFO - [Run 1af98cfa] AnalyzerAgent completed: NameError
+2026-05-29 10:14:18,948 - INFO - [Run 1af98cfa] FixerAgent started
+2026-05-29 10:14:18,948 - INFO - [Run 1af98cfa] Fixer attempt 1/2
+2026-05-29 10:14:21,121 - INFO - [Run 1af98cfa] Fixer latency: 2.1734s
+2026-05-29 10:14:21,122 - ERROR - [Run 1af98cfa] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = 5\ny = None\nprint(y)</patched_code>
+<confidence>Low</confidence>
+2026-05-29 10:14:21,122 - INFO - [Run 1af98cfa] Fixer attempt 2/2
+2026-05-29 10:14:22,978 - INFO - [Run 1af98cfa] Fixer latency: 1.8558s
+2026-05-29 10:14:22,978 - ERROR - [Run 1af98cfa] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:14:22,978 - ERROR - [Run 1af98cfa] Fixer failed after 2 attempts
+2026-05-29 10:14:22,978 - ERROR - [Run 1af98cfa] FixerAgent returning failure sentinel
+2026-05-29 10:14:22,978 - ERROR - [Run 1af98cfa] Fix failed — aborting pipeline
+2026-05-29 10:14:22,978 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 10:14:22,978 - INFO - [Run 69fc2d30] Orchestration started
+2026-05-29 10:14:22,978 - INFO - [Run 69fc2d30] AnalyzerAgent started
+2026-05-29 10:14:22,978 - INFO - [Run 69fc2d30] Analyzer attempt 1/2
+2026-05-29 10:14:25,977 - INFO - [Run 69fc2d30] Analyzer latency: 2.9990s
+2026-05-29 10:14:25,977 - INFO - [Run 69fc2d30] Analyzer succeeded on attempt 1
+2026-05-29 10:14:25,977 - INFO - [Run 69fc2d30] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 10:14:25,977 - INFO - [Run 69fc2d30] FixerAgent started
+2026-05-29 10:14:25,977 - INFO - [Run 69fc2d30] Fixer attempt 1/2
+2026-05-29 10:14:29,579 - INFO - [Run 69fc2d30] Fixer latency: 3.6018s
+2026-05-29 10:14:29,579 - ERROR - [Run 69fc2d30] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>x = 10\ny = 0\n# print(x / y)\n</patched_code>\n<low_confidence>Commented out the division by zero to prevent the error while preserving the original structure.</low_confidence>
+2026-05-29 10:14:29,579 - INFO - [Run 69fc2d30] Fixer attempt 2/2
+2026-05-29 10:14:32,556 - INFO - [Run 69fc2d30] Fixer latency: 2.9761s
+2026-05-29 10:14:32,556 - ERROR - [Run 69fc2d30] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:14:32,556 - ERROR - [Run 69fc2d30] Fixer failed after 2 attempts
+2026-05-29 10:14:32,556 - ERROR - [Run 69fc2d30] FixerAgent returning failure sentinel
+2026-05-29 10:14:32,556 - ERROR - [Run 69fc2d30] Fix failed — aborting pipeline
+2026-05-29 10:14:32,556 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 10:14:32,556 - INFO - [Run a0bd46bf] Orchestration started
+2026-05-29 10:14:32,556 - INFO - [Run a0bd46bf] AnalyzerAgent started
+2026-05-29 10:14:32,556 - INFO - [Run a0bd46bf] Analyzer attempt 1/2
+2026-05-29 10:14:35,412 - INFO - [Run a0bd46bf] Analyzer latency: 2.8554s
+2026-05-29 10:14:35,412 - INFO - [Run a0bd46bf] Analyzer succeeded on attempt 1
+2026-05-29 10:14:35,412 - INFO - [Run a0bd46bf] AnalyzerAgent completed: SyntaxError
+2026-05-29 10:14:35,412 - INFO - [Run a0bd46bf] FixerAgent started
+2026-05-29 10:14:35,412 - INFO - [Run a0bd46bf] Fixer attempt 1/2
+2026-05-29 10:14:37,116 - INFO - [Run a0bd46bf] Fixer latency: 1.7040s
+2026-05-29 10:14:37,116 - ERROR - [Run a0bd46bf] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-29 10:14:37,116 - INFO - [Run a0bd46bf] Fixer attempt 2/2
+2026-05-29 10:14:38,961 - INFO - [Run a0bd46bf] Fixer latency: 1.8452s
+2026-05-29 10:14:38,962 - ERROR - [Run a0bd46bf] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:14:38,962 - ERROR - [Run a0bd46bf] Fixer failed after 2 attempts
+2026-05-29 10:14:38,962 - ERROR - [Run a0bd46bf] FixerAgent returning failure sentinel
+2026-05-29 10:14:38,962 - ERROR - [Run a0bd46bf] Fix failed — aborting pipeline
+2026-05-29 10:14:38,962 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 10:14:38,962 - INFO - [Run db0e75a8] Orchestration started
+2026-05-29 10:14:38,962 - INFO - [Run db0e75a8] AnalyzerAgent started
+2026-05-29 10:14:38,962 - INFO - [Run db0e75a8] Analyzer attempt 1/2
+2026-05-29 10:14:42,813 - INFO - [Run db0e75a8] Analyzer latency: 3.8507s
+2026-05-29 10:14:42,813 - INFO - [Run db0e75a8] Analyzer succeeded on attempt 1
+2026-05-29 10:14:42,813 - INFO - [Run db0e75a8] AnalyzerAgent completed: IndexError
+2026-05-29 10:14:42,813 - INFO - [Run db0e75a8] FixerAgent started
+2026-05-29 10:14:42,813 - INFO - [Run db0e75a8] Fixer attempt 1/2
+2026-05-29 10:14:45,321 - INFO - [Run db0e75a8] Fixer latency: 2.5077s
+2026-05-29 10:14:45,321 - ERROR - [Run db0e75a8] Fixer attempt 1 failed: No <json> block found in output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+<confidence>low</confidence>
+2026-05-29 10:14:45,321 - INFO - [Run db0e75a8] Fixer attempt 2/2
+2026-05-29 10:14:47,660 - INFO - [Run db0e75a8] Fixer latency: 2.3395s
+2026-05-29 10:14:47,671 - ERROR - [Run db0e75a8] Fixer attempt 2 failed: Missing keys in fixer output: {'explanation'}
+2026-05-29 10:14:47,671 - ERROR - [Run db0e75a8] Fixer failed after 2 attempts
+2026-05-29 10:14:47,671 - ERROR - [Run db0e75a8] FixerAgent returning failure sentinel
+2026-05-29 10:14:47,671 - ERROR - [Run db0e75a8] Fix failed — aborting pipeline
+2026-05-29 10:16:56,065 - INFO - Initialising DebugOrchestrator
+2026-05-29 10:16:56,065 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 10:17:07,601 - INFO - Model loaded and set to eval mode
+2026-05-29 10:17:07,601 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 10:17:07,601 - INFO - [Run 7e749587] Orchestration started
+2026-05-29 10:17:07,601 - INFO - [Run 7e749587] AnalyzerAgent started
+2026-05-29 10:17:07,601 - INFO - [Run 7e749587] Analyzer attempt 1/2
+2026-05-29 10:17:10,949 - INFO - [Run 7e749587] Analyzer latency: 3.3479s
+2026-05-29 10:17:10,949 - INFO - [Run 7e749587] Analyzer succeeded on attempt 1
+2026-05-29 10:17:10,950 - INFO - [Run 7e749587] AnalyzerAgent completed: TypeError
+2026-05-29 10:17:10,950 - INFO - [Run 7e749587] FixerAgent started
+2026-05-29 10:17:10,950 - INFO - [Run 7e749587] Fixer attempt 1/2
+2026-05-29 10:17:14,393 - INFO - [Run 7e749587] Fixer latency: 3.4431s
+2026-05-29 10:17:14,393 - INFO - [Run 7e749587] Fixer succeeded on attempt 1
+2026-05-29 10:17:14,393 - INFO - [Run 7e749587] FixerAgent completed
+2026-05-29 10:17:14,393 - INFO - [Run 7e749587] Sandbox execution started
+2026-05-29 10:17:14,403 - INFO - [Run 7e749587] Sandbox finished — returncode=0
+2026-05-29 10:17:14,403 - INFO - [Run 7e749587] EvaluatorAgent started
+2026-05-29 10:17:14,403 - INFO - [Run 7e749587] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 10:17:14,403 - INFO - [Run 7e749587] Evaluator attempt 1/2
+2026-05-29 10:17:19,335 - INFO - [Run 7e749587] Evaluator latency: 4.9315s
+2026-05-29 10:17:19,335 - INFO - [Run 7e749587] Evaluator succeeded on attempt 1
+2026-05-29 10:17:19,335 - INFO - [Run 7e749587] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly casts the integer to a string to resolve the TypeError, preserving the original intent of concatenating two strings.'}
+2026-05-29 10:17:19,335 - INFO - [Run 7e749587] Orchestration completed — passed=True
+2026-05-29 10:17:19,336 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 10:17:19,336 - INFO - [Run 4a9e8e42] Orchestration started
+2026-05-29 10:17:19,336 - INFO - [Run 4a9e8e42] AnalyzerAgent started
+2026-05-29 10:17:19,336 - INFO - [Run 4a9e8e42] Analyzer attempt 1/2
+2026-05-29 10:17:22,131 - INFO - [Run 4a9e8e42] Analyzer latency: 2.7948s
+2026-05-29 10:17:22,131 - INFO - [Run 4a9e8e42] Analyzer succeeded on attempt 1
+2026-05-29 10:17:22,131 - INFO - [Run 4a9e8e42] AnalyzerAgent completed: NameError
+2026-05-29 10:17:22,131 - INFO - [Run 4a9e8e42] FixerAgent started
+2026-05-29 10:17:22,131 - INFO - [Run 4a9e8e42] Fixer attempt 1/2
+2026-05-29 10:17:25,473 - INFO - [Run 4a9e8e42] Fixer latency: 3.3426s
+2026-05-29 10:17:25,474 - INFO - [Run 4a9e8e42] Fixer succeeded on attempt 1
+2026-05-29 10:17:25,474 - INFO - [Run 4a9e8e42] FixerAgent completed
+2026-05-29 10:17:25,474 - INFO - [Run 4a9e8e42] Sandbox execution started
+2026-05-29 10:17:25,483 - INFO - [Run 4a9e8e42] Sandbox finished — returncode=0
+2026-05-29 10:17:25,483 - INFO - [Run 4a9e8e42] EvaluatorAgent started
+2026-05-29 10:17:25,483 - INFO - [Run 4a9e8e42] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 10:17:25,484 - INFO - [Run 4a9e8e42] Evaluator attempt 1/2
+2026-05-29 10:17:30,798 - INFO - [Run 4a9e8e42] Evaluator latency: 5.3147s
+2026-05-29 10:17:30,799 - INFO - [Run 4a9e8e42] Evaluator succeeded on attempt 1
+2026-05-29 10:17:30,799 - INFO - [Run 4a9e8e42] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 10:17:30,799 - INFO - [Run 4a9e8e42] Orchestration completed — passed=False
+2026-05-29 10:17:30,799 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 10:17:30,799 - INFO - [Run e01105c8] Orchestration started
+2026-05-29 10:17:30,799 - INFO - [Run e01105c8] AnalyzerAgent started
+2026-05-29 10:17:30,799 - INFO - [Run e01105c8] Analyzer attempt 1/2
+2026-05-29 10:17:33,815 - INFO - [Run e01105c8] Analyzer latency: 3.0159s
+2026-05-29 10:17:33,815 - INFO - [Run e01105c8] Analyzer succeeded on attempt 1
+2026-05-29 10:17:33,815 - INFO - [Run e01105c8] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 10:17:33,815 - INFO - [Run e01105c8] FixerAgent started
+2026-05-29 10:17:33,815 - INFO - [Run e01105c8] Fixer attempt 1/2
+2026-05-29 10:17:37,634 - INFO - [Run e01105c8] Fixer latency: 3.8182s
+2026-05-29 10:17:37,634 - INFO - [Run e01105c8] Fixer succeeded on attempt 1
+2026-05-29 10:17:37,634 - INFO - [Run e01105c8] FixerAgent completed
+2026-05-29 10:17:37,634 - INFO - [Run e01105c8] Sandbox execution started
+2026-05-29 10:17:37,658 - INFO - [Run e01105c8] Sandbox finished — returncode=0
+2026-05-29 10:17:37,658 - INFO - [Run e01105c8] EvaluatorAgent started
+2026-05-29 10:17:37,658 - INFO - [Run e01105c8] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 10:17:37,658 - INFO - [Run e01105c8] Evaluator attempt 1/2
+2026-05-29 10:17:43,159 - INFO - [Run e01105c8] Evaluator latency: 5.5003s
+2026-05-29 10:17:43,159 - INFO - [Run e01105c8] Evaluator succeeded on attempt 1
+2026-05-29 10:17:43,159 - INFO - [Run e01105c8] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 10:17:43,159 - INFO - [Run e01105c8] Orchestration completed — passed=False
+2026-05-29 10:17:43,159 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 10:17:43,159 - INFO - [Run 14a6bb51] Orchestration started
+2026-05-29 10:17:43,159 - INFO - [Run 14a6bb51] AnalyzerAgent started
+2026-05-29 10:17:43,159 - INFO - [Run 14a6bb51] Analyzer attempt 1/2
+2026-05-29 10:17:46,019 - INFO - [Run 14a6bb51] Analyzer latency: 2.8595s
+2026-05-29 10:17:46,019 - INFO - [Run 14a6bb51] Analyzer succeeded on attempt 1
+2026-05-29 10:17:46,019 - INFO - [Run 14a6bb51] AnalyzerAgent completed: SyntaxError
+2026-05-29 10:17:46,019 - INFO - [Run 14a6bb51] FixerAgent started
+2026-05-29 10:17:46,019 - INFO - [Run 14a6bb51] Fixer attempt 1/2
+2026-05-29 10:17:48,815 - INFO - [Run 14a6bb51] Fixer latency: 2.7956s
+2026-05-29 10:17:48,815 - INFO - [Run 14a6bb51] Fixer succeeded on attempt 1
+2026-05-29 10:17:48,815 - INFO - [Run 14a6bb51] FixerAgent completed
+2026-05-29 10:17:48,815 - INFO - [Run 14a6bb51] Sandbox execution started
+2026-05-29 10:17:48,838 - INFO - [Run 14a6bb51] Sandbox finished — returncode=0
+2026-05-29 10:17:48,838 - INFO - [Run 14a6bb51] EvaluatorAgent started
+2026-05-29 10:17:48,838 - INFO - [Run 14a6bb51] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 10:17:48,839 - INFO - [Run 14a6bb51] Evaluator attempt 1/2
+2026-05-29 10:17:53,659 - INFO - [Run 14a6bb51] Evaluator latency: 4.8209s
+2026-05-29 10:17:53,660 - INFO - [Run 14a6bb51] Evaluator succeeded on attempt 1
+2026-05-29 10:17:53,660 - INFO - [Run 14a6bb51] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon, fixing the syntax error without altering the original intent or introducing new behavior.'}
+2026-05-29 10:17:53,660 - INFO - [Run 14a6bb51] Orchestration completed — passed=True
+2026-05-29 10:17:53,660 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 10:17:53,660 - INFO - [Run 256685ec] Orchestration started
+2026-05-29 10:17:53,660 - INFO - [Run 256685ec] AnalyzerAgent started
+2026-05-29 10:17:53,660 - INFO - [Run 256685ec] Analyzer attempt 1/2
+2026-05-29 10:17:57,493 - INFO - [Run 256685ec] Analyzer latency: 3.8325s
+2026-05-29 10:17:57,493 - INFO - [Run 256685ec] Analyzer succeeded on attempt 1
+2026-05-29 10:17:57,493 - INFO - [Run 256685ec] AnalyzerAgent completed: IndexError
+2026-05-29 10:17:57,493 - INFO - [Run 256685ec] FixerAgent started
+2026-05-29 10:17:57,493 - INFO - [Run 256685ec] Fixer attempt 1/2
+2026-05-29 10:18:01,692 - INFO - [Run 256685ec] Fixer latency: 4.1991s
+2026-05-29 10:18:01,692 - INFO - [Run 256685ec] Fixer succeeded on attempt 1
+2026-05-29 10:18:01,692 - INFO - [Run 256685ec] FixerAgent completed
+2026-05-29 10:18:01,692 - INFO - [Run 256685ec] Sandbox execution started
+2026-05-29 10:18:01,716 - INFO - [Run 256685ec] Sandbox finished — returncode=0
+2026-05-29 10:18:01,716 - INFO - [Run 256685ec] EvaluatorAgent started
+2026-05-29 10:18:01,717 - INFO - [Run 256685ec] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 10:18:01,717 - INFO - [Run 256685ec] Evaluator attempt 1/2
+2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Evaluator latency: 5.3542s
+2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Evaluator succeeded on attempt 1
+2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Orchestration completed — passed=False
