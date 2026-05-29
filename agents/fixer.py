@@ -40,6 +40,51 @@ Avoid:
     # ------------------------------------------------------------------
 
     def _build_prompt(self, context: dict) -> str:
+        retry_section = ""
+
+        # ----------------------------------------------------------
+        # If a previous repair failed evaluation,
+        # inject critique-aware retry guidance
+        # ----------------------------------------------------------
+        if "critique" in context:
+
+            retry_section = f"""
+
+==================================================
+PREVIOUS PATCH FAILED EVALUATION
+==================================================
+
+Failed patch:
+{context["fix"]["patched_code"]}
+
+Evaluator reasoning:
+{context["evaluation"]["reasoning"]}
+
+Failure type:
+{context["critique"]["failure_type"]}
+
+Critique:
+{context["critique"]["critique"]}
+
+Retry guidance:
+{context["critique"]["retry_guidance"]}
+
+IMPORTANT:
+- DO NOT repeat the same repair strategy.
+- Generate a semantically different fix.
+
+Forbidden retry behaviors:
+- inventing arbitrary values
+- bypassing execution with guards
+- changing indices to unrelated valid values
+- suppressing the error
+- adding try/except
+
+If the correct fix cannot be safely inferred,
+return the ORIGINAL CODE unchanged.
+"""
+        
+        
         return f"""
 Fix the Python program below.
 
@@ -77,6 +122,8 @@ Failing Line:
 
 Original Code:
 {context["code"]}
+
+{retry_section}
 """.strip()
 
     # ------------------------------------------------------------------

@@ -6298,3 +6298,484 @@ print(x / y)
 2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Evaluator succeeded on attempt 1
 2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
 2026-05-29 10:18:07,071 - INFO - [Run 256685ec] Orchestration completed — passed=False
+2026-05-29 11:02:02,574 - INFO - Initialising DebugOrchestrator
+2026-05-29 11:02:02,575 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 11:02:14,094 - INFO - Model loaded and set to eval mode
+2026-05-29 11:02:14,094 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 11:02:14,094 - INFO - [Run 0a150354] Orchestration started
+2026-05-29 11:02:14,094 - INFO - [Run 0a150354] AnalyzerAgent started
+2026-05-29 11:02:14,094 - INFO - [Run 0a150354] Analyzer attempt 1/2
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] Analyzer latency: 3.5486s
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] Analyzer succeeded on attempt 1
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] AnalyzerAgent completed: TypeError
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] Repair attempt 1/3
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] FixerAgent started
+2026-05-29 11:02:17,643 - INFO - [Run 0a150354] Fixer attempt 1/2
+2026-05-29 11:02:21,106 - INFO - [Run 0a150354] Fixer latency: 3.4627s
+2026-05-29 11:02:21,106 - INFO - [Run 0a150354] Fixer succeeded on attempt 1
+2026-05-29 11:02:21,106 - INFO - [Run 0a150354] FixerAgent completed
+2026-05-29 11:02:21,106 - INFO - [Run 0a150354] Sandbox execution started
+2026-05-29 11:02:21,118 - INFO - [Run 0a150354] Sandbox finished — returncode=0
+2026-05-29 11:02:21,118 - INFO - [Run 0a150354] EvaluatorAgent started
+2026-05-29 11:02:21,118 - INFO - [Run 0a150354] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 11:02:21,118 - INFO - [Run 0a150354] Evaluator attempt 1/2
+2026-05-29 11:02:26,083 - INFO - [Run 0a150354] Evaluator latency: 4.9648s
+2026-05-29 11:02:26,083 - INFO - [Run 0a150354] Evaluator succeeded on attempt 1
+2026-05-29 11:02:26,084 - INFO - [Run 0a150354] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly casts the integer to a string to resolve the TypeError, preserving the original intent of concatenating two strings.'}
+2026-05-29 11:02:26,084 - INFO - [Run 0a150354] Successful repair on attempt 1
+2026-05-29 11:02:26,084 - INFO - [Run 0a150354] Orchestration completed — passed=True
+2026-05-29 11:02:26,084 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 11:02:26,084 - INFO - [Run f2794eda] Orchestration started
+2026-05-29 11:02:26,084 - INFO - [Run f2794eda] AnalyzerAgent started
+2026-05-29 11:02:26,084 - INFO - [Run f2794eda] Analyzer attempt 1/2
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] Analyzer latency: 2.8117s
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] Analyzer succeeded on attempt 1
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] AnalyzerAgent completed: NameError
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] Repair attempt 1/3
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] FixerAgent started
+2026-05-29 11:02:28,896 - INFO - [Run f2794eda] Fixer attempt 1/2
+2026-05-29 11:02:32,156 - INFO - [Run f2794eda] Fixer latency: 3.2596s
+2026-05-29 11:02:32,156 - INFO - [Run f2794eda] Fixer succeeded on attempt 1
+2026-05-29 11:02:32,156 - INFO - [Run f2794eda] FixerAgent completed
+2026-05-29 11:02:32,156 - INFO - [Run f2794eda] Sandbox execution started
+2026-05-29 11:02:32,182 - INFO - [Run f2794eda] Sandbox finished — returncode=0
+2026-05-29 11:02:32,182 - INFO - [Run f2794eda] EvaluatorAgent started
+2026-05-29 11:02:32,182 - INFO - [Run f2794eda] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 11:02:32,182 - INFO - [Run f2794eda] Evaluator attempt 1/2
+2026-05-29 11:02:37,542 - INFO - [Run f2794eda] Evaluator latency: 5.3601s
+2026-05-29 11:02:37,543 - INFO - [Run f2794eda] Evaluator succeeded on attempt 1
+2026-05-29 11:02:37,543 - INFO - [Run f2794eda] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 11:02:37,543 - INFO - [Run f2794eda] Patch failed evaluation — running critique
+2026-05-29 11:02:37,543 - INFO - [Run f2794eda] CritiqueAgent started
+2026-05-29 11:02:37,543 - INFO - [Run f2794eda] Critique attempt 1/2
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] Critique latency: 7.1589s
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] Critique succeeded on attempt 1
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value or source of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is consistent with the overall program intent and does not introduce unintended side effects."], 'should_retry': True}
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] Repair attempt 2/3
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] FixerAgent started
+2026-05-29 11:02:44,702 - INFO - [Run f2794eda] Fixer attempt 1/2
+2026-05-29 11:02:47,976 - INFO - [Run f2794eda] Fixer latency: 3.2740s
+2026-05-29 11:02:47,976 - INFO - [Run f2794eda] Fixer succeeded on attempt 1
+2026-05-29 11:02:47,976 - INFO - [Run f2794eda] FixerAgent completed
+2026-05-29 11:02:47,976 - INFO - [Run f2794eda] Sandbox execution started
+2026-05-29 11:02:47,987 - INFO - [Run f2794eda] Sandbox finished — returncode=0
+2026-05-29 11:02:47,987 - INFO - [Run f2794eda] EvaluatorAgent started
+2026-05-29 11:02:47,987 - INFO - [Run f2794eda] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 11:02:47,987 - INFO - [Run f2794eda] Evaluator attempt 1/2
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] Evaluator latency: 5.3707s
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] Evaluator succeeded on attempt 1
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] Patch failed evaluation — running critique
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] CritiqueAgent started
+2026-05-29 11:02:53,358 - INFO - [Run f2794eda] Critique attempt 1/2
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] Critique latency: 7.1933s
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] Critique succeeded on attempt 1
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value or source of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is consistent with the overall program intent and does not introduce unintended side effects."], 'should_retry': True}
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] Repair attempt 3/3
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] FixerAgent started
+2026-05-29 11:03:00,552 - INFO - [Run f2794eda] Fixer attempt 1/2
+2026-05-29 11:03:03,760 - INFO - [Run f2794eda] Fixer latency: 3.2077s
+2026-05-29 11:03:03,760 - INFO - [Run f2794eda] Fixer succeeded on attempt 1
+2026-05-29 11:03:03,760 - INFO - [Run f2794eda] FixerAgent completed
+2026-05-29 11:03:03,760 - INFO - [Run f2794eda] Sandbox execution started
+2026-05-29 11:03:03,771 - INFO - [Run f2794eda] Sandbox finished — returncode=0
+2026-05-29 11:03:03,771 - INFO - [Run f2794eda] EvaluatorAgent started
+2026-05-29 11:03:03,771 - INFO - [Run f2794eda] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 11:03:03,771 - INFO - [Run f2794eda] Evaluator attempt 1/2
+2026-05-29 11:03:09,205 - INFO - [Run f2794eda] Evaluator latency: 5.4341s
+2026-05-29 11:03:09,206 - INFO - [Run f2794eda] Evaluator succeeded on attempt 1
+2026-05-29 11:03:09,206 - INFO - [Run f2794eda] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 11:03:09,206 - INFO - [Run f2794eda] Patch failed evaluation — running critique
+2026-05-29 11:03:09,206 - INFO - [Run f2794eda] CritiqueAgent started
+2026-05-29 11:03:09,206 - INFO - [Run f2794eda] Critique attempt 1/2
+2026-05-29 11:03:16,534 - INFO - [Run f2794eda] Critique latency: 7.3285s
+2026-05-29 11:03:16,534 - INFO - [Run f2794eda] Critique succeeded on attempt 1
+2026-05-29 11:03:16,534 - INFO - [Run f2794eda] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value or source of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is consistent with the overall program intent and does not introduce unintended side effects."], 'should_retry': True}
+2026-05-29 11:03:16,535 - INFO - [Run f2794eda] Orchestration completed — passed=False
+2026-05-29 11:03:16,536 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 11:03:16,536 - INFO - [Run 6cabc1f7] Orchestration started
+2026-05-29 11:03:16,536 - INFO - [Run 6cabc1f7] AnalyzerAgent started
+2026-05-29 11:03:16,536 - INFO - [Run 6cabc1f7] Analyzer attempt 1/2
+2026-05-29 11:03:19,555 - INFO - [Run 6cabc1f7] Analyzer latency: 3.0194s
+2026-05-29 11:03:19,556 - INFO - [Run 6cabc1f7] Analyzer succeeded on attempt 1
+2026-05-29 11:03:19,556 - INFO - [Run 6cabc1f7] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 11:03:19,556 - INFO - [Run 6cabc1f7] Repair attempt 1/3
+2026-05-29 11:03:19,556 - INFO - [Run 6cabc1f7] FixerAgent started
+2026-05-29 11:03:19,556 - INFO - [Run 6cabc1f7] Fixer attempt 1/2
+2026-05-29 11:03:23,254 - INFO - [Run 6cabc1f7] Fixer latency: 3.6987s
+2026-05-29 11:03:23,255 - INFO - [Run 6cabc1f7] Fixer succeeded on attempt 1
+2026-05-29 11:03:23,255 - INFO - [Run 6cabc1f7] FixerAgent completed
+2026-05-29 11:03:23,255 - INFO - [Run 6cabc1f7] Sandbox execution started
+2026-05-29 11:03:23,266 - INFO - [Run 6cabc1f7] Sandbox finished — returncode=0
+2026-05-29 11:03:23,266 - INFO - [Run 6cabc1f7] EvaluatorAgent started
+2026-05-29 11:03:23,267 - INFO - [Run 6cabc1f7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 11:03:23,267 - INFO - [Run 6cabc1f7] Evaluator attempt 1/2
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] Evaluator latency: 5.8022s
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] Evaluator succeeded on attempt 1
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] Patch failed evaluation — running critique
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] CritiqueAgent started
+2026-05-29 11:03:29,069 - INFO - [Run 6cabc1f7] Critique attempt 1/2
+2026-05-29 11:03:35,911 - INFO - [Run 6cabc1f7] Critique latency: 6.8420s
+2026-05-29 11:03:35,912 - INFO - [Run 6cabc1f7] Critique succeeded on attempt 1
+2026-05-29 11:03:35,912 - INFO - [Run 6cabc1f7] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 11:03:35,912 - INFO - [Run 6cabc1f7] Repair attempt 2/3
+2026-05-29 11:03:35,912 - INFO - [Run 6cabc1f7] FixerAgent started
+2026-05-29 11:03:35,912 - INFO - [Run 6cabc1f7] Fixer attempt 1/2
+2026-05-29 11:03:39,618 - INFO - [Run 6cabc1f7] Fixer latency: 3.7065s
+2026-05-29 11:03:39,618 - INFO - [Run 6cabc1f7] Fixer succeeded on attempt 1
+2026-05-29 11:03:39,619 - INFO - [Run 6cabc1f7] FixerAgent completed
+2026-05-29 11:03:39,619 - INFO - [Run 6cabc1f7] Sandbox execution started
+2026-05-29 11:03:39,628 - INFO - [Run 6cabc1f7] Sandbox finished — returncode=0
+2026-05-29 11:03:39,629 - INFO - [Run 6cabc1f7] EvaluatorAgent started
+2026-05-29 11:03:39,629 - INFO - [Run 6cabc1f7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 11:03:39,629 - INFO - [Run 6cabc1f7] Evaluator attempt 1/2
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] Evaluator latency: 5.7353s
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] Evaluator succeeded on attempt 1
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] Patch failed evaluation — running critique
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] CritiqueAgent started
+2026-05-29 11:03:45,364 - INFO - [Run 6cabc1f7] Critique attempt 1/2
+2026-05-29 11:03:52,305 - INFO - [Run 6cabc1f7] Critique latency: 6.9409s
+2026-05-29 11:03:52,306 - INFO - [Run 6cabc1f7] Critique succeeded on attempt 1
+2026-05-29 11:03:52,306 - INFO - [Run 6cabc1f7] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 11:03:52,306 - INFO - [Run 6cabc1f7] Repair attempt 3/3
+2026-05-29 11:03:52,306 - INFO - [Run 6cabc1f7] FixerAgent started
+2026-05-29 11:03:52,306 - INFO - [Run 6cabc1f7] Fixer attempt 1/2
+2026-05-29 11:03:56,133 - INFO - [Run 6cabc1f7] Fixer latency: 3.8271s
+2026-05-29 11:03:56,133 - INFO - [Run 6cabc1f7] Fixer succeeded on attempt 1
+2026-05-29 11:03:56,133 - INFO - [Run 6cabc1f7] FixerAgent completed
+2026-05-29 11:03:56,133 - INFO - [Run 6cabc1f7] Sandbox execution started
+2026-05-29 11:03:56,143 - INFO - [Run 6cabc1f7] Sandbox finished — returncode=0
+2026-05-29 11:03:56,143 - INFO - [Run 6cabc1f7] EvaluatorAgent started
+2026-05-29 11:03:56,143 - INFO - [Run 6cabc1f7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 11:03:56,144 - INFO - [Run 6cabc1f7] Evaluator attempt 1/2
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] Evaluator latency: 5.6200s
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] Evaluator succeeded on attempt 1
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] Patch failed evaluation — running critique
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] CritiqueAgent started
+2026-05-29 11:04:01,764 - INFO - [Run 6cabc1f7] Critique attempt 1/2
+2026-05-29 11:04:08,787 - INFO - [Run 6cabc1f7] Critique latency: 7.0231s
+2026-05-29 11:04:08,787 - INFO - [Run 6cabc1f7] Critique succeeded on attempt 1
+2026-05-29 11:04:08,787 - INFO - [Run 6cabc1f7] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 11:04:08,787 - INFO - [Run 6cabc1f7] Orchestration completed — passed=False
+2026-05-29 11:04:08,789 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 11:04:08,789 - INFO - [Run c8b7041e] Orchestration started
+2026-05-29 11:04:08,789 - INFO - [Run c8b7041e] AnalyzerAgent started
+2026-05-29 11:04:08,789 - INFO - [Run c8b7041e] Analyzer attempt 1/2
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] Analyzer latency: 2.9153s
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] Analyzer succeeded on attempt 1
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] AnalyzerAgent completed: SyntaxError
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] Repair attempt 1/3
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] FixerAgent started
+2026-05-29 11:04:11,705 - INFO - [Run c8b7041e] Fixer attempt 1/2
+2026-05-29 11:04:14,543 - INFO - [Run c8b7041e] Fixer latency: 2.8382s
+2026-05-29 11:04:14,543 - INFO - [Run c8b7041e] Fixer succeeded on attempt 1
+2026-05-29 11:04:14,543 - INFO - [Run c8b7041e] FixerAgent completed
+2026-05-29 11:04:14,544 - INFO - [Run c8b7041e] Sandbox execution started
+2026-05-29 11:04:14,554 - INFO - [Run c8b7041e] Sandbox finished — returncode=0
+2026-05-29 11:04:14,555 - INFO - [Run c8b7041e] EvaluatorAgent started
+2026-05-29 11:04:14,555 - INFO - [Run c8b7041e] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 11:04:14,555 - INFO - [Run c8b7041e] Evaluator attempt 1/2
+2026-05-29 11:04:19,435 - INFO - [Run c8b7041e] Evaluator latency: 4.8803s
+2026-05-29 11:04:19,435 - INFO - [Run c8b7041e] Evaluator succeeded on attempt 1
+2026-05-29 11:04:19,436 - INFO - [Run c8b7041e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon, fixing the syntax error without altering the original intent or introducing new behavior.'}
+2026-05-29 11:04:19,436 - INFO - [Run c8b7041e] Successful repair on attempt 1
+2026-05-29 11:04:19,436 - INFO - [Run c8b7041e] Orchestration completed — passed=True
+2026-05-29 11:04:19,436 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 11:04:19,436 - INFO - [Run e6efba9a] Orchestration started
+2026-05-29 11:04:19,436 - INFO - [Run e6efba9a] AnalyzerAgent started
+2026-05-29 11:04:19,436 - INFO - [Run e6efba9a] Analyzer attempt 1/2
+2026-05-29 11:04:23,396 - INFO - [Run e6efba9a] Analyzer latency: 3.9604s
+2026-05-29 11:04:23,397 - INFO - [Run e6efba9a] Analyzer succeeded on attempt 1
+2026-05-29 11:04:23,397 - INFO - [Run e6efba9a] AnalyzerAgent completed: IndexError
+2026-05-29 11:04:23,397 - INFO - [Run e6efba9a] Repair attempt 1/3
+2026-05-29 11:04:23,397 - INFO - [Run e6efba9a] FixerAgent started
+2026-05-29 11:04:23,397 - INFO - [Run e6efba9a] Fixer attempt 1/2
+2026-05-29 11:04:27,607 - INFO - [Run e6efba9a] Fixer latency: 4.2100s
+2026-05-29 11:04:27,607 - INFO - [Run e6efba9a] Fixer succeeded on attempt 1
+2026-05-29 11:04:27,607 - INFO - [Run e6efba9a] FixerAgent completed
+2026-05-29 11:04:27,607 - INFO - [Run e6efba9a] Sandbox execution started
+2026-05-29 11:04:27,618 - INFO - [Run e6efba9a] Sandbox finished — returncode=0
+2026-05-29 11:04:27,619 - INFO - [Run e6efba9a] EvaluatorAgent started
+2026-05-29 11:04:27,619 - INFO - [Run e6efba9a] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 11:04:27,619 - INFO - [Run e6efba9a] Evaluator attempt 1/2
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] Evaluator latency: 5.4208s
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] Evaluator succeeded on attempt 1
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] Patch failed evaluation — running critique
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] CritiqueAgent started
+2026-05-29 11:04:33,040 - INFO - [Run e6efba9a] Critique attempt 1/2
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] Critique latency: 6.7920s
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] Critique succeeded on attempt 1
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] Repair attempt 2/3
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] FixerAgent started
+2026-05-29 11:04:39,832 - INFO - [Run e6efba9a] Fixer attempt 1/2
+2026-05-29 11:04:43,995 - INFO - [Run e6efba9a] Fixer latency: 4.1631s
+2026-05-29 11:04:43,996 - INFO - [Run e6efba9a] Fixer succeeded on attempt 1
+2026-05-29 11:04:43,996 - INFO - [Run e6efba9a] FixerAgent completed
+2026-05-29 11:04:43,996 - INFO - [Run e6efba9a] Sandbox execution started
+2026-05-29 11:04:44,006 - INFO - [Run e6efba9a] Sandbox finished — returncode=0
+2026-05-29 11:04:44,007 - INFO - [Run e6efba9a] EvaluatorAgent started
+2026-05-29 11:04:44,007 - INFO - [Run e6efba9a] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 11:04:44,007 - INFO - [Run e6efba9a] Evaluator attempt 1/2
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] Evaluator latency: 5.5701s
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] Evaluator succeeded on attempt 1
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] Patch failed evaluation — running critique
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] CritiqueAgent started
+2026-05-29 11:04:49,577 - INFO - [Run e6efba9a] Critique attempt 1/2
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] Critique latency: 6.7462s
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] Critique succeeded on attempt 1
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] Repair attempt 3/3
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] FixerAgent started
+2026-05-29 11:04:56,324 - INFO - [Run e6efba9a] Fixer attempt 1/2
+2026-05-29 11:05:00,498 - INFO - [Run e6efba9a] Fixer latency: 4.1743s
+2026-05-29 11:05:00,498 - INFO - [Run e6efba9a] Fixer succeeded on attempt 1
+2026-05-29 11:05:00,498 - INFO - [Run e6efba9a] FixerAgent completed
+2026-05-29 11:05:00,498 - INFO - [Run e6efba9a] Sandbox execution started
+2026-05-29 11:05:00,509 - INFO - [Run e6efba9a] Sandbox finished — returncode=0
+2026-05-29 11:05:00,509 - INFO - [Run e6efba9a] EvaluatorAgent started
+2026-05-29 11:05:00,509 - INFO - [Run e6efba9a] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 11:05:00,509 - INFO - [Run e6efba9a] Evaluator attempt 1/2
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] Evaluator latency: 5.5033s
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] Evaluator succeeded on attempt 1
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] Patch failed evaluation — running critique
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] CritiqueAgent started
+2026-05-29 11:05:06,013 - INFO - [Run e6efba9a] Critique attempt 1/2
+2026-05-29 11:05:12,774 - INFO - [Run e6efba9a] Critique latency: 6.7605s
+2026-05-29 11:05:12,774 - INFO - [Run e6efba9a] Critique succeeded on attempt 1
+2026-05-29 11:05:12,774 - INFO - [Run e6efba9a] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 11:05:12,774 - INFO - [Run e6efba9a] Orchestration completed — passed=False
+2026-05-29 11:15:39,240 - INFO - Initialising DebugOrchestrator
+2026-05-29 11:15:39,240 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 11:15:50,657 - INFO - Model loaded and set to eval mode
+2026-05-29 11:15:50,658 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 11:15:50,658 - INFO - [Run dc6cb057] Orchestration started
+2026-05-29 11:15:50,658 - INFO - [Run dc6cb057] AnalyzerAgent started
+2026-05-29 11:15:50,658 - INFO - [Run dc6cb057] Analyzer attempt 1/2
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] Analyzer latency: 3.3990s
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] Analyzer succeeded on attempt 1
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] AnalyzerAgent completed: TypeError
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] Repair attempt 1/3
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] FixerAgent started
+2026-05-29 11:15:54,057 - INFO - [Run dc6cb057] Fixer attempt 1/2
+2026-05-29 11:15:57,498 - INFO - [Run dc6cb057] Fixer latency: 3.4409s
+2026-05-29 11:15:57,498 - INFO - [Run dc6cb057] Fixer succeeded on attempt 1
+2026-05-29 11:15:57,498 - INFO - [Run dc6cb057] FixerAgent completed
+2026-05-29 11:15:57,499 - INFO - [Run dc6cb057] Sandbox execution started
+2026-05-29 11:15:57,510 - INFO - [Run dc6cb057] Sandbox finished — returncode=0
+2026-05-29 11:15:57,510 - INFO - [Run dc6cb057] EvaluatorAgent started
+2026-05-29 11:15:57,510 - INFO - [Run dc6cb057] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 11:15:57,510 - INFO - [Run dc6cb057] Evaluator attempt 1/2
+2026-05-29 11:16:02,470 - INFO - [Run dc6cb057] Evaluator latency: 4.9593s
+2026-05-29 11:16:02,470 - INFO - [Run dc6cb057] Evaluator succeeded on attempt 1
+2026-05-29 11:16:02,470 - INFO - [Run dc6cb057] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly casts the integer to a string to resolve the TypeError, preserving the original intent of concatenating two strings.'}
+2026-05-29 11:16:02,470 - INFO - [Run dc6cb057] Successful repair on attempt 1
+2026-05-29 11:16:02,470 - INFO - [Run dc6cb057] Orchestration completed — passed=True
+2026-05-29 11:16:02,471 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 11:16:02,471 - INFO - [Run 6b1a0251] Orchestration started
+2026-05-29 11:16:02,471 - INFO - [Run 6b1a0251] AnalyzerAgent started
+2026-05-29 11:16:02,471 - INFO - [Run 6b1a0251] Analyzer attempt 1/2
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] Analyzer latency: 2.9139s
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] Analyzer succeeded on attempt 1
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] AnalyzerAgent completed: NameError
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] Repair attempt 1/3
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] FixerAgent started
+2026-05-29 11:16:05,385 - INFO - [Run 6b1a0251] Fixer attempt 1/2
+2026-05-29 11:16:08,742 - INFO - [Run 6b1a0251] Fixer latency: 3.3566s
+2026-05-29 11:16:08,742 - INFO - [Run 6b1a0251] Fixer succeeded on attempt 1
+2026-05-29 11:16:08,742 - INFO - [Run 6b1a0251] FixerAgent completed
+2026-05-29 11:16:08,742 - INFO - [Run 6b1a0251] Sandbox execution started
+2026-05-29 11:16:08,753 - INFO - [Run 6b1a0251] Sandbox finished — returncode=0
+2026-05-29 11:16:08,754 - INFO - [Run 6b1a0251] EvaluatorAgent started
+2026-05-29 11:16:08,754 - INFO - [Run 6b1a0251] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 11:16:08,754 - INFO - [Run 6b1a0251] Evaluator attempt 1/2
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] Evaluator latency: 5.3409s
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] Evaluator succeeded on attempt 1
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] Patch failed evaluation — running critique
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] CritiqueAgent started
+2026-05-29 11:16:14,095 - INFO - [Run 6b1a0251] Critique attempt 1/2
+2026-05-29 11:16:21,383 - INFO - [Run 6b1a0251] Critique latency: 7.2875s
+2026-05-29 11:16:21,383 - INFO - [Run 6b1a0251] Critique succeeded on attempt 1
+2026-05-29 11:16:21,394 - INFO - [Run 6b1a0251] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value or source of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is consistent with the overall program intent and does not introduce unintended side effects."], 'should_retry': True}
+2026-05-29 11:16:21,394 - INFO - [Run 6b1a0251] Repair attempt 2/3
+2026-05-29 11:16:21,394 - INFO - [Run 6b1a0251] FixerAgent started
+2026-05-29 11:16:21,394 - INFO - [Run 6b1a0251] Fixer attempt 1/2
+2026-05-29 11:16:25,029 - INFO - [Run 6b1a0251] Fixer latency: 3.6354s
+2026-05-29 11:16:25,029 - INFO - [Run 6b1a0251] Fixer succeeded on attempt 1
+2026-05-29 11:16:25,029 - INFO - [Run 6b1a0251] FixerAgent completed
+2026-05-29 11:16:25,029 - INFO - [Run 6b1a0251] Sandbox execution started
+2026-05-29 11:16:25,039 - INFO - [Run 6b1a0251] Sandbox finished — returncode=0
+2026-05-29 11:16:25,039 - INFO - [Run 6b1a0251] EvaluatorAgent started
+2026-05-29 11:16:25,039 - INFO - [Run 6b1a0251] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 11:16:25,039 - INFO - [Run 6b1a0251] Evaluator attempt 1/2
+2026-05-29 11:16:30,427 - INFO - [Run 6b1a0251] Evaluator latency: 5.3879s
+2026-05-29 11:16:30,428 - INFO - [Run 6b1a0251] Evaluator succeeded on attempt 1
+2026-05-29 11:16:30,428 - INFO - [Run 6b1a0251] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly defines the missing variable 'y' with a value derived from the context, preserving the original intent and fixing the root cause without introducing new issues."}
+2026-05-29 11:16:30,428 - INFO - [Run 6b1a0251] Successful repair on attempt 2
+2026-05-29 11:16:30,428 - INFO - [Run 6b1a0251] Orchestration completed — passed=True
+2026-05-29 11:16:30,428 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 11:16:30,429 - INFO - [Run 351eeb69] Orchestration started
+2026-05-29 11:16:30,429 - INFO - [Run 351eeb69] AnalyzerAgent started
+2026-05-29 11:16:30,429 - INFO - [Run 351eeb69] Analyzer attempt 1/2
+2026-05-29 11:16:33,434 - INFO - [Run 351eeb69] Analyzer latency: 3.0057s
+2026-05-29 11:16:33,434 - INFO - [Run 351eeb69] Analyzer succeeded on attempt 1
+2026-05-29 11:16:33,434 - INFO - [Run 351eeb69] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 11:16:33,434 - INFO - [Run 351eeb69] Repair attempt 1/3
+2026-05-29 11:16:33,435 - INFO - [Run 351eeb69] FixerAgent started
+2026-05-29 11:16:33,435 - INFO - [Run 351eeb69] Fixer attempt 1/2
+2026-05-29 11:16:37,227 - INFO - [Run 351eeb69] Fixer latency: 3.7926s
+2026-05-29 11:16:37,227 - INFO - [Run 351eeb69] Fixer succeeded on attempt 1
+2026-05-29 11:16:37,227 - INFO - [Run 351eeb69] FixerAgent completed
+2026-05-29 11:16:37,227 - INFO - [Run 351eeb69] Sandbox execution started
+2026-05-29 11:16:37,247 - INFO - [Run 351eeb69] Sandbox finished — returncode=0
+2026-05-29 11:16:37,247 - INFO - [Run 351eeb69] EvaluatorAgent started
+2026-05-29 11:16:37,247 - INFO - [Run 351eeb69] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 11:16:37,247 - INFO - [Run 351eeb69] Evaluator attempt 1/2
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] Evaluator latency: 5.5607s
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] Evaluator succeeded on attempt 1
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] Patch failed evaluation — running critique
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] CritiqueAgent started
+2026-05-29 11:16:42,808 - INFO - [Run 351eeb69] Critique attempt 1/2
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] Critique latency: 6.9124s
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] Critique succeeded on attempt 1
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] Repair attempt 2/3
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] FixerAgent started
+2026-05-29 11:16:49,721 - INFO - [Run 351eeb69] Fixer attempt 1/2
+2026-05-29 11:16:54,898 - INFO - [Run 351eeb69] Fixer latency: 5.1766s
+2026-05-29 11:16:54,898 - INFO - [Run 351eeb69] Fixer succeeded on attempt 1
+2026-05-29 11:16:54,898 - INFO - [Run 351eeb69] FixerAgent completed
+2026-05-29 11:16:54,898 - INFO - [Run 351eeb69] Sandbox execution started
+2026-05-29 11:16:54,907 - INFO - [Run 351eeb69] Sandbox finished — returncode=0
+2026-05-29 11:16:54,907 - INFO - [Run 351eeb69] EvaluatorAgent started
+2026-05-29 11:16:54,908 - INFO - [Run 351eeb69] Heuristic result: {'score': 0.8, 'structural_ratio': 0.333333, 'penalties': ['large_structural_change']}
+2026-05-29 11:16:54,908 - INFO - [Run 351eeb69] Evaluator attempt 1/2
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] Evaluator latency: 5.8033s
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] Evaluator succeeded on attempt 1
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] Evaluation result: {'passed': False, 'score': 0.44, 'heuristics': {'score': 0.8, 'structural_ratio': 0.333333, 'penalties': ['large_structural_change']}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the divisor from 0 to 1, which bypasses the error without addressing why the divisor was zero. This changes the program's behavior and does not preserve the original intent."}
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] Patch failed evaluation — running critique
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] CritiqueAgent started
+2026-05-29 11:17:00,711 - INFO - [Run 351eeb69] Critique attempt 1/2
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] Critique latency: 7.3803s
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] Critique succeeded on attempt 1
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] Critique result: {'failure_type': 'bypass_fix', 'critique': "The patch changes the divisor from 0 to 1, which bypasses the error without addressing why the divisor was zero. This changes the program's behavior and does not preserve the original intent.", 'retry_guidance': ["Identify and handle the root cause of why 'y' is zero.", "Consider adding a check or logging to understand the context in which 'y' becomes zero."], 'should_retry': True}
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] Repair attempt 3/3
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] FixerAgent started
+2026-05-29 11:17:08,092 - INFO - [Run 351eeb69] Fixer attempt 1/2
+2026-05-29 11:17:12,953 - INFO - [Run 351eeb69] Fixer latency: 4.8613s
+2026-05-29 11:17:12,954 - INFO - [Run 351eeb69] Fixer succeeded on attempt 1
+2026-05-29 11:17:12,954 - INFO - [Run 351eeb69] FixerAgent completed
+2026-05-29 11:17:12,954 - INFO - [Run 351eeb69] Sandbox execution started
+2026-05-29 11:17:12,963 - INFO - [Run 351eeb69] Sandbox finished — returncode=0
+2026-05-29 11:17:12,963 - INFO - [Run 351eeb69] EvaluatorAgent started
+2026-05-29 11:17:12,963 - INFO - [Run 351eeb69] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 11:17:12,964 - INFO - [Run 351eeb69] Evaluator attempt 1/2
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] Evaluator latency: 5.5269s
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] Evaluator succeeded on attempt 1
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] Patch failed evaluation — running critique
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] CritiqueAgent started
+2026-05-29 11:17:18,491 - INFO - [Run 351eeb69] Critique attempt 1/2
+2026-05-29 11:17:25,375 - INFO - [Run 351eeb69] Critique latency: 6.8840s
+2026-05-29 11:17:25,375 - INFO - [Run 351eeb69] Critique succeeded on attempt 1
+2026-05-29 11:17:25,375 - INFO - [Run 351eeb69] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 11:17:25,375 - INFO - [Run 351eeb69] Orchestration completed — passed=False
+2026-05-29 11:17:25,377 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 11:17:25,377 - INFO - [Run e5fd71a2] Orchestration started
+2026-05-29 11:17:25,377 - INFO - [Run e5fd71a2] AnalyzerAgent started
+2026-05-29 11:17:25,377 - INFO - [Run e5fd71a2] Analyzer attempt 1/2
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] Analyzer latency: 2.7430s
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] Analyzer succeeded on attempt 1
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] AnalyzerAgent completed: SyntaxError
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] Repair attempt 1/3
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] FixerAgent started
+2026-05-29 11:17:28,120 - INFO - [Run e5fd71a2] Fixer attempt 1/2
+2026-05-29 11:17:30,914 - INFO - [Run e5fd71a2] Fixer latency: 2.7941s
+2026-05-29 11:17:30,914 - INFO - [Run e5fd71a2] Fixer succeeded on attempt 1
+2026-05-29 11:17:30,914 - INFO - [Run e5fd71a2] FixerAgent completed
+2026-05-29 11:17:30,914 - INFO - [Run e5fd71a2] Sandbox execution started
+2026-05-29 11:17:30,926 - INFO - [Run e5fd71a2] Sandbox finished — returncode=0
+2026-05-29 11:17:30,926 - INFO - [Run e5fd71a2] EvaluatorAgent started
+2026-05-29 11:17:30,926 - INFO - [Run e5fd71a2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 11:17:30,926 - INFO - [Run e5fd71a2] Evaluator attempt 1/2
+2026-05-29 11:17:35,863 - INFO - [Run e5fd71a2] Evaluator latency: 4.9366s
+2026-05-29 11:17:35,863 - INFO - [Run e5fd71a2] Evaluator succeeded on attempt 1
+2026-05-29 11:17:35,863 - INFO - [Run e5fd71a2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon, fixing the syntax error without altering the original intent or introducing new behavior.'}
+2026-05-29 11:17:35,863 - INFO - [Run e5fd71a2] Successful repair on attempt 1
+2026-05-29 11:17:35,863 - INFO - [Run e5fd71a2] Orchestration completed — passed=True
+2026-05-29 11:17:35,864 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 11:17:35,864 - INFO - [Run db41a308] Orchestration started
+2026-05-29 11:17:35,864 - INFO - [Run db41a308] AnalyzerAgent started
+2026-05-29 11:17:35,864 - INFO - [Run db41a308] Analyzer attempt 1/2
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] Analyzer latency: 3.8350s
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] Analyzer succeeded on attempt 1
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] AnalyzerAgent completed: IndexError
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] Repair attempt 1/3
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] FixerAgent started
+2026-05-29 11:17:39,699 - INFO - [Run db41a308] Fixer attempt 1/2
+2026-05-29 11:17:43,779 - INFO - [Run db41a308] Fixer latency: 4.0801s
+2026-05-29 11:17:43,779 - INFO - [Run db41a308] Fixer succeeded on attempt 1
+2026-05-29 11:17:43,780 - INFO - [Run db41a308] FixerAgent completed
+2026-05-29 11:17:43,780 - INFO - [Run db41a308] Sandbox execution started
+2026-05-29 11:17:43,802 - INFO - [Run db41a308] Sandbox finished — returncode=0
+2026-05-29 11:17:43,802 - INFO - [Run db41a308] EvaluatorAgent started
+2026-05-29 11:17:43,802 - INFO - [Run db41a308] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 11:17:43,802 - INFO - [Run db41a308] Evaluator attempt 1/2
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] Evaluator latency: 5.3717s
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] Evaluator succeeded on attempt 1
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] Patch failed evaluation — running critique
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] CritiqueAgent started
+2026-05-29 11:17:49,174 - INFO - [Run db41a308] Critique attempt 1/2
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] Critique latency: 6.8256s
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] Critique succeeded on attempt 1
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] Repair attempt 2/3
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] FixerAgent started
+2026-05-29 11:17:56,000 - INFO - [Run db41a308] Fixer attempt 1/2
+2026-05-29 11:18:00,843 - INFO - [Run db41a308] Fixer latency: 4.8432s
+2026-05-29 11:18:00,843 - INFO - [Run db41a308] Fixer succeeded on attempt 1
+2026-05-29 11:18:00,844 - INFO - [Run db41a308] FixerAgent completed
+2026-05-29 11:18:00,844 - INFO - [Run db41a308] Sandbox execution started
+2026-05-29 11:18:00,854 - INFO - [Run db41a308] Sandbox finished — returncode=0
+2026-05-29 11:18:00,855 - INFO - [Run db41a308] EvaluatorAgent started
+2026-05-29 11:18:00,855 - INFO - [Run db41a308] Heuristic result: {'score': 0.8, 'structural_ratio': 0.333333, 'penalties': ['large_structural_change']}
+2026-05-29 11:18:00,855 - INFO - [Run db41a308] Evaluator attempt 1/2
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] Evaluator latency: 5.5030s
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] Evaluator succeeded on attempt 1
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] Evaluation result: {'passed': False, 'score': 0.68, 'heuristics': {'score': 0.8, 'structural_ratio': 0.333333, 'penalties': ['large_structural_change']}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The fix adds elements to the list to avoid the IndexError, which changes the original list's content and does not address why the original index was out of range."}
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] Patch failed evaluation — running critique
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] CritiqueAgent started
+2026-05-29 11:18:06,358 - INFO - [Run db41a308] Critique attempt 1/2
+2026-05-29 11:18:13,901 - INFO - [Run db41a308] Critique latency: 7.5430s
+2026-05-29 11:18:13,902 - INFO - [Run db41a308] Critique succeeded on attempt 1
+2026-05-29 11:18:13,902 - INFO - [Run db41a308] Critique result: {'failure_type': 'semantic_change', 'critique': "The patch changes the content of the list 'numbers' to avoid the IndexError, which alters the original data and does not address why the index was out of range.", 'retry_guidance': ["Investigate why the code is trying to access index 5 and ensure that the list 'numbers' contains the expected number of elements.", 'Consider adding a check to verify the length of the list before accessing the index to prevent runtime errors.'], 'should_retry': True}
+2026-05-29 11:18:13,902 - INFO - [Run db41a308] Repair attempt 3/3
+2026-05-29 11:18:13,902 - INFO - [Run db41a308] FixerAgent started
+2026-05-29 11:18:13,902 - INFO - [Run db41a308] Fixer attempt 1/2
+2026-05-29 11:18:17,986 - INFO - [Run db41a308] Fixer latency: 4.0842s
+2026-05-29 11:18:17,986 - INFO - [Run db41a308] Fixer succeeded on attempt 1
+2026-05-29 11:18:17,986 - INFO - [Run db41a308] FixerAgent completed
+2026-05-29 11:18:17,986 - INFO - [Run db41a308] Sandbox execution started
+2026-05-29 11:18:17,998 - INFO - [Run db41a308] Sandbox finished — returncode=0
+2026-05-29 11:18:17,998 - INFO - [Run db41a308] EvaluatorAgent started
+2026-05-29 11:18:17,998 - INFO - [Run db41a308] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 11:18:17,998 - INFO - [Run db41a308] Evaluator attempt 1/2
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] Evaluator latency: 5.4623s
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] Evaluator succeeded on attempt 1
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] Patch failed evaluation — running critique
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] CritiqueAgent started
+2026-05-29 11:18:23,461 - INFO - [Run db41a308] Critique attempt 1/2
+2026-05-29 11:18:30,133 - INFO - [Run db41a308] Critique latency: 6.6726s
+2026-05-29 11:18:30,134 - INFO - [Run db41a308] Critique succeeded on attempt 1
+2026-05-29 11:18:30,134 - INFO - [Run db41a308] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 11:18:30,134 - INFO - [Run db41a308] Orchestration completed — passed=False
