@@ -17,22 +17,6 @@ class EvaluatorAgent(BaseAgent):
 
         self.max_retries = 2
 
-    def extract_json(self, text: str) -> dict:
-
-        match = re.search(
-            r"<json>(.*?)</json>",
-            text,
-            re.DOTALL
-        )
-
-        if not match:
-            raise ValueError(
-                "No JSON block found"
-            )
-
-        json_text = match.group(1).strip()
-
-        return json.loads(json_text)
 
     def build_prompt(self, context, heuristics):
 

@@ -31,25 +31,6 @@ You must preserve original program intent whenever possible.
 Avoid unnecessary rewrites and unrelated behavioral changes.
 """
 
-    def extract_json(self, text: str) -> dict:
-
-        """
-        Extract JSON content wrapped inside <json> tags.
-        """
-
-        match = re.search(
-            r"<json>(.*?)</json>",
-            text,
-            re.DOTALL
-        )
-
-        if not match:
-            raise ValueError("No JSON block found")
-
-        json_text = match.group(1).strip()
-
-        return json.loads(json_text)
-
     def validate_patch(self, patched_code: str):
 
         """
