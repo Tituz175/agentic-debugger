@@ -69,10 +69,6 @@ Critique:
 Retry guidance:
 {context["critique"]["retry_guidance"]}
 
-IMPORTANT:
-- DO NOT repeat the same repair strategy.
-- Generate a semantically different fix.
-
 Forbidden retry behaviors:
 - inventing arbitrary values
 - bypassing execution with guards
@@ -82,6 +78,22 @@ Forbidden retry behaviors:
 
 If the correct fix cannot be safely inferred,
 return the ORIGINAL CODE unchanged.
+
+IMPORTANT:
+- You previously generated an incorrect repair.
+- Your previous strategy failed evaluation.
+- You MUST generate a DIFFERENT repair strategy.
+- DO NOT repeat this patch:
+{context["fix"]["patched_code"]}
+
+- Generate a semantically different fix.
+
+Forbidden retry behaviors:
+- inventing arbitrary values
+- bypassing execution with guards
+- changing indices to unrelated valid values
+- suppressing the error
+- adding try/except
 """
         
         

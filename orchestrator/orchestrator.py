@@ -125,6 +125,13 @@ class DebugOrchestrator:
 
         for attempt in range(self.max_fix_attempts):
 
+            # ----------------------------------------------------------
+            # Clear stale critique/evaluation state before new repair
+            # ----------------------------------------------------------
+            context.pop("critique", None)
+            context.pop("evaluation", None)
+            context.pop("execution_result", None)
+
             logger.info(
                 f"[Run {run_id}] Repair attempt "
                 f"{attempt + 1}/{self.max_fix_attempts}"
