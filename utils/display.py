@@ -167,7 +167,7 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
     root_cause  = analysis.get("root_cause", "—")
     error_line  = str(analysis.get("error_line", "—"))
     a_latency   = _fmt_latency(metrics.get("analysis_latency", "—"))
-    reasoning_a = _truncate(analysis.get("reasoning", ""), col - 2)
+    reasoning_a = analysis.get("reasoning", "").replace("\n", " ")
 
     patched     = fix.get("patched_code", "")
     fix_lines   = patched.count("\n") + 1 if patched else 0
@@ -216,7 +216,24 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
 
     # ── Evaluator reasoning ─────────────────────────────────────────────────
     if ev.get("reasoning"):
-        print(f"  {DIM}verdict : {_truncate(ev['reasoning'], w - 14)}{RESET}")
+        verdict_text = ev["reasoning"].replace("\n", " ")
+        wrap_width   = w - 14
+        words        = verdict_text.split()
+        lines_out    = []
+        current      = ""
+        for word in words:
+            if len(current) + len(word) + 1 <= wrap_width:
+                current = (current + " " + word).lstrip()
+            else:
+                if current:
+                    lines_out.append(current)
+                current = word
+        if current:
+            lines_out.append(current)
+        indent = "             "  # aligns with text after "verdict : "
+        print(f"  {DIM}verdict : {lines_out[0]}{RESET}")
+        for extra_line in lines_out[1:]:
+            print(f"  {DIM}{indent}{extra_line}{RESET}")
 
 # ---------------------------------------------------------------------------
 # Final report
@@ -344,8 +361,25 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
             mutation= _truncate(c.get("mutation_desc", "—"), w - 18)
             print(f"  {BRIGHT_WHITE}{BOLD}{task_id}{RESET}  {bt_c}{bt}{RESET}  "
                   f"{_score_color(score)}{score:.3f}{RESET}")
-            print(f"    {DIM}mutation : {mutation}{RESET}")
-            print(f"    {DIM}verdict  : {reason}{RESET}")
+            # Word-wrap mutation and verdict to terminal width
+            for field_label, field_text in [("mutation", mutation), ("verdict ", reason)]:
+                wrap_width = w - 18
+                words      = field_text.split()
+                lines_out  = []
+                current    = ""
+                for word in words:
+                    if len(current) + len(word) + 1 <= wrap_width:
+                        current = (current + " " + word).lstrip()
+                    else:
+                        if current:
+                            lines_out.append(current)
+                        current = word
+                if current:
+                    lines_out.append(current)
+                indent = "    " + " " * (len(field_label) + 3)
+                print(f"    {DIM}{field_label} : {lines_out[0]}{RESET}")
+                for extra_line in lines_out[1:]:
+                    print(f"{DIM}{indent}{extra_line}{RESET}")
             print()
     else:
         print(f"  {BRIGHT_GREEN}{BOLD}✓ All cases passed!{RESET}")

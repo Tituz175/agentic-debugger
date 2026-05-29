@@ -7285,3 +7285,1801 @@ print(x / y)
 2026-05-29 11:52:46,265 - INFO - [Run 98ecb7b1] Critique succeeded on attempt 1
 2026-05-29 11:52:46,265 - INFO - [Run 98ecb7b1] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
 2026-05-29 11:52:46,265 - INFO - [Run 98ecb7b1] Orchestration completed — passed=False
+2026-05-29 11:59:57,454 - INFO - Initialising DebugOrchestrator
+2026-05-29 11:59:57,454 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 12:00:09,080 - INFO - Model loaded and set to eval mode
+2026-05-29 12:00:09,080 - INFO - --- Benchmark case 1/5 ---
+2026-05-29 12:00:09,080 - INFO - [Run 0faf7f30] Orchestration started
+2026-05-29 12:00:09,080 - INFO - [Run 0faf7f30] AnalyzerAgent started
+2026-05-29 12:00:09,080 - INFO - [Run 0faf7f30] Analyzer attempt 1/2
+2026-05-29 12:00:12,552 - INFO - [Run 0faf7f30] Analyzer latency: 3.4719s
+2026-05-29 12:00:12,553 - INFO - [Run 0faf7f30] Analyzer succeeded on attempt 1
+2026-05-29 12:00:12,553 - INFO - [Run 0faf7f30] AnalyzerAgent completed: TypeError
+2026-05-29 12:00:12,553 - INFO - [Run 0faf7f30] Repair attempt 1/3
+2026-05-29 12:00:12,553 - INFO - [Run 0faf7f30] FixerAgent started
+2026-05-29 12:00:12,553 - INFO - [Run 0faf7f30] Fixer attempt 1/2
+2026-05-29 12:00:16,065 - INFO - [Run 0faf7f30] Fixer latency: 3.5119s
+2026-05-29 12:00:16,065 - INFO - [Run 0faf7f30] Fixer succeeded on attempt 1
+2026-05-29 12:00:16,065 - INFO - [Run 0faf7f30] FixerAgent completed
+2026-05-29 12:00:16,065 - INFO - [Run 0faf7f30] Sandbox execution started
+2026-05-29 12:00:16,075 - INFO - [Run 0faf7f30] Sandbox finished — returncode=0
+2026-05-29 12:00:16,075 - INFO - [Run 0faf7f30] EvaluatorAgent started
+2026-05-29 12:00:16,076 - INFO - [Run 0faf7f30] Heuristic result: {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}
+2026-05-29 12:00:16,076 - INFO - [Run 0faf7f30] Evaluator attempt 1/2
+2026-05-29 12:00:21,160 - INFO - [Run 0faf7f30] Evaluator latency: 5.0839s
+2026-05-29 12:00:21,160 - INFO - [Run 0faf7f30] Evaluator succeeded on attempt 1
+2026-05-29 12:00:21,160 - INFO - [Run 0faf7f30] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.111111, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly casts the integer to a string to resolve the TypeError, preserving the original intent of concatenating two strings.'}
+2026-05-29 12:00:21,160 - INFO - [Run 0faf7f30] Successful repair on attempt 1
+2026-05-29 12:00:21,160 - INFO - [Run 0faf7f30] Orchestration completed — passed=True
+2026-05-29 12:00:21,161 - INFO - --- Benchmark case 2/5 ---
+2026-05-29 12:00:21,161 - INFO - [Run e7946619] Orchestration started
+2026-05-29 12:00:21,161 - INFO - [Run e7946619] AnalyzerAgent started
+2026-05-29 12:00:21,161 - INFO - [Run e7946619] Analyzer attempt 1/2
+2026-05-29 12:00:23,967 - INFO - [Run e7946619] Analyzer latency: 2.8067s
+2026-05-29 12:00:23,968 - INFO - [Run e7946619] Analyzer succeeded on attempt 1
+2026-05-29 12:00:23,968 - INFO - [Run e7946619] AnalyzerAgent completed: NameError
+2026-05-29 12:00:23,968 - INFO - [Run e7946619] Repair attempt 1/3
+2026-05-29 12:00:23,968 - INFO - [Run e7946619] FixerAgent started
+2026-05-29 12:00:23,968 - INFO - [Run e7946619] Fixer attempt 1/2
+2026-05-29 12:00:27,388 - INFO - [Run e7946619] Fixer latency: 3.4207s
+2026-05-29 12:00:27,389 - INFO - [Run e7946619] Fixer succeeded on attempt 1
+2026-05-29 12:00:27,389 - INFO - [Run e7946619] FixerAgent completed
+2026-05-29 12:00:27,389 - INFO - [Run e7946619] Sandbox execution started
+2026-05-29 12:00:27,399 - INFO - [Run e7946619] Sandbox finished — returncode=0
+2026-05-29 12:00:27,399 - INFO - [Run e7946619] EvaluatorAgent started
+2026-05-29 12:00:27,399 - INFO - [Run e7946619] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 12:00:27,399 - INFO - [Run e7946619] Evaluator attempt 1/2
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] Evaluator latency: 5.4214s
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] Evaluator succeeded on attempt 1
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the undefined variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] Patch failed evaluation — running critique
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] CritiqueAgent started
+2026-05-29 12:00:32,821 - INFO - [Run e7946619] Critique attempt 1/2
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] Critique latency: 6.8191s
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] Critique succeeded on attempt 1
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is logically consistent with the rest of the code."], 'should_retry': True}
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] Repair attempt 2/3
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] FixerAgent started
+2026-05-29 12:00:39,640 - INFO - [Run e7946619] Fixer attempt 1/2
+2026-05-29 12:00:43,071 - INFO - [Run e7946619] Fixer latency: 3.4306s
+2026-05-29 12:00:43,071 - INFO - [Run e7946619] Fixer succeeded on attempt 1
+2026-05-29 12:00:43,071 - INFO - [Run e7946619] FixerAgent completed
+2026-05-29 12:00:43,071 - INFO - [Run e7946619] Sandbox execution started
+2026-05-29 12:00:43,082 - INFO - [Run e7946619] Sandbox finished — returncode=0
+2026-05-29 12:00:43,082 - INFO - [Run e7946619] EvaluatorAgent started
+2026-05-29 12:00:43,083 - INFO - [Run e7946619] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 12:00:43,083 - INFO - [Run e7946619] Evaluator attempt 1/2
+2026-05-29 12:00:48,488 - INFO - [Run e7946619] Evaluator latency: 5.4056s
+2026-05-29 12:00:48,489 - INFO - [Run e7946619] Evaluator succeeded on attempt 1
+2026-05-29 12:00:48,489 - INFO - [Run e7946619] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the undefined variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 12:00:48,489 - INFO - [Run e7946619] Patch failed evaluation — running critique
+2026-05-29 12:00:48,489 - INFO - [Run e7946619] CritiqueAgent started
+2026-05-29 12:00:48,489 - INFO - [Run e7946619] Critique attempt 1/2
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] Critique latency: 6.7419s
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] Critique succeeded on attempt 1
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is logically consistent with the rest of the code."], 'should_retry': True}
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] Repair attempt 3/3
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] FixerAgent started
+2026-05-29 12:00:55,231 - INFO - [Run e7946619] Fixer attempt 1/2
+2026-05-29 12:00:58,619 - INFO - [Run e7946619] Fixer latency: 3.3882s
+2026-05-29 12:00:58,619 - INFO - [Run e7946619] Fixer succeeded on attempt 1
+2026-05-29 12:00:58,619 - INFO - [Run e7946619] FixerAgent completed
+2026-05-29 12:00:58,619 - INFO - [Run e7946619] Sandbox execution started
+2026-05-29 12:00:58,630 - INFO - [Run e7946619] Sandbox finished — returncode=0
+2026-05-29 12:00:58,631 - INFO - [Run e7946619] EvaluatorAgent started
+2026-05-29 12:00:58,631 - INFO - [Run e7946619] Heuristic result: {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}
+2026-05-29 12:00:58,631 - INFO - [Run e7946619] Evaluator attempt 1/2
+2026-05-29 12:01:04,067 - INFO - [Run e7946619] Evaluator latency: 5.4362s
+2026-05-29 12:01:04,067 - INFO - [Run e7946619] Evaluator succeeded on attempt 1
+2026-05-29 12:01:04,068 - INFO - [Run e7946619] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.272727, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix assigns a hardcoded value to the variable 'y', which cannot be determined from the context, thus changing the program's behavior in an unknown way."}
+2026-05-29 12:01:04,068 - INFO - [Run e7946619] Patch failed evaluation — running critique
+2026-05-29 12:01:04,068 - INFO - [Run e7946619] CritiqueAgent started
+2026-05-29 12:01:04,068 - INFO - [Run e7946619] Critique attempt 1/2
+2026-05-29 12:01:11,154 - INFO - [Run e7946619] Critique latency: 7.0860s
+2026-05-29 12:01:11,154 - INFO - [Run e7946619] Critique succeeded on attempt 1
+2026-05-29 12:01:11,154 - INFO - [Run e7946619] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for the undefined variable 'y'. The value '5' is arbitrarily assigned without any context or logical basis.", 'retry_guidance': ["Determine the intended value or source of 'y' based on the program's logic and context.", "Ensure that the assignment of 'y' is consistent with the overall program intent and does not introduce unintended side effects."], 'should_retry': True}
+2026-05-29 12:01:11,154 - INFO - [Run e7946619] Orchestration completed — passed=False
+2026-05-29 12:01:11,155 - INFO - --- Benchmark case 3/5 ---
+2026-05-29 12:01:11,155 - INFO - [Run f2c61a80] Orchestration started
+2026-05-29 12:01:11,155 - INFO - [Run f2c61a80] AnalyzerAgent started
+2026-05-29 12:01:11,155 - INFO - [Run f2c61a80] Analyzer attempt 1/2
+2026-05-29 12:01:14,198 - INFO - [Run f2c61a80] Analyzer latency: 3.0428s
+2026-05-29 12:01:14,198 - INFO - [Run f2c61a80] Analyzer succeeded on attempt 1
+2026-05-29 12:01:14,199 - INFO - [Run f2c61a80] AnalyzerAgent completed: ZeroDivisionError
+2026-05-29 12:01:14,199 - INFO - [Run f2c61a80] Repair attempt 1/3
+2026-05-29 12:01:14,199 - INFO - [Run f2c61a80] FixerAgent started
+2026-05-29 12:01:14,199 - INFO - [Run f2c61a80] Fixer attempt 1/2
+2026-05-29 12:01:17,875 - INFO - [Run f2c61a80] Fixer latency: 3.6760s
+2026-05-29 12:01:17,875 - INFO - [Run f2c61a80] Fixer succeeded on attempt 1
+2026-05-29 12:01:17,875 - INFO - [Run f2c61a80] FixerAgent completed
+2026-05-29 12:01:17,875 - INFO - [Run f2c61a80] Sandbox execution started
+2026-05-29 12:01:17,886 - INFO - [Run f2c61a80] Sandbox finished — returncode=0
+2026-05-29 12:01:17,886 - INFO - [Run f2c61a80] EvaluatorAgent started
+2026-05-29 12:01:17,887 - INFO - [Run f2c61a80] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 12:01:17,887 - INFO - [Run f2c61a80] Evaluator attempt 1/2
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] Evaluator latency: 5.6310s
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] Evaluator succeeded on attempt 1
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] Patch failed evaluation — running critique
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] CritiqueAgent started
+2026-05-29 12:01:23,518 - INFO - [Run f2c61a80] Critique attempt 1/2
+2026-05-29 12:01:30,478 - INFO - [Run f2c61a80] Critique latency: 6.9603s
+2026-05-29 12:01:30,479 - INFO - [Run f2c61a80] Critique succeeded on attempt 1
+2026-05-29 12:01:30,479 - INFO - [Run f2c61a80] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 12:01:30,479 - INFO - [Run f2c61a80] Repair attempt 2/3
+2026-05-29 12:01:30,479 - INFO - [Run f2c61a80] FixerAgent started
+2026-05-29 12:01:30,479 - INFO - [Run f2c61a80] Fixer attempt 1/2
+2026-05-29 12:01:34,150 - INFO - [Run f2c61a80] Fixer latency: 3.6709s
+2026-05-29 12:01:34,150 - INFO - [Run f2c61a80] Fixer succeeded on attempt 1
+2026-05-29 12:01:34,150 - INFO - [Run f2c61a80] FixerAgent completed
+2026-05-29 12:01:34,150 - INFO - [Run f2c61a80] Sandbox execution started
+2026-05-29 12:01:34,175 - INFO - [Run f2c61a80] Sandbox finished — returncode=0
+2026-05-29 12:01:34,175 - INFO - [Run f2c61a80] EvaluatorAgent started
+2026-05-29 12:01:34,175 - INFO - [Run f2c61a80] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 12:01:34,175 - INFO - [Run f2c61a80] Evaluator attempt 1/2
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] Evaluator latency: 5.5345s
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] Evaluator succeeded on attempt 1
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] Patch failed evaluation — running critique
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] CritiqueAgent started
+2026-05-29 12:01:39,710 - INFO - [Run f2c61a80] Critique attempt 1/2
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] Critique latency: 6.9058s
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] Critique succeeded on attempt 1
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] Repair attempt 3/3
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] FixerAgent started
+2026-05-29 12:01:46,616 - INFO - [Run f2c61a80] Fixer attempt 1/2
+2026-05-29 12:01:50,318 - INFO - [Run f2c61a80] Fixer latency: 3.7018s
+2026-05-29 12:01:50,318 - INFO - [Run f2c61a80] Fixer succeeded on attempt 1
+2026-05-29 12:01:50,318 - INFO - [Run f2c61a80] FixerAgent completed
+2026-05-29 12:01:50,319 - INFO - [Run f2c61a80] Sandbox execution started
+2026-05-29 12:01:50,330 - INFO - [Run f2c61a80] Sandbox finished — returncode=0
+2026-05-29 12:01:50,330 - INFO - [Run f2c61a80] EvaluatorAgent started
+2026-05-29 12:01:50,330 - INFO - [Run f2c61a80] Heuristic result: {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}
+2026-05-29 12:01:50,330 - INFO - [Run f2c61a80] Evaluator attempt 1/2
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] Evaluator latency: 5.5891s
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] Evaluator succeeded on attempt 1
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.181818, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix bypasses the error by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.'}
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] Patch failed evaluation — running critique
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] CritiqueAgent started
+2026-05-29 12:01:55,920 - INFO - [Run f2c61a80] Critique attempt 1/2
+2026-05-29 12:02:02,810 - INFO - [Run f2c61a80] Critique latency: 6.8899s
+2026-05-29 12:02:02,810 - INFO - [Run f2c61a80] Critique succeeded on attempt 1
+2026-05-29 12:02:02,810 - INFO - [Run f2c61a80] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the ZeroDivisionError by checking if y is not zero, but it does not address why y was zero in the first place, thus not fixing the root cause.', 'retry_guidance': ['Identify and resolve the reason why y is set to zero.', 'Consider adding error handling or logging to understand the context in which y becomes zero.'], 'should_retry': True}
+2026-05-29 12:02:02,810 - INFO - [Run f2c61a80] Orchestration completed — passed=False
+2026-05-29 12:02:02,811 - INFO - --- Benchmark case 4/5 ---
+2026-05-29 12:02:02,812 - INFO - [Run a984d6e2] Orchestration started
+2026-05-29 12:02:02,812 - INFO - [Run a984d6e2] AnalyzerAgent started
+2026-05-29 12:02:02,812 - INFO - [Run a984d6e2] Analyzer attempt 1/2
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] Analyzer latency: 2.9191s
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] Analyzer succeeded on attempt 1
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] AnalyzerAgent completed: SyntaxError
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] Repair attempt 1/3
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] FixerAgent started
+2026-05-29 12:02:05,731 - INFO - [Run a984d6e2] Fixer attempt 1/2
+2026-05-29 12:02:08,732 - INFO - [Run a984d6e2] Fixer latency: 3.0008s
+2026-05-29 12:02:08,732 - INFO - [Run a984d6e2] Fixer succeeded on attempt 1
+2026-05-29 12:02:08,742 - INFO - [Run a984d6e2] FixerAgent completed
+2026-05-29 12:02:08,742 - INFO - [Run a984d6e2] Sandbox execution started
+2026-05-29 12:02:08,757 - INFO - [Run a984d6e2] Sandbox finished — returncode=0
+2026-05-29 12:02:08,757 - INFO - [Run a984d6e2] EvaluatorAgent started
+2026-05-29 12:02:08,757 - INFO - [Run a984d6e2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}
+2026-05-29 12:02:08,758 - INFO - [Run a984d6e2] Evaluator attempt 1/2
+2026-05-29 12:02:13,566 - INFO - [Run a984d6e2] Evaluator latency: 4.8086s
+2026-05-29 12:02:13,566 - INFO - [Run a984d6e2] Evaluator succeeded on attempt 1
+2026-05-29 12:02:13,566 - INFO - [Run a984d6e2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.2, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon, fixing the syntax error without altering the original intent or introducing new behavior.'}
+2026-05-29 12:02:13,567 - INFO - [Run a984d6e2] Successful repair on attempt 1
+2026-05-29 12:02:13,567 - INFO - [Run a984d6e2] Orchestration completed — passed=True
+2026-05-29 12:02:13,567 - INFO - --- Benchmark case 5/5 ---
+2026-05-29 12:02:13,567 - INFO - [Run 43af3444] Orchestration started
+2026-05-29 12:02:13,567 - INFO - [Run 43af3444] AnalyzerAgent started
+2026-05-29 12:02:13,567 - INFO - [Run 43af3444] Analyzer attempt 1/2
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] Analyzer latency: 3.8582s
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] Analyzer succeeded on attempt 1
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] AnalyzerAgent completed: IndexError
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] Repair attempt 1/3
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] FixerAgent started
+2026-05-29 12:02:17,425 - INFO - [Run 43af3444] Fixer attempt 1/2
+2026-05-29 12:02:21,583 - INFO - [Run 43af3444] Fixer latency: 4.1574s
+2026-05-29 12:02:21,583 - INFO - [Run 43af3444] Fixer succeeded on attempt 1
+2026-05-29 12:02:21,583 - INFO - [Run 43af3444] FixerAgent completed
+2026-05-29 12:02:21,583 - INFO - [Run 43af3444] Sandbox execution started
+2026-05-29 12:02:21,594 - INFO - [Run 43af3444] Sandbox finished — returncode=0
+2026-05-29 12:02:21,595 - INFO - [Run 43af3444] EvaluatorAgent started
+2026-05-29 12:02:21,595 - INFO - [Run 43af3444] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 12:02:21,595 - INFO - [Run 43af3444] Evaluator attempt 1/2
+2026-05-29 12:02:27,021 - INFO - [Run 43af3444] Evaluator latency: 5.4264s
+2026-05-29 12:02:27,022 - INFO - [Run 43af3444] Evaluator succeeded on attempt 1
+2026-05-29 12:02:27,022 - INFO - [Run 43af3444] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 12:02:27,022 - INFO - [Run 43af3444] Patch failed evaluation — running critique
+2026-05-29 12:02:27,022 - INFO - [Run 43af3444] CritiqueAgent started
+2026-05-29 12:02:27,022 - INFO - [Run 43af3444] Critique attempt 1/2
+2026-05-29 12:02:33,903 - INFO - [Run 43af3444] Critique latency: 6.8813s
+2026-05-29 12:02:33,903 - INFO - [Run 43af3444] Critique succeeded on attempt 1
+2026-05-29 12:02:33,903 - INFO - [Run 43af3444] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 12:02:33,903 - INFO - [Run 43af3444] Repair attempt 2/3
+2026-05-29 12:02:33,904 - INFO - [Run 43af3444] FixerAgent started
+2026-05-29 12:02:33,904 - INFO - [Run 43af3444] Fixer attempt 1/2
+2026-05-29 12:02:38,070 - INFO - [Run 43af3444] Fixer latency: 4.1662s
+2026-05-29 12:02:38,070 - INFO - [Run 43af3444] Fixer succeeded on attempt 1
+2026-05-29 12:02:38,070 - INFO - [Run 43af3444] FixerAgent completed
+2026-05-29 12:02:38,070 - INFO - [Run 43af3444] Sandbox execution started
+2026-05-29 12:02:38,082 - INFO - [Run 43af3444] Sandbox finished — returncode=0
+2026-05-29 12:02:38,082 - INFO - [Run 43af3444] EvaluatorAgent started
+2026-05-29 12:02:38,082 - INFO - [Run 43af3444] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 12:02:38,082 - INFO - [Run 43af3444] Evaluator attempt 1/2
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] Evaluator latency: 5.3935s
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] Evaluator succeeded on attempt 1
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] Patch failed evaluation — running critique
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] CritiqueAgent started
+2026-05-29 12:02:43,476 - INFO - [Run 43af3444] Critique attempt 1/2
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] Critique latency: 6.9223s
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] Critique succeeded on attempt 1
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] Repair attempt 3/3
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] FixerAgent started
+2026-05-29 12:02:50,399 - INFO - [Run 43af3444] Fixer attempt 1/2
+2026-05-29 12:02:54,563 - INFO - [Run 43af3444] Fixer latency: 4.1638s
+2026-05-29 12:02:54,563 - INFO - [Run 43af3444] Fixer succeeded on attempt 1
+2026-05-29 12:02:54,563 - INFO - [Run 43af3444] FixerAgent completed
+2026-05-29 12:02:54,563 - INFO - [Run 43af3444] Sandbox execution started
+2026-05-29 12:02:54,585 - INFO - [Run 43af3444] Sandbox finished — returncode=0
+2026-05-29 12:02:54,586 - INFO - [Run 43af3444] EvaluatorAgent started
+2026-05-29 12:02:54,586 - INFO - [Run 43af3444] Heuristic result: {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}
+2026-05-29 12:02:54,586 - INFO - [Run 43af3444] Evaluator attempt 1/2
+2026-05-29 12:02:59,989 - INFO - [Run 43af3444] Evaluator latency: 5.4034s
+2026-05-29 12:02:59,990 - INFO - [Run 43af3444] Evaluator succeeded on attempt 1
+2026-05-29 12:02:59,990 - INFO - [Run 43af3444] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.166667, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The fix changes the index to access the last valid element instead of addressing why the original index was out of range, which likely indicates the list needs more elements.'}
+2026-05-29 12:02:59,990 - INFO - [Run 43af3444] Patch failed evaluation — running critique
+2026-05-29 12:02:59,990 - INFO - [Run 43af3444] CritiqueAgent started
+2026-05-29 12:02:59,990 - INFO - [Run 43af3444] Critique attempt 1/2
+2026-05-29 12:03:06,923 - INFO - [Run 43af3444] Critique latency: 6.9333s
+2026-05-29 12:03:06,923 - INFO - [Run 43af3444] Critique succeeded on attempt 1
+2026-05-29 12:03:06,923 - INFO - [Run 43af3444] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the IndexError by changing the accessed index to the last valid element instead of addressing why the original index was out of range.', 'retry_guidance': ["Investigate why the code intended to access index 5 and ensure the list 'numbers' contains enough elements.", 'Consider adding error handling or validation to prevent accessing out-of-range indices.'], 'should_retry': True}
+2026-05-29 12:03:06,923 - INFO - [Run 43af3444] Orchestration completed — passed=False
+2026-05-29 14:33:59,619 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 14:34:00,728 - INFO - Loaded 164 HumanEval problems
+2026-05-29 14:34:00,897 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:34:01,037 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:34:01,060 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 14:34:01,060 - INFO - HumanEval loader done — 3 cases ready | skipped: {'no_mutation': 0, 'no_crash': 7, 'wrong_type': 0}
+2026-05-29 14:37:12,811 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 14:37:13,870 - INFO - Loaded 164 HumanEval problems
+2026-05-29 14:37:14,039 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:37:14,152 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:37:14,172 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 14:37:14,172 - INFO - HumanEval loader done — 3 cases ready | skipped: {'no_mutation': 0, 'no_crash': 7, 'wrong_type': 0}
+2026-05-29 14:37:14,172 - INFO - Running 3 benchmark cases
+2026-05-29 14:37:14,173 - INFO - Initialising DebugOrchestrator
+2026-05-29 14:37:14,173 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 14:37:25,154 - INFO - Model loaded and set to eval mode
+2026-05-29 14:37:25,154 - INFO - 
+--- Case 1/3 | HumanEval/4 | TypeError ---
+2026-05-29 14:37:25,154 - INFO - Mutation: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:37:25,154 - INFO - [Run f7856048] Orchestration started
+2026-05-29 14:37:25,154 - INFO - [Run f7856048] AnalyzerAgent started
+2026-05-29 14:37:25,154 - INFO - [Run f7856048] Analyzer attempt 1/2
+2026-05-29 14:37:29,421 - INFO - [Run f7856048] Analyzer latency: 4.2673s
+2026-05-29 14:37:29,422 - INFO - [Run f7856048] Analyzer succeeded on attempt 1
+2026-05-29 14:37:29,422 - INFO - [Run f7856048] AnalyzerAgent completed: TypeError
+2026-05-29 14:37:29,422 - INFO - [Run f7856048] Repair attempt 1/3
+2026-05-29 14:37:29,422 - INFO - [Run f7856048] FixerAgent started
+2026-05-29 14:37:29,422 - INFO - [Run f7856048] Fixer attempt 1/2
+2026-05-29 14:37:41,185 - INFO - [Run f7856048] Fixer latency: 11.7631s
+2026-05-29 14:37:41,185 - INFO - [Run f7856048] Fixer succeeded on attempt 1
+2026-05-29 14:37:41,185 - INFO - [Run f7856048] FixerAgent completed
+2026-05-29 14:37:41,185 - INFO - [Run f7856048] Sandbox execution started
+2026-05-29 14:37:41,203 - INFO - [Run f7856048] Sandbox finished — returncode=0
+2026-05-29 14:37:41,203 - INFO - [Run f7856048] EvaluatorAgent started
+2026-05-29 14:37:41,204 - INFO - [Run f7856048] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 14:37:41,204 - INFO - [Run f7856048] Evaluator attempt 1/2
+2026-05-29 14:37:47,275 - INFO - [Run f7856048] Evaluator latency: 6.0712s
+2026-05-29 14:37:47,275 - INFO - [Run f7856048] Evaluator succeeded on attempt 1
+2026-05-29 14:37:47,275 - INFO - [Run f7856048] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 14:37:47,276 - INFO - [Run f7856048] Successful repair on attempt 1
+2026-05-29 14:37:47,276 - INFO - [Run f7856048] Orchestration completed — passed=True
+2026-05-29 14:37:47,276 - INFO - 
+--- Case 2/3 | HumanEval/8 | TypeError ---
+2026-05-29 14:37:47,276 - INFO - Mutation: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:37:47,276 - INFO - [Run 1ec6299c] Orchestration started
+2026-05-29 14:37:47,276 - INFO - [Run 1ec6299c] AnalyzerAgent started
+2026-05-29 14:37:47,276 - INFO - [Run 1ec6299c] Analyzer attempt 1/2
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] Analyzer latency: 4.0033s
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] Analyzer succeeded on attempt 1
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] AnalyzerAgent completed: TypeError
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] Repair attempt 1/3
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] FixerAgent started
+2026-05-29 14:37:51,279 - INFO - [Run 1ec6299c] Fixer attempt 1/2
+2026-05-29 14:38:05,005 - INFO - [Run 1ec6299c] Fixer latency: 13.7254s
+2026-05-29 14:38:05,005 - INFO - [Run 1ec6299c] Fixer succeeded on attempt 1
+2026-05-29 14:38:05,005 - INFO - [Run 1ec6299c] FixerAgent completed
+2026-05-29 14:38:05,005 - INFO - [Run 1ec6299c] Sandbox execution started
+2026-05-29 14:38:05,023 - INFO - [Run 1ec6299c] Sandbox finished — returncode=0
+2026-05-29 14:38:05,023 - INFO - [Run 1ec6299c] EvaluatorAgent started
+2026-05-29 14:38:05,024 - INFO - [Run 1ec6299c] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}
+2026-05-29 14:38:05,024 - INFO - [Run 1ec6299c] Evaluator attempt 1/2
+2026-05-29 14:38:11,026 - INFO - [Run 1ec6299c] Evaluator latency: 6.0023s
+2026-05-29 14:38:11,026 - INFO - [Run 1ec6299c] Evaluator succeeded on attempt 1
+2026-05-29 14:38:11,026 - INFO - [Run 1ec6299c] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the TypeError by replacing the incorrect use of str() with a tuple return, preserving the original intent and functionality without introducing any new issues.'}
+2026-05-29 14:38:11,026 - INFO - [Run 1ec6299c] Successful repair on attempt 1
+2026-05-29 14:38:11,026 - INFO - [Run 1ec6299c] Orchestration completed — passed=True
+2026-05-29 14:38:11,027 - INFO - 
+--- Case 3/3 | HumanEval/9 | NameError ---
+2026-05-29 14:38:11,027 - INFO - Mutation: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 14:38:11,027 - INFO - [Run 4a665acf] Orchestration started
+2026-05-29 14:38:11,027 - INFO - [Run 4a665acf] AnalyzerAgent started
+2026-05-29 14:38:11,027 - INFO - [Run 4a665acf] Analyzer attempt 1/2
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] Analyzer latency: 3.6493s
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] Analyzer succeeded on attempt 1
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] AnalyzerAgent completed: NameError
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] Repair attempt 1/3
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] FixerAgent started
+2026-05-29 14:38:14,676 - INFO - [Run 4a665acf] Fixer attempt 1/2
+2026-05-29 14:38:27,637 - INFO - [Run 4a665acf] Fixer latency: 12.9604s
+2026-05-29 14:38:27,637 - INFO - [Run 4a665acf] Fixer succeeded on attempt 1
+2026-05-29 14:38:27,637 - INFO - [Run 4a665acf] FixerAgent completed
+2026-05-29 14:38:27,637 - INFO - [Run 4a665acf] Sandbox execution started
+2026-05-29 14:38:27,655 - INFO - [Run 4a665acf] Sandbox finished — returncode=0
+2026-05-29 14:38:27,655 - INFO - [Run 4a665acf] EvaluatorAgent started
+2026-05-29 14:38:27,656 - INFO - [Run 4a665acf] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 14:38:27,656 - INFO - [Run 4a665acf] Evaluator attempt 1/2
+2026-05-29 14:38:33,176 - INFO - [Run 4a665acf] Evaluator latency: 5.5200s
+2026-05-29 14:38:33,176 - INFO - [Run 4a665acf] Evaluator succeeded on attempt 1
+2026-05-29 14:38:33,176 - INFO - [Run 4a665acf] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'result' list, fixing the NameError without altering the original intent or introducing new behavior."}
+2026-05-29 14:38:33,176 - INFO - [Run 4a665acf] Successful repair on attempt 1
+2026-05-29 14:38:33,176 - INFO - [Run 4a665acf] Orchestration completed — passed=True
+2026-05-29 14:39:41,027 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 14:39:42,080 - INFO - Loaded 164 HumanEval problems
+2026-05-29 14:39:42,241 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:39:42,395 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:39:42,432 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 14:39:42,433 - INFO - HumanEval loader done — 3 cases ready | skipped: {'no_mutation': 0, 'no_crash': 7, 'wrong_type': 0}
+2026-05-29 14:39:42,433 - INFO - Running 3 benchmark cases
+2026-05-29 14:39:42,433 - INFO - Initialising DebugOrchestrator
+2026-05-29 14:39:42,433 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 14:39:53,616 - INFO - Model loaded and set to eval mode
+2026-05-29 14:39:53,616 - INFO - 
+--- Case 1/3 | HumanEval/4 | TypeError ---
+2026-05-29 14:39:53,616 - INFO - Mutation: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:39:53,616 - INFO - [Run 07093e65] Orchestration started
+2026-05-29 14:39:53,616 - INFO - [Run 07093e65] AnalyzerAgent started
+2026-05-29 14:39:53,616 - INFO - [Run 07093e65] Analyzer attempt 1/2
+2026-05-29 14:39:57,941 - INFO - [Run 07093e65] Analyzer latency: 4.3254s
+2026-05-29 14:39:57,942 - INFO - [Run 07093e65] Analyzer succeeded on attempt 1
+2026-05-29 14:39:57,942 - INFO - [Run 07093e65] AnalyzerAgent completed: TypeError
+2026-05-29 14:39:57,942 - INFO - [Run 07093e65] Repair attempt 1/3
+2026-05-29 14:39:57,942 - INFO - [Run 07093e65] FixerAgent started
+2026-05-29 14:39:57,942 - INFO - [Run 07093e65] Fixer attempt 1/2
+2026-05-29 14:40:09,710 - INFO - [Run 07093e65] Fixer latency: 11.7684s
+2026-05-29 14:40:09,710 - INFO - [Run 07093e65] Fixer succeeded on attempt 1
+2026-05-29 14:40:09,710 - INFO - [Run 07093e65] FixerAgent completed
+2026-05-29 14:40:09,710 - INFO - [Run 07093e65] Sandbox execution started
+2026-05-29 14:40:09,730 - INFO - [Run 07093e65] Sandbox finished — returncode=0
+2026-05-29 14:40:09,731 - INFO - [Run 07093e65] EvaluatorAgent started
+2026-05-29 14:40:09,731 - INFO - [Run 07093e65] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 14:40:09,731 - INFO - [Run 07093e65] Evaluator attempt 1/2
+2026-05-29 14:40:15,970 - INFO - [Run 07093e65] Evaluator latency: 6.2389s
+2026-05-29 14:40:15,970 - INFO - [Run 07093e65] Evaluator succeeded on attempt 1
+2026-05-29 14:40:15,970 - INFO - [Run 07093e65] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float return value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 14:40:15,970 - INFO - [Run 07093e65] Successful repair on attempt 1
+2026-05-29 14:40:15,970 - INFO - [Run 07093e65] Orchestration completed — passed=True
+2026-05-29 14:40:15,971 - INFO - 
+--- Case 2/3 | HumanEval/8 | TypeError ---
+2026-05-29 14:40:15,971 - INFO - Mutation: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:40:15,971 - INFO - [Run b4ea35f1] Orchestration started
+2026-05-29 14:40:15,971 - INFO - [Run b4ea35f1] AnalyzerAgent started
+2026-05-29 14:40:15,971 - INFO - [Run b4ea35f1] Analyzer attempt 1/2
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] Analyzer latency: 4.0718s
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] Analyzer succeeded on attempt 1
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] AnalyzerAgent completed: TypeError
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] Repair attempt 1/3
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] FixerAgent started
+2026-05-29 14:40:20,043 - INFO - [Run b4ea35f1] Fixer attempt 1/2
+2026-05-29 14:40:33,931 - INFO - [Run b4ea35f1] Fixer latency: 13.8879s
+2026-05-29 14:40:33,932 - INFO - [Run b4ea35f1] Fixer succeeded on attempt 1
+2026-05-29 14:40:33,932 - INFO - [Run b4ea35f1] FixerAgent completed
+2026-05-29 14:40:33,932 - INFO - [Run b4ea35f1] Sandbox execution started
+2026-05-29 14:40:33,950 - INFO - [Run b4ea35f1] Sandbox finished — returncode=0
+2026-05-29 14:40:33,951 - INFO - [Run b4ea35f1] EvaluatorAgent started
+2026-05-29 14:40:33,951 - INFO - [Run b4ea35f1] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}
+2026-05-29 14:40:33,951 - INFO - [Run b4ea35f1] Evaluator attempt 1/2
+2026-05-29 14:40:39,913 - INFO - [Run b4ea35f1] Evaluator latency: 5.9613s
+2026-05-29 14:40:39,913 - INFO - [Run b4ea35f1] Evaluator succeeded on attempt 1
+2026-05-29 14:40:39,913 - INFO - [Run b4ea35f1] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the TypeError by replacing the incorrect use of str() with a tuple return, preserving the original intent and making a minimal change.'}
+2026-05-29 14:40:39,913 - INFO - [Run b4ea35f1] Successful repair on attempt 1
+2026-05-29 14:40:39,913 - INFO - [Run b4ea35f1] Orchestration completed — passed=True
+2026-05-29 14:40:39,914 - INFO - 
+--- Case 3/3 | HumanEval/9 | NameError ---
+2026-05-29 14:40:39,914 - INFO - Mutation: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 14:40:39,914 - INFO - [Run a591696d] Orchestration started
+2026-05-29 14:40:39,914 - INFO - [Run a591696d] AnalyzerAgent started
+2026-05-29 14:40:39,914 - INFO - [Run a591696d] Analyzer attempt 1/2
+2026-05-29 14:40:43,588 - INFO - [Run a591696d] Analyzer latency: 3.6744s
+2026-05-29 14:40:43,589 - INFO - [Run a591696d] Analyzer succeeded on attempt 1
+2026-05-29 14:40:43,589 - INFO - [Run a591696d] AnalyzerAgent completed: NameError
+2026-05-29 14:40:43,589 - INFO - [Run a591696d] Repair attempt 1/3
+2026-05-29 14:40:43,589 - INFO - [Run a591696d] FixerAgent started
+2026-05-29 14:40:43,589 - INFO - [Run a591696d] Fixer attempt 1/2
+2026-05-29 14:40:56,336 - INFO - [Run a591696d] Fixer latency: 12.7472s
+2026-05-29 14:40:56,336 - INFO - [Run a591696d] Fixer succeeded on attempt 1
+2026-05-29 14:40:56,336 - INFO - [Run a591696d] FixerAgent completed
+2026-05-29 14:40:56,336 - INFO - [Run a591696d] Sandbox execution started
+2026-05-29 14:40:56,355 - INFO - [Run a591696d] Sandbox finished — returncode=0
+2026-05-29 14:40:56,355 - INFO - [Run a591696d] EvaluatorAgent started
+2026-05-29 14:40:56,356 - INFO - [Run a591696d] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 14:40:56,356 - INFO - [Run a591696d] Evaluator attempt 1/2
+2026-05-29 14:41:02,100 - INFO - [Run a591696d] Evaluator latency: 5.7437s
+2026-05-29 14:41:02,100 - INFO - [Run a591696d] Evaluator succeeded on attempt 1
+2026-05-29 14:41:02,100 - INFO - [Run a591696d] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'result' list, fixing the NameError without altering the original intent or introducing new behavior."}
+2026-05-29 14:41:02,100 - INFO - [Run a591696d] Successful repair on attempt 1
+2026-05-29 14:41:02,100 - INFO - [Run a591696d] Orchestration completed — passed=True
+2026-05-29 14:46:11,067 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 14:46:12,089 - INFO - Loaded 164 HumanEval problems
+2026-05-29 14:46:12,225 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:46:12,357 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:46:12,388 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 14:46:12,452 - INFO - [HumanEval/12] ✓ NameError: Renamed usage of 'maxlen' → 'maxlen_undefined' (NameError)
+2026-05-29 14:46:12,779 - INFO - [HumanEval/24] ✓ TypeError: Commented out: 'return i' → function returns None
+2026-05-29 14:46:12,987 - INFO - [HumanEval/32] ✓ NameError: Renamed usage of 'begin' → 'begin_undefined' (NameError)
+2026-05-29 14:46:13,070 - INFO - [HumanEval/36] ✓ NameError: Renamed usage of 'ns' → 'ns_undefined' (NameError)
+2026-05-29 14:46:13,099 - INFO - [HumanEval/37] ✓ NameError: Renamed usage of 'evens' → 'evens_undefined' (NameError)
+2026-05-29 14:46:13,147 - INFO - [HumanEval/39] ✓ NameError: Renamed usage of 'f' → 'f_undefined' (NameError)
+2026-05-29 14:46:13,260 - INFO - [HumanEval/46] ✓ NameError: Renamed usage of 'results' → 'results_undefined' (NameError)
+2026-05-29 14:46:13,287 - INFO - [HumanEval/48] ✓ LogicError: Swapped operator '-' → '+'
+2026-05-29 14:46:13,406 - INFO - [HumanEval/55] ✓ TypeError: Wrapped return value in str(): return fib(n - 1) + fib(n - 2) → return str(fib(n - 1) + fib(n - 2))
+2026-05-29 14:46:13,446 - INFO - [HumanEval/58] ✓ NameError: Renamed usage of 'ret' → 'ret_undefined' (NameError)
+2026-05-29 14:46:13,518 - INFO - [HumanEval/61] ✓ NameError: Renamed usage of 'depth' → 'depth_undefined' (NameError)
+2026-05-29 14:46:13,669 - INFO - [HumanEval/69] ✓ LogicError: Swapped operator '+' → '-'
+2026-05-29 14:46:13,737 - INFO - [HumanEval/72] ✓ NameError: Renamed usage of 'j' → 'j_undefined' (NameError)
+2026-05-29 14:46:13,750 - INFO - [HumanEval/73] ✓ LogicError: Swapped operator '-' → '+'
+2026-05-29 14:46:13,762 - INFO - [HumanEval/74] ✓ TypeError: Commented out: 'return lst2' → function returns None
+2026-05-29 14:46:13,885 - INFO - [HumanEval/78] ✓ NameError: Renamed usage of 'primes' → 'primes_undefined' (NameError)
+2026-05-29 14:46:14,217 - INFO - [HumanEval/95] ✓ NameError: Renamed usage of 'state' → 'state_undefined' (NameError)
+2026-05-29 14:46:14,217 - INFO - HumanEval loader done — 20 cases ready | skipped: {'no_mutation': 0, 'no_crash': 76, 'wrong_type': 0}
+2026-05-29 14:46:14,218 - INFO - Running 20 benchmark cases
+2026-05-29 14:46:14,218 - INFO - Initialising DebugOrchestrator
+2026-05-29 14:46:14,218 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 14:46:25,312 - INFO - Model loaded and set to eval mode
+2026-05-29 14:46:25,312 - INFO - 
+--- Case 1/20 | HumanEval/4 | TypeError ---
+2026-05-29 14:46:25,312 - INFO - Mutation: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 14:46:25,312 - INFO - [Run 75a0c9ce] Orchestration started
+2026-05-29 14:46:25,312 - INFO - [Run 75a0c9ce] AnalyzerAgent started
+2026-05-29 14:46:25,312 - INFO - [Run 75a0c9ce] Analyzer attempt 1/2
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] Analyzer latency: 4.3595s
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] Analyzer succeeded on attempt 1
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] AnalyzerAgent completed: TypeError
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] Repair attempt 1/3
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] FixerAgent started
+2026-05-29 14:46:29,672 - INFO - [Run 75a0c9ce] Fixer attempt 1/2
+2026-05-29 14:46:41,333 - INFO - [Run 75a0c9ce] Fixer latency: 11.6605s
+2026-05-29 14:46:41,333 - INFO - [Run 75a0c9ce] Fixer succeeded on attempt 1
+2026-05-29 14:46:41,333 - INFO - [Run 75a0c9ce] FixerAgent completed
+2026-05-29 14:46:41,333 - INFO - [Run 75a0c9ce] Sandbox execution started
+2026-05-29 14:46:41,368 - INFO - [Run 75a0c9ce] Sandbox finished — returncode=0
+2026-05-29 14:46:41,368 - INFO - [Run 75a0c9ce] EvaluatorAgent started
+2026-05-29 14:46:41,368 - INFO - [Run 75a0c9ce] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 14:46:41,368 - INFO - [Run 75a0c9ce] Evaluator attempt 1/2
+2026-05-29 14:46:48,169 - INFO - [Run 75a0c9ce] Evaluator latency: 6.8009s
+2026-05-29 14:46:48,169 - INFO - [Run 75a0c9ce] Evaluator succeeded on attempt 1
+2026-05-29 14:46:48,169 - INFO - [Run 75a0c9ce] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': 'The patch does not address the root cause of the TypeError, which stems from the commented-out return statement. The patch simply uncomments the return statement, but the original issue was that the function was returning None due to the comment.'}
+2026-05-29 14:46:48,170 - INFO - [Run 75a0c9ce] Patch failed evaluation — running critique
+2026-05-29 14:46:48,170 - INFO - [Run 75a0c9ce] CritiqueAgent started
+2026-05-29 14:46:48,170 - INFO - [Run 75a0c9ce] Critique attempt 1/2
+2026-05-29 14:46:55,981 - INFO - [Run 75a0c9ce] Critique latency: 7.8119s
+2026-05-29 14:46:55,982 - INFO - [Run 75a0c9ce] Critique succeeded on attempt 1
+2026-05-29 14:46:55,982 - INFO - [Run 75a0c9ce] Critique result: {'failure_type': 'bypass_fix', 'critique': 'The patch bypasses the issue by uncommenting the return statement without addressing why it was commented out in the first place.', 'retry_guidance': ['Investigate the reason behind the original comment to understand if there was a specific condition or error handling that needed to be addressed.', 'Ensure that the uncommented return statement aligns with the intended logic and does not introduce any unintended behavior.'], 'should_retry': True}
+2026-05-29 14:46:55,982 - INFO - [Run 75a0c9ce] Repair attempt 2/3
+2026-05-29 14:46:55,982 - INFO - [Run 75a0c9ce] FixerAgent started
+2026-05-29 14:46:55,982 - INFO - [Run 75a0c9ce] Fixer attempt 1/2
+2026-05-29 14:47:07,454 - INFO - [Run 75a0c9ce] Fixer latency: 11.4721s
+2026-05-29 14:47:07,454 - INFO - [Run 75a0c9ce] Fixer succeeded on attempt 1
+2026-05-29 14:47:07,454 - INFO - [Run 75a0c9ce] FixerAgent completed
+2026-05-29 14:47:07,454 - INFO - [Run 75a0c9ce] Sandbox execution started
+2026-05-29 14:47:07,474 - INFO - [Run 75a0c9ce] Sandbox finished — returncode=0
+2026-05-29 14:47:07,474 - INFO - [Run 75a0c9ce] EvaluatorAgent started
+2026-05-29 14:47:07,475 - INFO - [Run 75a0c9ce] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 14:47:07,475 - INFO - [Run 75a0c9ce] Evaluator attempt 1/2
+2026-05-29 14:47:13,810 - INFO - [Run 75a0c9ce] Evaluator latency: 6.3349s
+2026-05-29 14:47:13,810 - INFO - [Run 75a0c9ce] Evaluator succeeded on attempt 1
+2026-05-29 14:47:13,810 - INFO - [Run 75a0c9ce] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float return value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 14:47:13,810 - INFO - [Run 75a0c9ce] Successful repair on attempt 2
+2026-05-29 14:47:13,810 - INFO - [Run 75a0c9ce] Orchestration completed — passed=True
+2026-05-29 14:47:13,811 - INFO - 
+--- Case 2/20 | HumanEval/8 | TypeError ---
+2026-05-29 14:47:13,811 - INFO - Mutation: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 14:47:13,811 - INFO - [Run 27fab806] Orchestration started
+2026-05-29 14:47:13,811 - INFO - [Run 27fab806] AnalyzerAgent started
+2026-05-29 14:47:13,812 - INFO - [Run 27fab806] Analyzer attempt 1/2
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] Analyzer latency: 3.8976s
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] Analyzer succeeded on attempt 1
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] AnalyzerAgent completed: TypeError
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] Repair attempt 1/3
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] FixerAgent started
+2026-05-29 14:47:17,709 - INFO - [Run 27fab806] Fixer attempt 1/2
+2026-05-29 14:47:30,485 - INFO - [Run 27fab806] Fixer latency: 12.7751s
+2026-05-29 14:47:30,485 - INFO - [Run 27fab806] Fixer succeeded on attempt 1
+2026-05-29 14:47:30,485 - INFO - [Run 27fab806] FixerAgent completed
+2026-05-29 14:47:30,485 - INFO - [Run 27fab806] Sandbox execution started
+2026-05-29 14:47:30,511 - INFO - [Run 27fab806] Sandbox finished — returncode=0
+2026-05-29 14:47:30,511 - INFO - [Run 27fab806] EvaluatorAgent started
+2026-05-29 14:47:30,511 - INFO - [Run 27fab806] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}
+2026-05-29 14:47:30,511 - INFO - [Run 27fab806] Evaluator attempt 1/2
+2026-05-29 14:47:36,357 - INFO - [Run 27fab806] Evaluator latency: 5.8451s
+2026-05-29 14:47:36,357 - INFO - [Run 27fab806] Evaluator succeeded on attempt 1
+2026-05-29 14:47:36,357 - INFO - [Run 27fab806] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the TypeError by replacing the incorrect use of str() with a tuple return, preserving the original intent and making a minimal change.'}
+2026-05-29 14:47:36,357 - INFO - [Run 27fab806] Successful repair on attempt 1
+2026-05-29 14:47:36,357 - INFO - [Run 27fab806] Orchestration completed — passed=True
+2026-05-29 14:47:36,357 - INFO - 
+--- Case 3/20 | HumanEval/9 | NameError ---
+2026-05-29 14:47:36,358 - INFO - Mutation: Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 14:47:36,358 - INFO - [Run 2fb24fc1] Orchestration started
+2026-05-29 14:47:36,358 - INFO - [Run 2fb24fc1] AnalyzerAgent started
+2026-05-29 14:47:36,358 - INFO - [Run 2fb24fc1] Analyzer attempt 1/2
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] Analyzer latency: 4.1301s
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] Analyzer succeeded on attempt 1
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] Repair attempt 1/3
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] FixerAgent started
+2026-05-29 14:47:40,488 - INFO - [Run 2fb24fc1] Fixer attempt 1/2
+2026-05-29 14:47:53,622 - INFO - [Run 2fb24fc1] Fixer latency: 13.1342s
+2026-05-29 14:47:53,623 - INFO - [Run 2fb24fc1] Fixer succeeded on attempt 1
+2026-05-29 14:47:53,623 - INFO - [Run 2fb24fc1] FixerAgent completed
+2026-05-29 14:47:53,623 - INFO - [Run 2fb24fc1] Sandbox execution started
+2026-05-29 14:47:53,642 - INFO - [Run 2fb24fc1] Sandbox finished — returncode=0
+2026-05-29 14:47:53,642 - INFO - [Run 2fb24fc1] EvaluatorAgent started
+2026-05-29 14:47:53,643 - INFO - [Run 2fb24fc1] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 14:47:53,643 - INFO - [Run 2fb24fc1] Evaluator attempt 1/2
+2026-05-29 14:47:59,593 - INFO - [Run 2fb24fc1] Evaluator latency: 5.9499s
+2026-05-29 14:47:59,593 - INFO - [Run 2fb24fc1] Evaluator succeeded on attempt 1
+2026-05-29 14:47:59,593 - INFO - [Run 2fb24fc1] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'running_max' before its first use, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 14:47:59,593 - INFO - [Run 2fb24fc1] Successful repair on attempt 1
+2026-05-29 14:47:59,593 - INFO - [Run 2fb24fc1] Orchestration completed — passed=True
+2026-05-29 14:47:59,594 - INFO - 
+--- Case 4/20 | HumanEval/12 | NameError ---
+2026-05-29 14:47:59,594 - INFO - Mutation: Renamed usage of 'maxlen' → 'maxlen_undefined' (NameError)
+2026-05-29 14:47:59,594 - INFO - [Run a270d28c] Orchestration started
+2026-05-29 14:47:59,594 - INFO - [Run a270d28c] AnalyzerAgent started
+2026-05-29 14:47:59,594 - INFO - [Run a270d28c] Analyzer attempt 1/2
+2026-05-29 14:48:03,747 - INFO - [Run a270d28c] Analyzer latency: 4.1534s
+2026-05-29 14:48:03,748 - INFO - [Run a270d28c] Analyzer succeeded on attempt 1
+2026-05-29 14:48:03,748 - INFO - [Run a270d28c] AnalyzerAgent completed: NameError
+2026-05-29 14:48:03,748 - INFO - [Run a270d28c] Repair attempt 1/3
+2026-05-29 14:48:03,748 - INFO - [Run a270d28c] FixerAgent started
+2026-05-29 14:48:03,748 - INFO - [Run a270d28c] Fixer attempt 1/2
+2026-05-29 14:48:16,189 - INFO - [Run a270d28c] Fixer latency: 12.4411s
+2026-05-29 14:48:16,189 - INFO - [Run a270d28c] Fixer succeeded on attempt 1
+2026-05-29 14:48:16,189 - INFO - [Run a270d28c] FixerAgent completed
+2026-05-29 14:48:16,189 - INFO - [Run a270d28c] Sandbox execution started
+2026-05-29 14:48:16,228 - INFO - [Run a270d28c] Sandbox finished — returncode=0
+2026-05-29 14:48:16,229 - INFO - [Run a270d28c] EvaluatorAgent started
+2026-05-29 14:48:16,229 - INFO - [Run a270d28c] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}
+2026-05-29 14:48:16,229 - INFO - [Run a270d28c] Evaluator attempt 1/2
+2026-05-29 14:48:22,419 - INFO - [Run a270d28c] Evaluator latency: 6.1898s
+2026-05-29 14:48:22,419 - INFO - [Run a270d28c] Evaluator succeeded on attempt 1
+2026-05-29 14:48:22,419 - INFO - [Run a270d28c] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'maxlen' with 'maxlen_undefined', preserving the original intent and fixing the root cause without introducing any new issues."}
+2026-05-29 14:48:22,419 - INFO - [Run a270d28c] Successful repair on attempt 1
+2026-05-29 14:48:22,419 - INFO - [Run a270d28c] Orchestration completed — passed=True
+2026-05-29 14:48:22,420 - INFO - 
+--- Case 5/20 | HumanEval/24 | TypeError ---
+2026-05-29 14:48:22,420 - INFO - Mutation: Commented out: 'return i' → function returns None
+2026-05-29 14:48:22,420 - INFO - [Run 20780be2] Orchestration started
+2026-05-29 14:48:22,420 - INFO - [Run 20780be2] AnalyzerAgent started
+2026-05-29 14:48:22,420 - INFO - [Run 20780be2] Analyzer attempt 1/2
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] Analyzer latency: 3.9524s
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] Analyzer succeeded on attempt 1
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] AnalyzerAgent completed: IndentationError
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] Repair attempt 1/3
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] FixerAgent started
+2026-05-29 14:48:26,373 - INFO - [Run 20780be2] Fixer attempt 1/2
+2026-05-29 14:48:33,380 - INFO - [Run 20780be2] Fixer latency: 7.0075s
+2026-05-29 14:48:33,381 - INFO - [Run 20780be2] Fixer succeeded on attempt 1
+2026-05-29 14:48:33,381 - INFO - [Run 20780be2] FixerAgent completed
+2026-05-29 14:48:33,381 - INFO - [Run 20780be2] Sandbox execution started
+2026-05-29 14:48:33,391 - INFO - [Run 20780be2] Sandbox finished — returncode=0
+2026-05-29 14:48:33,392 - INFO - [Run 20780be2] EvaluatorAgent started
+2026-05-29 14:48:33,392 - INFO - [Run 20780be2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}
+2026-05-29 14:48:33,392 - INFO - [Run 20780be2] Evaluator attempt 1/2
+2026-05-29 14:48:38,973 - INFO - [Run 20780be2] Evaluator latency: 5.5811s
+2026-05-29 14:48:38,973 - INFO - [Run 20780be2] Evaluator succeeded on attempt 1
+2026-05-29 14:48:38,973 - INFO - [Run 20780be2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly addresses the IndentationError by adding the missing indentation to the return statement, preserving the original intent and making a minimal change.'}
+2026-05-29 14:48:38,974 - INFO - [Run 20780be2] Successful repair on attempt 1
+2026-05-29 14:48:38,974 - INFO - [Run 20780be2] Orchestration completed — passed=True
+2026-05-29 14:48:38,974 - INFO - 
+--- Case 6/20 | HumanEval/32 | NameError ---
+2026-05-29 14:48:38,974 - INFO - Mutation: Renamed usage of 'begin' → 'begin_undefined' (NameError)
+2026-05-29 14:48:38,974 - INFO - [Run 0e0d6ff2] Orchestration started
+2026-05-29 14:48:38,974 - INFO - [Run 0e0d6ff2] AnalyzerAgent started
+2026-05-29 14:48:38,974 - INFO - [Run 0e0d6ff2] Analyzer attempt 1/2
+2026-05-29 14:48:43,094 - INFO - [Run 0e0d6ff2] Analyzer latency: 4.1202s
+2026-05-29 14:48:43,095 - INFO - [Run 0e0d6ff2] Analyzer succeeded on attempt 1
+2026-05-29 14:48:43,095 - INFO - [Run 0e0d6ff2] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 14:48:43,095 - INFO - [Run 0e0d6ff2] Repair attempt 1/3
+2026-05-29 14:48:43,095 - INFO - [Run 0e0d6ff2] FixerAgent started
+2026-05-29 14:48:43,095 - INFO - [Run 0e0d6ff2] Fixer attempt 1/2
+2026-05-29 14:49:08,989 - INFO - [Run 0e0d6ff2] Fixer latency: 25.8943s
+2026-05-29 14:49:08,989 - INFO - [Run 0e0d6ff2] Fixer succeeded on attempt 1
+2026-05-29 14:49:08,989 - INFO - [Run 0e0d6ff2] FixerAgent completed
+2026-05-29 14:49:08,989 - INFO - [Run 0e0d6ff2] Sandbox execution started
+2026-05-29 14:49:08,999 - INFO - [Run 0e0d6ff2] Sandbox finished — returncode=0
+2026-05-29 14:49:09,000 - INFO - [Run 0e0d6ff2] EvaluatorAgent started
+2026-05-29 14:49:09,000 - INFO - [Run 0e0d6ff2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.005556, 'penalties': []}
+2026-05-29 14:49:09,000 - INFO - [Run 0e0d6ff2] Evaluator attempt 1/2
+2026-05-29 14:49:15,435 - INFO - [Run 0e0d6ff2] Evaluator latency: 6.4341s
+2026-05-29 14:49:15,435 - INFO - [Run 0e0d6ff2] Evaluator succeeded on attempt 1
+2026-05-29 14:49:15,435 - INFO - [Run 0e0d6ff2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.005556, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'begin' before its first use, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 14:49:15,435 - INFO - [Run 0e0d6ff2] Successful repair on attempt 1
+2026-05-29 14:49:15,435 - INFO - [Run 0e0d6ff2] Orchestration completed — passed=True
+2026-05-29 14:49:15,436 - INFO - 
+--- Case 7/20 | HumanEval/36 | NameError ---
+2026-05-29 14:49:15,436 - INFO - Mutation: Renamed usage of 'ns' → 'ns_undefined' (NameError)
+2026-05-29 14:49:15,436 - INFO - [Run 96c84b0d] Orchestration started
+2026-05-29 14:49:15,436 - INFO - [Run 96c84b0d] AnalyzerAgent started
+2026-05-29 14:49:15,436 - INFO - [Run 96c84b0d] Analyzer attempt 1/2
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] Analyzer latency: 4.0591s
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] Analyzer succeeded on attempt 1
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] AnalyzerAgent completed: NameError
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] Repair attempt 1/3
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] FixerAgent started
+2026-05-29 14:49:19,495 - INFO - [Run 96c84b0d] Fixer attempt 1/2
+2026-05-29 14:49:32,821 - INFO - [Run 96c84b0d] Fixer latency: 13.3259s
+2026-05-29 14:49:32,822 - INFO - [Run 96c84b0d] Fixer succeeded on attempt 1
+2026-05-29 14:49:32,822 - INFO - [Run 96c84b0d] FixerAgent completed
+2026-05-29 14:49:32,822 - INFO - [Run 96c84b0d] Sandbox execution started
+2026-05-29 14:49:32,831 - INFO - [Run 96c84b0d] Sandbox finished — returncode=0
+2026-05-29 14:49:32,831 - INFO - [Run 96c84b0d] EvaluatorAgent started
+2026-05-29 14:49:32,832 - INFO - [Run 96c84b0d] Heuristic result: {'score': 1.0, 'structural_ratio': 0.027778, 'penalties': []}
+2026-05-29 14:49:32,832 - INFO - [Run 96c84b0d] Evaluator attempt 1/2
+2026-05-29 14:49:39,083 - INFO - [Run 96c84b0d] Evaluator latency: 6.2510s
+2026-05-29 14:49:39,083 - INFO - [Run 96c84b0d] Evaluator succeeded on attempt 1
+2026-05-29 14:49:39,083 - INFO - [Run 96c84b0d] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.027778, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly identifies 'ns' as the intended variable name and replaces it with 'ns_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 14:49:39,083 - INFO - [Run 96c84b0d] Successful repair on attempt 1
+2026-05-29 14:49:39,083 - INFO - [Run 96c84b0d] Orchestration completed — passed=True
+2026-05-29 14:49:39,084 - INFO - 
+--- Case 8/20 | HumanEval/37 | NameError ---
+2026-05-29 14:49:39,084 - INFO - Mutation: Renamed usage of 'evens' → 'evens_undefined' (NameError)
+2026-05-29 14:49:39,084 - INFO - [Run 5f2dfbb5] Orchestration started
+2026-05-29 14:49:39,084 - INFO - [Run 5f2dfbb5] AnalyzerAgent started
+2026-05-29 14:49:39,084 - INFO - [Run 5f2dfbb5] Analyzer attempt 1/2
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] Analyzer latency: 4.2419s
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] Analyzer succeeded on attempt 1
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] AnalyzerAgent completed: NameError
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] Repair attempt 1/3
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] FixerAgent started
+2026-05-29 14:49:43,326 - INFO - [Run 5f2dfbb5] Fixer attempt 1/2
+2026-05-29 14:49:59,184 - INFO - [Run 5f2dfbb5] Fixer latency: 15.8574s
+2026-05-29 14:49:59,184 - INFO - [Run 5f2dfbb5] Fixer succeeded on attempt 1
+2026-05-29 14:49:59,184 - INFO - [Run 5f2dfbb5] FixerAgent completed
+2026-05-29 14:49:59,184 - INFO - [Run 5f2dfbb5] Sandbox execution started
+2026-05-29 14:49:59,195 - INFO - [Run 5f2dfbb5] Sandbox finished — returncode=0
+2026-05-29 14:49:59,195 - INFO - [Run 5f2dfbb5] EvaluatorAgent started
+2026-05-29 14:49:59,195 - INFO - [Run 5f2dfbb5] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 14:49:59,195 - INFO - [Run 5f2dfbb5] Evaluator attempt 1/2
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] Evaluator latency: 6.7247s
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] Evaluator succeeded on attempt 1
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the variable name from 'evens_undefined' to 'evens', which is a minimal change but does not preserve the original program's intent as the variable was not defined before."}
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] Patch failed evaluation — running critique
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] CritiqueAgent started
+2026-05-29 14:50:05,920 - INFO - [Run 5f2dfbb5] Critique attempt 1/2
+2026-05-29 14:50:12,968 - INFO - [Run 5f2dfbb5] Critique latency: 7.0479s
+2026-05-29 14:50:12,969 - INFO - [Run 5f2dfbb5] Critique succeeded on attempt 1
+2026-05-29 14:50:12,969 - INFO - [Run 5f2dfbb5] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for an undefined variable by using 'evens_undefined' where 'evens' was intended, without defining 'evens'.", 'retry_guidance': ["Define the variable 'evens' before using it.", 'Ensure that the sorting operation is applied to the correct variable.'], 'should_retry': True}
+2026-05-29 14:50:12,969 - INFO - [Run 5f2dfbb5] Repair attempt 2/3
+2026-05-29 14:50:12,969 - INFO - [Run 5f2dfbb5] FixerAgent started
+2026-05-29 14:50:12,969 - INFO - [Run 5f2dfbb5] Fixer attempt 1/2
+2026-05-29 14:50:29,022 - INFO - [Run 5f2dfbb5] Fixer latency: 16.0534s
+2026-05-29 14:50:29,022 - INFO - [Run 5f2dfbb5] Fixer succeeded on attempt 1
+2026-05-29 14:50:29,022 - INFO - [Run 5f2dfbb5] FixerAgent completed
+2026-05-29 14:50:29,022 - INFO - [Run 5f2dfbb5] Sandbox execution started
+2026-05-29 14:50:29,034 - INFO - [Run 5f2dfbb5] Sandbox finished — returncode=0
+2026-05-29 14:50:29,034 - INFO - [Run 5f2dfbb5] EvaluatorAgent started
+2026-05-29 14:50:29,034 - INFO - [Run 5f2dfbb5] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 14:50:29,035 - INFO - [Run 5f2dfbb5] Evaluator attempt 1/2
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] Evaluator latency: 6.7145s
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] Evaluator succeeded on attempt 1
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the variable name from 'evens_undefined' to 'evens', which is a minimal change but does not preserve the original program's intent as the variable was not defined before."}
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] Patch failed evaluation — running critique
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] CritiqueAgent started
+2026-05-29 14:50:35,749 - INFO - [Run 5f2dfbb5] Critique attempt 1/2
+2026-05-29 14:50:42,752 - INFO - [Run 5f2dfbb5] Critique latency: 7.0030s
+2026-05-29 14:50:42,753 - INFO - [Run 5f2dfbb5] Critique succeeded on attempt 1
+2026-05-29 14:50:42,753 - INFO - [Run 5f2dfbb5] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for an undefined variable by using 'evens_undefined' where 'evens' was intended, without defining 'evens'.", 'retry_guidance': ["Define the variable 'evens' before using it.", 'Ensure that the sorting operation is applied to the correct variable.'], 'should_retry': True}
+2026-05-29 14:50:42,753 - INFO - [Run 5f2dfbb5] Repair attempt 3/3
+2026-05-29 14:50:42,753 - INFO - [Run 5f2dfbb5] FixerAgent started
+2026-05-29 14:50:42,753 - INFO - [Run 5f2dfbb5] Fixer attempt 1/2
+2026-05-29 14:50:58,749 - INFO - [Run 5f2dfbb5] Fixer latency: 15.9959s
+2026-05-29 14:50:58,749 - INFO - [Run 5f2dfbb5] Fixer succeeded on attempt 1
+2026-05-29 14:50:58,749 - INFO - [Run 5f2dfbb5] FixerAgent completed
+2026-05-29 14:50:58,749 - INFO - [Run 5f2dfbb5] Sandbox execution started
+2026-05-29 14:50:58,759 - INFO - [Run 5f2dfbb5] Sandbox finished — returncode=0
+2026-05-29 14:50:58,759 - INFO - [Run 5f2dfbb5] EvaluatorAgent started
+2026-05-29 14:50:58,760 - INFO - [Run 5f2dfbb5] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 14:50:58,760 - INFO - [Run 5f2dfbb5] Evaluator attempt 1/2
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] Evaluator latency: 6.7442s
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] Evaluator succeeded on attempt 1
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the variable name from 'evens_undefined' to 'evens', which is a minimal change but does not preserve the original program's intent as the variable was not defined before."}
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] Patch failed evaluation — running critique
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] CritiqueAgent started
+2026-05-29 14:51:05,504 - INFO - [Run 5f2dfbb5] Critique attempt 1/2
+2026-05-29 14:51:12,517 - INFO - [Run 5f2dfbb5] Critique latency: 7.0121s
+2026-05-29 14:51:12,517 - INFO - [Run 5f2dfbb5] Critique succeeded on attempt 1
+2026-05-29 14:51:12,517 - INFO - [Run 5f2dfbb5] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for an undefined variable by using 'evens_undefined' where 'evens' was intended, without defining 'evens'.", 'retry_guidance': ["Define the variable 'evens' before using it.", 'Ensure that the sorting operation is applied to the correct variable.'], 'should_retry': True}
+2026-05-29 14:51:12,517 - INFO - [Run 5f2dfbb5] Orchestration completed — passed=False
+2026-05-29 14:51:12,519 - INFO - 
+--- Case 9/20 | HumanEval/39 | NameError ---
+2026-05-29 14:51:12,519 - INFO - Mutation: Renamed usage of 'f' → 'f_undefined' (NameError)
+2026-05-29 14:51:12,519 - INFO - [Run b56fa3ed] Orchestration started
+2026-05-29 14:51:12,519 - INFO - [Run b56fa3ed] AnalyzerAgent started
+2026-05-29 14:51:12,519 - INFO - [Run b56fa3ed] Analyzer attempt 1/2
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] Analyzer latency: 3.8790s
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] Analyzer succeeded on attempt 1
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] AnalyzerAgent completed: NameError
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] Repair attempt 1/3
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] FixerAgent started
+2026-05-29 14:51:16,398 - INFO - [Run b56fa3ed] Fixer attempt 1/2
+2026-05-29 14:51:33,348 - INFO - [Run b56fa3ed] Fixer latency: 16.9497s
+2026-05-29 14:51:33,348 - INFO - [Run b56fa3ed] Fixer succeeded on attempt 1
+2026-05-29 14:51:33,348 - INFO - [Run b56fa3ed] FixerAgent completed
+2026-05-29 14:51:33,348 - INFO - [Run b56fa3ed] Sandbox execution started
+2026-05-29 14:51:33,372 - INFO - [Run b56fa3ed] Sandbox finished — returncode=0
+2026-05-29 14:51:33,373 - INFO - [Run b56fa3ed] EvaluatorAgent started
+2026-05-29 14:51:33,373 - INFO - [Run b56fa3ed] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012048, 'penalties': []}
+2026-05-29 14:51:33,373 - INFO - [Run b56fa3ed] Evaluator attempt 1/2
+2026-05-29 14:51:40,197 - INFO - [Run b56fa3ed] Evaluator latency: 6.8233s
+2026-05-29 14:51:40,197 - INFO - [Run b56fa3ed] Evaluator succeeded on attempt 1
+2026-05-29 14:51:40,197 - INFO - [Run b56fa3ed] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012048, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'f' with the list [0, 1], which is necessary for the Fibonacci sequence calculation. This fix is minimal and does not alter the original intent of the function."}
+2026-05-29 14:51:40,197 - INFO - [Run b56fa3ed] Successful repair on attempt 1
+2026-05-29 14:51:40,197 - INFO - [Run b56fa3ed] Orchestration completed — passed=True
+2026-05-29 14:51:40,197 - INFO - 
+--- Case 10/20 | HumanEval/46 | NameError ---
+2026-05-29 14:51:40,197 - INFO - Mutation: Renamed usage of 'results' → 'results_undefined' (NameError)
+2026-05-29 14:51:40,198 - INFO - [Run 98fe1357] Orchestration started
+2026-05-29 14:51:40,198 - INFO - [Run 98fe1357] AnalyzerAgent started
+2026-05-29 14:51:40,198 - INFO - [Run 98fe1357] Analyzer attempt 1/2
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] Analyzer latency: 3.5532s
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] Analyzer succeeded on attempt 1
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] AnalyzerAgent completed: NameError
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] Repair attempt 1/3
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] FixerAgent started
+2026-05-29 14:51:43,751 - INFO - [Run 98fe1357] Fixer attempt 1/2
+2026-05-29 14:52:02,053 - INFO - [Run 98fe1357] Fixer latency: 18.3018s
+2026-05-29 14:52:02,053 - INFO - [Run 98fe1357] Fixer succeeded on attempt 1
+2026-05-29 14:52:02,053 - INFO - [Run 98fe1357] FixerAgent completed
+2026-05-29 14:52:02,053 - INFO - [Run 98fe1357] Sandbox execution started
+2026-05-29 14:52:02,063 - INFO - [Run 98fe1357] Sandbox finished — returncode=0
+2026-05-29 14:52:02,063 - INFO - [Run 98fe1357] EvaluatorAgent started
+2026-05-29 14:52:02,064 - INFO - [Run 98fe1357] Heuristic result: {'score': 1.0, 'structural_ratio': 0.010204, 'penalties': []}
+2026-05-29 14:52:02,064 - INFO - [Run 98fe1357] Evaluator attempt 1/2
+2026-05-29 14:52:07,990 - INFO - [Run 98fe1357] Evaluator latency: 5.9259s
+2026-05-29 14:52:07,990 - INFO - [Run 98fe1357] Evaluator succeeded on attempt 1
+2026-05-29 14:52:07,990 - INFO - [Run 98fe1357] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.010204, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'results' list, fixing the NameError without altering the original intent or introducing new behavior."}
+2026-05-29 14:52:07,990 - INFO - [Run 98fe1357] Successful repair on attempt 1
+2026-05-29 14:52:07,990 - INFO - [Run 98fe1357] Orchestration completed — passed=True
+2026-05-29 14:52:07,991 - INFO - 
+--- Case 11/20 | HumanEval/48 | LogicError ---
+2026-05-29 14:52:07,991 - INFO - Mutation: Swapped operator '-' → '+'
+2026-05-29 14:52:07,991 - INFO - [Run 6d5e538b] Orchestration started
+2026-05-29 14:52:07,991 - INFO - [Run 6d5e538b] AnalyzerAgent started
+2026-05-29 14:52:07,991 - INFO - [Run 6d5e538b] Analyzer attempt 1/2
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] Analyzer latency: 4.0640s
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] Analyzer succeeded on attempt 1
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] AnalyzerAgent completed: IndexError
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] Repair attempt 1/3
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] FixerAgent started
+2026-05-29 14:52:12,055 - INFO - [Run 6d5e538b] Fixer attempt 1/2
+2026-05-29 14:52:22,699 - INFO - [Run 6d5e538b] Fixer latency: 10.6432s
+2026-05-29 14:52:22,699 - INFO - [Run 6d5e538b] Fixer succeeded on attempt 1
+2026-05-29 14:52:22,699 - INFO - [Run 6d5e538b] FixerAgent completed
+2026-05-29 14:52:22,699 - INFO - [Run 6d5e538b] Sandbox execution started
+2026-05-29 14:52:22,724 - INFO - [Run 6d5e538b] Sandbox finished — returncode=0
+2026-05-29 14:52:22,724 - INFO - [Run 6d5e538b] EvaluatorAgent started
+2026-05-29 14:52:22,724 - INFO - [Run 6d5e538b] Heuristic result: {'score': 1.0, 'structural_ratio': 0.025, 'penalties': []}
+2026-05-29 14:52:22,724 - INFO - [Run 6d5e538b] Evaluator attempt 1/2
+2026-05-29 14:52:28,520 - INFO - [Run 6d5e538b] Evaluator latency: 5.7951s
+2026-05-29 14:52:28,520 - INFO - [Run 6d5e538b] Evaluator succeeded on attempt 1
+2026-05-29 14:52:28,520 - INFO - [Run 6d5e538b] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.025, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the off-by-one error in the index calculation, fixing the root cause of the IndexError without altering the original intent of the function.'}
+2026-05-29 14:52:28,520 - INFO - [Run 6d5e538b] Successful repair on attempt 1
+2026-05-29 14:52:28,520 - INFO - [Run 6d5e538b] Orchestration completed — passed=True
+2026-05-29 14:52:28,520 - INFO - 
+--- Case 12/20 | HumanEval/55 | TypeError ---
+2026-05-29 14:52:28,520 - INFO - Mutation: Wrapped return value in str(): return fib(n - 1) + fib(n - 2) → return str(fib(n - 1) + fib(n - 2))
+2026-05-29 14:52:28,520 - INFO - [Run 34428977] Orchestration started
+2026-05-29 14:52:28,520 - INFO - [Run 34428977] AnalyzerAgent started
+2026-05-29 14:52:28,520 - INFO - [Run 34428977] Analyzer attempt 1/2
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] Analyzer latency: 3.8095s
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] Analyzer succeeded on attempt 1
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] AnalyzerAgent completed: TypeError
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] Repair attempt 1/3
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] FixerAgent started
+2026-05-29 14:52:32,330 - INFO - [Run 34428977] Fixer attempt 1/2
+2026-05-29 14:52:41,058 - INFO - [Run 34428977] Fixer latency: 8.7272s
+2026-05-29 14:52:41,058 - INFO - [Run 34428977] Fixer succeeded on attempt 1
+2026-05-29 14:52:41,058 - INFO - [Run 34428977] FixerAgent completed
+2026-05-29 14:52:41,058 - INFO - [Run 34428977] Sandbox execution started
+2026-05-29 14:52:41,082 - INFO - [Run 34428977] Sandbox finished — returncode=0
+2026-05-29 14:52:41,082 - INFO - [Run 34428977] EvaluatorAgent started
+2026-05-29 14:52:41,082 - INFO - [Run 34428977] Heuristic result: {'score': 1.0, 'structural_ratio': 0.054054, 'penalties': []}
+2026-05-29 14:52:41,082 - INFO - [Run 34428977] Evaluator attempt 1/2
+2026-05-29 14:52:47,504 - INFO - [Run 34428977] Evaluator latency: 6.4215s
+2026-05-29 14:52:47,504 - INFO - [Run 34428977] Evaluator succeeded on attempt 1
+2026-05-29 14:52:47,504 - INFO - [Run 34428977] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.054054, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch removes the str() conversion, which was causing the TypeError by attempting to concatenate strings and integers. This minimal change fixes the root cause while preserving the original intent of calculating Fibonacci numbers.'}
+2026-05-29 14:52:47,504 - INFO - [Run 34428977] Successful repair on attempt 1
+2026-05-29 14:52:47,504 - INFO - [Run 34428977] Orchestration completed — passed=True
+2026-05-29 14:52:47,505 - INFO - 
+--- Case 13/20 | HumanEval/58 | NameError ---
+2026-05-29 14:52:47,505 - INFO - Mutation: Renamed usage of 'ret' → 'ret_undefined' (NameError)
+2026-05-29 14:52:47,505 - INFO - [Run ac81abb7] Orchestration started
+2026-05-29 14:52:47,505 - INFO - [Run ac81abb7] AnalyzerAgent started
+2026-05-29 14:52:47,505 - INFO - [Run ac81abb7] Analyzer attempt 1/2
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] Analyzer latency: 4.2537s
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] Analyzer succeeded on attempt 1
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] AnalyzerAgent completed: NameError
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] Repair attempt 1/3
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] FixerAgent started
+2026-05-29 14:52:51,759 - INFO - [Run ac81abb7] Fixer attempt 1/2
+2026-05-29 14:53:05,441 - INFO - [Run ac81abb7] Fixer latency: 13.6820s
+2026-05-29 14:53:05,441 - INFO - [Run ac81abb7] Fixer succeeded on attempt 1
+2026-05-29 14:53:05,441 - INFO - [Run ac81abb7] FixerAgent completed
+2026-05-29 14:53:05,441 - INFO - [Run ac81abb7] Sandbox execution started
+2026-05-29 14:53:05,454 - INFO - [Run ac81abb7] Sandbox finished — returncode=0
+2026-05-29 14:53:05,454 - INFO - [Run ac81abb7] EvaluatorAgent started
+2026-05-29 14:53:05,455 - INFO - [Run ac81abb7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.033898, 'penalties': []}
+2026-05-29 14:53:05,455 - INFO - [Run ac81abb7] Evaluator attempt 1/2
+2026-05-29 14:53:11,701 - INFO - [Run ac81abb7] Evaluator latency: 6.2462s
+2026-05-29 14:53:11,701 - INFO - [Run ac81abb7] Evaluator succeeded on attempt 1
+2026-05-29 14:53:11,701 - INFO - [Run ac81abb7] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.033898, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly changes the undefined variable 'ret' to 'ret_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 14:53:11,701 - INFO - [Run ac81abb7] Successful repair on attempt 1
+2026-05-29 14:53:11,701 - INFO - [Run ac81abb7] Orchestration completed — passed=True
+2026-05-29 14:53:11,702 - INFO - 
+--- Case 14/20 | HumanEval/61 | NameError ---
+2026-05-29 14:53:11,702 - INFO - Mutation: Renamed usage of 'depth' → 'depth_undefined' (NameError)
+2026-05-29 14:53:11,702 - INFO - [Run 13fb36a2] Orchestration started
+2026-05-29 14:53:11,702 - INFO - [Run 13fb36a2] AnalyzerAgent started
+2026-05-29 14:53:11,702 - INFO - [Run 13fb36a2] Analyzer attempt 1/2
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] Analyzer latency: 4.0803s
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] Analyzer succeeded on attempt 1
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] Repair attempt 1/3
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] FixerAgent started
+2026-05-29 14:53:15,783 - INFO - [Run 13fb36a2] Fixer attempt 1/2
+2026-05-29 14:53:28,128 - INFO - [Run 13fb36a2] Fixer latency: 12.3448s
+2026-05-29 14:53:28,128 - INFO - [Run 13fb36a2] Fixer succeeded on attempt 1
+2026-05-29 14:53:28,128 - INFO - [Run 13fb36a2] FixerAgent completed
+2026-05-29 14:53:28,128 - INFO - [Run 13fb36a2] Sandbox execution started
+2026-05-29 14:53:28,139 - INFO - [Run 13fb36a2] Sandbox finished — returncode=0
+2026-05-29 14:53:28,139 - INFO - [Run 13fb36a2] EvaluatorAgent started
+2026-05-29 14:53:28,139 - INFO - [Run 13fb36a2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.015625, 'penalties': []}
+2026-05-29 14:53:28,139 - INFO - [Run 13fb36a2] Evaluator attempt 1/2
+2026-05-29 14:53:33,964 - INFO - [Run 13fb36a2] Evaluator latency: 5.8247s
+2026-05-29 14:53:33,964 - INFO - [Run 13fb36a2] Evaluator succeeded on attempt 1
+2026-05-29 14:53:33,964 - INFO - [Run 13fb36a2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.015625, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'depth' variable, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 14:53:33,965 - INFO - [Run 13fb36a2] Successful repair on attempt 1
+2026-05-29 14:53:33,965 - INFO - [Run 13fb36a2] Orchestration completed — passed=True
+2026-05-29 14:53:33,966 - INFO - 
+--- Case 15/20 | HumanEval/69 | LogicError ---
+2026-05-29 14:53:33,966 - INFO - Mutation: Swapped operator '+' → '-'
+2026-05-29 14:53:33,966 - INFO - [Run f995d3e4] Orchestration started
+2026-05-29 14:53:33,966 - INFO - [Run f995d3e4] AnalyzerAgent started
+2026-05-29 14:53:33,966 - INFO - [Run f995d3e4] Analyzer attempt 1/2
+2026-05-29 14:53:39,966 - INFO - [Run f995d3e4] Analyzer latency: 6.0002s
+2026-05-29 14:53:39,967 - INFO - [Run f995d3e4] Analyzer succeeded on attempt 1
+2026-05-29 14:53:39,967 - INFO - [Run f995d3e4] AnalyzerAgent completed: IndexError
+2026-05-29 14:53:39,967 - INFO - [Run f995d3e4] Repair attempt 1/3
+2026-05-29 14:53:39,967 - INFO - [Run f995d3e4] FixerAgent started
+2026-05-29 14:53:39,967 - INFO - [Run f995d3e4] Fixer attempt 1/2
+2026-05-29 14:53:58,511 - INFO - [Run f995d3e4] Fixer latency: 18.5445s
+2026-05-29 14:53:58,511 - INFO - [Run f995d3e4] Fixer succeeded on attempt 1
+2026-05-29 14:53:58,512 - INFO - [Run f995d3e4] FixerAgent completed
+2026-05-29 14:53:58,512 - INFO - [Run f995d3e4] Sandbox execution started
+2026-05-29 14:53:58,534 - INFO - [Run f995d3e4] Sandbox finished — returncode=0
+2026-05-29 14:53:58,534 - INFO - [Run f995d3e4] EvaluatorAgent started
+2026-05-29 14:53:58,534 - INFO - [Run f995d3e4] Heuristic result: {'score': 1.0, 'structural_ratio': 0.017094, 'penalties': []}
+2026-05-29 14:53:58,534 - INFO - [Run f995d3e4] Evaluator attempt 1/2
+2026-05-29 14:54:04,898 - INFO - [Run f995d3e4] Evaluator latency: 6.3642s
+2026-05-29 14:54:04,899 - INFO - [Run f995d3e4] Evaluator succeeded on attempt 1
+2026-05-29 14:54:04,899 - INFO - [Run f995d3e4] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.017094, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly adjusts the size of the 'frq' list to accommodate all possible values in 'lst', fixing the IndexError without altering the original intent."}
+2026-05-29 14:54:04,899 - INFO - [Run f995d3e4] Successful repair on attempt 1
+2026-05-29 14:54:04,899 - INFO - [Run f995d3e4] Orchestration completed — passed=True
+2026-05-29 14:54:04,899 - INFO - 
+--- Case 16/20 | HumanEval/72 | NameError ---
+2026-05-29 14:54:04,899 - INFO - Mutation: Renamed usage of 'j' → 'j_undefined' (NameError)
+2026-05-29 14:54:04,899 - INFO - [Run f6cbb8c0] Orchestration started
+2026-05-29 14:54:04,900 - INFO - [Run f6cbb8c0] AnalyzerAgent started
+2026-05-29 14:54:04,900 - INFO - [Run f6cbb8c0] Analyzer attempt 1/2
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] Analyzer latency: 4.5563s
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] Analyzer succeeded on attempt 1
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] Repair attempt 1/3
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] FixerAgent started
+2026-05-29 14:54:09,456 - INFO - [Run f6cbb8c0] Fixer attempt 1/2
+2026-05-29 14:54:30,544 - INFO - [Run f6cbb8c0] Fixer latency: 21.0879s
+2026-05-29 14:54:30,545 - INFO - [Run f6cbb8c0] Fixer succeeded on attempt 1
+2026-05-29 14:54:30,545 - INFO - [Run f6cbb8c0] FixerAgent completed
+2026-05-29 14:54:30,545 - INFO - [Run f6cbb8c0] Sandbox execution started
+2026-05-29 14:54:30,569 - INFO - [Run f6cbb8c0] Sandbox finished — returncode=0
+2026-05-29 14:54:30,570 - INFO - [Run f6cbb8c0] EvaluatorAgent started
+2026-05-29 14:54:30,570 - INFO - [Run f6cbb8c0] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007092, 'penalties': []}
+2026-05-29 14:54:30,570 - INFO - [Run f6cbb8c0] Evaluator attempt 1/2
+2026-05-29 14:54:37,019 - INFO - [Run f6cbb8c0] Evaluator latency: 6.4480s
+2026-05-29 14:54:37,019 - INFO - [Run f6cbb8c0] Evaluator succeeded on attempt 1
+2026-05-29 14:54:37,019 - INFO - [Run f6cbb8c0] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007092, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly renames the undefined variable 'j_undefined' to 'j', fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 14:54:37,019 - INFO - [Run f6cbb8c0] Successful repair on attempt 1
+2026-05-29 14:54:37,019 - INFO - [Run f6cbb8c0] Orchestration completed — passed=True
+2026-05-29 14:54:37,020 - INFO - 
+--- Case 17/20 | HumanEval/73 | LogicError ---
+2026-05-29 14:54:37,020 - INFO - Mutation: Swapped operator '-' → '+'
+2026-05-29 14:54:37,020 - INFO - [Run 325dbe8e] Orchestration started
+2026-05-29 14:54:37,020 - INFO - [Run 325dbe8e] AnalyzerAgent started
+2026-05-29 14:54:37,020 - INFO - [Run 325dbe8e] Analyzer attempt 1/2
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] Analyzer latency: 4.2480s
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] Analyzer succeeded on attempt 1
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] AnalyzerAgent completed: IndexError
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] Repair attempt 1/3
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] FixerAgent started
+2026-05-29 14:54:41,268 - INFO - [Run 325dbe8e] Fixer attempt 1/2
+2026-05-29 14:54:58,465 - INFO - [Run 325dbe8e] Fixer latency: 17.1969s
+2026-05-29 14:54:58,465 - INFO - [Run 325dbe8e] Fixer succeeded on attempt 1
+2026-05-29 14:54:58,465 - INFO - [Run 325dbe8e] FixerAgent completed
+2026-05-29 14:54:58,465 - INFO - [Run 325dbe8e] Sandbox execution started
+2026-05-29 14:54:58,479 - INFO - [Run 325dbe8e] Sandbox finished — returncode=0
+2026-05-29 14:54:58,479 - INFO - [Run 325dbe8e] EvaluatorAgent started
+2026-05-29 14:54:58,479 - INFO - [Run 325dbe8e] Heuristic result: {'score': 1.0, 'structural_ratio': 0.010526, 'penalties': []}
+2026-05-29 14:54:58,479 - INFO - [Run 325dbe8e] Evaluator attempt 1/2
+2026-05-29 14:55:05,245 - INFO - [Run 325dbe8e] Evaluator latency: 6.7658s
+2026-05-29 14:55:05,245 - INFO - [Run 325dbe8e] Evaluator succeeded on attempt 1
+2026-05-29 14:55:05,245 - INFO - [Run 325dbe8e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.010526, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the incorrect index calculation, which was causing the IndexError. The change is minimal and preserves the original intent of comparing elements from the start and end moving towards the center.'}
+2026-05-29 14:55:05,245 - INFO - [Run 325dbe8e] Successful repair on attempt 1
+2026-05-29 14:55:05,245 - INFO - [Run 325dbe8e] Orchestration completed — passed=True
+2026-05-29 14:55:05,246 - INFO - 
+--- Case 18/20 | HumanEval/74 | TypeError ---
+2026-05-29 14:55:05,246 - INFO - Mutation: Commented out: 'return lst2' → function returns None
+2026-05-29 14:55:05,246 - INFO - [Run d861e3e3] Orchestration started
+2026-05-29 14:55:05,246 - INFO - [Run d861e3e3] AnalyzerAgent started
+2026-05-29 14:55:05,246 - INFO - [Run d861e3e3] Analyzer attempt 1/2
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] Analyzer latency: 3.4999s
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] Analyzer succeeded on attempt 1
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] AnalyzerAgent completed: IndentationError
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] Repair attempt 1/3
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] FixerAgent started
+2026-05-29 14:55:08,746 - INFO - [Run d861e3e3] Fixer attempt 1/2
+2026-05-29 14:55:28,580 - INFO - [Run d861e3e3] Fixer latency: 19.8336s
+2026-05-29 14:55:28,580 - INFO - [Run d861e3e3] Fixer succeeded on attempt 1
+2026-05-29 14:55:28,580 - INFO - [Run d861e3e3] FixerAgent completed
+2026-05-29 14:55:28,580 - INFO - [Run d861e3e3] Sandbox execution started
+2026-05-29 14:55:28,591 - INFO - [Run d861e3e3] Sandbox finished — returncode=0
+2026-05-29 14:55:28,591 - INFO - [Run d861e3e3] EvaluatorAgent started
+2026-05-29 14:55:28,591 - INFO - [Run d861e3e3] Heuristic result: {'score': 1.0, 'structural_ratio': 0.004255, 'penalties': []}
+2026-05-29 14:55:28,591 - INFO - [Run d861e3e3] Evaluator attempt 1/2
+2026-05-29 14:55:34,843 - INFO - [Run d861e3e3] Evaluator latency: 6.2513s
+2026-05-29 14:55:34,843 - INFO - [Run d861e3e3] Evaluator succeeded on attempt 1
+2026-05-29 14:55:34,843 - INFO - [Run d861e3e3] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.004255, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly addresses the IndentationError by adding the missing indentation after the 'else' statement, preserving the original intent and functionality without introducing any new issues."}
+2026-05-29 14:55:34,843 - INFO - [Run d861e3e3] Successful repair on attempt 1
+2026-05-29 14:55:34,843 - INFO - [Run d861e3e3] Orchestration completed — passed=True
+2026-05-29 14:55:34,844 - INFO - 
+--- Case 19/20 | HumanEval/78 | NameError ---
+2026-05-29 14:55:34,844 - INFO - Mutation: Renamed usage of 'primes' → 'primes_undefined' (NameError)
+2026-05-29 14:55:34,844 - INFO - [Run 73810c46] Orchestration started
+2026-05-29 14:55:34,844 - INFO - [Run 73810c46] AnalyzerAgent started
+2026-05-29 14:55:34,844 - INFO - [Run 73810c46] Analyzer attempt 1/2
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] Analyzer latency: 4.5111s
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] Analyzer succeeded on attempt 1
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] AnalyzerAgent completed: NameError
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] Repair attempt 1/3
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] FixerAgent started
+2026-05-29 14:55:39,355 - INFO - [Run 73810c46] Fixer attempt 1/2
+2026-05-29 14:56:06,224 - INFO - [Run 73810c46] Fixer latency: 26.8688s
+2026-05-29 14:56:06,224 - INFO - [Run 73810c46] Fixer succeeded on attempt 1
+2026-05-29 14:56:06,224 - INFO - [Run 73810c46] FixerAgent completed
+2026-05-29 14:56:06,224 - INFO - [Run 73810c46] Sandbox execution started
+2026-05-29 14:56:06,249 - INFO - [Run 73810c46] Sandbox finished — returncode=0
+2026-05-29 14:56:06,249 - INFO - [Run 73810c46] EvaluatorAgent started
+2026-05-29 14:56:06,249 - INFO - [Run 73810c46] Heuristic result: {'score': 1.0, 'structural_ratio': 0.005263, 'penalties': []}
+2026-05-29 14:56:06,249 - INFO - [Run 73810c46] Evaluator attempt 1/2
+2026-05-29 14:56:12,886 - INFO - [Run 73810c46] Evaluator latency: 6.6364s
+2026-05-29 14:56:12,886 - INFO - [Run 73810c46] Evaluator succeeded on attempt 1
+2026-05-29 14:56:12,886 - INFO - [Run 73810c46] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.005263, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'primes' with 'primes_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 14:56:12,886 - INFO - [Run 73810c46] Successful repair on attempt 1
+2026-05-29 14:56:12,886 - INFO - [Run 73810c46] Orchestration completed — passed=True
+2026-05-29 14:56:12,887 - INFO - 
+--- Case 20/20 | HumanEval/95 | NameError ---
+2026-05-29 14:56:12,887 - INFO - Mutation: Renamed usage of 'state' → 'state_undefined' (NameError)
+2026-05-29 14:56:12,887 - INFO - [Run bb6197f9] Orchestration started
+2026-05-29 14:56:12,887 - INFO - [Run bb6197f9] AnalyzerAgent started
+2026-05-29 14:56:12,887 - INFO - [Run bb6197f9] Analyzer attempt 1/2
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] Analyzer latency: 4.2300s
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] Analyzer succeeded on attempt 1
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] Repair attempt 1/3
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] FixerAgent started
+2026-05-29 14:56:17,117 - INFO - [Run bb6197f9] Fixer attempt 1/2
+2026-05-29 14:56:42,312 - INFO - [Run bb6197f9] Fixer latency: 25.1951s
+2026-05-29 14:56:42,313 - INFO - [Run bb6197f9] Fixer succeeded on attempt 1
+2026-05-29 14:56:42,313 - INFO - [Run bb6197f9] FixerAgent completed
+2026-05-29 14:56:42,313 - INFO - [Run bb6197f9] Sandbox execution started
+2026-05-29 14:56:42,323 - INFO - [Run bb6197f9] Sandbox finished — returncode=0
+2026-05-29 14:56:42,323 - INFO - [Run bb6197f9] EvaluatorAgent started
+2026-05-29 14:56:42,324 - INFO - [Run bb6197f9] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 14:56:42,324 - INFO - [Run bb6197f9] Evaluator attempt 1/2
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] Evaluator latency: 7.3226s
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] Evaluator succeeded on attempt 1
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] Patch failed evaluation — running critique
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] CritiqueAgent started
+2026-05-29 14:56:49,647 - INFO - [Run bb6197f9] Critique attempt 1/2
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] Critique latency: 6.9592s
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] Critique succeeded on attempt 1
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] Repair attempt 2/3
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] FixerAgent started
+2026-05-29 14:56:56,606 - INFO - [Run bb6197f9] Fixer attempt 1/2
+2026-05-29 14:57:21,434 - INFO - [Run bb6197f9] Fixer latency: 24.8278s
+2026-05-29 14:57:21,435 - INFO - [Run bb6197f9] Fixer succeeded on attempt 1
+2026-05-29 14:57:21,435 - INFO - [Run bb6197f9] FixerAgent completed
+2026-05-29 14:57:21,435 - INFO - [Run bb6197f9] Sandbox execution started
+2026-05-29 14:57:21,446 - INFO - [Run bb6197f9] Sandbox finished — returncode=0
+2026-05-29 14:57:21,446 - INFO - [Run bb6197f9] EvaluatorAgent started
+2026-05-29 14:57:21,447 - INFO - [Run bb6197f9] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 14:57:21,447 - INFO - [Run bb6197f9] Evaluator attempt 1/2
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] Evaluator latency: 7.5338s
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] Evaluator succeeded on attempt 1
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] Patch failed evaluation — running critique
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] CritiqueAgent started
+2026-05-29 14:57:28,981 - INFO - [Run bb6197f9] Critique attempt 1/2
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] Critique latency: 6.9749s
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] Critique succeeded on attempt 1
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] Repair attempt 3/3
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] FixerAgent started
+2026-05-29 14:57:35,956 - INFO - [Run bb6197f9] Fixer attempt 1/2
+2026-05-29 14:58:00,825 - INFO - [Run bb6197f9] Fixer latency: 24.8681s
+2026-05-29 14:58:00,825 - INFO - [Run bb6197f9] Fixer succeeded on attempt 1
+2026-05-29 14:58:00,825 - INFO - [Run bb6197f9] FixerAgent completed
+2026-05-29 14:58:00,825 - INFO - [Run bb6197f9] Sandbox execution started
+2026-05-29 14:58:00,835 - INFO - [Run bb6197f9] Sandbox finished — returncode=0
+2026-05-29 14:58:00,835 - INFO - [Run bb6197f9] EvaluatorAgent started
+2026-05-29 14:58:00,836 - INFO - [Run bb6197f9] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 14:58:00,836 - INFO - [Run bb6197f9] Evaluator attempt 1/2
+2026-05-29 14:58:08,279 - INFO - [Run bb6197f9] Evaluator latency: 7.4433s
+2026-05-29 14:58:08,280 - INFO - [Run bb6197f9] Evaluator succeeded on attempt 1
+2026-05-29 14:58:08,280 - INFO - [Run bb6197f9] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 14:58:08,280 - INFO - [Run bb6197f9] Patch failed evaluation — running critique
+2026-05-29 14:58:08,280 - INFO - [Run bb6197f9] CritiqueAgent started
+2026-05-29 14:58:08,280 - INFO - [Run bb6197f9] Critique attempt 1/2
+2026-05-29 14:58:15,225 - INFO - [Run bb6197f9] Critique latency: 6.9449s
+2026-05-29 14:58:15,225 - INFO - [Run bb6197f9] Critique succeeded on attempt 1
+2026-05-29 14:58:15,225 - INFO - [Run bb6197f9] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 14:58:15,225 - INFO - [Run bb6197f9] Orchestration completed — passed=False
+2026-05-29 15:07:18,760 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 15:07:19,804 - INFO - Loaded 164 HumanEval problems
+2026-05-29 15:07:19,975 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:07:20,121 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:07:20,151 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 15:07:20,257 - INFO - [HumanEval/12] ✓ NameError: Renamed usage of 'maxlen' → 'maxlen_undefined' (NameError)
+2026-05-29 15:07:20,560 - INFO - [HumanEval/24] ✓ TypeError: Commented out: 'return i' → function returns None
+2026-05-29 15:07:20,758 - INFO - [HumanEval/32] ✓ NameError: Renamed usage of 'center' → 'center_undefined' (NameError)
+2026-05-29 15:07:20,840 - INFO - [HumanEval/36] ✓ NameError: Renamed usage of 'ans' → 'ans_undefined' (NameError)
+2026-05-29 15:07:20,859 - INFO - [HumanEval/37] ✓ NameError: Renamed usage of 'evens' → 'evens_undefined' (NameError)
+2026-05-29 15:07:20,910 - INFO - [HumanEval/39] ✓ NameError: Renamed usage of 'f' → 'f_undefined' (NameError)
+2026-05-29 15:07:21,062 - INFO - [HumanEval/46] ✓ NameError: Renamed usage of 'results' → 'results_undefined' (NameError)
+2026-05-29 15:07:21,090 - INFO - [HumanEval/48] ✓ LogicError: Swapped operator '-' → '+'
+2026-05-29 15:07:21,263 - INFO - [HumanEval/55] ✓ TypeError: Wrapped return value in str(): return fib(n - 1) + fib(n - 2) → return str(fib(n - 1) + fib(n - 2))
+2026-05-29 15:07:21,333 - INFO - [HumanEval/58] ✓ NameError: Renamed usage of 'ret' → 'ret_undefined' (NameError)
+2026-05-29 15:07:21,395 - INFO - [HumanEval/61] ✓ NameError: Renamed usage of 'depth' → 'depth_undefined' (NameError)
+2026-05-29 15:07:21,570 - INFO - [HumanEval/69] ✓ LogicError: Swapped operator '+' → '-'
+2026-05-29 15:07:21,627 - INFO - [HumanEval/72] ✓ NameError: Renamed usage of 'j' → 'j_undefined' (NameError)
+2026-05-29 15:07:21,649 - INFO - [HumanEval/73] ✓ LogicError: Swapped operator '-' → '+'
+2026-05-29 15:07:21,662 - INFO - [HumanEval/74] ✓ TypeError: Commented out: 'return lst2' → function returns None
+2026-05-29 15:07:21,784 - INFO - [HumanEval/78] ✓ NameError: Renamed usage of 'primes' → 'primes_undefined' (NameError)
+2026-05-29 15:07:22,075 - INFO - [HumanEval/95] ✓ NameError: Renamed usage of 'state' → 'state_undefined' (NameError)
+2026-05-29 15:07:22,076 - INFO - HumanEval loader done — 20 cases ready | skipped: {'no_mutation': 0, 'no_crash': 76, 'wrong_type': 0}
+2026-05-29 15:07:22,076 - INFO - Initialising DebugOrchestrator
+2026-05-29 15:07:22,076 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 15:07:33,176 - INFO - Model loaded and set to eval mode
+2026-05-29 15:07:33,176 - INFO - [HumanEval/4] TypeError — Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:07:33,176 - INFO - [Run db133a4b] Orchestration started
+2026-05-29 15:07:33,176 - INFO - [Run db133a4b] AnalyzerAgent started
+2026-05-29 15:07:33,176 - INFO - [Run db133a4b] Analyzer attempt 1/2
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] Analyzer latency: 4.2635s
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] Analyzer succeeded on attempt 1
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] AnalyzerAgent completed: TypeError
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] Repair attempt 1/3
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] FixerAgent started
+2026-05-29 15:07:37,440 - INFO - [Run db133a4b] Fixer attempt 1/2
+2026-05-29 15:07:49,041 - INFO - [Run db133a4b] Fixer latency: 11.6006s
+2026-05-29 15:07:49,041 - INFO - [Run db133a4b] Fixer succeeded on attempt 1
+2026-05-29 15:07:49,041 - INFO - [Run db133a4b] FixerAgent completed
+2026-05-29 15:07:49,041 - INFO - [Run db133a4b] Sandbox execution started
+2026-05-29 15:07:49,059 - INFO - [Run db133a4b] Sandbox finished — returncode=0
+2026-05-29 15:07:49,059 - INFO - [Run db133a4b] EvaluatorAgent started
+2026-05-29 15:07:49,060 - INFO - [Run db133a4b] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 15:07:49,060 - INFO - [Run db133a4b] Evaluator attempt 1/2
+2026-05-29 15:07:55,083 - INFO - [Run db133a4b] Evaluator latency: 6.0232s
+2026-05-29 15:07:55,083 - INFO - [Run db133a4b] Evaluator succeeded on attempt 1
+2026-05-29 15:07:55,083 - INFO - [Run db133a4b] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 15:07:55,083 - INFO - [Run db133a4b] Successful repair on attempt 1
+2026-05-29 15:07:55,083 - INFO - [Run db133a4b] Orchestration completed — passed=True
+2026-05-29 15:07:55,084 - INFO - [HumanEval/8] TypeError — Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:07:55,084 - INFO - [Run a39645d7] Orchestration started
+2026-05-29 15:07:55,084 - INFO - [Run a39645d7] AnalyzerAgent started
+2026-05-29 15:07:55,084 - INFO - [Run a39645d7] Analyzer attempt 1/2
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] Analyzer latency: 4.6835s
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] Analyzer succeeded on attempt 1
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] AnalyzerAgent completed: TypeError
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] Repair attempt 1/3
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] FixerAgent started
+2026-05-29 15:07:59,767 - INFO - [Run a39645d7] Fixer attempt 1/2
+2026-05-29 15:08:13,023 - INFO - [Run a39645d7] Fixer latency: 13.2551s
+2026-05-29 15:08:13,023 - INFO - [Run a39645d7] Fixer succeeded on attempt 1
+2026-05-29 15:08:13,023 - INFO - [Run a39645d7] FixerAgent completed
+2026-05-29 15:08:13,023 - INFO - [Run a39645d7] Sandbox execution started
+2026-05-29 15:08:13,042 - INFO - [Run a39645d7] Sandbox finished — returncode=0
+2026-05-29 15:08:13,042 - INFO - [Run a39645d7] EvaluatorAgent started
+2026-05-29 15:08:13,043 - INFO - [Run a39645d7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.024691, 'penalties': []}
+2026-05-29 15:08:13,043 - INFO - [Run a39645d7] Evaluator attempt 1/2
+2026-05-29 15:08:19,029 - INFO - [Run a39645d7] Evaluator latency: 5.9864s
+2026-05-29 15:08:19,030 - INFO - [Run a39645d7] Evaluator succeeded on attempt 1
+2026-05-29 15:08:19,030 - INFO - [Run a39645d7] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.024691, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly changes the return statement to return a tuple of integers instead of attempting to convert them to a string, which fixes the TypeError and preserves the original intent.'}
+2026-05-29 15:08:19,030 - INFO - [Run a39645d7] Successful repair on attempt 1
+2026-05-29 15:08:19,030 - INFO - [Run a39645d7] Orchestration completed — passed=True
+2026-05-29 15:08:19,030 - INFO - [HumanEval/9] NameError — Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 15:08:19,030 - INFO - [Run 9dae7e53] Orchestration started
+2026-05-29 15:08:19,030 - INFO - [Run 9dae7e53] AnalyzerAgent started
+2026-05-29 15:08:19,030 - INFO - [Run 9dae7e53] Analyzer attempt 1/2
+2026-05-29 15:08:22,982 - INFO - [Run 9dae7e53] Analyzer latency: 3.9525s
+2026-05-29 15:08:22,983 - INFO - [Run 9dae7e53] Analyzer succeeded on attempt 1
+2026-05-29 15:08:22,983 - INFO - [Run 9dae7e53] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:08:22,983 - INFO - [Run 9dae7e53] Repair attempt 1/3
+2026-05-29 15:08:22,983 - INFO - [Run 9dae7e53] FixerAgent started
+2026-05-29 15:08:22,983 - INFO - [Run 9dae7e53] Fixer attempt 1/2
+2026-05-29 15:08:35,830 - INFO - [Run 9dae7e53] Fixer latency: 12.8471s
+2026-05-29 15:08:35,830 - INFO - [Run 9dae7e53] Fixer succeeded on attempt 1
+2026-05-29 15:08:35,830 - INFO - [Run 9dae7e53] FixerAgent completed
+2026-05-29 15:08:35,830 - INFO - [Run 9dae7e53] Sandbox execution started
+2026-05-29 15:08:35,850 - INFO - [Run 9dae7e53] Sandbox finished — returncode=0
+2026-05-29 15:08:35,850 - INFO - [Run 9dae7e53] EvaluatorAgent started
+2026-05-29 15:08:35,851 - INFO - [Run 9dae7e53] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 15:08:35,851 - INFO - [Run 9dae7e53] Evaluator attempt 1/2
+2026-05-29 15:08:41,836 - INFO - [Run 9dae7e53] Evaluator latency: 5.9851s
+2026-05-29 15:08:41,836 - INFO - [Run 9dae7e53] Evaluator succeeded on attempt 1
+2026-05-29 15:08:41,836 - INFO - [Run 9dae7e53] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'running_max' before its first use, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 15:08:41,836 - INFO - [Run 9dae7e53] Successful repair on attempt 1
+2026-05-29 15:08:41,836 - INFO - [Run 9dae7e53] Orchestration completed — passed=True
+2026-05-29 15:08:41,836 - INFO - [HumanEval/12] NameError — Renamed usage of 'maxlen' → 'maxlen_undefined' (NameError)
+2026-05-29 15:08:41,836 - INFO - [Run a94e37fd] Orchestration started
+2026-05-29 15:08:41,836 - INFO - [Run a94e37fd] AnalyzerAgent started
+2026-05-29 15:08:41,836 - INFO - [Run a94e37fd] Analyzer attempt 1/2
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] Analyzer latency: 4.1564s
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] Analyzer succeeded on attempt 1
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] AnalyzerAgent completed: NameError
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] Repair attempt 1/3
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] FixerAgent started
+2026-05-29 15:08:45,993 - INFO - [Run a94e37fd] Fixer attempt 1/2
+2026-05-29 15:08:58,359 - INFO - [Run a94e37fd] Fixer latency: 12.3661s
+2026-05-29 15:08:58,360 - INFO - [Run a94e37fd] Fixer succeeded on attempt 1
+2026-05-29 15:08:58,360 - INFO - [Run a94e37fd] FixerAgent completed
+2026-05-29 15:08:58,360 - INFO - [Run a94e37fd] Sandbox execution started
+2026-05-29 15:08:58,394 - INFO - [Run a94e37fd] Sandbox finished — returncode=0
+2026-05-29 15:08:58,394 - INFO - [Run a94e37fd] EvaluatorAgent started
+2026-05-29 15:08:58,395 - INFO - [Run a94e37fd] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}
+2026-05-29 15:08:58,395 - INFO - [Run a94e37fd] Evaluator attempt 1/2
+2026-05-29 15:09:04,397 - INFO - [Run a94e37fd] Evaluator latency: 6.0024s
+2026-05-29 15:09:04,397 - INFO - [Run a94e37fd] Evaluator succeeded on attempt 1
+2026-05-29 15:09:04,397 - INFO - [Run a94e37fd] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'maxlen' with 'maxlen_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 15:09:04,397 - INFO - [Run a94e37fd] Successful repair on attempt 1
+2026-05-29 15:09:04,397 - INFO - [Run a94e37fd] Orchestration completed — passed=True
+2026-05-29 15:09:04,398 - INFO - [HumanEval/24] TypeError — Commented out: 'return i' → function returns None
+2026-05-29 15:09:04,398 - INFO - [Run 560465aa] Orchestration started
+2026-05-29 15:09:04,398 - INFO - [Run 560465aa] AnalyzerAgent started
+2026-05-29 15:09:04,398 - INFO - [Run 560465aa] Analyzer attempt 1/2
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] Analyzer latency: 4.1282s
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] Analyzer succeeded on attempt 1
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] AnalyzerAgent completed: IndentationError
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] Repair attempt 1/3
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] FixerAgent started
+2026-05-29 15:09:08,526 - INFO - [Run 560465aa] Fixer attempt 1/2
+2026-05-29 15:09:15,485 - INFO - [Run 560465aa] Fixer latency: 6.9584s
+2026-05-29 15:09:15,485 - INFO - [Run 560465aa] Fixer succeeded on attempt 1
+2026-05-29 15:09:15,485 - INFO - [Run 560465aa] FixerAgent completed
+2026-05-29 15:09:15,485 - INFO - [Run 560465aa] Sandbox execution started
+2026-05-29 15:09:15,509 - INFO - [Run 560465aa] Sandbox finished — returncode=0
+2026-05-29 15:09:15,509 - INFO - [Run 560465aa] EvaluatorAgent started
+2026-05-29 15:09:15,510 - INFO - [Run 560465aa] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}
+2026-05-29 15:09:15,510 - INFO - [Run 560465aa] Evaluator attempt 1/2
+2026-05-29 15:09:21,118 - INFO - [Run 560465aa] Evaluator latency: 5.6078s
+2026-05-29 15:09:21,118 - INFO - [Run 560465aa] Evaluator succeeded on attempt 1
+2026-05-29 15:09:21,118 - INFO - [Run 560465aa] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012987, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly addresses the IndentationError by adding the missing indentation to the return statement, preserving the original intent and making a minimal change.'}
+2026-05-29 15:09:21,118 - INFO - [Run 560465aa] Successful repair on attempt 1
+2026-05-29 15:09:21,118 - INFO - [Run 560465aa] Orchestration completed — passed=True
+2026-05-29 15:09:21,118 - INFO - [HumanEval/32] NameError — Renamed usage of 'center' → 'center_undefined' (NameError)
+2026-05-29 15:09:21,118 - INFO - [Run cf5359b2] Orchestration started
+2026-05-29 15:09:21,118 - INFO - [Run cf5359b2] AnalyzerAgent started
+2026-05-29 15:09:21,118 - INFO - [Run cf5359b2] Analyzer attempt 1/2
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] Analyzer latency: 4.3172s
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] Analyzer succeeded on attempt 1
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] AnalyzerAgent completed: NameError
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] Repair attempt 1/3
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] FixerAgent started
+2026-05-29 15:09:25,436 - INFO - [Run cf5359b2] Fixer attempt 1/2
+2026-05-29 15:09:52,135 - INFO - [Run cf5359b2] Fixer latency: 26.6993s
+2026-05-29 15:09:52,136 - INFO - [Run cf5359b2] Fixer succeeded on attempt 1
+2026-05-29 15:09:52,136 - INFO - [Run cf5359b2] FixerAgent completed
+2026-05-29 15:09:52,136 - INFO - [Run cf5359b2] Sandbox execution started
+2026-05-29 15:09:52,147 - INFO - [Run cf5359b2] Sandbox finished — returncode=0
+2026-05-29 15:09:52,147 - INFO - [Run cf5359b2] EvaluatorAgent started
+2026-05-29 15:09:52,148 - INFO - [Run cf5359b2] Heuristic result: {'score': 1.0, 'structural_ratio': 0.016667, 'penalties': []}
+2026-05-29 15:09:52,148 - INFO - [Run cf5359b2] Evaluator attempt 1/2
+2026-05-29 15:09:58,868 - INFO - [Run cf5359b2] Evaluator latency: 6.7207s
+2026-05-29 15:09:58,869 - INFO - [Run cf5359b2] Evaluator succeeded on attempt 1
+2026-05-29 15:09:58,869 - INFO - [Run cf5359b2] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.016667, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'center' with 'center_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 15:09:58,869 - INFO - [Run cf5359b2] Successful repair on attempt 1
+2026-05-29 15:09:58,869 - INFO - [Run cf5359b2] Orchestration completed — passed=True
+2026-05-29 15:09:58,869 - INFO - [HumanEval/36] NameError — Renamed usage of 'ans' → 'ans_undefined' (NameError)
+2026-05-29 15:09:58,869 - INFO - [Run 12d92763] Orchestration started
+2026-05-29 15:09:58,869 - INFO - [Run 12d92763] AnalyzerAgent started
+2026-05-29 15:09:58,869 - INFO - [Run 12d92763] Analyzer attempt 1/2
+2026-05-29 15:10:02,631 - INFO - [Run 12d92763] Analyzer latency: 3.7624s
+2026-05-29 15:10:02,631 - INFO - [Run 12d92763] Analyzer succeeded on attempt 1
+2026-05-29 15:10:02,631 - INFO - [Run 12d92763] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:10:02,632 - INFO - [Run 12d92763] Repair attempt 1/3
+2026-05-29 15:10:02,632 - INFO - [Run 12d92763] FixerAgent started
+2026-05-29 15:10:02,632 - INFO - [Run 12d92763] Fixer attempt 1/2
+2026-05-29 15:10:15,426 - INFO - [Run 12d92763] Fixer latency: 12.7943s
+2026-05-29 15:10:15,426 - INFO - [Run 12d92763] Fixer succeeded on attempt 1
+2026-05-29 15:10:15,426 - INFO - [Run 12d92763] FixerAgent completed
+2026-05-29 15:10:15,426 - INFO - [Run 12d92763] Sandbox execution started
+2026-05-29 15:10:15,438 - INFO - [Run 12d92763] Sandbox finished — returncode=0
+2026-05-29 15:10:15,438 - INFO - [Run 12d92763] EvaluatorAgent started
+2026-05-29 15:10:15,438 - INFO - [Run 12d92763] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 15:10:15,439 - INFO - [Run 12d92763] Evaluator attempt 1/2
+2026-05-29 15:10:21,235 - INFO - [Run 12d92763] Evaluator latency: 5.7958s
+2026-05-29 15:10:21,235 - INFO - [Run 12d92763] Evaluator succeeded on attempt 1
+2026-05-29 15:10:21,235 - INFO - [Run 12d92763] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'ans' before using it, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 15:10:21,235 - INFO - [Run 12d92763] Successful repair on attempt 1
+2026-05-29 15:10:21,235 - INFO - [Run 12d92763] Orchestration completed — passed=True
+2026-05-29 15:10:21,235 - INFO - [HumanEval/37] NameError — Renamed usage of 'evens' → 'evens_undefined' (NameError)
+2026-05-29 15:10:21,235 - INFO - [Run 41b59698] Orchestration started
+2026-05-29 15:10:21,235 - INFO - [Run 41b59698] AnalyzerAgent started
+2026-05-29 15:10:21,235 - INFO - [Run 41b59698] Analyzer attempt 1/2
+2026-05-29 15:10:25,472 - INFO - [Run 41b59698] Analyzer latency: 4.2373s
+2026-05-29 15:10:25,473 - INFO - [Run 41b59698] Analyzer succeeded on attempt 1
+2026-05-29 15:10:25,473 - INFO - [Run 41b59698] AnalyzerAgent completed: NameError
+2026-05-29 15:10:25,473 - INFO - [Run 41b59698] Repair attempt 1/3
+2026-05-29 15:10:25,473 - INFO - [Run 41b59698] FixerAgent started
+2026-05-29 15:10:25,473 - INFO - [Run 41b59698] Fixer attempt 1/2
+2026-05-29 15:10:41,475 - INFO - [Run 41b59698] Fixer latency: 16.0017s
+2026-05-29 15:10:41,475 - INFO - [Run 41b59698] Fixer succeeded on attempt 1
+2026-05-29 15:10:41,475 - INFO - [Run 41b59698] FixerAgent completed
+2026-05-29 15:10:41,475 - INFO - [Run 41b59698] Sandbox execution started
+2026-05-29 15:10:41,497 - INFO - [Run 41b59698] Sandbox finished — returncode=0
+2026-05-29 15:10:41,498 - INFO - [Run 41b59698] EvaluatorAgent started
+2026-05-29 15:10:41,498 - INFO - [Run 41b59698] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 15:10:41,498 - INFO - [Run 41b59698] Evaluator attempt 1/2
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] Evaluator latency: 6.6827s
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] Evaluator succeeded on attempt 1
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the variable name from 'evens_undefined' to 'evens', which is a minimal change but does not preserve the original program's intent as the variable was not defined before."}
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] Patch failed evaluation — running critique
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] CritiqueAgent started
+2026-05-29 15:10:48,181 - INFO - [Run 41b59698] Critique attempt 1/2
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] Critique latency: 7.3766s
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] Critique succeeded on attempt 1
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for an undefined variable by using 'evens_undefined' where 'evens' was intended, without defining 'evens'.", 'retry_guidance': ["Define the variable 'evens' before using it.", 'Ensure that the variable names used in the patch match those intended in the original code.'], 'should_retry': True}
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] Repair attempt 2/3
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] FixerAgent started
+2026-05-29 15:10:55,558 - INFO - [Run 41b59698] Fixer attempt 1/2
+2026-05-29 15:11:11,293 - INFO - [Run 41b59698] Fixer latency: 15.7346s
+2026-05-29 15:11:11,293 - INFO - [Run 41b59698] Fixer succeeded on attempt 1
+2026-05-29 15:11:11,293 - INFO - [Run 41b59698] FixerAgent completed
+2026-05-29 15:11:11,293 - INFO - [Run 41b59698] Sandbox execution started
+2026-05-29 15:11:11,307 - INFO - [Run 41b59698] Sandbox finished — returncode=0
+2026-05-29 15:11:11,308 - INFO - [Run 41b59698] EvaluatorAgent started
+2026-05-29 15:11:11,308 - INFO - [Run 41b59698] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 15:11:11,308 - INFO - [Run 41b59698] Evaluator attempt 1/2
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] Evaluator latency: 6.5346s
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] Evaluator succeeded on attempt 1
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the undefined variable 'evens' to 'evens_undefined', which is acceptable syntactically but does not address why 'evens' was undefined in the first place."}
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] Patch failed evaluation — running critique
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] CritiqueAgent started
+2026-05-29 15:11:17,843 - INFO - [Run 41b59698] Critique attempt 1/2
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] Critique latency: 8.5199s
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] Critique succeeded on attempt 1
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] Critique result: {'failure_type': 'semantic_change', 'critique': "The patch changes the variable 'evens' to 'evens_undefined' without addressing the original intent of sorting the even-indexed elements. This change alters the logic of the function.", 'retry_guidance': ['Ensure that the variable used for sorting the even-indexed elements is correctly defined and used.', 'Verify that the function maintains the original intent of sorting only the even-indexed elements and preserving the order of odd-indexed elements.'], 'should_retry': True}
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] Repair attempt 3/3
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] FixerAgent started
+2026-05-29 15:11:26,363 - INFO - [Run 41b59698] Fixer attempt 1/2
+2026-05-29 15:11:42,426 - INFO - [Run 41b59698] Fixer latency: 16.0631s
+2026-05-29 15:11:42,426 - INFO - [Run 41b59698] Fixer succeeded on attempt 1
+2026-05-29 15:11:42,427 - INFO - [Run 41b59698] FixerAgent completed
+2026-05-29 15:11:42,427 - INFO - [Run 41b59698] Sandbox execution started
+2026-05-29 15:11:42,438 - INFO - [Run 41b59698] Sandbox finished — returncode=0
+2026-05-29 15:11:42,438 - INFO - [Run 41b59698] EvaluatorAgent started
+2026-05-29 15:11:42,439 - INFO - [Run 41b59698] Heuristic result: {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}
+2026-05-29 15:11:42,439 - INFO - [Run 41b59698] Evaluator attempt 1/2
+2026-05-29 15:11:48,962 - INFO - [Run 41b59698] Evaluator latency: 6.5233s
+2026-05-29 15:11:48,962 - INFO - [Run 41b59698] Evaluator succeeded on attempt 1
+2026-05-29 15:11:48,963 - INFO - [Run 41b59698] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.045977, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The fix changes the variable name from 'evens_undefined' to 'evens', which is a minimal change but does not preserve the original program's intent as the variable was not defined before."}
+2026-05-29 15:11:48,963 - INFO - [Run 41b59698] Patch failed evaluation — running critique
+2026-05-29 15:11:48,963 - INFO - [Run 41b59698] CritiqueAgent started
+2026-05-29 15:11:48,963 - INFO - [Run 41b59698] Critique attempt 1/2
+2026-05-29 15:11:57,440 - INFO - [Run 41b59698] Critique latency: 8.4772s
+2026-05-29 15:11:57,440 - INFO - [Run 41b59698] Critique succeeded on attempt 1
+2026-05-29 15:11:57,440 - INFO - [Run 41b59698] Critique result: {'failure_type': 'invented_value', 'critique': "The patch invents a value for an undefined variable by using 'evens' instead of defining it. The original code defines 'evens_undefined' but does not use it correctly.", 'retry_guidance': ["Define a new variable 'evens' and assign it the sorted values of 'evens_undefined'.", 'Ensure that the variable names used in the sorting and zipping operations are consistent with the defined variables.'], 'should_retry': True}
+2026-05-29 15:11:57,440 - INFO - [Run 41b59698] Orchestration completed — passed=False
+2026-05-29 15:11:57,440 - INFO - [HumanEval/39] NameError — Renamed usage of 'f' → 'f_undefined' (NameError)
+2026-05-29 15:11:57,440 - INFO - [Run dda5af22] Orchestration started
+2026-05-29 15:11:57,440 - INFO - [Run dda5af22] AnalyzerAgent started
+2026-05-29 15:11:57,440 - INFO - [Run dda5af22] Analyzer attempt 1/2
+2026-05-29 15:12:01,602 - INFO - [Run dda5af22] Analyzer latency: 4.1619s
+2026-05-29 15:12:01,603 - INFO - [Run dda5af22] Analyzer succeeded on attempt 1
+2026-05-29 15:12:01,603 - INFO - [Run dda5af22] AnalyzerAgent completed: NameError
+2026-05-29 15:12:01,603 - INFO - [Run dda5af22] Repair attempt 1/3
+2026-05-29 15:12:01,603 - INFO - [Run dda5af22] FixerAgent started
+2026-05-29 15:12:01,603 - INFO - [Run dda5af22] Fixer attempt 1/2
+2026-05-29 15:12:18,796 - INFO - [Run dda5af22] Fixer latency: 17.1938s
+2026-05-29 15:12:18,797 - INFO - [Run dda5af22] Fixer succeeded on attempt 1
+2026-05-29 15:12:18,797 - INFO - [Run dda5af22] FixerAgent completed
+2026-05-29 15:12:18,797 - INFO - [Run dda5af22] Sandbox execution started
+2026-05-29 15:12:18,807 - INFO - [Run dda5af22] Sandbox finished — returncode=0
+2026-05-29 15:12:18,807 - INFO - [Run dda5af22] EvaluatorAgent started
+2026-05-29 15:12:18,808 - INFO - [Run dda5af22] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012048, 'penalties': []}
+2026-05-29 15:12:18,808 - INFO - [Run dda5af22] Evaluator attempt 1/2
+2026-05-29 15:12:25,553 - INFO - [Run dda5af22] Evaluator latency: 6.7447s
+2026-05-29 15:12:25,553 - INFO - [Run dda5af22] Evaluator succeeded on attempt 1
+2026-05-29 15:12:25,553 - INFO - [Run dda5af22] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012048, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'f' with the list [0, 1], which is necessary for the Fibonacci sequence calculation. This fix is minimal and does not alter the original intent of the function."}
+2026-05-29 15:12:25,553 - INFO - [Run dda5af22] Successful repair on attempt 1
+2026-05-29 15:12:25,553 - INFO - [Run dda5af22] Orchestration completed — passed=True
+2026-05-29 15:12:25,553 - INFO - [HumanEval/46] NameError — Renamed usage of 'results' → 'results_undefined' (NameError)
+2026-05-29 15:12:25,553 - INFO - [Run 27f5fa1a] Orchestration started
+2026-05-29 15:12:25,553 - INFO - [Run 27f5fa1a] AnalyzerAgent started
+2026-05-29 15:12:25,553 - INFO - [Run 27f5fa1a] Analyzer attempt 1/2
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] Analyzer latency: 4.1915s
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] Analyzer succeeded on attempt 1
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] AnalyzerAgent completed: NameError
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] Repair attempt 1/3
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] FixerAgent started
+2026-05-29 15:12:29,745 - INFO - [Run 27f5fa1a] Fixer attempt 1/2
+2026-05-29 15:12:48,951 - INFO - [Run 27f5fa1a] Fixer latency: 19.2060s
+2026-05-29 15:12:48,951 - INFO - [Run 27f5fa1a] Fixer succeeded on attempt 1
+2026-05-29 15:12:48,951 - INFO - [Run 27f5fa1a] FixerAgent completed
+2026-05-29 15:12:48,951 - INFO - [Run 27f5fa1a] Sandbox execution started
+2026-05-29 15:12:48,962 - INFO - [Run 27f5fa1a] Sandbox finished — returncode=0
+2026-05-29 15:12:48,963 - INFO - [Run 27f5fa1a] EvaluatorAgent started
+2026-05-29 15:12:48,963 - INFO - [Run 27f5fa1a] Heuristic result: {'score': 1.0, 'structural_ratio': 0.071429, 'penalties': []}
+2026-05-29 15:12:48,963 - INFO - [Run 27f5fa1a] Evaluator attempt 1/2
+2026-05-29 15:12:55,181 - INFO - [Run 27f5fa1a] Evaluator latency: 6.2181s
+2026-05-29 15:12:55,181 - INFO - [Run 27f5fa1a] Evaluator succeeded on attempt 1
+2026-05-29 15:12:55,182 - INFO - [Run 27f5fa1a] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.071429, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'results' with 'results_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 15:12:55,182 - INFO - [Run 27f5fa1a] Successful repair on attempt 1
+2026-05-29 15:12:55,182 - INFO - [Run 27f5fa1a] Orchestration completed — passed=True
+2026-05-29 15:12:55,182 - INFO - [HumanEval/48] LogicError — Swapped operator '-' → '+'
+2026-05-29 15:12:55,182 - INFO - [Run 47ee0242] Orchestration started
+2026-05-29 15:12:55,182 - INFO - [Run 47ee0242] AnalyzerAgent started
+2026-05-29 15:12:55,182 - INFO - [Run 47ee0242] Analyzer attempt 1/2
+2026-05-29 15:12:59,240 - INFO - [Run 47ee0242] Analyzer latency: 4.0585s
+2026-05-29 15:12:59,241 - INFO - [Run 47ee0242] Analyzer succeeded on attempt 1
+2026-05-29 15:12:59,241 - INFO - [Run 47ee0242] AnalyzerAgent completed: IndexError
+2026-05-29 15:12:59,241 - INFO - [Run 47ee0242] Repair attempt 1/3
+2026-05-29 15:12:59,241 - INFO - [Run 47ee0242] FixerAgent started
+2026-05-29 15:12:59,241 - INFO - [Run 47ee0242] Fixer attempt 1/2
+2026-05-29 15:13:09,297 - INFO - [Run 47ee0242] Fixer latency: 10.0563s
+2026-05-29 15:13:09,297 - INFO - [Run 47ee0242] Fixer succeeded on attempt 1
+2026-05-29 15:13:09,297 - INFO - [Run 47ee0242] FixerAgent completed
+2026-05-29 15:13:09,297 - INFO - [Run 47ee0242] Sandbox execution started
+2026-05-29 15:13:09,307 - INFO - [Run 47ee0242] Sandbox finished — returncode=0
+2026-05-29 15:13:09,307 - INFO - [Run 47ee0242] EvaluatorAgent started
+2026-05-29 15:13:09,307 - INFO - [Run 47ee0242] Heuristic result: {'score': 1.0, 'structural_ratio': 0.025, 'penalties': []}
+2026-05-29 15:13:09,308 - INFO - [Run 47ee0242] Evaluator attempt 1/2
+2026-05-29 15:13:15,002 - INFO - [Run 47ee0242] Evaluator latency: 5.6943s
+2026-05-29 15:13:15,002 - INFO - [Run 47ee0242] Evaluator succeeded on attempt 1
+2026-05-29 15:13:15,002 - INFO - [Run 47ee0242] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.025, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adjusts the index to avoid an IndexError, preserving the original intent of checking if the string is a palindrome without introducing any new issues.'}
+2026-05-29 15:13:15,002 - INFO - [Run 47ee0242] Successful repair on attempt 1
+2026-05-29 15:13:15,002 - INFO - [Run 47ee0242] Orchestration completed — passed=True
+2026-05-29 15:13:15,002 - INFO - [HumanEval/55] TypeError — Wrapped return value in str(): return fib(n - 1) + fib(n - 2) → return str(fib(n - 1) + fib(n - 2))
+2026-05-29 15:13:15,002 - INFO - [Run 6340b0eb] Orchestration started
+2026-05-29 15:13:15,002 - INFO - [Run 6340b0eb] AnalyzerAgent started
+2026-05-29 15:13:15,003 - INFO - [Run 6340b0eb] Analyzer attempt 1/2
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] Analyzer latency: 3.7301s
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] Analyzer succeeded on attempt 1
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] AnalyzerAgent completed: TypeError
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] Repair attempt 1/3
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] FixerAgent started
+2026-05-29 15:13:18,733 - INFO - [Run 6340b0eb] Fixer attempt 1/2
+2026-05-29 15:13:27,286 - INFO - [Run 6340b0eb] Fixer latency: 8.5526s
+2026-05-29 15:13:27,286 - INFO - [Run 6340b0eb] Fixer succeeded on attempt 1
+2026-05-29 15:13:27,286 - INFO - [Run 6340b0eb] FixerAgent completed
+2026-05-29 15:13:27,286 - INFO - [Run 6340b0eb] Sandbox execution started
+2026-05-29 15:13:27,310 - INFO - [Run 6340b0eb] Sandbox finished — returncode=0
+2026-05-29 15:13:27,310 - INFO - [Run 6340b0eb] EvaluatorAgent started
+2026-05-29 15:13:27,311 - INFO - [Run 6340b0eb] Heuristic result: {'score': 1.0, 'structural_ratio': 0.054054, 'penalties': []}
+2026-05-29 15:13:27,311 - INFO - [Run 6340b0eb] Evaluator attempt 1/2
+2026-05-29 15:13:33,594 - INFO - [Run 6340b0eb] Evaluator latency: 6.2835s
+2026-05-29 15:13:33,594 - INFO - [Run 6340b0eb] Evaluator succeeded on attempt 1
+2026-05-29 15:13:33,594 - INFO - [Run 6340b0eb] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.054054, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch removes the str() conversion, which was causing the TypeError by attempting to concatenate strings and integers. This minimal change fixes the root cause and preserves the original intent of calculating Fibonacci numbers.'}
+2026-05-29 15:13:33,594 - INFO - [Run 6340b0eb] Successful repair on attempt 1
+2026-05-29 15:13:33,594 - INFO - [Run 6340b0eb] Orchestration completed — passed=True
+2026-05-29 15:13:33,595 - INFO - [HumanEval/58] NameError — Renamed usage of 'ret' → 'ret_undefined' (NameError)
+2026-05-29 15:13:33,595 - INFO - [Run 105f411c] Orchestration started
+2026-05-29 15:13:33,595 - INFO - [Run 105f411c] AnalyzerAgent started
+2026-05-29 15:13:33,595 - INFO - [Run 105f411c] Analyzer attempt 1/2
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] Analyzer latency: 4.2481s
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] Analyzer succeeded on attempt 1
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] AnalyzerAgent completed: NameError
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] Repair attempt 1/3
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] FixerAgent started
+2026-05-29 15:13:37,843 - INFO - [Run 105f411c] Fixer attempt 1/2
+2026-05-29 15:13:51,233 - INFO - [Run 105f411c] Fixer latency: 13.3893s
+2026-05-29 15:13:51,233 - INFO - [Run 105f411c] Fixer succeeded on attempt 1
+2026-05-29 15:13:51,233 - INFO - [Run 105f411c] FixerAgent completed
+2026-05-29 15:13:51,233 - INFO - [Run 105f411c] Sandbox execution started
+2026-05-29 15:13:51,243 - INFO - [Run 105f411c] Sandbox finished — returncode=0
+2026-05-29 15:13:51,243 - INFO - [Run 105f411c] EvaluatorAgent started
+2026-05-29 15:13:51,244 - INFO - [Run 105f411c] Heuristic result: {'score': 1.0, 'structural_ratio': 0.033898, 'penalties': []}
+2026-05-29 15:13:51,244 - INFO - [Run 105f411c] Evaluator attempt 1/2
+2026-05-29 15:13:57,374 - INFO - [Run 105f411c] Evaluator latency: 6.1307s
+2026-05-29 15:13:57,375 - INFO - [Run 105f411c] Evaluator succeeded on attempt 1
+2026-05-29 15:13:57,375 - INFO - [Run 105f411c] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.033898, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly changes the undefined variable 'ret' to 'ret_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 15:13:57,375 - INFO - [Run 105f411c] Successful repair on attempt 1
+2026-05-29 15:13:57,375 - INFO - [Run 105f411c] Orchestration completed — passed=True
+2026-05-29 15:13:57,375 - INFO - [HumanEval/61] NameError — Renamed usage of 'depth' → 'depth_undefined' (NameError)
+2026-05-29 15:13:57,375 - INFO - [Run 3c881983] Orchestration started
+2026-05-29 15:13:57,375 - INFO - [Run 3c881983] AnalyzerAgent started
+2026-05-29 15:13:57,375 - INFO - [Run 3c881983] Analyzer attempt 1/2
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] Analyzer latency: 3.9531s
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] Analyzer succeeded on attempt 1
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] Repair attempt 1/3
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] FixerAgent started
+2026-05-29 15:14:01,328 - INFO - [Run 3c881983] Fixer attempt 1/2
+2026-05-29 15:14:13,409 - INFO - [Run 3c881983] Fixer latency: 12.0803s
+2026-05-29 15:14:13,409 - INFO - [Run 3c881983] Fixer succeeded on attempt 1
+2026-05-29 15:14:13,409 - INFO - [Run 3c881983] FixerAgent completed
+2026-05-29 15:14:13,409 - INFO - [Run 3c881983] Sandbox execution started
+2026-05-29 15:14:13,419 - INFO - [Run 3c881983] Sandbox finished — returncode=0
+2026-05-29 15:14:13,420 - INFO - [Run 3c881983] EvaluatorAgent started
+2026-05-29 15:14:13,420 - INFO - [Run 3c881983] Heuristic result: {'score': 1.0, 'structural_ratio': 0.015625, 'penalties': []}
+2026-05-29 15:14:13,420 - INFO - [Run 3c881983] Evaluator attempt 1/2
+2026-05-29 15:14:19,022 - INFO - [Run 3c881983] Evaluator latency: 5.6020s
+2026-05-29 15:14:19,022 - INFO - [Run 3c881983] Evaluator succeeded on attempt 1
+2026-05-29 15:14:19,022 - INFO - [Run 3c881983] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.015625, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'depth' variable, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 15:14:19,022 - INFO - [Run 3c881983] Successful repair on attempt 1
+2026-05-29 15:14:19,022 - INFO - [Run 3c881983] Orchestration completed — passed=True
+2026-05-29 15:14:19,023 - INFO - [HumanEval/69] LogicError — Swapped operator '+' → '-'
+2026-05-29 15:14:19,023 - INFO - [Run dbfb3621] Orchestration started
+2026-05-29 15:14:19,023 - INFO - [Run dbfb3621] AnalyzerAgent started
+2026-05-29 15:14:19,023 - INFO - [Run dbfb3621] Analyzer attempt 1/2
+2026-05-29 15:14:24,985 - INFO - [Run dbfb3621] Analyzer latency: 5.9628s
+2026-05-29 15:14:24,986 - INFO - [Run dbfb3621] Analyzer succeeded on attempt 1
+2026-05-29 15:14:24,986 - INFO - [Run dbfb3621] AnalyzerAgent completed: IndexError
+2026-05-29 15:14:24,986 - INFO - [Run dbfb3621] Repair attempt 1/3
+2026-05-29 15:14:24,986 - INFO - [Run dbfb3621] FixerAgent started
+2026-05-29 15:14:24,986 - INFO - [Run dbfb3621] Fixer attempt 1/2
+2026-05-29 15:14:42,899 - INFO - [Run dbfb3621] Fixer latency: 17.9129s
+2026-05-29 15:14:42,899 - INFO - [Run dbfb3621] Fixer succeeded on attempt 1
+2026-05-29 15:14:42,899 - INFO - [Run dbfb3621] FixerAgent completed
+2026-05-29 15:14:42,899 - INFO - [Run dbfb3621] Sandbox execution started
+2026-05-29 15:14:42,910 - INFO - [Run dbfb3621] Sandbox finished — returncode=0
+2026-05-29 15:14:42,910 - INFO - [Run dbfb3621] EvaluatorAgent started
+2026-05-29 15:14:42,911 - INFO - [Run dbfb3621] Heuristic result: {'score': 1.0, 'structural_ratio': 0.017094, 'penalties': []}
+2026-05-29 15:14:42,911 - INFO - [Run dbfb3621] Evaluator attempt 1/2
+2026-05-29 15:14:49,044 - INFO - [Run dbfb3621] Evaluator latency: 6.1329s
+2026-05-29 15:14:49,044 - INFO - [Run dbfb3621] Evaluator succeeded on attempt 1
+2026-05-29 15:14:49,044 - INFO - [Run dbfb3621] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.017094, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly adjusts the size of the 'frq' list to accommodate all possible values in 'lst', fixing the IndexError without altering the original intent."}
+2026-05-29 15:14:49,044 - INFO - [Run dbfb3621] Successful repair on attempt 1
+2026-05-29 15:14:49,044 - INFO - [Run dbfb3621] Orchestration completed — passed=True
+2026-05-29 15:14:49,044 - INFO - [HumanEval/72] NameError — Renamed usage of 'j' → 'j_undefined' (NameError)
+2026-05-29 15:14:49,044 - INFO - [Run ce94344e] Orchestration started
+2026-05-29 15:14:49,044 - INFO - [Run ce94344e] AnalyzerAgent started
+2026-05-29 15:14:49,044 - INFO - [Run ce94344e] Analyzer attempt 1/2
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] Analyzer latency: 4.5766s
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] Analyzer succeeded on attempt 1
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] Repair attempt 1/3
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] FixerAgent started
+2026-05-29 15:14:53,621 - INFO - [Run ce94344e] Fixer attempt 1/2
+2026-05-29 15:15:14,475 - INFO - [Run ce94344e] Fixer latency: 20.8533s
+2026-05-29 15:15:14,475 - INFO - [Run ce94344e] Fixer succeeded on attempt 1
+2026-05-29 15:15:14,475 - INFO - [Run ce94344e] FixerAgent completed
+2026-05-29 15:15:14,475 - INFO - [Run ce94344e] Sandbox execution started
+2026-05-29 15:15:14,490 - INFO - [Run ce94344e] Sandbox finished — returncode=0
+2026-05-29 15:15:14,491 - INFO - [Run ce94344e] EvaluatorAgent started
+2026-05-29 15:15:14,491 - INFO - [Run ce94344e] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007092, 'penalties': []}
+2026-05-29 15:15:14,491 - INFO - [Run ce94344e] Evaluator attempt 1/2
+2026-05-29 15:15:21,353 - INFO - [Run ce94344e] Evaluator latency: 6.8621s
+2026-05-29 15:15:21,354 - INFO - [Run ce94344e] Evaluator succeeded on attempt 1
+2026-05-29 15:15:21,354 - INFO - [Run ce94344e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007092, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly fixes the UnboundLocalError by initializing the variable 'j' with the intended value 'len(q)-1'. This change is minimal and preserves the original intent of the function."}
+2026-05-29 15:15:21,354 - INFO - [Run ce94344e] Successful repair on attempt 1
+2026-05-29 15:15:21,354 - INFO - [Run ce94344e] Orchestration completed — passed=True
+2026-05-29 15:15:21,354 - INFO - [HumanEval/73] LogicError — Swapped operator '-' → '+'
+2026-05-29 15:15:21,354 - INFO - [Run d84cb66c] Orchestration started
+2026-05-29 15:15:21,354 - INFO - [Run d84cb66c] AnalyzerAgent started
+2026-05-29 15:15:21,354 - INFO - [Run d84cb66c] Analyzer attempt 1/2
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] Analyzer latency: 4.1761s
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] Analyzer succeeded on attempt 1
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] AnalyzerAgent completed: IndexError
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] Repair attempt 1/3
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] FixerAgent started
+2026-05-29 15:15:25,530 - INFO - [Run d84cb66c] Fixer attempt 1/2
+2026-05-29 15:15:42,444 - INFO - [Run d84cb66c] Fixer latency: 16.9137s
+2026-05-29 15:15:42,444 - INFO - [Run d84cb66c] Fixer succeeded on attempt 1
+2026-05-29 15:15:42,444 - INFO - [Run d84cb66c] FixerAgent completed
+2026-05-29 15:15:42,444 - INFO - [Run d84cb66c] Sandbox execution started
+2026-05-29 15:15:42,455 - INFO - [Run d84cb66c] Sandbox finished — returncode=0
+2026-05-29 15:15:42,456 - INFO - [Run d84cb66c] EvaluatorAgent started
+2026-05-29 15:15:42,456 - INFO - [Run d84cb66c] Heuristic result: {'score': 1.0, 'structural_ratio': 0.010526, 'penalties': []}
+2026-05-29 15:15:42,456 - INFO - [Run d84cb66c] Evaluator attempt 1/2
+2026-05-29 15:15:49,470 - INFO - [Run d84cb66c] Evaluator latency: 7.0142s
+2026-05-29 15:15:49,470 - INFO - [Run d84cb66c] Evaluator succeeded on attempt 1
+2026-05-29 15:15:49,471 - INFO - [Run d84cb66c] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.010526, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the incorrect index calculation from len(arr) + i - 1 to len(arr) - i - 1, which fixes the IndexError and preserves the original intent of comparing elements symmetrically from both ends of the list.'}
+2026-05-29 15:15:49,471 - INFO - [Run d84cb66c] Successful repair on attempt 1
+2026-05-29 15:15:49,471 - INFO - [Run d84cb66c] Orchestration completed — passed=True
+2026-05-29 15:15:49,471 - INFO - [HumanEval/74] TypeError — Commented out: 'return lst2' → function returns None
+2026-05-29 15:15:49,471 - INFO - [Run 350808d9] Orchestration started
+2026-05-29 15:15:49,471 - INFO - [Run 350808d9] AnalyzerAgent started
+2026-05-29 15:15:49,471 - INFO - [Run 350808d9] Analyzer attempt 1/2
+2026-05-29 15:15:52,893 - INFO - [Run 350808d9] Analyzer latency: 3.4225s
+2026-05-29 15:15:52,893 - INFO - [Run 350808d9] Analyzer succeeded on attempt 1
+2026-05-29 15:15:52,893 - INFO - [Run 350808d9] AnalyzerAgent completed: IndentationError
+2026-05-29 15:15:52,894 - INFO - [Run 350808d9] Repair attempt 1/3
+2026-05-29 15:15:52,894 - INFO - [Run 350808d9] FixerAgent started
+2026-05-29 15:15:52,894 - INFO - [Run 350808d9] Fixer attempt 1/2
+2026-05-29 15:16:12,783 - INFO - [Run 350808d9] Fixer latency: 19.8896s
+2026-05-29 15:16:12,783 - INFO - [Run 350808d9] Fixer succeeded on attempt 1
+2026-05-29 15:16:12,784 - INFO - [Run 350808d9] FixerAgent completed
+2026-05-29 15:16:12,784 - INFO - [Run 350808d9] Sandbox execution started
+2026-05-29 15:16:12,795 - INFO - [Run 350808d9] Sandbox finished — returncode=0
+2026-05-29 15:16:12,795 - INFO - [Run 350808d9] EvaluatorAgent started
+2026-05-29 15:16:12,796 - INFO - [Run 350808d9] Heuristic result: {'score': 1.0, 'structural_ratio': 0.004255, 'penalties': []}
+2026-05-29 15:16:12,796 - INFO - [Run 350808d9] Evaluator attempt 1/2
+2026-05-29 15:16:18,928 - INFO - [Run 350808d9] Evaluator latency: 6.1320s
+2026-05-29 15:16:18,928 - INFO - [Run 350808d9] Evaluator succeeded on attempt 1
+2026-05-29 15:16:18,928 - INFO - [Run 350808d9] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.004255, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly addresses the IndentationError by adding the missing indentation after the 'else' statement, preserving the original intent and functionality without introducing any new issues."}
+2026-05-29 15:16:18,928 - INFO - [Run 350808d9] Successful repair on attempt 1
+2026-05-29 15:16:18,928 - INFO - [Run 350808d9] Orchestration completed — passed=True
+2026-05-29 15:16:18,928 - INFO - [HumanEval/78] NameError — Renamed usage of 'primes' → 'primes_undefined' (NameError)
+2026-05-29 15:16:18,928 - INFO - [Run 2d14f40b] Orchestration started
+2026-05-29 15:16:18,928 - INFO - [Run 2d14f40b] AnalyzerAgent started
+2026-05-29 15:16:18,928 - INFO - [Run 2d14f40b] Analyzer attempt 1/2
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] Analyzer latency: 4.3425s
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] Analyzer succeeded on attempt 1
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] AnalyzerAgent completed: NameError
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] Repair attempt 1/3
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] FixerAgent started
+2026-05-29 15:16:23,271 - INFO - [Run 2d14f40b] Fixer attempt 1/2
+2026-05-29 15:16:49,947 - INFO - [Run 2d14f40b] Fixer latency: 26.6762s
+2026-05-29 15:16:49,948 - INFO - [Run 2d14f40b] Fixer succeeded on attempt 1
+2026-05-29 15:16:49,948 - INFO - [Run 2d14f40b] FixerAgent completed
+2026-05-29 15:16:49,948 - INFO - [Run 2d14f40b] Sandbox execution started
+2026-05-29 15:16:49,958 - INFO - [Run 2d14f40b] Sandbox finished — returncode=0
+2026-05-29 15:16:49,959 - INFO - [Run 2d14f40b] EvaluatorAgent started
+2026-05-29 15:16:49,959 - INFO - [Run 2d14f40b] Heuristic result: {'score': 1.0, 'structural_ratio': 0.005263, 'penalties': []}
+2026-05-29 15:16:49,959 - INFO - [Run 2d14f40b] Evaluator attempt 1/2
+2026-05-29 15:16:56,569 - INFO - [Run 2d14f40b] Evaluator latency: 6.6097s
+2026-05-29 15:16:56,569 - INFO - [Run 2d14f40b] Evaluator succeeded on attempt 1
+2026-05-29 15:16:56,569 - INFO - [Run 2d14f40b] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.005263, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly replaces the undefined variable 'primes' with 'primes_undefined', preserving the original intent and fixing the NameError without introducing any new issues."}
+2026-05-29 15:16:56,570 - INFO - [Run 2d14f40b] Successful repair on attempt 1
+2026-05-29 15:16:56,570 - INFO - [Run 2d14f40b] Orchestration completed — passed=True
+2026-05-29 15:16:56,570 - INFO - [HumanEval/95] NameError — Renamed usage of 'state' → 'state_undefined' (NameError)
+2026-05-29 15:16:56,570 - INFO - [Run eadbf344] Orchestration started
+2026-05-29 15:16:56,570 - INFO - [Run eadbf344] AnalyzerAgent started
+2026-05-29 15:16:56,570 - INFO - [Run eadbf344] Analyzer attempt 1/2
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] Analyzer latency: 4.2647s
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] Analyzer succeeded on attempt 1
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] Repair attempt 1/3
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] FixerAgent started
+2026-05-29 15:17:00,835 - INFO - [Run eadbf344] Fixer attempt 1/2
+2026-05-29 15:17:25,131 - INFO - [Run eadbf344] Fixer latency: 24.2959s
+2026-05-29 15:17:25,131 - INFO - [Run eadbf344] Fixer succeeded on attempt 1
+2026-05-29 15:17:25,131 - INFO - [Run eadbf344] FixerAgent completed
+2026-05-29 15:17:25,131 - INFO - [Run eadbf344] Sandbox execution started
+2026-05-29 15:17:25,142 - INFO - [Run eadbf344] Sandbox finished — returncode=0
+2026-05-29 15:17:25,143 - INFO - [Run eadbf344] EvaluatorAgent started
+2026-05-29 15:17:25,143 - INFO - [Run eadbf344] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 15:17:25,143 - INFO - [Run eadbf344] Evaluator attempt 1/2
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] Evaluator latency: 7.2347s
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] Evaluator succeeded on attempt 1
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] Patch failed evaluation — running critique
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] CritiqueAgent started
+2026-05-29 15:17:32,378 - INFO - [Run eadbf344] Critique attempt 1/2
+2026-05-29 15:17:39,216 - INFO - [Run eadbf344] Critique latency: 6.8380s
+2026-05-29 15:17:39,217 - INFO - [Run eadbf344] Critique succeeded on attempt 1
+2026-05-29 15:17:39,217 - INFO - [Run eadbf344] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 15:17:39,217 - INFO - [Run eadbf344] Repair attempt 2/3
+2026-05-29 15:17:39,217 - INFO - [Run eadbf344] FixerAgent started
+2026-05-29 15:17:39,217 - INFO - [Run eadbf344] Fixer attempt 1/2
+2026-05-29 15:18:03,803 - INFO - [Run eadbf344] Fixer latency: 24.5864s
+2026-05-29 15:18:03,804 - INFO - [Run eadbf344] Fixer succeeded on attempt 1
+2026-05-29 15:18:03,804 - INFO - [Run eadbf344] FixerAgent completed
+2026-05-29 15:18:03,804 - INFO - [Run eadbf344] Sandbox execution started
+2026-05-29 15:18:03,815 - INFO - [Run eadbf344] Sandbox finished — returncode=0
+2026-05-29 15:18:03,815 - INFO - [Run eadbf344] EvaluatorAgent started
+2026-05-29 15:18:03,815 - INFO - [Run eadbf344] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 15:18:03,816 - INFO - [Run eadbf344] Evaluator attempt 1/2
+2026-05-29 15:18:11,244 - INFO - [Run eadbf344] Evaluator latency: 7.4287s
+2026-05-29 15:18:11,245 - INFO - [Run eadbf344] Evaluator succeeded on attempt 1
+2026-05-29 15:18:11,245 - INFO - [Run eadbf344] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 15:18:11,245 - INFO - [Run eadbf344] Patch failed evaluation — running critique
+2026-05-29 15:18:11,245 - INFO - [Run eadbf344] CritiqueAgent started
+2026-05-29 15:18:11,245 - INFO - [Run eadbf344] Critique attempt 1/2
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] Critique latency: 6.8581s
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] Critique succeeded on attempt 1
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] Repair attempt 3/3
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] FixerAgent started
+2026-05-29 15:18:18,103 - INFO - [Run eadbf344] Fixer attempt 1/2
+2026-05-29 15:18:42,682 - INFO - [Run eadbf344] Fixer latency: 24.5786s
+2026-05-29 15:18:42,682 - INFO - [Run eadbf344] Fixer succeeded on attempt 1
+2026-05-29 15:18:42,682 - INFO - [Run eadbf344] FixerAgent completed
+2026-05-29 15:18:42,682 - INFO - [Run eadbf344] Sandbox execution started
+2026-05-29 15:18:42,694 - INFO - [Run eadbf344] Sandbox finished — returncode=0
+2026-05-29 15:18:42,694 - INFO - [Run eadbf344] EvaluatorAgent started
+2026-05-29 15:18:42,695 - INFO - [Run eadbf344] Heuristic result: {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}
+2026-05-29 15:18:42,695 - INFO - [Run eadbf344] Evaluator attempt 1/2
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] Evaluator latency: 7.3817s
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] Evaluator succeeded on attempt 1
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] Evaluation result: {'passed': False, 'score': 0.52, 'heuristics': {'score': 1.0, 'structural_ratio': 0.007353, 'penalties': []}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patch does not define the variable 'state' before using it, which causes the UnboundLocalError. The fix changes 'state_undefined' to 'state' but does not initialize 'state', thus not fixing the root cause."}
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] Patch failed evaluation — running critique
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] CritiqueAgent started
+2026-05-29 15:18:50,077 - INFO - [Run eadbf344] Critique attempt 1/2
+2026-05-29 15:18:57,028 - INFO - [Run eadbf344] Critique latency: 6.9503s
+2026-05-29 15:18:57,028 - INFO - [Run eadbf344] Critique succeeded on attempt 1
+2026-05-29 15:18:57,028 - INFO - [Run eadbf344] Critique result: {'failure_type': 'invented_value', 'critique': "The patch changes 'state_undefined' to 'state' without initializing 'state', causing an UnboundLocalError.", 'retry_guidance': ["Initialize the 'state' variable before using it in the loop.", 'Ensure that the variable name change does not introduce new issues.'], 'should_retry': True}
+2026-05-29 15:18:57,028 - INFO - [Run eadbf344] Orchestration completed — passed=False
+2026-05-29 15:29:08,063 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 15:29:09,151 - INFO - Loaded 164 HumanEval problems
+2026-05-29 15:29:09,318 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:29:09,470 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:29:09,513 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 15:29:09,514 - INFO - HumanEval loader done — 3 cases ready | skipped: {'no_mutation': 0, 'no_crash': 7, 'wrong_type': 0}
+2026-05-29 15:29:09,514 - INFO - Initialising DebugOrchestrator
+2026-05-29 15:29:09,514 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 15:29:20,619 - INFO - Model loaded and set to eval mode
+2026-05-29 15:29:20,619 - INFO - [HumanEval/4] TypeError — Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:29:20,619 - INFO - [Run 686b623e] Orchestration started
+2026-05-29 15:29:20,619 - INFO - [Run 686b623e] AnalyzerAgent started
+2026-05-29 15:29:20,619 - INFO - [Run 686b623e] Analyzer attempt 1/2
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] Analyzer latency: 4.2086s
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] Analyzer succeeded on attempt 1
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] AnalyzerAgent completed: TypeError
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] Repair attempt 1/3
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] FixerAgent started
+2026-05-29 15:29:24,828 - INFO - [Run 686b623e] Fixer attempt 1/2
+2026-05-29 15:29:36,382 - INFO - [Run 686b623e] Fixer latency: 11.5534s
+2026-05-29 15:29:36,382 - INFO - [Run 686b623e] Fixer succeeded on attempt 1
+2026-05-29 15:29:36,382 - INFO - [Run 686b623e] FixerAgent completed
+2026-05-29 15:29:36,382 - INFO - [Run 686b623e] Sandbox execution started
+2026-05-29 15:29:36,420 - INFO - [Run 686b623e] Sandbox finished — returncode=0
+2026-05-29 15:29:36,421 - INFO - [Run 686b623e] EvaluatorAgent started
+2026-05-29 15:29:36,421 - INFO - [Run 686b623e] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 15:29:36,421 - INFO - [Run 686b623e] Evaluator attempt 1/2
+2026-05-29 15:29:42,452 - INFO - [Run 686b623e] Evaluator latency: 6.0309s
+2026-05-29 15:29:42,452 - INFO - [Run 686b623e] Evaluator succeeded on attempt 1
+2026-05-29 15:29:42,452 - INFO - [Run 686b623e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float return value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 15:29:42,452 - INFO - [Run 686b623e] Successful repair on attempt 1
+2026-05-29 15:29:42,452 - INFO - [Run 686b623e] Orchestration completed — passed=True
+2026-05-29 15:29:42,452 - INFO - [HumanEval/8] TypeError — Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:29:42,453 - INFO - [Run 7c0f0c84] Orchestration started
+2026-05-29 15:29:42,453 - INFO - [Run 7c0f0c84] AnalyzerAgent started
+2026-05-29 15:29:42,453 - INFO - [Run 7c0f0c84] Analyzer attempt 1/2
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] Analyzer latency: 4.1562s
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] Analyzer succeeded on attempt 1
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] AnalyzerAgent completed: TypeError
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] Repair attempt 1/3
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] FixerAgent started
+2026-05-29 15:29:46,609 - INFO - [Run 7c0f0c84] Fixer attempt 1/2
+2026-05-29 15:29:59,328 - INFO - [Run 7c0f0c84] Fixer latency: 12.7184s
+2026-05-29 15:29:59,328 - INFO - [Run 7c0f0c84] Fixer succeeded on attempt 1
+2026-05-29 15:29:59,328 - INFO - [Run 7c0f0c84] FixerAgent completed
+2026-05-29 15:29:59,328 - INFO - [Run 7c0f0c84] Sandbox execution started
+2026-05-29 15:29:59,364 - INFO - [Run 7c0f0c84] Sandbox finished — returncode=0
+2026-05-29 15:29:59,364 - INFO - [Run 7c0f0c84] EvaluatorAgent started
+2026-05-29 15:29:59,365 - INFO - [Run 7c0f0c84] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}
+2026-05-29 15:29:59,365 - INFO - [Run 7c0f0c84] Evaluator attempt 1/2
+2026-05-29 15:30:05,078 - INFO - [Run 7c0f0c84] Evaluator latency: 5.7132s
+2026-05-29 15:30:05,078 - INFO - [Run 7c0f0c84] Evaluator succeeded on attempt 1
+2026-05-29 15:30:05,078 - INFO - [Run 7c0f0c84] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the TypeError by replacing the incorrect use of str() with a tuple return, preserving the original intent and making a minimal change.'}
+2026-05-29 15:30:05,078 - INFO - [Run 7c0f0c84] Successful repair on attempt 1
+2026-05-29 15:30:05,078 - INFO - [Run 7c0f0c84] Orchestration completed — passed=True
+2026-05-29 15:30:05,078 - INFO - [HumanEval/9] NameError — Renamed usage of 'result' → 'result_undefined' (NameError)
+2026-05-29 15:30:05,078 - INFO - [Run 4d640f34] Orchestration started
+2026-05-29 15:30:05,079 - INFO - [Run 4d640f34] AnalyzerAgent started
+2026-05-29 15:30:05,079 - INFO - [Run 4d640f34] Analyzer attempt 1/2
+2026-05-29 15:30:08,622 - INFO - [Run 4d640f34] Analyzer latency: 3.5438s
+2026-05-29 15:30:08,623 - INFO - [Run 4d640f34] Analyzer succeeded on attempt 1
+2026-05-29 15:30:08,623 - INFO - [Run 4d640f34] AnalyzerAgent completed: NameError
+2026-05-29 15:30:08,623 - INFO - [Run 4d640f34] Repair attempt 1/3
+2026-05-29 15:30:08,623 - INFO - [Run 4d640f34] FixerAgent started
+2026-05-29 15:30:08,623 - INFO - [Run 4d640f34] Fixer attempt 1/2
+2026-05-29 15:30:21,494 - INFO - [Run 4d640f34] Fixer latency: 12.8714s
+2026-05-29 15:30:21,494 - INFO - [Run 4d640f34] Fixer succeeded on attempt 1
+2026-05-29 15:30:21,494 - INFO - [Run 4d640f34] FixerAgent completed
+2026-05-29 15:30:21,494 - INFO - [Run 4d640f34] Sandbox execution started
+2026-05-29 15:30:21,514 - INFO - [Run 4d640f34] Sandbox finished — returncode=0
+2026-05-29 15:30:21,514 - INFO - [Run 4d640f34] EvaluatorAgent started
+2026-05-29 15:30:21,515 - INFO - [Run 4d640f34] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 15:30:21,515 - INFO - [Run 4d640f34] Evaluator attempt 1/2
+2026-05-29 15:30:26,984 - INFO - [Run 4d640f34] Evaluator latency: 5.4689s
+2026-05-29 15:30:26,984 - INFO - [Run 4d640f34] Evaluator succeeded on attempt 1
+2026-05-29 15:30:26,984 - INFO - [Run 4d640f34] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the 'result' list, fixing the NameError without altering the original intent or introducing new behavior."}
+2026-05-29 15:30:26,984 - INFO - [Run 4d640f34] Successful repair on attempt 1
+2026-05-29 15:30:26,984 - INFO - [Run 4d640f34] Orchestration completed — passed=True
+2026-05-29 15:58:36,099 - INFO - Loading openai/openai_humaneval ...
+2026-05-29 15:58:37,132 - INFO - Loaded 164 HumanEval problems
+2026-05-29 15:58:37,280 - INFO - [HumanEval/4] ✓ TypeError: Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:58:37,385 - INFO - [HumanEval/8] ✓ TypeError: Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:58:37,414 - INFO - [HumanEval/9] ✓ NameError: Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 15:58:37,414 - INFO - HumanEval loader done — 3 cases ready | skipped: {'no_mutation': 0, 'no_crash': 7, 'wrong_type': 0}
+2026-05-29 15:58:37,415 - INFO - Initialising DebugOrchestrator
+2026-05-29 15:58:37,415 - INFO - Loading model: Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+2026-05-29 15:58:48,392 - INFO - Model loaded and set to eval mode
+2026-05-29 15:58:48,392 - INFO - [HumanEval/4] TypeError — Commented out: 'return sum(abs(x - mean) for x in numbers) / len(numbers)' → function returns None
+2026-05-29 15:58:48,392 - INFO - [Run 057fbd93] Orchestration started
+2026-05-29 15:58:48,392 - INFO - [Run 057fbd93] AnalyzerAgent started
+2026-05-29 15:58:48,392 - INFO - [Run 057fbd93] Analyzer attempt 1/2
+2026-05-29 15:58:52,637 - INFO - [Run 057fbd93] Analyzer latency: 4.2449s
+2026-05-29 15:58:52,637 - INFO - [Run 057fbd93] Analyzer succeeded on attempt 1
+2026-05-29 15:58:52,637 - INFO - [Run 057fbd93] AnalyzerAgent completed: TypeError
+2026-05-29 15:58:52,637 - INFO - [Run 057fbd93] Repair attempt 1/3
+2026-05-29 15:58:52,637 - INFO - [Run 057fbd93] FixerAgent started
+2026-05-29 15:58:52,638 - INFO - [Run 057fbd93] Fixer attempt 1/2
+2026-05-29 15:59:04,376 - INFO - [Run 057fbd93] Fixer latency: 11.7380s
+2026-05-29 15:59:04,376 - INFO - [Run 057fbd93] Fixer succeeded on attempt 1
+2026-05-29 15:59:04,376 - INFO - [Run 057fbd93] FixerAgent completed
+2026-05-29 15:59:04,376 - INFO - [Run 057fbd93] Sandbox execution started
+2026-05-29 15:59:04,410 - INFO - [Run 057fbd93] Sandbox finished — returncode=0
+2026-05-29 15:59:04,411 - INFO - [Run 057fbd93] EvaluatorAgent started
+2026-05-29 15:59:04,411 - INFO - [Run 057fbd93] Heuristic result: {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}
+2026-05-29 15:59:04,411 - INFO - [Run 057fbd93] Evaluator attempt 1/2
+2026-05-29 15:59:10,625 - INFO - [Run 057fbd93] Evaluator latency: 6.2133s
+2026-05-29 15:59:10,625 - INFO - [Run 057fbd93] Evaluator succeeded on attempt 1
+2026-05-29 15:59:10,635 - INFO - [Run 057fbd93] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.006623, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly implements the missing return statement, which fixes the TypeError by providing a float return value instead of None. The original intent is preserved, and the change is minimal.'}
+2026-05-29 15:59:10,635 - INFO - [Run 057fbd93] Successful repair on attempt 1
+2026-05-29 15:59:10,635 - INFO - [Run 057fbd93] Orchestration completed — passed=True
+2026-05-29 15:59:10,635 - INFO - [HumanEval/8] TypeError — Wrapped return value in str(): return sum_value, prod_value → return str(sum_value, prod_value)
+2026-05-29 15:59:10,635 - INFO - [Run 4f3edaa7] Orchestration started
+2026-05-29 15:59:10,635 - INFO - [Run 4f3edaa7] AnalyzerAgent started
+2026-05-29 15:59:10,636 - INFO - [Run 4f3edaa7] Analyzer attempt 1/2
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] Analyzer latency: 4.1025s
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] Analyzer succeeded on attempt 1
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] AnalyzerAgent completed: TypeError
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] Repair attempt 1/3
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] FixerAgent started
+2026-05-29 15:59:14,738 - INFO - [Run 4f3edaa7] Fixer attempt 1/2
+2026-05-29 15:59:27,702 - INFO - [Run 4f3edaa7] Fixer latency: 12.9635s
+2026-05-29 15:59:27,702 - INFO - [Run 4f3edaa7] Fixer succeeded on attempt 1
+2026-05-29 15:59:27,702 - INFO - [Run 4f3edaa7] FixerAgent completed
+2026-05-29 15:59:27,702 - INFO - [Run 4f3edaa7] Sandbox execution started
+2026-05-29 15:59:27,722 - INFO - [Run 4f3edaa7] Sandbox finished — returncode=0
+2026-05-29 15:59:27,722 - INFO - [Run 4f3edaa7] EvaluatorAgent started
+2026-05-29 15:59:27,723 - INFO - [Run 4f3edaa7] Heuristic result: {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}
+2026-05-29 15:59:27,723 - INFO - [Run 4f3edaa7] Evaluator attempt 1/2
+2026-05-29 15:59:33,622 - INFO - [Run 4f3edaa7] Evaluator latency: 5.8989s
+2026-05-29 15:59:33,622 - INFO - [Run 4f3edaa7] Evaluator succeeded on attempt 1
+2026-05-29 15:59:33,622 - INFO - [Run 4f3edaa7] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.012346, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch corrects the TypeError by replacing the incorrect use of str() with a tuple return, preserving the original intent and making a minimal change.'}
+2026-05-29 15:59:33,622 - INFO - [Run 4f3edaa7] Successful repair on attempt 1
+2026-05-29 15:59:33,622 - INFO - [Run 4f3edaa7] Orchestration completed — passed=True
+2026-05-29 15:59:33,622 - INFO - [HumanEval/9] NameError — Renamed usage of 'running_max' → 'running_max_undefined' (NameError)
+2026-05-29 15:59:33,622 - INFO - [Run 99c449fa] Orchestration started
+2026-05-29 15:59:33,622 - INFO - [Run 99c449fa] AnalyzerAgent started
+2026-05-29 15:59:33,622 - INFO - [Run 99c449fa] Analyzer attempt 1/2
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] Analyzer latency: 4.1859s
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] Analyzer succeeded on attempt 1
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] AnalyzerAgent completed: UnboundLocalError
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] Repair attempt 1/3
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] FixerAgent started
+2026-05-29 15:59:37,808 - INFO - [Run 99c449fa] Fixer attempt 1/2
+2026-05-29 15:59:50,978 - INFO - [Run 99c449fa] Fixer latency: 13.1696s
+2026-05-29 15:59:50,978 - INFO - [Run 99c449fa] Fixer succeeded on attempt 1
+2026-05-29 15:59:50,978 - INFO - [Run 99c449fa] FixerAgent completed
+2026-05-29 15:59:50,978 - INFO - [Run 99c449fa] Sandbox execution started
+2026-05-29 15:59:51,008 - INFO - [Run 99c449fa] Sandbox finished — returncode=0
+2026-05-29 15:59:51,008 - INFO - [Run 99c449fa] EvaluatorAgent started
+2026-05-29 15:59:51,009 - INFO - [Run 99c449fa] Heuristic result: {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}
+2026-05-29 15:59:51,009 - INFO - [Run 99c449fa] Evaluator attempt 1/2
+2026-05-29 15:59:56,978 - INFO - [Run 99c449fa] Evaluator latency: 5.9689s
+2026-05-29 15:59:56,978 - INFO - [Run 99c449fa] Evaluator succeeded on attempt 1
+2026-05-29 15:59:56,978 - INFO - [Run 99c449fa] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'structural_ratio': 0.013889, 'penalties': []}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch correctly initializes the variable 'running_max' before its first use, fixing the UnboundLocalError without altering the original intent or introducing new behavior."}
+2026-05-29 15:59:56,978 - INFO - [Run 99c449fa] Successful repair on attempt 1
+2026-05-29 15:59:56,978 - INFO - [Run 99c449fa] Orchestration completed — passed=True
