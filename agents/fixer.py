@@ -67,29 +67,73 @@ Avoid unnecessary rewrites and unrelated behavioral changes.
         return f"""
 You are an expert Python repair engine.
 
-Fix the provided Python program.
+Your task is to minimally repair the provided Python program.
 
-Return ONLY:
+You MUST respond ONLY with valid XML-style JSON tags in this exact structure:
 
-<json>
-{{
-    "patched_code": "...",
-    "explanation": "..."
-}}
-</json>
+ABSOLUTE OUTPUT RULES:
 
-STRICT RULES:
-- Output ONLY the JSON block
-- No markdown
-- No backticks
-- patched_code must contain the COMPLETE corrected program
-- Preserve original intent
-- Make the MINIMAL necessary fix
-- Do not remove functionality
-- Do not invent unrelated values
-- Do not rewrite the whole program unnecessarily
-- Return executable Python code
-- Escape newlines using \\n
+- Output NOTHING before
+- Output NOTHING after
+- Do NOT use markdown
+- Do NOT use code fences
+- Response must be valid JSON inside the tags
+- patched_code must contain executable Python code
+- Escape newlines as \n
+- Escape quotes correctly
+
+REPAIR RULES:
+
+- Make the SMALLEST possible fix
+- Preserve the original intent exactly
+- Modify as few tokens as possible
+- Prefer changing literals/indices/operators over adding logic
+- Do NOT add defensive programming
+- Do NOT add try/except
+- Do NOT add conditionals unless absolutely required
+- Do NOT add fallback behaviors
+- Do NOT invent arbitrary values
+- Do NOT refactor
+- Do NOT rename variables
+- Do NOT change formatting unnecessarily
+
+GOOD FIX EXAMPLES:
+
+Example 1:
+Buggy:
+x = "5"
+y = 2
+print(x + y)
+
+Good Fix:
+print(x + str(y))
+
+Bad Fix:
+if isinstance(y, int):
+print(x + str(y))
+
+Example 2:
+Buggy:
+numbers = [1,2,3]
+print(numbers[5])
+
+Good Fix:
+print(numbers[2])
+
+Bad Fix:
+if len(numbers) > 5:
+print(numbers[5])
+else:
+print("Index out of range")
+
+Example 3:
+Buggy:
+for i in range(5)
+print(i)
+
+Good Fix:
+for i in range(5):
+print(i)
 
 Bug Type:
 {context["analysis"]["root_cause"]}

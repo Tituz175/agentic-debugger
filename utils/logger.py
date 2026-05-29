@@ -8,6 +8,7 @@ def setup_logger():
 
     logger = logging.getLogger("agentic_debugger")
     logger.setLevel(logging.INFO)
+    logger.propagate = False
 
     if not logger.handlers:
 

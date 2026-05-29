@@ -1,25 +1,41 @@
 import ast
 
 def parse_code(code):
-    return ast.parse(code)
+    try:
+        return ast.parse(code)
+    except SyntaxError as e:
+        print(f"Syntax error in code: {e}")
+        return None
 
 def count_ast_nodes(code):
     tree = parse_code(code)
+    if tree is None:
+        return 0
     return sum(1 for _ in ast.walk(tree))
 
 
 def structural_change_ratio(original_code, patched_code):
-    original_nodes = count_ast_nodes(original_code)
-    patched_nodes = count_ast_nodes(patched_code)
+
+    original_tree = parse_code(original_code)
+    patched_tree = parse_code(patched_code)
+
+    if original_tree is None or patched_tree is None:
+        return 0.0
+
+    original_nodes = sum(1 for _ in ast.walk(original_tree))
+    patched_nodes = sum(1 for _ in ast.walk(patched_tree))
 
     difference = abs(patched_nodes - original_nodes)
 
-    return difference / max(original_nodes, 1)
+    return difference / original_nodes
     
 
 def get_node_types(code: str):
 
     tree = parse_code(code)
+
+    if tree is None:
+        return []
 
     return [
         type(node).__name__
@@ -29,9 +45,21 @@ def get_node_types(code: str):
 
 def detect_new_control_flow(original_code, patched_code):
 
-    original_nodes = set(get_node_types(original_code))
+    original_tree = parse_code(original_code)
+    patched_tree = parse_code(patched_code)
 
-    patched_nodes = set(get_node_types(patched_code))
+    if original_tree is None or patched_tree is None:
+        return False
+
+    original_nodes = {
+        type(node).__name__
+        for node in ast.walk(original_tree)
+    }
+
+    patched_nodes = {
+        type(node).__name__
+        for node in ast.walk(patched_tree)
+    }
 
     dangerous_nodes = {
         "If",
@@ -40,7 +68,7 @@ def detect_new_control_flow(original_code, patched_code):
         "Try"
     }
 
-    newly_added = (patched_nodes - original_nodes)
+    newly_added = patched_nodes - original_nodes
 
     return bool(
         dangerous_nodes.intersection(newly_added)
@@ -50,8 +78,10 @@ def detect_new_control_flow(original_code, patched_code):
 def operator_changed(original_code, patched_code):
 
     original_tree = parse_code(original_code)
-
     patched_tree = parse_code(patched_code)
+
+    if original_tree is None or patched_tree is None:
+        return False
 
     original_ops = [
         type(node.op).__name__
@@ -66,4 +96,3 @@ def operator_changed(original_code, patched_code):
     ]
 
     return original_ops != patched_ops
-

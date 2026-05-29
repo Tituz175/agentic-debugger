@@ -3664,3 +3664,1932 @@ print(x / y)
 2026-05-28 14:17:32,170 - INFO - [Run ed6a9e99] Sandbox execution completed
 2026-05-28 14:17:32,171 - INFO - [Run ed6a9e99] Execution result: CompletedProcess(args=['python', '/tmp/tmp4hx6yn5d.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
 2026-05-28 14:17:32,171 - INFO - [Run ed6a9e99] EvaluatorAgent started
+2026-05-28 16:55:24,799 - INFO - [Run fed6df9d] Debug orchestration started
+2026-05-28 16:55:24,799 - INFO - [Run fed6df9d] AnalyzerAgent started
+2026-05-28 16:55:24,799 - INFO - [Run fed6df9d] Analyzer attempt 1
+2026-05-28 16:55:27,893 - INFO - [Run fed6df9d] Analysis latency: 3.0942s
+2026-05-28 16:55:27,894 - INFO - [Run fed6df9d] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string and an integer."
+}
+</json>
+2026-05-28 16:55:27,894 - INFO - [Run fed6df9d] JSON extraction successful
+2026-05-28 16:55:27,894 - INFO - [Run fed6df9d] FixerAgent started
+2026-05-28 16:55:27,894 - INFO - [Run fed6df9d] Fixer attempt 1
+2026-05-28 16:55:31,555 - INFO - [Run fed6df9d] Fixer latency: 3.6610s
+2026-05-28 16:55:31,555 - INFO - [Run fed6df9d] Raw LLM output:
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with the string x."
+}
+2026-05-28 16:55:31,555 - ERROR - [Run fed6df9d] Fixer attempt failed: No JSON block found
+2026-05-28 16:55:31,555 - INFO - [Run fed6df9d] Fixer attempt 2
+2026-05-28 16:55:35,356 - INFO - [Run fed6df9d] Fixer latency: 3.8008s
+2026-05-28 16:55:35,356 - INFO - [Run fed6df9d] Raw LLM output:
+<json>
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with x."
+}
+</json>
+2026-05-28 16:55:35,356 - INFO - [Run fed6df9d] Patch validation successful
+2026-05-28 16:55:35,356 - INFO - [Run fed6df9d] JSON extraction successful
+2026-05-28 16:55:35,356 - INFO - [Run fed6df9d] Sandbox execution started
+2026-05-28 16:55:35,367 - INFO - [Run fed6df9d] Sandbox execution completed
+2026-05-28 16:55:35,367 - INFO - [Run fed6df9d] Execution result: CompletedProcess(args=['python', '/tmp/tmp596v_uqo.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 16:55:35,367 - INFO - [Run fed6df9d] EvaluatorAgent started
+2026-05-28 16:55:35,368 - INFO - [Run fed6df9d] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 16:55:41,044 - INFO - [Run fed6df9d] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 16:55:41,045 - INFO - [Run fed6df9d] Evaluation completed
+2026-05-28 16:55:41,045 - INFO - [Run fed6df9d] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 16:55:41,045 - INFO - [Run fed6df9d] Debug orchestration completed
+
+
+
+2026-05-28 16:55:41,045 - INFO - [Run 8c82b26c] Debug orchestration started
+2026-05-28 16:55:41,045 - INFO - [Run 8c82b26c] AnalyzerAgent started
+2026-05-28 16:55:41,045 - INFO - [Run 8c82b26c] Analyzer attempt 1
+2026-05-28 16:55:43,968 - INFO - [Run 8c82b26c] Analysis latency: 2.9225s
+2026-05-28 16:55:43,968 - INFO - [Run 8c82b26c] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "Variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 16:55:43,968 - INFO - [Run 8c82b26c] JSON extraction successful
+2026-05-28 16:55:43,968 - INFO - [Run 8c82b26c] FixerAgent started
+2026-05-28 16:55:43,968 - INFO - [Run 8c82b26c] Fixer attempt 1
+2026-05-28 16:55:48,343 - INFO - [Run 8c82b26c] Fixer latency: 4.3746s
+2026-05-28 16:55:48,343 - INFO - [Run 8c82b26c] Raw LLM output:
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "The variable 'y' was used before it was defined. To fix this, I added a line to define 'y' with a default value of None before it is printed."
+}
+2026-05-28 16:55:48,343 - ERROR - [Run 8c82b26c] Fixer attempt failed: No JSON block found
+2026-05-28 16:55:48,343 - INFO - [Run 8c82b26c] Fixer attempt 2
+2026-05-28 16:55:51,466 - INFO - [Run 8c82b26c] Fixer latency: 3.1227s
+2026-05-28 16:55:51,466 - INFO - [Run 8c82b26c] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "Initialized variable 'y' with None to avoid NameError."
+}
+</json>
+2026-05-28 16:55:51,466 - INFO - [Run 8c82b26c] Patch validation successful
+2026-05-28 16:55:51,466 - INFO - [Run 8c82b26c] JSON extraction successful
+2026-05-28 16:55:51,466 - INFO - [Run 8c82b26c] Sandbox execution started
+2026-05-28 16:55:51,478 - INFO - [Run 8c82b26c] Sandbox execution completed
+2026-05-28 16:55:51,478 - INFO - [Run 8c82b26c] Execution result: CompletedProcess(args=['python', '/tmp/tmppdeadh6m.py'], returncode=0, stdout='None\n', stderr='')
+2026-05-28 16:55:51,479 - INFO - [Run 8c82b26c] EvaluatorAgent started
+2026-05-28 16:55:51,479 - INFO - [Run 8c82b26c] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 16:56:00,230 - INFO - [Run 8c82b26c] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."
+}
+</json>
+2026-05-28 16:56:00,231 - INFO - [Run 8c82b26c] Evaluation completed
+2026-05-28 16:56:00,231 - INFO - [Run 8c82b26c] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."}
+2026-05-28 16:56:00,231 - INFO - [Run 8c82b26c] Debug orchestration completed
+
+
+
+2026-05-28 16:56:00,231 - INFO - [Run f32c7fbe] Debug orchestration started
+2026-05-28 16:56:00,231 - INFO - [Run f32c7fbe] AnalyzerAgent started
+2026-05-28 16:56:00,231 - INFO - [Run f32c7fbe] Analyzer attempt 1
+2026-05-28 16:56:03,613 - INFO - [Run f32c7fbe] Analysis latency: 3.3816s
+2026-05-28 16:56:03,613 - INFO - [Run f32c7fbe] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 16:56:03,613 - INFO - [Run f32c7fbe] JSON extraction successful
+2026-05-28 16:56:03,613 - INFO - [Run f32c7fbe] FixerAgent started
+2026-05-28 16:56:03,613 - INFO - [Run f32c7fbe] Fixer attempt 1
+2026-05-28 16:56:09,170 - INFO - [Run f32c7fbe] Fixer latency: 5.5573s
+2026-05-28 16:56:09,171 - INFO - [Run f32c7fbe] Raw LLM output:
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure that division only occurs if y is not zero, preventing ZeroDivisionError. Added an else clause to handle the case where y is zero."
+}
+2026-05-28 16:56:09,171 - ERROR - [Run f32c7fbe] Fixer attempt failed: No JSON block found
+2026-05-28 16:56:09,171 - INFO - [Run f32c7fbe] Fixer attempt 2
+2026-05-28 16:56:13,944 - INFO - [Run f32c7fbe] Fixer latency: 4.7738s
+2026-05-28 16:56:13,945 - INFO - [Run f32c7fbe] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure y is not zero before performing division."
+}
+</json>
+2026-05-28 16:56:13,945 - INFO - [Run f32c7fbe] Patch validation successful
+2026-05-28 16:56:13,945 - INFO - [Run f32c7fbe] JSON extraction successful
+2026-05-28 16:56:13,945 - INFO - [Run f32c7fbe] Sandbox execution started
+2026-05-28 16:56:13,955 - INFO - [Run f32c7fbe] Sandbox execution completed
+2026-05-28 16:56:13,955 - INFO - [Run f32c7fbe] Execution result: CompletedProcess(args=['python', '/tmp/tmp0ohj_y06.py'], returncode=0, stdout='Cannot divide by zero\n', stderr='')
+2026-05-28 16:56:13,955 - INFO - [Run f32c7fbe] EvaluatorAgent started
+2026-05-28 16:56:13,957 - INFO - [Run f32c7fbe] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}
+2026-05-28 16:56:20,077 - INFO - [Run f32c7fbe] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules."
+}
+</json>
+2026-05-28 16:56:20,077 - INFO - [Run f32c7fbe] Evaluation completed
+2026-05-28 16:56:20,077 - INFO - [Run f32c7fbe] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}, 'intent_preserved': True, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules.'}
+2026-05-28 16:56:20,077 - INFO - [Run f32c7fbe] Debug orchestration completed
+
+
+
+2026-05-28 16:56:20,078 - INFO - [Run 7541b5b6] Debug orchestration started
+2026-05-28 16:56:20,078 - INFO - [Run 7541b5b6] AnalyzerAgent started
+2026-05-28 16:56:20,078 - INFO - [Run 7541b5b6] Analyzer attempt 1
+2026-05-28 16:56:23,164 - INFO - [Run 7541b5b6] Analysis latency: 3.0865s
+2026-05-28 16:56:23,165 - INFO - [Run 7541b5b6] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 16:56:23,165 - INFO - [Run 7541b5b6] JSON extraction successful
+2026-05-28 16:56:23,165 - INFO - [Run 7541b5b6] FixerAgent started
+2026-05-28 16:56:23,165 - INFO - [Run 7541b5b6] Fixer attempt 1
+2026-05-28 16:56:26,172 - INFO - [Run 7541b5b6] Fixer latency: 3.0073s
+2026-05-28 16:56:26,172 - INFO - [Run 7541b5b6] Raw LLM output:
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement to fix the SyntaxError."
+}
+2026-05-28 16:56:26,172 - ERROR - [Run 7541b5b6] Fixer attempt failed: No JSON block found
+2026-05-28 16:56:26,172 - INFO - [Run 7541b5b6] Fixer attempt 2
+2026-05-28 16:56:29,292 - INFO - [Run 7541b5b6] Fixer latency: 3.1198s
+2026-05-28 16:56:29,292 - INFO - [Run 7541b5b6] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement."
+}
+</json>
+2026-05-28 16:56:29,292 - INFO - [Run 7541b5b6] Patch validation successful
+2026-05-28 16:56:29,292 - INFO - [Run 7541b5b6] JSON extraction successful
+2026-05-28 16:56:29,292 - INFO - [Run 7541b5b6] Sandbox execution started
+2026-05-28 16:56:29,303 - INFO - [Run 7541b5b6] Sandbox execution completed
+2026-05-28 16:56:29,303 - INFO - [Run 7541b5b6] Execution result: CompletedProcess(args=['python', '/tmp/tmppnv034uj.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 16:56:29,303 - INFO - [Run 7541b5b6] EvaluatorAgent started
+2026-05-28 17:08:56,486 - INFO - [Run ae98de9e] Debug orchestration started
+2026-05-28 17:08:56,486 - INFO - [Run ae98de9e] AnalyzerAgent started
+2026-05-28 17:08:56,486 - INFO - [Run ae98de9e] Analyzer attempt 1
+2026-05-28 17:08:59,650 - INFO - [Run ae98de9e] Analysis latency: 3.1634s
+2026-05-28 17:08:59,650 - INFO - [Run ae98de9e] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-28 17:08:59,650 - INFO - [Run ae98de9e] JSON extraction successful
+2026-05-28 17:08:59,650 - INFO - [Run ae98de9e] FixerAgent started
+2026-05-28 17:08:59,650 - INFO - [Run ae98de9e] Fixer attempt 1
+2026-05-28 17:09:03,237 - INFO - [Run ae98de9e] Fixer latency: 3.5870s
+2026-05-28 17:09:03,238 - INFO - [Run ae98de9e] Raw LLM output:
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with the string x."
+}
+2026-05-28 17:09:03,238 - ERROR - [Run ae98de9e] Fixer attempt failed: No JSON block found
+2026-05-28 17:09:03,238 - INFO - [Run ae98de9e] Fixer attempt 2
+2026-05-28 17:09:07,246 - INFO - [Run ae98de9e] Fixer latency: 4.0083s
+2026-05-28 17:09:07,246 - INFO - [Run ae98de9e] Raw LLM output:
+<json>
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with x."
+}
+</json>
+2026-05-28 17:09:07,246 - INFO - [Run ae98de9e] Patch validation successful
+2026-05-28 17:09:07,246 - INFO - [Run ae98de9e] JSON extraction successful
+2026-05-28 17:09:07,246 - INFO - [Run ae98de9e] Sandbox execution started
+2026-05-28 17:09:07,258 - INFO - [Run ae98de9e] Sandbox execution completed
+2026-05-28 17:09:07,258 - INFO - [Run ae98de9e] Execution result: CompletedProcess(args=['python', '/tmp/tmp4ozq2jfs.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:09:07,259 - INFO - [Run ae98de9e] EvaluatorAgent started
+2026-05-28 17:09:07,259 - INFO - [Run ae98de9e] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:09:13,012 - INFO - [Run ae98de9e] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:09:13,012 - INFO - [Run ae98de9e] Evaluation completed
+2026-05-28 17:09:13,012 - INFO - [Run ae98de9e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:09:13,012 - INFO - [Run ae98de9e] Debug orchestration completed
+
+
+
+2026-05-28 17:09:13,012 - INFO - [Run 7679de50] Debug orchestration started
+2026-05-28 17:09:13,013 - INFO - [Run 7679de50] AnalyzerAgent started
+2026-05-28 17:09:13,013 - INFO - [Run 7679de50] Analyzer attempt 1
+2026-05-28 17:09:15,977 - INFO - [Run 7679de50] Analysis latency: 2.9639s
+2026-05-28 17:09:15,977 - INFO - [Run 7679de50] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "Variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 17:09:15,977 - INFO - [Run 7679de50] JSON extraction successful
+2026-05-28 17:09:15,977 - INFO - [Run 7679de50] FixerAgent started
+2026-05-28 17:09:15,977 - INFO - [Run 7679de50] Fixer attempt 1
+2026-05-28 17:09:20,389 - INFO - [Run 7679de50] Fixer latency: 4.4123s
+2026-05-28 17:09:20,389 - INFO - [Run 7679de50] Raw LLM output:
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "The variable 'y' was used before it was defined. To fix this, I added a line to define 'y' with a default value of None before it is printed."
+}
+2026-05-28 17:09:20,389 - ERROR - [Run 7679de50] Fixer attempt failed: No JSON block found
+2026-05-28 17:09:20,389 - INFO - [Run 7679de50] Fixer attempt 2
+2026-05-28 17:09:23,525 - INFO - [Run 7679de50] Fixer latency: 3.1354s
+2026-05-28 17:09:23,525 - INFO - [Run 7679de50] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "Initialized variable 'y' with None to avoid NameError."
+}
+</json>
+2026-05-28 17:09:23,525 - INFO - [Run 7679de50] Patch validation successful
+2026-05-28 17:09:23,525 - INFO - [Run 7679de50] JSON extraction successful
+2026-05-28 17:09:23,525 - INFO - [Run 7679de50] Sandbox execution started
+2026-05-28 17:09:23,535 - INFO - [Run 7679de50] Sandbox execution completed
+2026-05-28 17:09:23,535 - INFO - [Run 7679de50] Execution result: CompletedProcess(args=['python', '/tmp/tmp96f3gfdc.py'], returncode=0, stdout='None\n', stderr='')
+2026-05-28 17:09:23,536 - INFO - [Run 7679de50] EvaluatorAgent started
+2026-05-28 17:09:23,536 - INFO - [Run 7679de50] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:09:32,433 - INFO - [Run 7679de50] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."
+}
+</json>
+2026-05-28 17:09:32,433 - INFO - [Run 7679de50] Evaluation completed
+2026-05-28 17:09:32,433 - INFO - [Run 7679de50] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."}
+2026-05-28 17:09:32,434 - INFO - [Run 7679de50] Debug orchestration completed
+
+
+
+2026-05-28 17:09:32,434 - INFO - [Run ae1f1d6c] Debug orchestration started
+2026-05-28 17:09:32,434 - INFO - [Run ae1f1d6c] AnalyzerAgent started
+2026-05-28 17:09:32,434 - INFO - [Run ae1f1d6c] Analyzer attempt 1
+2026-05-28 17:09:35,733 - INFO - [Run ae1f1d6c] Analysis latency: 3.2987s
+2026-05-28 17:09:35,733 - INFO - [Run ae1f1d6c] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 17:09:35,733 - INFO - [Run ae1f1d6c] JSON extraction successful
+2026-05-28 17:09:35,733 - INFO - [Run ae1f1d6c] FixerAgent started
+2026-05-28 17:09:35,733 - INFO - [Run ae1f1d6c] Fixer attempt 1
+2026-05-28 17:09:41,499 - INFO - [Run ae1f1d6c] Fixer latency: 5.7663s
+2026-05-28 17:09:41,500 - INFO - [Run ae1f1d6c] Raw LLM output:
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure that division only occurs if y is not zero, preventing ZeroDivisionError. Added an else clause to handle the case where y is zero."
+}
+2026-05-28 17:09:41,500 - ERROR - [Run ae1f1d6c] Fixer attempt failed: No JSON block found
+2026-05-28 17:09:41,500 - INFO - [Run ae1f1d6c] Fixer attempt 2
+2026-05-28 17:09:46,311 - INFO - [Run ae1f1d6c] Fixer latency: 4.8115s
+2026-05-28 17:09:46,311 - INFO - [Run ae1f1d6c] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure y is not zero before performing division."
+}
+</json>
+2026-05-28 17:09:46,312 - INFO - [Run ae1f1d6c] Patch validation successful
+2026-05-28 17:09:46,312 - INFO - [Run ae1f1d6c] JSON extraction successful
+2026-05-28 17:09:46,312 - INFO - [Run ae1f1d6c] Sandbox execution started
+2026-05-28 17:09:46,323 - INFO - [Run ae1f1d6c] Sandbox execution completed
+2026-05-28 17:09:46,323 - INFO - [Run ae1f1d6c] Execution result: CompletedProcess(args=['python', '/tmp/tmpq1ywa9ba.py'], returncode=0, stdout='Cannot divide by zero\n', stderr='')
+2026-05-28 17:09:46,323 - INFO - [Run ae1f1d6c] EvaluatorAgent started
+2026-05-28 17:09:46,324 - INFO - [Run ae1f1d6c] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}
+2026-05-28 17:09:52,535 - INFO - [Run ae1f1d6c] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules."
+}
+</json>
+2026-05-28 17:09:52,535 - INFO - [Run ae1f1d6c] Evaluation completed
+2026-05-28 17:09:52,535 - INFO - [Run ae1f1d6c] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}, 'intent_preserved': True, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules.'}
+2026-05-28 17:09:52,535 - INFO - [Run ae1f1d6c] Debug orchestration completed
+
+
+
+2026-05-28 17:09:52,536 - INFO - [Run dbda30e9] Debug orchestration started
+2026-05-28 17:09:52,536 - INFO - [Run dbda30e9] AnalyzerAgent started
+2026-05-28 17:09:52,536 - INFO - [Run dbda30e9] Analyzer attempt 1
+2026-05-28 17:09:55,691 - INFO - [Run dbda30e9] Analysis latency: 3.1551s
+2026-05-28 17:09:55,691 - INFO - [Run dbda30e9] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:09:55,691 - INFO - [Run dbda30e9] JSON extraction successful
+2026-05-28 17:09:55,691 - INFO - [Run dbda30e9] FixerAgent started
+2026-05-28 17:09:55,691 - INFO - [Run dbda30e9] Fixer attempt 1
+2026-05-28 17:09:58,775 - INFO - [Run dbda30e9] Fixer latency: 3.0837s
+2026-05-28 17:09:58,775 - INFO - [Run dbda30e9] Raw LLM output:
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement to fix the SyntaxError."
+}
+2026-05-28 17:09:58,775 - ERROR - [Run dbda30e9] Fixer attempt failed: No JSON block found
+2026-05-28 17:09:58,775 - INFO - [Run dbda30e9] Fixer attempt 2
+2026-05-28 17:10:01,937 - INFO - [Run dbda30e9] Fixer latency: 3.1620s
+2026-05-28 17:10:01,937 - INFO - [Run dbda30e9] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement."
+}
+</json>
+2026-05-28 17:10:01,938 - INFO - [Run dbda30e9] Patch validation successful
+2026-05-28 17:10:01,938 - INFO - [Run dbda30e9] JSON extraction successful
+2026-05-28 17:10:01,938 - INFO - [Run dbda30e9] Sandbox execution started
+2026-05-28 17:10:01,962 - INFO - [Run dbda30e9] Sandbox execution completed
+2026-05-28 17:10:01,962 - INFO - [Run dbda30e9] Execution result: CompletedProcess(args=['python', '/tmp/tmpznb1gzn7.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:10:01,963 - INFO - [Run dbda30e9] EvaluatorAgent started
+2026-05-28 17:10:01,963 - INFO - [Run dbda30e9] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 1.0}
+2026-05-28 17:10:08,004 - INFO - [Run dbda30e9] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any new control flow. The output remains as expected, and the fix is minimal."
+}
+</json>
+2026-05-28 17:10:08,004 - INFO - [Run dbda30e9] Evaluation completed
+2026-05-28 17:10:08,004 - INFO - [Run dbda30e9] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 1.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any new control flow. The output remains as expected, and the fix is minimal.'}
+2026-05-28 17:10:08,004 - INFO - [Run dbda30e9] Debug orchestration completed
+
+
+
+2026-05-28 17:10:08,004 - INFO - [Run 956a438e] Debug orchestration started
+2026-05-28 17:10:08,004 - INFO - [Run 956a438e] AnalyzerAgent started
+2026-05-28 17:10:08,004 - INFO - [Run 956a438e] Analyzer attempt 1
+2026-05-28 17:10:12,115 - INFO - [Run 956a438e] Analysis latency: 4.1102s
+2026-05-28 17:10:12,115 - INFO - [Run 956a438e] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:10:12,115 - INFO - [Run 956a438e] JSON extraction successful
+2026-05-28 17:10:12,115 - INFO - [Run 956a438e] FixerAgent started
+2026-05-28 17:10:12,115 - INFO - [Run 956a438e] Fixer attempt 1
+2026-05-28 17:10:16,543 - INFO - [Run 956a438e] Fixer latency: 4.4281s
+2026-05-28 17:10:16,543 - INFO - [Run 956a438e] Raw LLM output:
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])",
+    "explanation": "Changed the index from 5 to 2 to avoid IndexError, as the list 'numbers' only has indices 0, 1, and 2."
+}
+2026-05-28 17:10:16,543 - ERROR - [Run 956a438e] Fixer attempt failed: No JSON block found
+2026-05-28 17:10:16,543 - INFO - [Run 956a438e] Fixer attempt 2
+2026-05-28 17:10:23,071 - INFO - [Run 956a438e] Fixer latency: 6.5279s
+2026-05-28 17:10:23,071 - INFO - [Run 956a438e] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nif len(numbers) > 5:\n    print(numbers[5])\nelse:\n    print('Index out of range')",
+    "explanation": "Added a check to ensure the index 5 exists in the list before attempting to access it. If the index is out of range, it prints a message indicating so."
+}
+</json>
+2026-05-28 17:10:23,071 - INFO - [Run 956a438e] Patch validation successful
+2026-05-28 17:10:23,071 - INFO - [Run 956a438e] JSON extraction successful
+2026-05-28 17:10:23,071 - INFO - [Run 956a438e] Sandbox execution started
+2026-05-28 17:10:23,082 - INFO - [Run 956a438e] Sandbox execution completed
+2026-05-28 17:10:23,082 - INFO - [Run 956a438e] Execution result: CompletedProcess(args=['python', '/tmp/tmpb760knlb.py'], returncode=0, stdout='Index out of range\n', stderr='')
+2026-05-28 17:10:23,082 - INFO - [Run 956a438e] EvaluatorAgent started
+2026-05-28 17:10:23,083 - INFO - [Run 956a438e] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}
+2026-05-28 17:10:31,431 - INFO - [Run 956a438e] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."
+}
+</json>
+2026-05-28 17:10:31,431 - INFO - [Run 956a438e] Evaluation completed
+2026-05-28 17:10:31,431 - INFO - [Run 956a438e] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."}
+2026-05-28 17:10:31,431 - INFO - [Run 956a438e] Debug orchestration completed
+
+
+
+2026-05-28 17:11:32,462 - INFO - [Run c85ea48b] Debug orchestration started
+2026-05-28 17:11:32,462 - INFO - [Run c85ea48b] AnalyzerAgent started
+2026-05-28 17:11:32,462 - INFO - [Run c85ea48b] Analyzer attempt 1
+2026-05-28 17:11:35,487 - INFO - [Run c85ea48b] Analysis latency: 3.0251s
+2026-05-28 17:11:35,487 - INFO - [Run c85ea48b] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-28 17:11:35,487 - INFO - [Run c85ea48b] JSON extraction successful
+2026-05-28 17:11:35,487 - INFO - [Run c85ea48b] FixerAgent started
+2026-05-28 17:11:35,487 - INFO - [Run c85ea48b] Fixer attempt 1
+2026-05-28 17:11:38,972 - INFO - [Run c85ea48b] Fixer latency: 3.4843s
+2026-05-28 17:11:38,972 - INFO - [Run c85ea48b] Raw LLM output:
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with the string x."
+}
+2026-05-28 17:11:38,972 - ERROR - [Run c85ea48b] Fixer attempt failed: No JSON block found
+2026-05-28 17:11:38,972 - INFO - [Run c85ea48b] Fixer attempt 2
+2026-05-28 17:11:42,779 - INFO - [Run c85ea48b] Fixer latency: 3.8069s
+2026-05-28 17:11:42,779 - INFO - [Run c85ea48b] Raw LLM output:
+<json>
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with x."
+}
+</json>
+2026-05-28 17:11:42,779 - INFO - [Run c85ea48b] Patch validation successful
+2026-05-28 17:11:42,779 - INFO - [Run c85ea48b] JSON extraction successful
+2026-05-28 17:11:42,779 - INFO - [Run c85ea48b] Sandbox execution started
+2026-05-28 17:11:42,791 - INFO - [Run c85ea48b] Sandbox execution completed
+2026-05-28 17:11:42,791 - INFO - [Run c85ea48b] Execution result: CompletedProcess(args=['python', '/tmp/tmpvxl9cnl3.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:11:42,791 - INFO - [Run c85ea48b] EvaluatorAgent started
+2026-05-28 17:11:42,792 - INFO - [Run c85ea48b] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:11:48,580 - INFO - [Run c85ea48b] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:11:48,580 - INFO - [Run c85ea48b] Evaluation completed
+2026-05-28 17:11:48,580 - INFO - [Run c85ea48b] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:11:48,580 - INFO - [Run c85ea48b] Debug orchestration completed
+
+
+
+2026-05-28 17:11:48,580 - INFO - [Run fcd3763f] Debug orchestration started
+2026-05-28 17:11:48,580 - INFO - [Run fcd3763f] AnalyzerAgent started
+2026-05-28 17:11:48,580 - INFO - [Run fcd3763f] Analyzer attempt 1
+2026-05-28 17:11:51,464 - INFO - [Run fcd3763f] Analysis latency: 2.8836s
+2026-05-28 17:11:51,464 - INFO - [Run fcd3763f] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "Variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 17:11:51,464 - INFO - [Run fcd3763f] JSON extraction successful
+2026-05-28 17:11:51,464 - INFO - [Run fcd3763f] FixerAgent started
+2026-05-28 17:11:51,464 - INFO - [Run fcd3763f] Fixer attempt 1
+2026-05-28 17:11:55,690 - INFO - [Run fcd3763f] Fixer latency: 4.2255s
+2026-05-28 17:11:55,690 - INFO - [Run fcd3763f] Raw LLM output:
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "The variable 'y' was used before it was defined. To fix this, I added a line to define 'y' with a value of None before it is printed."
+}
+2026-05-28 17:11:55,690 - ERROR - [Run fcd3763f] Fixer attempt failed: No JSON block found
+2026-05-28 17:11:55,690 - INFO - [Run fcd3763f] Fixer attempt 2
+2026-05-28 17:11:59,153 - INFO - [Run fcd3763f] Fixer latency: 3.4623s
+2026-05-28 17:11:59,153 - INFO - [Run fcd3763f] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = 0\nprint(y)",
+    "explanation": "Initialized variable 'y' with a default value of 0 to avoid NameError."
+}
+</json>
+2026-05-28 17:11:59,153 - INFO - [Run fcd3763f] Patch validation successful
+2026-05-28 17:11:59,153 - INFO - [Run fcd3763f] JSON extraction successful
+2026-05-28 17:11:59,153 - INFO - [Run fcd3763f] Sandbox execution started
+2026-05-28 17:11:59,163 - INFO - [Run fcd3763f] Sandbox execution completed
+2026-05-28 17:11:59,163 - INFO - [Run fcd3763f] Execution result: CompletedProcess(args=['python', '/tmp/tmp8k3u6zae.py'], returncode=0, stdout='0\n', stderr='')
+2026-05-28 17:11:59,163 - INFO - [Run fcd3763f] EvaluatorAgent started
+2026-05-28 17:11:59,164 - INFO - [Run fcd3763f] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:12:05,946 - INFO - [Run fcd3763f] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."
+}
+</json>
+2026-05-28 17:12:05,946 - INFO - [Run fcd3763f] Evaluation completed
+2026-05-28 17:12:05,947 - INFO - [Run fcd3763f] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."}
+2026-05-28 17:12:05,947 - INFO - [Run fcd3763f] Debug orchestration completed
+
+
+
+2026-05-28 17:12:05,947 - INFO - [Run f6d50e55] Debug orchestration started
+2026-05-28 17:12:05,947 - INFO - [Run f6d50e55] AnalyzerAgent started
+2026-05-28 17:12:05,947 - INFO - [Run f6d50e55] Analyzer attempt 1
+2026-05-28 17:12:09,296 - INFO - [Run f6d50e55] Analysis latency: 3.3490s
+2026-05-28 17:12:09,296 - INFO - [Run f6d50e55] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 17:12:09,296 - INFO - [Run f6d50e55] JSON extraction successful
+2026-05-28 17:12:09,296 - INFO - [Run f6d50e55] FixerAgent started
+2026-05-28 17:12:09,296 - INFO - [Run f6d50e55] Fixer attempt 1
+2026-05-28 17:12:14,062 - INFO - [Run f6d50e55] Fixer latency: 4.7657s
+2026-05-28 17:12:14,062 - INFO - [Run f6d50e55] Raw LLM output:
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure that division only occurs if y is not zero, preventing ZeroDivisionError."
+}
+2026-05-28 17:12:14,062 - ERROR - [Run f6d50e55] Fixer attempt failed: No JSON block found
+2026-05-28 17:12:14,062 - INFO - [Run f6d50e55] Fixer attempt 2
+2026-05-28 17:12:18,820 - INFO - [Run f6d50e55] Fixer latency: 4.7580s
+2026-05-28 17:12:18,821 - INFO - [Run f6d50e55] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure y is not zero before performing division."
+}
+</json>
+2026-05-28 17:12:18,821 - INFO - [Run f6d50e55] Patch validation successful
+2026-05-28 17:12:18,821 - INFO - [Run f6d50e55] JSON extraction successful
+2026-05-28 17:12:18,821 - INFO - [Run f6d50e55] Sandbox execution started
+2026-05-28 17:12:18,853 - INFO - [Run f6d50e55] Sandbox execution completed
+2026-05-28 17:12:18,854 - INFO - [Run f6d50e55] Execution result: CompletedProcess(args=['python', '/tmp/tmpk2w33mrt.py'], returncode=0, stdout='Cannot divide by zero\n', stderr='')
+2026-05-28 17:12:18,854 - INFO - [Run f6d50e55] EvaluatorAgent started
+2026-05-28 17:12:18,855 - INFO - [Run f6d50e55] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}
+2026-05-28 17:12:24,919 - INFO - [Run f6d50e55] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules."
+}
+</json>
+2026-05-28 17:12:24,919 - INFO - [Run f6d50e55] Evaluation completed
+2026-05-28 17:12:24,919 - INFO - [Run f6d50e55] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}, 'intent_preserved': True, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules.'}
+2026-05-28 17:12:24,919 - INFO - [Run f6d50e55] Debug orchestration completed
+
+
+
+2026-05-28 17:12:24,920 - INFO - [Run d5200960] Debug orchestration started
+2026-05-28 17:12:24,920 - INFO - [Run d5200960] AnalyzerAgent started
+2026-05-28 17:12:24,920 - INFO - [Run d5200960] Analyzer attempt 1
+2026-05-28 17:12:27,983 - INFO - [Run d5200960] Analysis latency: 3.0631s
+2026-05-28 17:12:27,983 - INFO - [Run d5200960] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:12:27,983 - INFO - [Run d5200960] JSON extraction successful
+2026-05-28 17:12:27,983 - INFO - [Run d5200960] FixerAgent started
+2026-05-28 17:12:27,983 - INFO - [Run d5200960] Fixer attempt 1
+2026-05-28 17:12:30,965 - INFO - [Run d5200960] Fixer latency: 2.9815s
+2026-05-28 17:12:30,965 - INFO - [Run d5200960] Raw LLM output:
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement to fix the SyntaxError."
+}
+2026-05-28 17:12:30,965 - ERROR - [Run d5200960] Fixer attempt failed: No JSON block found
+2026-05-28 17:12:30,965 - INFO - [Run d5200960] Fixer attempt 2
+2026-05-28 17:12:34,056 - INFO - [Run d5200960] Fixer latency: 3.0907s
+2026-05-28 17:12:34,056 - INFO - [Run d5200960] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement."
+}
+</json>
+2026-05-28 17:12:34,056 - INFO - [Run d5200960] Patch validation successful
+2026-05-28 17:12:34,056 - INFO - [Run d5200960] JSON extraction successful
+2026-05-28 17:12:34,056 - INFO - [Run d5200960] Sandbox execution started
+2026-05-28 17:12:34,067 - INFO - [Run d5200960] Sandbox execution completed
+2026-05-28 17:12:34,067 - INFO - [Run d5200960] Execution result: CompletedProcess(args=['python', '/tmp/tmpjff2s3tl.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:12:34,067 - INFO - [Run d5200960] EvaluatorAgent started
+2026-05-28 17:12:34,068 - INFO - [Run d5200960] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 1.0}
+2026-05-28 17:12:40,064 - INFO - [Run d5200960] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any new control flow. The output remains as expected, and the fix is minimal."
+}
+</json>
+2026-05-28 17:12:40,064 - INFO - [Run d5200960] Evaluation completed
+2026-05-28 17:12:40,065 - INFO - [Run d5200960] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 1.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any new control flow. The output remains as expected, and the fix is minimal.'}
+2026-05-28 17:12:40,065 - INFO - [Run d5200960] Debug orchestration completed
+
+
+
+2026-05-28 17:12:40,065 - INFO - [Run 9d6d834d] Debug orchestration started
+2026-05-28 17:12:40,065 - INFO - [Run 9d6d834d] AnalyzerAgent started
+2026-05-28 17:12:40,065 - INFO - [Run 9d6d834d] Analyzer attempt 1
+2026-05-28 17:12:44,067 - INFO - [Run 9d6d834d] Analysis latency: 4.0024s
+2026-05-28 17:12:44,068 - INFO - [Run 9d6d834d] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:12:44,068 - INFO - [Run 9d6d834d] JSON extraction successful
+2026-05-28 17:12:44,068 - INFO - [Run 9d6d834d] FixerAgent started
+2026-05-28 17:12:44,068 - INFO - [Run 9d6d834d] Fixer attempt 1
+2026-05-28 17:12:48,391 - INFO - [Run 9d6d834d] Fixer latency: 4.3237s
+2026-05-28 17:12:48,392 - INFO - [Run 9d6d834d] Raw LLM output:
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])",
+    "explanation": "Changed the index from 5 to 2 to avoid IndexError, as the list 'numbers' only has indices 0, 1, and 2."
+}
+2026-05-28 17:12:48,392 - ERROR - [Run 9d6d834d] Fixer attempt failed: No JSON block found
+2026-05-28 17:12:48,392 - INFO - [Run 9d6d834d] Fixer attempt 2
+2026-05-28 17:12:54,845 - INFO - [Run 9d6d834d] Fixer latency: 6.4535s
+2026-05-28 17:12:54,845 - INFO - [Run 9d6d834d] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nif len(numbers) > 5:\n    print(numbers[5])\nelse:\n    print('Index out of range')",
+    "explanation": "Added a check to ensure the index 5 exists in the list before attempting to access it. If the index is out of range, it prints a message indicating so."
+}
+</json>
+2026-05-28 17:12:54,845 - INFO - [Run 9d6d834d] Patch validation successful
+2026-05-28 17:12:54,845 - INFO - [Run 9d6d834d] JSON extraction successful
+2026-05-28 17:12:54,845 - INFO - [Run 9d6d834d] Sandbox execution started
+2026-05-28 17:12:54,855 - INFO - [Run 9d6d834d] Sandbox execution completed
+2026-05-28 17:12:54,855 - INFO - [Run 9d6d834d] Execution result: CompletedProcess(args=['python', '/tmp/tmpwj2nxtjy.py'], returncode=0, stdout='Index out of range\n', stderr='')
+2026-05-28 17:12:54,856 - INFO - [Run 9d6d834d] EvaluatorAgent started
+2026-05-28 17:12:54,857 - INFO - [Run 9d6d834d] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}
+2026-05-28 17:13:03,119 - INFO - [Run 9d6d834d] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."
+}
+</json>
+2026-05-28 17:13:03,119 - INFO - [Run 9d6d834d] Evaluation completed
+2026-05-28 17:13:03,119 - INFO - [Run 9d6d834d] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."}
+2026-05-28 17:13:03,120 - INFO - [Run 9d6d834d] Debug orchestration completed
+
+
+
+2026-05-28 17:24:38,506 - INFO - [Run a500894f] Debug orchestration started
+2026-05-28 17:24:38,506 - INFO - [Run a500894f] AnalyzerAgent started
+2026-05-28 17:24:38,506 - INFO - [Run a500894f] Analyzer attempt 1
+2026-05-28 17:24:41,602 - INFO - [Run a500894f] Analysis latency: 3.0956s
+2026-05-28 17:24:41,602 - INFO - [Run a500894f] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string and an integer."
+}
+</json>
+2026-05-28 17:24:41,602 - INFO - [Run a500894f] JSON extraction successful
+2026-05-28 17:24:41,602 - INFO - [Run a500894f] FixerAgent started
+2026-05-28 17:24:41,602 - INFO - [Run a500894f] Fixer attempt 1
+2026-05-28 17:24:45,166 - INFO - [Run a500894f] Fixer latency: 3.5637s
+2026-05-28 17:24:45,166 - INFO - [Run a500894f] Raw LLM output:
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with the string x."
+}
+2026-05-28 17:24:45,166 - ERROR - [Run a500894f] Fixer attempt failed: No JSON block found
+2026-05-28 17:24:45,166 - INFO - [Run a500894f] Fixer attempt 2
+2026-05-28 17:24:49,180 - INFO - [Run a500894f] Fixer latency: 4.0137s
+2026-05-28 17:24:49,180 - INFO - [Run a500894f] Raw LLM output:
+<json>
+{
+    "patched_code": "x = '5'\ny = 2\nprint(x + str(y))",
+    "explanation": "Converted the integer y to a string using str(y) to allow concatenation with x."
+}
+</json>
+2026-05-28 17:24:49,180 - INFO - [Run a500894f] Patch validation successful
+2026-05-28 17:24:49,180 - INFO - [Run a500894f] JSON extraction successful
+2026-05-28 17:24:49,180 - INFO - [Run a500894f] Sandbox execution started
+2026-05-28 17:24:49,193 - INFO - [Run a500894f] Sandbox execution completed
+2026-05-28 17:24:49,193 - INFO - [Run a500894f] Execution result: CompletedProcess(args=['python', '/tmp/tmplvc4vkqx.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:24:49,194 - INFO - [Run a500894f] EvaluatorAgent started
+2026-05-28 17:24:49,194 - INFO - [Run a500894f] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:24:54,925 - INFO - [Run a500894f] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:24:54,925 - INFO - [Run a500894f] Evaluation completed
+2026-05-28 17:24:54,925 - INFO - [Run a500894f] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:24:54,925 - INFO - [Run a500894f] Debug orchestration completed
+
+
+
+2026-05-28 17:24:54,926 - INFO - [Run cca50208] Debug orchestration started
+2026-05-28 17:24:54,926 - INFO - [Run cca50208] AnalyzerAgent started
+2026-05-28 17:24:54,926 - INFO - [Run cca50208] Analyzer attempt 1
+2026-05-28 17:24:57,786 - INFO - [Run cca50208] Analysis latency: 2.8605s
+2026-05-28 17:24:57,787 - INFO - [Run cca50208] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "Variable 'y' is used before being defined."
+}
+</json>
+2026-05-28 17:24:57,787 - INFO - [Run cca50208] JSON extraction successful
+2026-05-28 17:24:57,787 - INFO - [Run cca50208] FixerAgent started
+2026-05-28 17:24:57,787 - INFO - [Run cca50208] Fixer attempt 1
+2026-05-28 17:25:01,769 - INFO - [Run cca50208] Fixer latency: 3.9827s
+2026-05-28 17:25:01,770 - INFO - [Run cca50208] Raw LLM output:
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "The variable 'y' was used before being defined. To fix this, I initialized 'y' with None to ensure it is defined before the print statement."
+}
+2026-05-28 17:25:01,770 - ERROR - [Run cca50208] Fixer attempt failed: No JSON block found
+2026-05-28 17:25:01,770 - INFO - [Run cca50208] Fixer attempt 2
+2026-05-28 17:25:05,025 - INFO - [Run cca50208] Fixer latency: 3.2555s
+2026-05-28 17:25:05,025 - INFO - [Run cca50208] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 5\ny = None\nprint(y)",
+    "explanation": "Initialized variable 'y' with None to avoid NameError."
+}
+</json>
+2026-05-28 17:25:05,025 - INFO - [Run cca50208] Patch validation successful
+2026-05-28 17:25:05,025 - INFO - [Run cca50208] JSON extraction successful
+2026-05-28 17:25:05,026 - INFO - [Run cca50208] Sandbox execution started
+2026-05-28 17:25:05,050 - INFO - [Run cca50208] Sandbox execution completed
+2026-05-28 17:25:05,050 - INFO - [Run cca50208] Execution result: CompletedProcess(args=['python', '/tmp/tmpk1idw_a9.py'], returncode=0, stdout='None\n', stderr='')
+2026-05-28 17:25:05,050 - INFO - [Run cca50208] EvaluatorAgent started
+2026-05-28 17:25:05,050 - INFO - [Run cca50208] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:25:13,815 - INFO - [Run cca50208] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."
+}
+</json>
+2026-05-28 17:25:13,815 - INFO - [Run cca50208] Evaluation completed
+2026-05-28 17:25:13,815 - INFO - [Run cca50208] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces a new variable 'y' and assigns it the value 'None', which fixes the NameError by defining 'y'. However, this does not preserve the original intent of the code, as the value of 'y' is not specified in the original code and setting it to 'None' might not be the intended behavior. Additionally, the patch introduces unnecessary control flow by adding a line that was not present in the original code."}
+2026-05-28 17:25:13,815 - INFO - [Run cca50208] Debug orchestration completed
+
+
+
+2026-05-28 17:25:13,816 - INFO - [Run cc100843] Debug orchestration started
+2026-05-28 17:25:13,816 - INFO - [Run cc100843] AnalyzerAgent started
+2026-05-28 17:25:13,816 - INFO - [Run cc100843] Analyzer attempt 1
+2026-05-28 17:25:17,111 - INFO - [Run cc100843] Analysis latency: 3.2956s
+2026-05-28 17:25:17,112 - INFO - [Run cc100843] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 17:25:17,112 - INFO - [Run cc100843] JSON extraction successful
+2026-05-28 17:25:17,112 - INFO - [Run cc100843] FixerAgent started
+2026-05-28 17:25:17,112 - INFO - [Run cc100843] Fixer attempt 1
+2026-05-28 17:25:22,794 - INFO - [Run cc100843] Fixer latency: 5.6822s
+2026-05-28 17:25:22,794 - INFO - [Run cc100843] Raw LLM output:
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure that division only occurs if y is not zero. If y is zero, it prints a message indicating that division by zero cannot occur."
+}
+2026-05-28 17:25:22,805 - ERROR - [Run cc100843] Fixer attempt failed: No JSON block found
+2026-05-28 17:25:22,805 - INFO - [Run cc100843] Fixer attempt 2
+2026-05-28 17:25:27,614 - INFO - [Run cc100843] Fixer latency: 4.8097s
+2026-05-28 17:25:27,614 - INFO - [Run cc100843] Raw LLM output:
+<json>
+{
+    "patched_code": "x = 10\ny = 0\nif y != 0:\n    print(x / y)\nelse:\n    print('Cannot divide by zero')",
+    "explanation": "Added a check to ensure y is not zero before performing division."
+}
+</json>
+2026-05-28 17:25:27,615 - INFO - [Run cc100843] Patch validation successful
+2026-05-28 17:25:27,615 - INFO - [Run cc100843] JSON extraction successful
+2026-05-28 17:25:27,615 - INFO - [Run cc100843] Sandbox execution started
+2026-05-28 17:25:27,626 - INFO - [Run cc100843] Sandbox execution completed
+2026-05-28 17:25:27,627 - INFO - [Run cc100843] Execution result: CompletedProcess(args=['python', '/tmp/tmpqo06wq51.py'], returncode=0, stdout='Cannot divide by zero\n', stderr='')
+2026-05-28 17:25:27,627 - INFO - [Run cc100843] EvaluatorAgent started
+2026-05-28 17:25:27,628 - INFO - [Run cc100843] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}
+2026-05-28 17:25:33,761 - INFO - [Run cc100843] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules."
+}
+</json>
+2026-05-28 17:25:33,762 - INFO - [Run cc100843] Evaluation completed
+2026-05-28 17:25:33,762 - INFO - [Run cc100843] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.5789473684210527}, 'intent_preserved': True, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly handles the division by zero error by adding a conditional check, thus preserving the original intent of performing the division when possible. However, it introduces new control flow, which is not minimal according to the rules.'}
+2026-05-28 17:25:33,762 - INFO - [Run cc100843] Debug orchestration completed
+
+
+
+2026-05-28 17:25:33,762 - INFO - [Run c87863a8] Debug orchestration started
+2026-05-28 17:25:33,762 - INFO - [Run c87863a8] AnalyzerAgent started
+2026-05-28 17:25:33,762 - INFO - [Run c87863a8] Analyzer attempt 1
+2026-05-28 17:25:36,900 - INFO - [Run c87863a8] Analysis latency: 3.1379s
+2026-05-28 17:25:36,900 - INFO - [Run c87863a8] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:25:36,900 - INFO - [Run c87863a8] JSON extraction successful
+2026-05-28 17:25:36,900 - INFO - [Run c87863a8] FixerAgent started
+2026-05-28 17:25:36,900 - INFO - [Run c87863a8] Fixer attempt 1
+2026-05-28 17:25:39,941 - INFO - [Run c87863a8] Fixer latency: 3.0406s
+2026-05-28 17:25:39,941 - INFO - [Run c87863a8] Raw LLM output:
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement to fix the SyntaxError."
+}
+2026-05-28 17:25:39,941 - ERROR - [Run c87863a8] Fixer attempt failed: No JSON block found
+2026-05-28 17:25:39,941 - INFO - [Run c87863a8] Fixer attempt 2
+2026-05-28 17:25:43,200 - INFO - [Run c87863a8] Fixer latency: 3.2592s
+2026-05-28 17:25:43,201 - INFO - [Run c87863a8] Raw LLM output:
+<json>
+{
+    "patched_code": "for i in range(5):\n    print(i)",
+    "explanation": "Added a colon at the end of the for loop statement."
+}
+</json>
+2026-05-28 17:25:43,201 - INFO - [Run c87863a8] Patch validation successful
+2026-05-28 17:25:43,201 - INFO - [Run c87863a8] JSON extraction successful
+2026-05-28 17:25:43,201 - INFO - [Run c87863a8] Sandbox execution started
+2026-05-28 17:25:43,225 - INFO - [Run c87863a8] Sandbox execution completed
+2026-05-28 17:25:43,225 - INFO - [Run c87863a8] Execution result: CompletedProcess(args=['python', '/tmp/tmp5ha7rehp.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:25:43,226 - INFO - [Run c87863a8] EvaluatorAgent started
+2026-05-28 17:25:43,226 - INFO - [Run c87863a8] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:25:48,335 - INFO - [Run c87863a8] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes."
+}
+</json>
+2026-05-28 17:25:48,335 - INFO - [Run c87863a8] Evaluation completed
+2026-05-28 17:25:48,335 - INFO - [Run c87863a8] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes.'}
+2026-05-28 17:25:48,335 - INFO - [Run c87863a8] Debug orchestration completed
+
+
+
+2026-05-28 17:25:48,336 - INFO - [Run 2cc4ca80] Debug orchestration started
+2026-05-28 17:25:48,336 - INFO - [Run 2cc4ca80] AnalyzerAgent started
+2026-05-28 17:25:48,336 - INFO - [Run 2cc4ca80] Analyzer attempt 1
+2026-05-28 17:25:52,431 - INFO - [Run 2cc4ca80] Analysis latency: 4.0954s
+2026-05-28 17:25:52,431 - INFO - [Run 2cc4ca80] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:25:52,431 - INFO - [Run 2cc4ca80] JSON extraction successful
+2026-05-28 17:25:52,431 - INFO - [Run 2cc4ca80] FixerAgent started
+2026-05-28 17:25:52,431 - INFO - [Run 2cc4ca80] Fixer attempt 1
+2026-05-28 17:25:56,823 - INFO - [Run 2cc4ca80] Fixer latency: 4.3918s
+2026-05-28 17:25:56,823 - INFO - [Run 2cc4ca80] Raw LLM output:
+{
+    "patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])",
+    "explanation": "Changed the index from 5 to 2 to avoid IndexError, as the list 'numbers' only has indices 0, 1, and 2."
+}
+2026-05-28 17:25:56,823 - ERROR - [Run 2cc4ca80] Fixer attempt failed: No JSON block found
+2026-05-28 17:25:56,823 - INFO - [Run 2cc4ca80] Fixer attempt 2
+2026-05-28 17:26:02,806 - INFO - [Run 2cc4ca80] Fixer latency: 5.9827s
+2026-05-28 17:26:02,806 - INFO - [Run 2cc4ca80] Raw LLM output:
+<json>
+{
+    "patched_code": "numbers = [1, 2, 3]\nif len(numbers) > 5:\n    print(numbers[5])\nelse:\n    print('Index out of range')",
+    "explanation": "Added a check to ensure the index 5 exists in the list before attempting to access it, preserving the original intent while preventing the IndexError."
+}
+</json>
+2026-05-28 17:26:02,806 - INFO - [Run 2cc4ca80] Patch validation successful
+2026-05-28 17:26:02,806 - INFO - [Run 2cc4ca80] JSON extraction successful
+2026-05-28 17:26:02,806 - INFO - [Run 2cc4ca80] Sandbox execution started
+2026-05-28 17:26:02,818 - INFO - [Run 2cc4ca80] Sandbox execution completed
+2026-05-28 17:26:02,818 - INFO - [Run 2cc4ca80] Execution result: CompletedProcess(args=['python', '/tmp/tmpthmt3v2d.py'], returncode=0, stdout='Index out of range\n', stderr='')
+2026-05-28 17:26:02,819 - INFO - [Run 2cc4ca80] EvaluatorAgent started
+2026-05-28 17:26:02,820 - INFO - [Run 2cc4ca80] Heuristic result: {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}
+2026-05-28 17:26:11,151 - INFO - [Run 2cc4ca80] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."
+}
+</json>
+2026-05-28 17:26:11,151 - INFO - [Run 2cc4ca80] Evaluation completed
+2026-05-28 17:26:11,151 - INFO - [Run 2cc4ca80] Evaluation result: {'passed': False, 'score': 0.65, 'heuristics': {'score': 0.65, 'penalties': ['large_structural_change', 'new_control_flow'], 'structural_ratio': 0.7777777777777778}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces new control flow and changes the behavior of the program. The original code's intent was to print the element at index 5, which would raise an IndexError if the index was out of range. The patched code now prints 'Index out of range' instead of raising an error, which alters the original intent. Additionally, the fix is not minimal as it adds unnecessary conditional logic."}
+2026-05-28 17:26:11,151 - INFO - [Run 2cc4ca80] Debug orchestration completed
+
+
+
+2026-05-28 17:34:31,865 - INFO - [Run 406210b3] Debug orchestration started
+2026-05-28 17:34:31,865 - INFO - [Run 406210b3] AnalyzerAgent started
+2026-05-28 17:34:31,865 - INFO - [Run 406210b3] Analyzer attempt 1
+2026-05-28 17:34:34,995 - INFO - [Run 406210b3] Analysis latency: 3.1290s
+2026-05-28 17:34:34,995 - INFO - [Run 406210b3] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string and an integer."
+}
+</json>
+2026-05-28 17:34:34,995 - INFO - [Run 406210b3] JSON extraction successful
+2026-05-28 17:34:34,995 - INFO - [Run 406210b3] FixerAgent started
+2026-05-28 17:34:34,995 - INFO - [Run 406210b3] Fixer attempt 1
+2026-05-28 17:34:36,433 - INFO - [Run 406210b3] Fixer latency: 1.4383s
+2026-05-28 17:34:36,433 - INFO - [Run 406210b3] Raw LLM output:
+<patched_code>print(x + str(y))</patched_code>
+2026-05-28 17:34:36,434 - ERROR - [Run 406210b3] Fixer attempt failed: No JSON block found
+2026-05-28 17:34:36,434 - INFO - [Run 406210b3] Fixer attempt 2
+2026-05-28 17:34:38,789 - INFO - [Run 406210b3] Fixer latency: 2.3556s
+2026-05-28 17:34:38,789 - INFO - [Run 406210b3] Raw LLM output:
+<json>{"patched_code": "x = '5'\ny = 2\nprint(x + str(y))"}</json>
+2026-05-28 17:34:38,789 - INFO - [Run 406210b3] Patch validation successful
+2026-05-28 17:34:38,790 - INFO - [Run 406210b3] JSON extraction successful
+2026-05-28 17:34:38,790 - INFO - [Run 406210b3] Sandbox execution started
+2026-05-28 17:34:38,813 - INFO - [Run 406210b3] Sandbox execution completed
+2026-05-28 17:34:38,813 - INFO - [Run 406210b3] Execution result: CompletedProcess(args=['python', '/tmp/tmptdfhuivn.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:34:38,813 - INFO - [Run 406210b3] EvaluatorAgent started
+2026-05-28 17:34:38,814 - INFO - [Run 406210b3] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:34:44,515 - INFO - [Run 406210b3] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:34:44,516 - INFO - [Run 406210b3] Evaluation completed
+2026-05-28 17:34:44,516 - INFO - [Run 406210b3] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:34:44,516 - INFO - [Run 406210b3] Debug orchestration completed
+
+
+
+2026-05-28 17:34:44,516 - INFO - [Run 9779c5bf] Debug orchestration started
+2026-05-28 17:34:44,516 - INFO - [Run 9779c5bf] AnalyzerAgent started
+2026-05-28 17:34:44,516 - INFO - [Run 9779c5bf] Analyzer attempt 1
+2026-05-28 17:34:47,451 - INFO - [Run 9779c5bf] Analysis latency: 2.9349s
+2026-05-28 17:34:47,451 - INFO - [Run 9779c5bf] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "Variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 17:34:47,451 - INFO - [Run 9779c5bf] JSON extraction successful
+2026-05-28 17:34:47,451 - INFO - [Run 9779c5bf] FixerAgent started
+2026-05-28 17:34:47,452 - INFO - [Run 9779c5bf] Fixer attempt 1
+2026-05-28 17:34:49,143 - INFO - [Run 9779c5bf] Fixer latency: 1.6918s
+2026-05-28 17:34:49,143 - INFO - [Run 9779c5bf] Raw LLM output:
+<patched_code>x = 5\ny = x\nprint(y)</patched_code>
+2026-05-28 17:34:49,143 - ERROR - [Run 9779c5bf] Fixer attempt failed: No JSON block found
+2026-05-28 17:34:49,144 - INFO - [Run 9779c5bf] Fixer attempt 2
+2026-05-28 17:34:51,166 - INFO - [Run 9779c5bf] Fixer latency: 2.0226s
+2026-05-28 17:34:51,166 - INFO - [Run 9779c5bf] Raw LLM output:
+<json>{"patched_code": "x = 5\ny = 0\nprint(y)"}</json>
+2026-05-28 17:34:51,167 - INFO - [Run 9779c5bf] Patch validation successful
+2026-05-28 17:34:51,167 - INFO - [Run 9779c5bf] JSON extraction successful
+2026-05-28 17:34:51,167 - INFO - [Run 9779c5bf] Sandbox execution started
+2026-05-28 17:34:51,179 - INFO - [Run 9779c5bf] Sandbox execution completed
+2026-05-28 17:34:51,179 - INFO - [Run 9779c5bf] Execution result: CompletedProcess(args=['python', '/tmp/tmp_jjg0z84.py'], returncode=0, stdout='0\n', stderr='')
+2026-05-28 17:34:51,179 - INFO - [Run 9779c5bf] EvaluatorAgent started
+2026-05-28 17:34:51,180 - INFO - [Run 9779c5bf] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:34:58,016 - INFO - [Run 9779c5bf] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."
+}
+</json>
+2026-05-28 17:34:58,016 - INFO - [Run 9779c5bf] Evaluation completed
+2026-05-28 17:34:58,017 - INFO - [Run 9779c5bf] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."}
+2026-05-28 17:34:58,017 - INFO - [Run 9779c5bf] Debug orchestration completed
+
+
+
+2026-05-28 17:34:58,017 - INFO - [Run 5293cf30] Debug orchestration started
+2026-05-28 17:34:58,017 - INFO - [Run 5293cf30] AnalyzerAgent started
+2026-05-28 17:34:58,017 - INFO - [Run 5293cf30] Analyzer attempt 1
+2026-05-28 17:35:01,855 - INFO - [Run 5293cf30] Analysis latency: 3.8378s
+2026-05-28 17:35:01,855 - INFO - [Run 5293cf30] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide a number by zero, which is mathematically undefined and results in a ZeroDivisionError."
+}
+</json>
+2026-05-28 17:35:01,855 - INFO - [Run 5293cf30] JSON extraction successful
+2026-05-28 17:35:01,855 - INFO - [Run 5293cf30] FixerAgent started
+2026-05-28 17:35:01,855 - INFO - [Run 5293cf30] Fixer attempt 1
+2026-05-28 17:35:04,581 - INFO - [Run 5293cf30] Fixer latency: 2.7256s
+2026-05-28 17:35:04,581 - INFO - [Run 5293cf30] Raw LLM output:
+<patched_code>x = 10\ny = 0\nprint(x / (y if y != 0 else 1))</patched_code>
+2026-05-28 17:35:04,581 - ERROR - [Run 5293cf30] Fixer attempt failed: No JSON block found
+2026-05-28 17:35:04,581 - INFO - [Run 5293cf30] Fixer attempt 2
+2026-05-28 17:35:06,778 - INFO - [Run 5293cf30] Fixer latency: 2.1971s
+2026-05-28 17:35:06,778 - INFO - [Run 5293cf30] Raw LLM output:
+<json>{"patched_code": "x = 10\ny = 1\nprint(x / y)"}</json>
+2026-05-28 17:35:06,779 - INFO - [Run 5293cf30] Patch validation successful
+2026-05-28 17:35:06,779 - INFO - [Run 5293cf30] JSON extraction successful
+2026-05-28 17:35:06,779 - INFO - [Run 5293cf30] Sandbox execution started
+2026-05-28 17:35:06,790 - INFO - [Run 5293cf30] Sandbox execution completed
+2026-05-28 17:35:06,790 - INFO - [Run 5293cf30] Execution result: CompletedProcess(args=['python', '/tmp/tmp4wywc8yy.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-28 17:35:06,791 - INFO - [Run 5293cf30] EvaluatorAgent started
+2026-05-28 17:35:06,791 - INFO - [Run 5293cf30] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:35:14,509 - INFO - [Run 5293cf30] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": false,
+    "introduced_regression": false,
+    "reasoning": "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."
+}
+</json>
+2026-05-28 17:35:14,510 - INFO - [Run 5293cf30] Evaluation completed
+2026-05-28 17:35:14,510 - INFO - [Run 5293cf30] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."}
+2026-05-28 17:35:14,510 - INFO - [Run 5293cf30] Debug orchestration completed
+
+
+
+2026-05-28 17:35:14,510 - INFO - [Run cc9e9b6e] Debug orchestration started
+2026-05-28 17:35:14,510 - INFO - [Run cc9e9b6e] AnalyzerAgent started
+2026-05-28 17:35:14,510 - INFO - [Run cc9e9b6e] Analyzer attempt 1
+2026-05-28 17:35:17,635 - INFO - [Run cc9e9b6e] Analysis latency: 3.1244s
+2026-05-28 17:35:17,635 - INFO - [Run cc9e9b6e] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:35:17,635 - INFO - [Run cc9e9b6e] JSON extraction successful
+2026-05-28 17:35:17,635 - INFO - [Run cc9e9b6e] FixerAgent started
+2026-05-28 17:35:17,635 - INFO - [Run cc9e9b6e] Fixer attempt 1
+2026-05-28 17:35:19,471 - INFO - [Run cc9e9b6e] Fixer latency: 1.8361s
+2026-05-28 17:35:19,471 - INFO - [Run cc9e9b6e] Raw LLM output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-28 17:35:19,471 - ERROR - [Run cc9e9b6e] Fixer attempt failed: No JSON block found
+2026-05-28 17:35:19,471 - INFO - [Run cc9e9b6e] Fixer attempt 2
+2026-05-28 17:35:21,415 - INFO - [Run cc9e9b6e] Fixer latency: 1.9437s
+2026-05-28 17:35:21,415 - INFO - [Run cc9e9b6e] Raw LLM output:
+<json>{"patched_code": "for i in range(5):\n    print(i)"}</json>
+2026-05-28 17:35:21,415 - INFO - [Run cc9e9b6e] Patch validation successful
+2026-05-28 17:35:21,415 - INFO - [Run cc9e9b6e] JSON extraction successful
+2026-05-28 17:35:21,415 - INFO - [Run cc9e9b6e] Sandbox execution started
+2026-05-28 17:35:21,441 - INFO - [Run cc9e9b6e] Sandbox execution completed
+2026-05-28 17:35:21,441 - INFO - [Run cc9e9b6e] Execution result: CompletedProcess(args=['python', '/tmp/tmp2u54mq6n.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:35:21,441 - INFO - [Run cc9e9b6e] EvaluatorAgent started
+2026-05-28 17:35:21,442 - INFO - [Run cc9e9b6e] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:35:26,588 - INFO - [Run cc9e9b6e] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes."
+}
+</json>
+2026-05-28 17:35:26,589 - INFO - [Run cc9e9b6e] Evaluation completed
+2026-05-28 17:35:26,589 - INFO - [Run cc9e9b6e] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes.'}
+2026-05-28 17:35:26,589 - INFO - [Run cc9e9b6e] Debug orchestration completed
+
+
+
+2026-05-28 17:35:26,589 - INFO - [Run a1764e07] Debug orchestration started
+2026-05-28 17:35:26,589 - INFO - [Run a1764e07] AnalyzerAgent started
+2026-05-28 17:35:26,589 - INFO - [Run a1764e07] Analyzer attempt 1
+2026-05-28 17:35:30,676 - INFO - [Run a1764e07] Analysis latency: 4.0865s
+2026-05-28 17:35:30,676 - INFO - [Run a1764e07] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:35:30,676 - INFO - [Run a1764e07] JSON extraction successful
+2026-05-28 17:35:30,676 - INFO - [Run a1764e07] FixerAgent started
+2026-05-28 17:35:30,676 - INFO - [Run a1764e07] Fixer attempt 1
+2026-05-28 17:35:32,871 - INFO - [Run a1764e07] Fixer latency: 2.1951s
+2026-05-28 17:35:32,871 - INFO - [Run a1764e07] Raw LLM output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+2026-05-28 17:35:32,871 - ERROR - [Run a1764e07] Fixer attempt failed: No JSON block found
+2026-05-28 17:35:32,871 - INFO - [Run a1764e07] Fixer attempt 2
+2026-05-28 17:35:35,331 - INFO - [Run a1764e07] Fixer latency: 2.4598s
+2026-05-28 17:35:35,331 - INFO - [Run a1764e07] Raw LLM output:
+<json>{"patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])"}</json>
+2026-05-28 17:35:35,331 - INFO - [Run a1764e07] Patch validation successful
+2026-05-28 17:35:35,331 - INFO - [Run a1764e07] JSON extraction successful
+2026-05-28 17:35:35,331 - INFO - [Run a1764e07] Sandbox execution started
+2026-05-28 17:35:35,342 - INFO - [Run a1764e07] Sandbox execution completed
+2026-05-28 17:35:35,342 - INFO - [Run a1764e07] Execution result: CompletedProcess(args=['python', '/tmp/tmp4pmj0a1k.py'], returncode=0, stdout='3\n', stderr='')
+2026-05-28 17:35:35,342 - INFO - [Run a1764e07] EvaluatorAgent started
+2026-05-28 17:35:35,343 - INFO - [Run a1764e07] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:35:43,550 - INFO - [Run a1764e07] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended."
+}
+</json>
+2026-05-28 17:35:43,551 - INFO - [Run a1764e07] Evaluation completed
+2026-05-28 17:35:43,551 - INFO - [Run a1764e07] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended.'}
+2026-05-28 17:35:43,551 - INFO - [Run a1764e07] Debug orchestration completed
+
+
+
+2026-05-28 17:38:06,699 - INFO - [Run 0c38440f] Debug orchestration started
+2026-05-28 17:38:06,699 - INFO - [Run 0c38440f] AnalyzerAgent started
+2026-05-28 17:38:06,699 - INFO - [Run 0c38440f] Analyzer attempt 1
+2026-05-28 17:38:09,923 - INFO - [Run 0c38440f] Analysis latency: 3.2233s
+2026-05-28 17:38:09,923 - INFO - [Run 0c38440f] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-28 17:38:09,923 - INFO - [Run 0c38440f] JSON extraction successful
+2026-05-28 17:38:09,923 - INFO - [Run 0c38440f] FixerAgent started
+2026-05-28 17:38:09,923 - INFO - [Run 0c38440f] Fixer attempt 1
+2026-05-28 17:38:11,362 - INFO - [Run 0c38440f] Fixer latency: 1.4391s
+2026-05-28 17:38:11,363 - INFO - [Run 0c38440f] Raw LLM output:
+<patched_code>print(x + str(y))</patched_code>
+2026-05-28 17:38:11,363 - ERROR - [Run 0c38440f] Fixer attempt failed: No JSON block found
+2026-05-28 17:38:11,363 - INFO - [Run 0c38440f] Fixer attempt 2
+2026-05-28 17:38:13,618 - INFO - [Run 0c38440f] Fixer latency: 2.2553s
+2026-05-28 17:38:13,618 - INFO - [Run 0c38440f] Raw LLM output:
+<json>{"patched_code": "x = '5'\ny = 2\nprint(x + str(y))"}</json>
+2026-05-28 17:38:13,618 - INFO - [Run 0c38440f] Patch validation successful
+2026-05-28 17:38:13,618 - INFO - [Run 0c38440f] JSON extraction successful
+2026-05-28 17:38:13,618 - INFO - [Run 0c38440f] Sandbox execution started
+2026-05-28 17:38:13,630 - INFO - [Run 0c38440f] Sandbox execution completed
+2026-05-28 17:38:13,630 - INFO - [Run 0c38440f] Execution result: CompletedProcess(args=['python', '/tmp/tmpsmi4y5da.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:38:13,631 - INFO - [Run 0c38440f] EvaluatorAgent started
+2026-05-28 17:38:13,631 - INFO - [Run 0c38440f] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:38:19,395 - INFO - [Run 0c38440f] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:38:19,396 - INFO - [Run 0c38440f] Evaluation completed
+2026-05-28 17:38:19,396 - INFO - [Run 0c38440f] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:38:19,396 - INFO - [Run 0c38440f] Debug orchestration completed
+
+
+
+2026-05-28 17:38:19,396 - INFO - [Run 894e2855] Debug orchestration started
+2026-05-28 17:38:19,396 - INFO - [Run 894e2855] AnalyzerAgent started
+2026-05-28 17:38:19,396 - INFO - [Run 894e2855] Analyzer attempt 1
+2026-05-28 17:38:22,400 - INFO - [Run 894e2855] Analysis latency: 3.0033s
+2026-05-28 17:38:22,400 - INFO - [Run 894e2855] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "The variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 17:38:22,400 - INFO - [Run 894e2855] JSON extraction successful
+2026-05-28 17:38:22,400 - INFO - [Run 894e2855] FixerAgent started
+2026-05-28 17:38:22,400 - INFO - [Run 894e2855] Fixer attempt 1
+2026-05-28 17:38:23,851 - INFO - [Run 894e2855] Fixer latency: 1.4507s
+2026-05-28 17:38:23,851 - INFO - [Run 894e2855] Raw LLM output:
+<patched_code>x = 5\nprint(x)</patched_code>
+2026-05-28 17:38:23,851 - ERROR - [Run 894e2855] Fixer attempt failed: No JSON block found
+2026-05-28 17:38:23,851 - INFO - [Run 894e2855] Fixer attempt 2
+2026-05-28 17:38:25,955 - INFO - [Run 894e2855] Fixer latency: 2.1037s
+2026-05-28 17:38:25,955 - INFO - [Run 894e2855] Raw LLM output:
+<json>{"patched_code": "x = 5\ny = 0\nprint(y)"}</json>
+2026-05-28 17:38:25,955 - INFO - [Run 894e2855] Patch validation successful
+2026-05-28 17:38:25,955 - INFO - [Run 894e2855] JSON extraction successful
+2026-05-28 17:38:25,955 - INFO - [Run 894e2855] Sandbox execution started
+2026-05-28 17:38:25,966 - INFO - [Run 894e2855] Sandbox execution completed
+2026-05-28 17:38:25,966 - INFO - [Run 894e2855] Execution result: CompletedProcess(args=['python', '/tmp/tmpyw5tb6id.py'], returncode=0, stdout='0\n', stderr='')
+2026-05-28 17:38:25,967 - INFO - [Run 894e2855] EvaluatorAgent started
+2026-05-28 17:38:25,967 - INFO - [Run 894e2855] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:38:32,749 - INFO - [Run 894e2855] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."
+}
+</json>
+2026-05-28 17:38:32,749 - INFO - [Run 894e2855] Evaluation completed
+2026-05-28 17:38:32,749 - INFO - [Run 894e2855] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."}
+2026-05-28 17:38:32,749 - INFO - [Run 894e2855] Debug orchestration completed
+
+
+
+2026-05-28 17:38:32,749 - INFO - [Run 00c7a249] Debug orchestration started
+2026-05-28 17:38:32,749 - INFO - [Run 00c7a249] AnalyzerAgent started
+2026-05-28 17:38:32,749 - INFO - [Run 00c7a249] Analyzer attempt 1
+2026-05-28 17:38:36,011 - INFO - [Run 00c7a249] Analysis latency: 3.2619s
+2026-05-28 17:38:36,011 - INFO - [Run 00c7a249] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 17:38:36,011 - INFO - [Run 00c7a249] JSON extraction successful
+2026-05-28 17:38:36,011 - INFO - [Run 00c7a249] FixerAgent started
+2026-05-28 17:38:36,011 - INFO - [Run 00c7a249] Fixer attempt 1
+2026-05-28 17:38:37,972 - INFO - [Run 00c7a249] Fixer latency: 1.9608s
+2026-05-28 17:38:37,973 - INFO - [Run 00c7a249] Raw LLM output:
+<patched_code>x = 10\ny = 1\nprint(x / y)</patched_code>
+2026-05-28 17:38:37,973 - ERROR - [Run 00c7a249] Fixer attempt failed: No JSON block found
+2026-05-28 17:38:37,973 - INFO - [Run 00c7a249] Fixer attempt 2
+2026-05-28 17:38:40,281 - INFO - [Run 00c7a249] Fixer latency: 2.3088s
+2026-05-28 17:38:40,282 - INFO - [Run 00c7a249] Raw LLM output:
+<json>{"patched_code": "x = 10\ny = 1\nprint(x / y)"}</json>
+2026-05-28 17:38:40,282 - INFO - [Run 00c7a249] Patch validation successful
+2026-05-28 17:38:40,282 - INFO - [Run 00c7a249] JSON extraction successful
+2026-05-28 17:38:40,282 - INFO - [Run 00c7a249] Sandbox execution started
+2026-05-28 17:38:40,298 - INFO - [Run 00c7a249] Sandbox execution completed
+2026-05-28 17:38:40,298 - INFO - [Run 00c7a249] Execution result: CompletedProcess(args=['python', '/tmp/tmp__db8dwx.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-28 17:38:40,299 - INFO - [Run 00c7a249] EvaluatorAgent started
+2026-05-28 17:38:40,299 - INFO - [Run 00c7a249] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:38:47,953 - INFO - [Run 00c7a249] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": false,
+    "introduced_regression": false,
+    "reasoning": "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."
+}
+</json>
+2026-05-28 17:38:47,954 - INFO - [Run 00c7a249] Evaluation completed
+2026-05-28 17:38:47,954 - INFO - [Run 00c7a249] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."}
+2026-05-28 17:38:47,954 - INFO - [Run 00c7a249] Debug orchestration completed
+
+
+
+2026-05-28 17:38:47,954 - INFO - [Run 9a6ee3ce] Debug orchestration started
+2026-05-28 17:38:47,954 - INFO - [Run 9a6ee3ce] AnalyzerAgent started
+2026-05-28 17:38:47,954 - INFO - [Run 9a6ee3ce] Analyzer attempt 1
+2026-05-28 17:38:51,066 - INFO - [Run 9a6ee3ce] Analysis latency: 3.1119s
+2026-05-28 17:38:51,066 - INFO - [Run 9a6ee3ce] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:38:51,066 - INFO - [Run 9a6ee3ce] JSON extraction successful
+2026-05-28 17:38:51,066 - INFO - [Run 9a6ee3ce] FixerAgent started
+2026-05-28 17:38:51,066 - INFO - [Run 9a6ee3ce] Fixer attempt 1
+2026-05-28 17:38:52,845 - INFO - [Run 9a6ee3ce] Fixer latency: 1.7782s
+2026-05-28 17:38:52,845 - INFO - [Run 9a6ee3ce] Raw LLM output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-28 17:38:52,845 - ERROR - [Run 9a6ee3ce] Fixer attempt failed: No JSON block found
+2026-05-28 17:38:52,845 - INFO - [Run 9a6ee3ce] Fixer attempt 2
+2026-05-28 17:38:54,869 - INFO - [Run 9a6ee3ce] Fixer latency: 2.0246s
+2026-05-28 17:38:54,870 - INFO - [Run 9a6ee3ce] Raw LLM output:
+<json>{"patched_code": "for i in range(5):\n    print(i)"}</json>
+2026-05-28 17:38:54,870 - INFO - [Run 9a6ee3ce] Patch validation successful
+2026-05-28 17:38:54,870 - INFO - [Run 9a6ee3ce] JSON extraction successful
+2026-05-28 17:38:54,870 - INFO - [Run 9a6ee3ce] Sandbox execution started
+2026-05-28 17:38:54,893 - INFO - [Run 9a6ee3ce] Sandbox execution completed
+2026-05-28 17:38:54,893 - INFO - [Run 9a6ee3ce] Execution result: CompletedProcess(args=['python', '/tmp/tmpcdhbs21i.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:38:54,893 - INFO - [Run 9a6ee3ce] EvaluatorAgent started
+2026-05-28 17:38:54,893 - INFO - [Run 9a6ee3ce] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:39:00,027 - INFO - [Run 9a6ee3ce] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes."
+}
+</json>
+2026-05-28 17:39:00,027 - INFO - [Run 9a6ee3ce] Evaluation completed
+2026-05-28 17:39:00,027 - INFO - [Run 9a6ee3ce] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes.'}
+2026-05-28 17:39:00,027 - INFO - [Run 9a6ee3ce] Debug orchestration completed
+
+
+
+2026-05-28 17:39:00,027 - INFO - [Run 8657646e] Debug orchestration started
+2026-05-28 17:39:00,027 - INFO - [Run 8657646e] AnalyzerAgent started
+2026-05-28 17:39:00,027 - INFO - [Run 8657646e] Analyzer attempt 1
+2026-05-28 17:39:04,090 - INFO - [Run 8657646e] Analysis latency: 4.0624s
+2026-05-28 17:39:04,090 - INFO - [Run 8657646e] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:39:04,090 - INFO - [Run 8657646e] JSON extraction successful
+2026-05-28 17:39:04,090 - INFO - [Run 8657646e] FixerAgent started
+2026-05-28 17:39:04,090 - INFO - [Run 8657646e] Fixer attempt 1
+2026-05-28 17:39:06,387 - INFO - [Run 8657646e] Fixer latency: 2.2970s
+2026-05-28 17:39:06,387 - INFO - [Run 8657646e] Raw LLM output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+2026-05-28 17:39:06,387 - ERROR - [Run 8657646e] Fixer attempt failed: No JSON block found
+2026-05-28 17:39:06,388 - INFO - [Run 8657646e] Fixer attempt 2
+2026-05-28 17:39:08,709 - INFO - [Run 8657646e] Fixer latency: 2.3210s
+2026-05-28 17:39:08,709 - INFO - [Run 8657646e] Raw LLM output:
+<json>{"patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])"}</json>
+2026-05-28 17:39:08,709 - INFO - [Run 8657646e] Patch validation successful
+2026-05-28 17:39:08,709 - INFO - [Run 8657646e] JSON extraction successful
+2026-05-28 17:39:08,709 - INFO - [Run 8657646e] Sandbox execution started
+2026-05-28 17:39:08,719 - INFO - [Run 8657646e] Sandbox execution completed
+2026-05-28 17:39:08,719 - INFO - [Run 8657646e] Execution result: CompletedProcess(args=['python', '/tmp/tmpiqwv0ube.py'], returncode=0, stdout='3\n', stderr='')
+2026-05-28 17:39:08,719 - INFO - [Run 8657646e] EvaluatorAgent started
+2026-05-28 17:39:08,720 - INFO - [Run 8657646e] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:39:16,873 - INFO - [Run 8657646e] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended."
+}
+</json>
+2026-05-28 17:39:16,873 - INFO - [Run 8657646e] Evaluation completed
+2026-05-28 17:39:16,873 - INFO - [Run 8657646e] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended.'}
+2026-05-28 17:39:16,873 - INFO - [Run 8657646e] Debug orchestration completed
+
+
+
+2026-05-28 17:43:17,782 - INFO - [Run db0668f9] Debug orchestration started
+2026-05-28 17:43:17,782 - INFO - [Run db0668f9] AnalyzerAgent started
+2026-05-28 17:43:17,782 - INFO - [Run db0668f9] Analyzer attempt 1
+2026-05-28 17:43:20,895 - INFO - [Run db0668f9] Analysis latency: 3.1126s
+2026-05-28 17:43:20,895 - INFO - [Run db0668f9] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-28 17:43:20,895 - INFO - [Run db0668f9] JSON extraction successful
+2026-05-28 17:43:20,895 - INFO - [Run db0668f9] FixerAgent started
+2026-05-28 17:43:20,895 - INFO - [Run db0668f9] Fixer attempt 1
+2026-05-28 17:43:22,344 - INFO - [Run db0668f9] Fixer latency: 1.4492s
+2026-05-28 17:43:22,345 - INFO - [Run db0668f9] Raw LLM output:
+<patched_code>print(x + str(y))</patched_code>
+2026-05-28 17:43:22,345 - ERROR - [Run db0668f9] Fixer attempt failed: No JSON block found
+2026-05-28 17:43:22,345 - INFO - [Run db0668f9] Fixer attempt 2
+2026-05-28 17:43:24,726 - INFO - [Run db0668f9] Fixer latency: 2.3814s
+2026-05-28 17:43:24,726 - INFO - [Run db0668f9] Raw LLM output:
+<json>{"patched_code": "x = '5'\ny = 2\nprint(x + str(y))"}</json>
+2026-05-28 17:43:24,726 - INFO - [Run db0668f9] Patch validation successful
+2026-05-28 17:43:24,726 - INFO - [Run db0668f9] JSON extraction successful
+2026-05-28 17:43:24,726 - INFO - [Run db0668f9] Sandbox execution started
+2026-05-28 17:43:24,748 - INFO - [Run db0668f9] Sandbox execution completed
+2026-05-28 17:43:24,748 - INFO - [Run db0668f9] Execution result: CompletedProcess(args=['python', '/tmp/tmpf9vlk_t1.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 17:43:24,748 - INFO - [Run db0668f9] EvaluatorAgent started
+2026-05-28 17:43:24,749 - INFO - [Run db0668f9] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 17:43:30,441 - INFO - [Run db0668f9] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 17:43:30,441 - INFO - [Run db0668f9] Evaluation completed
+2026-05-28 17:43:30,441 - INFO - [Run db0668f9] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 17:43:30,441 - INFO - [Run db0668f9] Debug orchestration completed
+
+
+
+2026-05-28 17:43:30,442 - INFO - [Run 27854c70] Debug orchestration started
+2026-05-28 17:43:30,442 - INFO - [Run 27854c70] AnalyzerAgent started
+2026-05-28 17:43:30,442 - INFO - [Run 27854c70] Analyzer attempt 1
+2026-05-28 17:43:33,428 - INFO - [Run 27854c70] Analysis latency: 2.9857s
+2026-05-28 17:43:33,428 - INFO - [Run 27854c70] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "The variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 17:43:33,428 - INFO - [Run 27854c70] JSON extraction successful
+2026-05-28 17:43:33,428 - INFO - [Run 27854c70] FixerAgent started
+2026-05-28 17:43:33,428 - INFO - [Run 27854c70] Fixer attempt 1
+2026-05-28 17:43:34,862 - INFO - [Run 27854c70] Fixer latency: 1.4344s
+2026-05-28 17:43:34,862 - INFO - [Run 27854c70] Raw LLM output:
+<patched_code>x = 5\nprint(x)</patched_code>
+2026-05-28 17:43:34,862 - ERROR - [Run 27854c70] Fixer attempt failed: No JSON block found
+2026-05-28 17:43:34,862 - INFO - [Run 27854c70] Fixer attempt 2
+2026-05-28 17:43:36,855 - INFO - [Run 27854c70] Fixer latency: 1.9924s
+2026-05-28 17:43:36,855 - INFO - [Run 27854c70] Raw LLM output:
+<json>{"patched_code": "x = 5\ny = 0\nprint(y)"}</json>
+2026-05-28 17:43:36,855 - INFO - [Run 27854c70] Patch validation successful
+2026-05-28 17:43:36,855 - INFO - [Run 27854c70] JSON extraction successful
+2026-05-28 17:43:36,855 - INFO - [Run 27854c70] Sandbox execution started
+2026-05-28 17:43:36,867 - INFO - [Run 27854c70] Sandbox execution completed
+2026-05-28 17:43:36,867 - INFO - [Run 27854c70] Execution result: CompletedProcess(args=['python', '/tmp/tmpjpxeov3j.py'], returncode=0, stdout='0\n', stderr='')
+2026-05-28 17:43:36,867 - INFO - [Run 27854c70] EvaluatorAgent started
+2026-05-28 17:43:36,867 - INFO - [Run 27854c70] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 17:43:45,819 - INFO - [Run 27854c70] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces an arbitrary value for 'y', which does not necessarily reflect the original intent of the code. The original code was attempting to print a variable 'y' that was not defined, and the fix simply assigns 'y' a value of 0 without any context or explanation for why 0 is the correct value. This could lead to incorrect behavior if the intended value of 'y' should have been something other than 0."
+}
+</json>
+2026-05-28 17:43:45,819 - INFO - [Run 27854c70] Evaluation completed
+2026-05-28 17:43:45,819 - INFO - [Run 27854c70] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces an arbitrary value for 'y', which does not necessarily reflect the original intent of the code. The original code was attempting to print a variable 'y' that was not defined, and the fix simply assigns 'y' a value of 0 without any context or explanation for why 0 is the correct value. This could lead to incorrect behavior if the intended value of 'y' should have been something other than 0."}
+2026-05-28 17:43:45,819 - INFO - [Run 27854c70] Debug orchestration completed
+
+
+
+2026-05-28 17:43:45,820 - INFO - [Run f2b06f01] Debug orchestration started
+2026-05-28 17:43:45,820 - INFO - [Run f2b06f01] AnalyzerAgent started
+2026-05-28 17:43:45,820 - INFO - [Run f2b06f01] Analyzer attempt 1
+2026-05-28 17:43:49,096 - INFO - [Run f2b06f01] Analysis latency: 3.2757s
+2026-05-28 17:43:49,096 - INFO - [Run f2b06f01] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 17:43:49,096 - INFO - [Run f2b06f01] JSON extraction successful
+2026-05-28 17:43:49,096 - INFO - [Run f2b06f01] FixerAgent started
+2026-05-28 17:43:49,096 - INFO - [Run f2b06f01] Fixer attempt 1
+2026-05-28 17:43:51,108 - INFO - [Run f2b06f01] Fixer latency: 2.0120s
+2026-05-28 17:43:51,108 - INFO - [Run f2b06f01] Raw LLM output:
+<patched_code>x = 10\ny = 1\nprint(x / y)</patched_code>
+2026-05-28 17:43:51,108 - ERROR - [Run f2b06f01] Fixer attempt failed: No JSON block found
+2026-05-28 17:43:51,108 - INFO - [Run f2b06f01] Fixer attempt 2
+2026-05-28 17:43:53,473 - INFO - [Run f2b06f01] Fixer latency: 2.3652s
+2026-05-28 17:43:53,473 - INFO - [Run f2b06f01] Raw LLM output:
+<json>{"patched_code": "x = 10\ny = 1\nprint(x / y)"}</json>
+2026-05-28 17:43:53,473 - INFO - [Run f2b06f01] Patch validation successful
+2026-05-28 17:43:53,474 - INFO - [Run f2b06f01] JSON extraction successful
+2026-05-28 17:43:53,474 - INFO - [Run f2b06f01] Sandbox execution started
+2026-05-28 17:43:53,498 - INFO - [Run f2b06f01] Sandbox execution completed
+2026-05-28 17:43:53,498 - INFO - [Run f2b06f01] Execution result: CompletedProcess(args=['python', '/tmp/tmp_3j3kd9y.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-28 17:43:53,498 - INFO - [Run f2b06f01] EvaluatorAgent started
+2026-05-28 17:43:53,498 - INFO - [Run f2b06f01] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:44:01,324 - INFO - [Run f2b06f01] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": false,
+    "introduced_regression": false,
+    "reasoning": "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."
+}
+</json>
+2026-05-28 17:44:01,324 - INFO - [Run f2b06f01] Evaluation completed
+2026-05-28 17:44:01,324 - INFO - [Run f2b06f01] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."}
+2026-05-28 17:44:01,324 - INFO - [Run f2b06f01] Debug orchestration completed
+
+
+
+2026-05-28 17:44:01,325 - INFO - [Run 4ba623e0] Debug orchestration started
+2026-05-28 17:44:01,325 - INFO - [Run 4ba623e0] AnalyzerAgent started
+2026-05-28 17:44:01,325 - INFO - [Run 4ba623e0] Analyzer attempt 1
+2026-05-28 17:44:04,618 - INFO - [Run 4ba623e0] Analysis latency: 3.2934s
+2026-05-28 17:44:04,618 - INFO - [Run 4ba623e0] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 17:44:04,618 - INFO - [Run 4ba623e0] JSON extraction successful
+2026-05-28 17:44:04,618 - INFO - [Run 4ba623e0] FixerAgent started
+2026-05-28 17:44:04,618 - INFO - [Run 4ba623e0] Fixer attempt 1
+2026-05-28 17:44:06,430 - INFO - [Run 4ba623e0] Fixer latency: 1.8114s
+2026-05-28 17:44:06,430 - INFO - [Run 4ba623e0] Raw LLM output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-28 17:44:06,430 - ERROR - [Run 4ba623e0] Fixer attempt failed: No JSON block found
+2026-05-28 17:44:06,430 - INFO - [Run 4ba623e0] Fixer attempt 2
+2026-05-28 17:44:08,349 - INFO - [Run 4ba623e0] Fixer latency: 1.9194s
+2026-05-28 17:44:08,350 - INFO - [Run 4ba623e0] Raw LLM output:
+<json>{"patched_code": "for i in range(5):\n    print(i)"}</json>
+2026-05-28 17:44:08,350 - INFO - [Run 4ba623e0] Patch validation successful
+2026-05-28 17:44:08,350 - INFO - [Run 4ba623e0] JSON extraction successful
+2026-05-28 17:44:08,350 - INFO - [Run 4ba623e0] Sandbox execution started
+2026-05-28 17:44:08,359 - INFO - [Run 4ba623e0] Sandbox execution completed
+2026-05-28 17:44:08,359 - INFO - [Run 4ba623e0] Execution result: CompletedProcess(args=['python', '/tmp/tmpuk7djrvg.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 17:44:08,360 - INFO - [Run 4ba623e0] EvaluatorAgent started
+2026-05-28 17:44:08,360 - INFO - [Run 4ba623e0] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:44:13,546 - INFO - [Run 4ba623e0] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes."
+}
+</json>
+2026-05-28 17:44:13,547 - INFO - [Run 4ba623e0] Evaluation completed
+2026-05-28 17:44:13,547 - INFO - [Run 4ba623e0] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes.'}
+2026-05-28 17:44:13,547 - INFO - [Run 4ba623e0] Debug orchestration completed
+
+
+
+2026-05-28 17:44:13,547 - INFO - [Run ef327d86] Debug orchestration started
+2026-05-28 17:44:13,547 - INFO - [Run ef327d86] AnalyzerAgent started
+2026-05-28 17:44:13,547 - INFO - [Run ef327d86] Analyzer attempt 1
+2026-05-28 17:44:17,656 - INFO - [Run ef327d86] Analysis latency: 4.1091s
+2026-05-28 17:44:17,656 - INFO - [Run ef327d86] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 17:44:17,656 - INFO - [Run ef327d86] JSON extraction successful
+2026-05-28 17:44:17,656 - INFO - [Run ef327d86] FixerAgent started
+2026-05-28 17:44:17,656 - INFO - [Run ef327d86] Fixer attempt 1
+2026-05-28 17:44:19,964 - INFO - [Run ef327d86] Fixer latency: 2.3070s
+2026-05-28 17:44:19,964 - INFO - [Run ef327d86] Raw LLM output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+2026-05-28 17:44:19,964 - ERROR - [Run ef327d86] Fixer attempt failed: No JSON block found
+2026-05-28 17:44:19,964 - INFO - [Run ef327d86] Fixer attempt 2
+2026-05-28 17:44:22,342 - INFO - [Run ef327d86] Fixer latency: 2.3780s
+2026-05-28 17:44:22,342 - INFO - [Run ef327d86] Raw LLM output:
+<json>{"patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])"}</json>
+2026-05-28 17:44:22,342 - INFO - [Run ef327d86] Patch validation successful
+2026-05-28 17:44:22,342 - INFO - [Run ef327d86] JSON extraction successful
+2026-05-28 17:44:22,342 - INFO - [Run ef327d86] Sandbox execution started
+2026-05-28 17:44:22,354 - INFO - [Run ef327d86] Sandbox execution completed
+2026-05-28 17:44:22,354 - INFO - [Run ef327d86] Execution result: CompletedProcess(args=['python', '/tmp/tmpxkctwt40.py'], returncode=0, stdout='3\n', stderr='')
+2026-05-28 17:44:22,354 - INFO - [Run ef327d86] EvaluatorAgent started
+2026-05-28 17:44:22,355 - INFO - [Run ef327d86] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 17:44:30,640 - INFO - [Run ef327d86] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in the list), which may not be what the original author intended."
+}
+</json>
+2026-05-28 17:44:30,641 - INFO - [Run ef327d86] Evaluation completed
+2026-05-28 17:44:30,641 - INFO - [Run ef327d86] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in the list), which may not be what the original author intended.'}
+2026-05-28 17:44:30,641 - INFO - [Run ef327d86] Debug orchestration completed
+
+
+
+2026-05-28 18:07:12,105 - INFO - [Run c1d43991] Debug orchestration started
+2026-05-28 18:07:12,105 - INFO - [Run c1d43991] AnalyzerAgent started
+2026-05-28 18:07:12,105 - INFO - [Run c1d43991] Analyzer attempt 1
+2026-05-28 18:07:15,250 - INFO - [Run c1d43991] Analysis latency: 3.1447s
+2026-05-28 18:07:15,250 - INFO - [Run c1d43991] Raw LLM output:
+<json>
+{
+    "root_cause": "TypeError",
+    "error_line": 3,
+    "reasoning": "Attempting to concatenate a string with an integer."
+}
+</json>
+2026-05-28 18:07:15,250 - INFO - [Run c1d43991] JSON extraction successful
+2026-05-28 18:07:15,250 - INFO - [Run c1d43991] FixerAgent started
+2026-05-28 18:07:15,250 - INFO - [Run c1d43991] Fixer attempt 1
+2026-05-28 18:07:16,737 - INFO - [Run c1d43991] Fixer latency: 1.4873s
+2026-05-28 18:07:16,737 - INFO - [Run c1d43991] Raw LLM output:
+<patched_code>print(x + str(y))</patched_code>
+2026-05-28 18:07:16,737 - ERROR - [Run c1d43991] Fixer attempt failed: No JSON block found
+2026-05-28 18:07:16,737 - INFO - [Run c1d43991] Fixer attempt 2
+2026-05-28 18:07:19,038 - INFO - [Run c1d43991] Fixer latency: 2.3002s
+2026-05-28 18:07:19,038 - INFO - [Run c1d43991] Raw LLM output:
+<json>{"patched_code": "x = '5'\ny = 2\nprint(x + str(y))"}</json>
+2026-05-28 18:07:19,038 - INFO - [Run c1d43991] Patch validation successful
+2026-05-28 18:07:19,038 - INFO - [Run c1d43991] JSON extraction successful
+2026-05-28 18:07:19,038 - INFO - [Run c1d43991] Sandbox execution started
+2026-05-28 18:07:19,061 - INFO - [Run c1d43991] Sandbox execution completed
+2026-05-28 18:07:19,061 - INFO - [Run c1d43991] Execution result: CompletedProcess(args=['python', '/tmp/tmpj76pc368.py'], returncode=0, stdout='52\n', stderr='')
+2026-05-28 18:07:19,061 - INFO - [Run c1d43991] EvaluatorAgent started
+2026-05-28 18:07:19,061 - INFO - [Run c1d43991] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}
+2026-05-28 18:07:24,857 - INFO - [Run c1d43991] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes."
+}
+</json>
+2026-05-28 18:07:24,857 - INFO - [Run c1d43991] Evaluation completed
+2026-05-28 18:07:24,857 - INFO - [Run c1d43991] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.15789473684210525}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch converts the integer y to a string before concatenation, which resolves the TypeError while preserving the original intent of concatenating two strings. The fix is minimal and does not introduce any unnecessary changes.'}
+2026-05-28 18:07:24,857 - INFO - [Run c1d43991] Debug orchestration completed
+
+
+
+2026-05-28 18:07:24,858 - INFO - [Run bb6210de] Debug orchestration started
+2026-05-28 18:07:24,858 - INFO - [Run bb6210de] AnalyzerAgent started
+2026-05-28 18:07:24,858 - INFO - [Run bb6210de] Analyzer attempt 1
+2026-05-28 18:07:27,935 - INFO - [Run bb6210de] Analysis latency: 3.0771s
+2026-05-28 18:07:27,935 - INFO - [Run bb6210de] Raw LLM output:
+<json>
+{
+    "root_cause": "NameError",
+    "error_line": 2,
+    "reasoning": "The variable 'y' is used before it is defined."
+}
+</json>
+2026-05-28 18:07:27,935 - INFO - [Run bb6210de] JSON extraction successful
+2026-05-28 18:07:27,935 - INFO - [Run bb6210de] FixerAgent started
+2026-05-28 18:07:27,935 - INFO - [Run bb6210de] Fixer attempt 1
+2026-05-28 18:07:29,562 - INFO - [Run bb6210de] Fixer latency: 1.6273s
+2026-05-28 18:07:29,562 - INFO - [Run bb6210de] Raw LLM output:
+<patched_code>x = 5\nprint(x)</patched_code>
+2026-05-28 18:07:29,563 - ERROR - [Run bb6210de] Fixer attempt failed: No JSON block found
+2026-05-28 18:07:29,563 - INFO - [Run bb6210de] Fixer attempt 2
+2026-05-28 18:07:31,600 - INFO - [Run bb6210de] Fixer latency: 2.0370s
+2026-05-28 18:07:31,600 - INFO - [Run bb6210de] Raw LLM output:
+<json>{"patched_code": "x = 5\ny = 0\nprint(y)"}</json>
+2026-05-28 18:07:31,600 - INFO - [Run bb6210de] Patch validation successful
+2026-05-28 18:07:31,600 - INFO - [Run bb6210de] JSON extraction successful
+2026-05-28 18:07:31,600 - INFO - [Run bb6210de] Sandbox execution started
+2026-05-28 18:07:31,611 - INFO - [Run bb6210de] Sandbox execution completed
+2026-05-28 18:07:31,611 - INFO - [Run bb6210de] Execution result: CompletedProcess(args=['python', '/tmp/tmp3ex4gr6j.py'], returncode=0, stdout='0\n', stderr='')
+2026-05-28 18:07:31,611 - INFO - [Run bb6210de] EvaluatorAgent started
+2026-05-28 18:07:31,612 - INFO - [Run bb6210de] Heuristic result: {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}
+2026-05-28 18:07:38,496 - INFO - [Run bb6210de] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."
+}
+</json>
+2026-05-28 18:07:38,496 - INFO - [Run bb6210de] Evaluation completed
+2026-05-28 18:07:38,496 - INFO - [Run bb6210de] Evaluation result: {'passed': False, 'score': 0.8, 'heuristics': {'score': 0.8, 'penalties': ['large_structural_change'], 'structural_ratio': 0.36363636363636365}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': "The patch introduces an arbitrary value for 'y' (setting it to 0) which was not present in the original code. This changes the behavior of the program and does not necessarily reflect the original intent. The fix is not minimal as it adds unnecessary initialization of 'y'."}
+2026-05-28 18:07:38,496 - INFO - [Run bb6210de] Debug orchestration completed
+
+
+
+2026-05-28 18:07:38,496 - INFO - [Run 835e44b3] Debug orchestration started
+2026-05-28 18:07:38,496 - INFO - [Run 835e44b3] AnalyzerAgent started
+2026-05-28 18:07:38,497 - INFO - [Run 835e44b3] Analyzer attempt 1
+2026-05-28 18:07:41,888 - INFO - [Run 835e44b3] Analysis latency: 3.3910s
+2026-05-28 18:07:41,888 - INFO - [Run 835e44b3] Raw LLM output:
+<json>
+{
+    "root_cause": "ZeroDivisionError",
+    "error_line": 3,
+    "reasoning": "The code attempts to divide by zero, which is not allowed in Python."
+}
+</json>
+2026-05-28 18:07:41,888 - INFO - [Run 835e44b3] JSON extraction successful
+2026-05-28 18:07:41,888 - INFO - [Run 835e44b3] FixerAgent started
+2026-05-28 18:07:41,888 - INFO - [Run 835e44b3] Fixer attempt 1
+2026-05-28 18:07:43,954 - INFO - [Run 835e44b3] Fixer latency: 2.0666s
+2026-05-28 18:07:43,955 - INFO - [Run 835e44b3] Raw LLM output:
+<patched_code>x = 10\ny = 1\nprint(x / y)</patched_code>
+2026-05-28 18:07:43,955 - ERROR - [Run 835e44b3] Fixer attempt failed: No JSON block found
+2026-05-28 18:07:43,955 - INFO - [Run 835e44b3] Fixer attempt 2
+2026-05-28 18:07:46,395 - INFO - [Run 835e44b3] Fixer latency: 2.4399s
+2026-05-28 18:07:46,395 - INFO - [Run 835e44b3] Raw LLM output:
+<json>{"patched_code": "x = 10\ny = 1\nprint(x / y)"}</json>
+2026-05-28 18:07:46,395 - INFO - [Run 835e44b3] Patch validation successful
+2026-05-28 18:07:46,395 - INFO - [Run 835e44b3] JSON extraction successful
+2026-05-28 18:07:46,395 - INFO - [Run 835e44b3] Sandbox execution started
+2026-05-28 18:07:46,408 - INFO - [Run 835e44b3] Sandbox execution completed
+2026-05-28 18:07:46,408 - INFO - [Run 835e44b3] Execution result: CompletedProcess(args=['python', '/tmp/tmpejjxcmys.py'], returncode=0, stdout='10.0\n', stderr='')
+2026-05-28 18:07:46,408 - INFO - [Run 835e44b3] EvaluatorAgent started
+2026-05-28 18:07:46,409 - INFO - [Run 835e44b3] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 18:07:54,150 - INFO - [Run 835e44b3] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": false,
+    "root_cause_fixed": false,
+    "introduced_regression": false,
+    "reasoning": "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."
+}
+</json>
+2026-05-28 18:07:54,150 - INFO - [Run 835e44b3] Evaluation completed
+2026-05-28 18:07:54,150 - INFO - [Run 835e44b3] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': False, 'root_cause_fixed': False, 'introduced_regression': False, 'reasoning': "The patched code does not fix the root cause of the bug, which is division by zero. Instead, it changes the value of 'y' from 0 to 1, which bypasses the error but does not address the underlying issue. This change alters the original intent of the code, which seems to be testing or demonstrating a division by zero error."}
+2026-05-28 18:07:54,150 - INFO - [Run 835e44b3] Debug orchestration completed
+
+
+
+2026-05-28 18:07:54,150 - INFO - [Run 76ce211c] Debug orchestration started
+2026-05-28 18:07:54,150 - INFO - [Run 76ce211c] AnalyzerAgent started
+2026-05-28 18:07:54,150 - INFO - [Run 76ce211c] Analyzer attempt 1
+2026-05-28 18:07:57,325 - INFO - [Run 76ce211c] Analysis latency: 3.1746s
+2026-05-28 18:07:57,325 - INFO - [Run 76ce211c] Raw LLM output:
+<json>
+{
+    "root_cause": "SyntaxError",
+    "error_line": 1,
+    "reasoning": "The for loop is missing a colon at the end of the statement."
+}
+</json>
+2026-05-28 18:07:57,325 - INFO - [Run 76ce211c] JSON extraction successful
+2026-05-28 18:07:57,325 - INFO - [Run 76ce211c] FixerAgent started
+2026-05-28 18:07:57,325 - INFO - [Run 76ce211c] Fixer attempt 1
+2026-05-28 18:07:59,119 - INFO - [Run 76ce211c] Fixer latency: 1.7936s
+2026-05-28 18:07:59,119 - INFO - [Run 76ce211c] Raw LLM output:
+<patched_code>for i in range(5):\n    print(i)</patched_code>
+2026-05-28 18:07:59,119 - ERROR - [Run 76ce211c] Fixer attempt failed: No JSON block found
+2026-05-28 18:07:59,119 - INFO - [Run 76ce211c] Fixer attempt 2
+2026-05-28 18:08:01,150 - INFO - [Run 76ce211c] Fixer latency: 2.0313s
+2026-05-28 18:08:01,150 - INFO - [Run 76ce211c] Raw LLM output:
+<json>{"patched_code": "for i in range(5):\n    print(i)"}</json>
+2026-05-28 18:08:01,151 - INFO - [Run 76ce211c] Patch validation successful
+2026-05-28 18:08:01,151 - INFO - [Run 76ce211c] JSON extraction successful
+2026-05-28 18:08:01,151 - INFO - [Run 76ce211c] Sandbox execution started
+2026-05-28 18:08:01,174 - INFO - [Run 76ce211c] Sandbox execution completed
+2026-05-28 18:08:01,174 - INFO - [Run 76ce211c] Execution result: CompletedProcess(args=['python', '/tmp/tmphw6wh5lk.py'], returncode=0, stdout='0\n1\n2\n3\n4\n', stderr='')
+2026-05-28 18:08:01,174 - INFO - [Run 76ce211c] EvaluatorAgent started
+2026-05-28 18:08:01,175 - INFO - [Run 76ce211c] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 18:08:06,509 - INFO - [Run 76ce211c] Raw evaluator output:
+<json>
+{
+    "intent_preserved": true,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes."
+}
+</json>
+2026-05-28 18:08:06,509 - INFO - [Run 76ce211c] Evaluation completed
+2026-05-28 18:08:06,509 - INFO - [Run 76ce211c] Evaluation result: {'passed': True, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': True, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch correctly adds the missing colon at the end of the for loop statement, fixing the syntax error without altering the original intent or introducing any unnecessary changes.'}
+2026-05-28 18:08:06,509 - INFO - [Run 76ce211c] Debug orchestration completed
+
+
+
+2026-05-28 18:08:06,510 - INFO - [Run 5a2a4a29] Debug orchestration started
+2026-05-28 18:08:06,510 - INFO - [Run 5a2a4a29] AnalyzerAgent started
+2026-05-28 18:08:06,510 - INFO - [Run 5a2a4a29] Analyzer attempt 1
+2026-05-28 18:08:10,634 - INFO - [Run 5a2a4a29] Analysis latency: 4.1247s
+2026-05-28 18:08:10,635 - INFO - [Run 5a2a4a29] Raw LLM output:
+<json>
+{
+    "root_cause": "IndexError",
+    "error_line": 2,
+    "reasoning": "The list 'numbers' has only three elements, but the code attempts to access the element at index 5, which is out of range."
+}
+</json>
+2026-05-28 18:08:10,635 - INFO - [Run 5a2a4a29] JSON extraction successful
+2026-05-28 18:08:10,635 - INFO - [Run 5a2a4a29] FixerAgent started
+2026-05-28 18:08:10,635 - INFO - [Run 5a2a4a29] Fixer attempt 1
+2026-05-28 18:08:12,939 - INFO - [Run 5a2a4a29] Fixer latency: 2.3039s
+2026-05-28 18:08:12,939 - INFO - [Run 5a2a4a29] Raw LLM output:
+<patched_code>numbers = [1, 2, 3]\nprint(numbers[2])</patched_code>
+2026-05-28 18:08:12,939 - ERROR - [Run 5a2a4a29] Fixer attempt failed: No JSON block found
+2026-05-28 18:08:12,939 - INFO - [Run 5a2a4a29] Fixer attempt 2
+2026-05-28 18:08:15,334 - INFO - [Run 5a2a4a29] Fixer latency: 2.3953s
+2026-05-28 18:08:15,334 - INFO - [Run 5a2a4a29] Raw LLM output:
+<json>{"patched_code": "numbers = [1, 2, 3]\nprint(numbers[2])"}</json>
+2026-05-28 18:08:15,334 - INFO - [Run 5a2a4a29] Patch validation successful
+2026-05-28 18:08:15,334 - INFO - [Run 5a2a4a29] JSON extraction successful
+2026-05-28 18:08:15,334 - INFO - [Run 5a2a4a29] Sandbox execution started
+2026-05-28 18:08:15,346 - INFO - [Run 5a2a4a29] Sandbox execution completed
+2026-05-28 18:08:15,346 - INFO - [Run 5a2a4a29] Execution result: CompletedProcess(args=['python', '/tmp/tmp4rhf8ccn.py'], returncode=0, stdout='3\n', stderr='')
+2026-05-28 18:08:15,346 - INFO - [Run 5a2a4a29] EvaluatorAgent started
+2026-05-28 18:08:15,347 - INFO - [Run 5a2a4a29] Heuristic result: {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}
+2026-05-28 18:08:23,851 - INFO - [Run 5a2a4a29] Raw evaluator output:
+<json>
+{
+    "intent_preserved": false,
+    "minimal_fix": true,
+    "root_cause_fixed": true,
+    "introduced_regression": false,
+    "reasoning": "The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended."
+}
+</json>
+2026-05-28 18:08:23,851 - INFO - [Run 5a2a4a29] Evaluation completed
+2026-05-28 18:08:23,851 - INFO - [Run 5a2a4a29] Evaluation result: {'passed': False, 'score': 1.0, 'heuristics': {'score': 1.0, 'penalties': [], 'structural_ratio': 0.0}, 'intent_preserved': False, 'minimal_fix': True, 'root_cause_fixed': True, 'introduced_regression': False, 'reasoning': 'The patch changes the index from 5 to 2, which fixes the IndexError by accessing a valid index. However, it does not preserve the original intent, as the original code was likely trying to access an element at index 5, which was out of range. The patched code now accesses a different element (the last element in this case), which may not be what the original author intended.'}
+2026-05-28 18:08:23,851 - INFO - [Run 5a2a4a29] Debug orchestration completed
+
+
+

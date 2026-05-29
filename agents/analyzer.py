@@ -17,24 +17,24 @@ class AnalyzerAgent(BaseAgent):
 
         self.max_retries = 2
 
-    def extract_json(self, text: str) -> dict:
+    # def extract_json(self, text: str) -> dict:
 
-        """
-        Extract JSON content wrapped inside <json> tags.
-        """
+    #     """
+    #     Extract JSON content wrapped inside <json> tags.
+    #     """
 
-        match = re.search(
-            r"<json>(.*?)</json>",
-            text,
-            re.DOTALL
-        )
+    #     match = re.search(
+    #         r"<json>(.*?)</json>",
+    #         text,
+    #         re.DOTALL
+    #     )
 
-        if not match:
-            raise ValueError("No JSON block found")
+    #     if not match:
+    #         raise ValueError("No JSON block found")
 
-        json_text = match.group(1).strip()
+    #     json_text = match.group(1).strip()
 
-        return json.loads(json_text)
+    #     return json.loads(json_text)
     
     def add_line_numbers(self, code: str) -> str:
 
