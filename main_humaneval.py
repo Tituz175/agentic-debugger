@@ -19,6 +19,7 @@ from orchestrator.orchestrator import DebugOrchestrator
 from benchmark.humaneval_loader import HumanEvalLoader
 from benchmark.humaneval_reporter import report
 from utils.display import print_banner, print_case_result, print_final_report
+from utils.dashboard import generate_dashboard
 from utils.logger import setup_logger
 
 logger = setup_logger()
@@ -31,6 +32,9 @@ def parse_args():
     parser.add_argument("--bug-types", nargs="+",  default=None, metavar="TYPE",
                         help="Filter bug types e.g. TypeError NameError")
     parser.add_argument("--no-color",  action="store_true",      help="Disable ANSI colour output")
+    parser.add_argument("--no-browser",  action="store_true", help="Write dashboard but don't open browser")
+    parser.add_argument("--output",      type=str, default=None, metavar="PATH",
+                        help="Path to write HTML dashboard (default: temp file)")
     return parser.parse_args()
 
 
@@ -78,6 +82,9 @@ def main():
 
     # --- Final report ---
     print_final_report(results, cases)
+
+    # --- Generate dashboard ---
+    generate_dashboard(results, cases, output_path=args.output, open_browser=not args.no_browser)
 
 
 if __name__ == "__main__":
