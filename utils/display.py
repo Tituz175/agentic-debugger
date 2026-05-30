@@ -114,7 +114,7 @@ def print_banner() -> None:
     _hr("═", BRIGHT_BLUE)
     title = f"{BOLD}{BRIGHT_WHITE}  AGENTIC DEBUGGER  {RESET}{DIM}// HumanEval Benchmark{RESET}"
     print(f"{BRIGHT_BLUE}║{RESET}  {title}")
-    subtitle = f"{DIM}  Qwen2.5-Coder-32B-AWQ  ·  Analyze → Fix → Execute → Evaluate{RESET}"
+    subtitle = f"{DIM}  Qwen2.5-Coder-32B-AWQ  ·  Analyze → Fix → Execute → Evaluate → Critique{RESET}"
     print(subtitle)
     _hr("═", BRIGHT_BLUE)
     print()
@@ -186,9 +186,9 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
     exec_color  = BRIGHT_GREEN if execution.get("success") else BRIGHT_RED
 
     # Print side-by-side sections
-    print(f"  {BOLD}{BRIGHT_CYAN}── ANALYSIS{RESET}{'─' * (col - 10)}  "
-          f"{BOLD}{BRIGHT_YELLOW}── FIX{RESET}{'─' * (col - 5)}  "
-          f"{BOLD}{BRIGHT_MAGENTA}── EVALUATION{RESET}")
+    print(f"  {BOLD}{BRIGHT_CYAN}── ANALYSIS {BRIGHT_CYAN}── {RESET}{'─' * (col - 10)}  "
+          f"{BOLD}{BRIGHT_YELLOW}── FIX{RESET} {BRIGHT_YELLOW}── {RESET}{'─' * (col - 5)}  "
+          f"{BOLD}{BRIGHT_MAGENTA}── EVALUATION{RESET} {BRIGHT_MAGENTA}── ")
 
     print(_col_line("root cause",  root_cause,  bt_color) + "  " +
           _col_line("lines",       str(fix_lines)) + "  " +
@@ -203,14 +203,14 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
           _col_line("minimal",     minimal, BRIGHT_GREEN if minimal == "✓" else BRIGHT_RED))
 
     print(_col_line("reasoning",   reasoning_a, DIM) + "  " +
-          _col_line("stdout",      _truncate(stdout, col - 14) if stdout else "—", DIM) + "  " +
+          _col_line("",            "") + "  " +
           _col_line("no regress",  regression, BRIGHT_GREEN if regression == "✓" else BRIGHT_RED))
 
     # ── Stdout on its own line ───────────────────────────────────────────────
     if stdout:
         print()
         print(f"  {DIM}stdout   : {stdout}{RESET}")
- 
+
     print()
 
     # ── Score bar ───────────────────────────────────────────────────────────
@@ -302,44 +302,64 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
 
     # ── Latency breakdown ────────────────────────────────────────────────────
     _hr("─", DIM)
-    print(f"  {BOLD}LATENCY  {DIM}(avg per run){RESET}")
+    print(f"  {BOLD}LATENCY{RESET}")
     print()
 
     stage_keys = [
-        ("analysis",  _avg("analysis_latency")),
-        ("fix",       _avg("fix_latency")),
-        ("execution", _avg("execution_latency")),
-        ("evaluation",_avg("eval_latency")),
-        ("total",     _avg("total_latency")),
+        ("analysis",   "analysis_latency"),
+        ("fix",        "fix_latency"),
+        ("execution",  "execution_latency"),
+        ("evaluation", "eval_latency"),
+        ("total",      "total_latency"),
+    ]
+    stage_labels = [label for label, _ in stage_keys]
+
+    # Build a 2D grid: per_run_vals[run_idx][stage_idx]
+    per_run_vals = []
+    for r in results:
+        row = [_fmt(r.get("metrics", {}).get(key, "0s")) for _, key in stage_keys]
+        per_run_vals.append(row)
+ 
+    avgs = [
+        sum(per_run_vals[r][s] for r in range(len(results))) / len(results)
+        for s in range(len(stage_keys))
     ]
 
-    # Per-run rows
-    col_w = 9  # width per run column
-    header = f"  {'':12}"
-    for i in range(len(results)):
-        header += f"  {f'run {i+1}':>{col_w}}"
-    header += f"  {'avg':>{col_w}}"
-    print(f"{DIM}{header}{RESET}")
-    print(f"  {DIM}{'─'*12}{''.join(['  ' + '─'*col_w for _ in range(len(results) + 1)])}{RESET}")
- 
-    stage_avgs = []
-    for label, key in stage_keys:
-        per_run_vals = [_fmt(r.get("metrics", {}).get(key, "0s")) for r in results]
-        avg_val      = sum(per_run_vals) / len(per_run_vals) if per_run_vals else 0.0
-        stage_avgs.append(avg_val)
-        color  = BRIGHT_CYAN if label != "total" else BRIGHT_WHITE
-        row    = f"  {color}{label:<12}{RESET}"
-        for v in per_run_vals:
-            row += f"  {DIM}{v:>{col_w}.2f}s{RESET}"
-        row += f"  {color}{avg_val:>{col_w}.2f}s{RESET}"
-        print(row)
- 
+    # Column widths: stage label + 7 chars per value ("12.62s")
+    val_w   = 8   # "  12.62s"
+    label_w = 10  # "run 20   "
+
+    # Header row — stage names
+    hdr = f"  {'':{label_w}}"
+    for label in stage_labels:
+        hdr += f"  {label:>{val_w}}"
+    print(f"{DIM}{hdr}{RESET}")
+    print(f"  {DIM}{'-' * label_w}{''.join(['  ' + '-' * val_w for _ in stage_labels])}{RESET}")
+
+    # One row per run
+    for i, row_vals in enumerate(per_run_vals):
+        task_id = cases[i].get("task_id", f"run {i+1}") if cases else f"run {i+1}"
+        # Shorten "HumanEval/4" → "HE/4" to save space
+        short_id = task_id.replace("HumanEval", "HE")
+        line = f"  {short_id:{label_w}}"
+        for s, v in enumerate(row_vals):
+            color = BRIGHT_WHITE if s == len(stage_keys) - 1 else DIM
+            line += f"  {color}{v:>{val_w}.2f}s{RESET}"
+        print(line)
+
+    # Separator + average row
+    print(f"  {DIM}{'-' * label_w}{''.join(['  ' + '-' * val_w for _ in stage_labels])}{RESET}")
+    avg_row = f"  {'avg':{label_w}}"
+    for s, avg_val in enumerate(avgs):
+        color = BRIGHT_WHITE if s == len(stage_keys) - 1 else BRIGHT_CYAN
+        avg_row += f"  {color}{avg_val:>{val_w}.2f}s{RESET}"
+    print(avg_row)
+
     print()
 
-    # Bar chart of averages
-    print(f"  {DIM}avg per stage:{RESET}")
-    max_lat = max(stage_avgs) or 1
-    for (label, _), val in zip(stage_keys, stage_avgs):
+     # Bar chart of averages (fix is always the longest — good visual anchor)
+    max_lat = max(avgs) or 1
+    for (label, _), val in zip(stage_keys, avgs):
         bar_w  = 28
         filled = round((val / max_lat) * bar_w)
         color  = BRIGHT_CYAN if label != "total" else BRIGHT_WHITE
@@ -388,8 +408,8 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
             bt      = c.get("bug_type", "?")
             bt_c    = _bug_type_color(bt)
             score   = ev.get("score", 0.0)
-            reason  = _truncate(ev.get("reasoning", "—"), w - 18)
-            mutation= _truncate(c.get("mutation_desc", "—"), w - 18)
+            reason  = ev.get("reasoning", "—").replace("\n", " ")
+            mutation= c.get("mutation_desc", "—").replace("\n", " ")
             print(f"  {BRIGHT_WHITE}{BOLD}{task_id}{RESET}  {bt_c}{bt}{RESET}  "
                   f"{_score_color(score)}{score:.3f}{RESET}")
             # Word-wrap mutation and verdict to terminal width
