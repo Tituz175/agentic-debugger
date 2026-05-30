@@ -153,7 +153,7 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
 
     # ── Mutation description ─────────────────────────────────────────────────
     if mutation:
-        print(f"  {DIM}mutation :{RESET} {_truncate(mutation, w - 16)}")
+        print(f"  {DIM}original code mutation :{RESET} {_truncate(mutation, w - 16)}")
 
     print()
 
@@ -169,10 +169,18 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
     a_latency   = _fmt_latency(metrics.get("analysis_latency", "—"))
     reasoning_a = analysis.get("reasoning", "").replace("\n", " ")
 
-    patched     = fix.get("patched_code", "")
-    fix_lines   = patched.count("\n") + 1 if patched else 0
-    f_latency   = _fmt_latency(metrics.get("fix_latency", "—"))
-    explanation = _truncate(fix.get("explanation", ""), col - 2)
+    f_latency       = _fmt_latency(metrics.get("fix_latency", "—"))
+    explanation     = fix.get("explanation", "").replace("\n", " ")
+    heuristics      = ev.get("heuristics", {})
+    struct_ratio    = heuristics.get("structural_ratio", None)
+    struct_str      = f"{struct_ratio*100:.2f}%" if struct_ratio is not None else "—"
+    penalties       = heuristics.get("penalties", [])
+    penalties_str   = ", ".join(penalties) if penalties else "none"
+    h_score         = heuristics.get("score", None)
+    h_score_str     = f"{h_score:.3f}" if h_score is not None else "—"
+    repair_attempts = len(result.get("repair_history", [])) + 1
+    repair_max      = 3
+    critique_lat    = _fmt_latency(metrics.get("critique_latency", "0.0000s"))
 
     intent      = "✓" if ev.get("intent_preserved") else "✗"
     rcf         = "✓" if ev.get("root_cause_fixed") else "✗"
@@ -187,11 +195,11 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
 
     # Print side-by-side sections
     print(f"  {BOLD}{BRIGHT_CYAN}── ANALYSIS {BRIGHT_CYAN}── {RESET}{'─' * (col - 10)}  "
-          f"{BOLD}{BRIGHT_YELLOW}── FIX{RESET} {BRIGHT_YELLOW}── {RESET}{'─' * (col - 5)}  "
-          f"{BOLD}{BRIGHT_MAGENTA}── EVALUATION{RESET} {BRIGHT_MAGENTA}── ")
+          f"{BOLD}{BRIGHT_YELLOW}── FIX {BRIGHT_YELLOW}── {RESET}{'─' * (col - 5)}  "
+          f"{BOLD}{BRIGHT_MAGENTA}── EVALUATION {BRIGHT_MAGENTA}── {RESET}")
 
     print(_col_line("root cause",  root_cause,  bt_color) + "  " +
-          _col_line("lines",       str(fix_lines)) + "  " +
+          _col_line("change",      struct_str, DIM) + "  " +
           _col_line("intent",      intent, BRIGHT_GREEN if intent == "✓" else BRIGHT_RED))
 
     print(_col_line("error line",  error_line) + "  " +
@@ -205,6 +213,25 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
     print(_col_line("reasoning",   reasoning_a, DIM) + "  " +
           _col_line("",            "") + "  " +
           _col_line("no regress",  regression, BRIGHT_GREEN if regression == "✓" else BRIGHT_RED))
+
+    # ── Fixer explanation ────────────────────────────────────────────────────
+    if explanation:
+        print()
+        print(f"  {DIM}fixer    : {explanation}{RESET}")
+
+    # ── Heuristics row ───────────────────────────────────────────────────────
+    print(f"  {DIM}heuristic: score {RESET}{_score_color(h_score or 0)}{h_score_str}{RESET}"
+          f"  {DIM}│  structural change {RESET}{DIM}{struct_str}{RESET}"
+          f"  {DIM}│  penalties {RESET}{BRIGHT_RED if penalties else DIM}{penalties_str}{RESET}")
+
+    # ── Attempt counters ─────────────────────────────────────────────────────
+    a_attempts = analysis.get("analyzer_latency", None)   # present = succeeded
+    f_attempts = fix.get("fixer_latency", None)
+    e_attempts = ev.get("reasoning", None)
+    print(f"  {DIM}attempts : repair {RESET}{BRIGHT_CYAN}{repair_attempts}/{repair_max}{RESET}"
+          f"  {DIM}│  analyzer {RESET}{DIM}{1 if a_attempts else '?'}/2{RESET}"
+          f"  {DIM}│  fixer {RESET}{DIM}{1 if f_attempts else '?'}/2{RESET}"
+          f"  {DIM}│  evaluator {RESET}{DIM}{1 if e_attempts else '?'}/2{RESET}")
 
     # ── Stdout on its own line ───────────────────────────────────────────────
     if stdout:
@@ -319,7 +346,7 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
     for r in results:
         row = [_fmt(r.get("metrics", {}).get(key, "0s")) for _, key in stage_keys]
         per_run_vals.append(row)
- 
+
     avgs = [
         sum(per_run_vals[r][s] for r in range(len(results))) / len(results)
         for s in range(len(stage_keys))
@@ -357,7 +384,7 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
 
     print()
 
-     # Bar chart of averages (fix is always the longest — good visual anchor)
+    # Bar chart of averages (fix is always the longest — good visual anchor)
     max_lat = max(avgs) or 1
     for (label, _), val in zip(stage_keys, avgs):
         bar_w  = 28
@@ -365,7 +392,7 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
         color  = BRIGHT_CYAN if label != "total" else BRIGHT_WHITE
         bar    = f"{color}{'▓' * filled}{DIM}{'░' * (bar_w - filled)}{RESET}"
         print(f"  {label:<12} {bar}  {DIM}{val:.2f}s{RESET}")
- 
+
     print()
 
     # ── Per bug-type table ───────────────────────────────────────────────────
