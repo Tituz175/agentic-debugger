@@ -206,6 +206,11 @@ def print_case_result(result: dict, case: dict, case_num: int, total: int) -> No
           _col_line("stdout",      _truncate(stdout, col - 14) if stdout else "—", DIM) + "  " +
           _col_line("no regress",  regression, BRIGHT_GREEN if regression == "✓" else BRIGHT_RED))
 
+    # ── Stdout on its own line ───────────────────────────────────────────────
+    if stdout:
+        print()
+        print(f"  {DIM}stdout   : {stdout}{RESET}")
+ 
     print()
 
     # ── Score bar ───────────────────────────────────────────────────────────
@@ -300,21 +305,47 @@ def print_final_report(results: list[dict], cases: list[dict]) -> None:
     print(f"  {BOLD}LATENCY  {DIM}(avg per run){RESET}")
     print()
 
-    stages = [
+    stage_keys = [
         ("analysis",  _avg("analysis_latency")),
         ("fix",       _avg("fix_latency")),
         ("execution", _avg("execution_latency")),
         ("evaluation",_avg("eval_latency")),
         ("total",     _avg("total_latency")),
     ]
-    max_lat = max(v for _, v in stages) or 1
-    for label, val in stages:
+
+    # Per-run rows
+    col_w = 9  # width per run column
+    header = f"  {'':12}"
+    for i in range(len(results)):
+        header += f"  {f'run {i+1}':>{col_w}}"
+    header += f"  {'avg':>{col_w}}"
+    print(f"{DIM}{header}{RESET}")
+    print(f"  {DIM}{'─'*12}{''.join(['  ' + '─'*col_w for _ in range(len(results) + 1)])}{RESET}")
+ 
+    stage_avgs = []
+    for label, key in stage_keys:
+        per_run_vals = [_fmt(r.get("metrics", {}).get(key, "0s")) for r in results]
+        avg_val      = sum(per_run_vals) / len(per_run_vals) if per_run_vals else 0.0
+        stage_avgs.append(avg_val)
+        color  = BRIGHT_CYAN if label != "total" else BRIGHT_WHITE
+        row    = f"  {color}{label:<12}{RESET}"
+        for v in per_run_vals:
+            row += f"  {DIM}{v:>{col_w}.2f}s{RESET}"
+        row += f"  {color}{avg_val:>{col_w}.2f}s{RESET}"
+        print(row)
+ 
+    print()
+
+    # Bar chart of averages
+    print(f"  {DIM}avg per stage:{RESET}")
+    max_lat = max(stage_avgs) or 1
+    for (label, _), val in zip(stage_keys, stage_avgs):
         bar_w  = 28
         filled = round((val / max_lat) * bar_w)
         color  = BRIGHT_CYAN if label != "total" else BRIGHT_WHITE
         bar    = f"{color}{'▓' * filled}{DIM}{'░' * (bar_w - filled)}{RESET}"
         print(f"  {label:<12} {bar}  {DIM}{val:.2f}s{RESET}")
-
+ 
     print()
 
     # ── Per bug-type table ───────────────────────────────────────────────────
