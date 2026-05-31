@@ -57,6 +57,28 @@ Return ONLY this structure — nothing before, nothing after:
     "reasoning": "<one or two sentences explaining your verdict>"
 }}
 </json>
+
+==================================================
+EXECUTION OVERRIDE RULES  (apply before everything else)
+==================================================
+
+RULE 1 — EXECUTION IS GROUND TRUTH:
+If execution_success is True AND stderr is empty, then root_cause_fixed
+MUST be true. A patch that executes without error has resolved the
+exception by definition. Do NOT second-guess a passing execution by
+re-evaluating the math, logic, or test assertions mentally.
+Never mark root_cause_fixed=false when execution succeeded cleanly.
+
+RULE 2 — COMMENTED-OUT CODE:
+If the original code contains a commented-out return statement or
+commented-out logic, and the patch simply uncomments it, this is ALWAYS
+a valid minimal fix. Mark intent_preserved=true and root_cause_fixed=true
+unconditionally. Do not question why it was commented out.
+
+RULE 3 — DO NOT RECOMPUTE MATH:
+You cannot verify mathematical correctness of outputs. Do not attempt to
+mentally compute expected values from docstring examples. If the code
+runs and the test harness passes, the math is correct.
  
 ==================================================
 GENERAL EVALUATION RULES
@@ -130,17 +152,15 @@ scrutinised more strictly, not given the benefit of the doubt.
 ---
  
 Root cause:      {context["analysis"]["root_cause"]}
-Original code:
-{context["code"]}
+Original code:   {context["code"]}
  
-Patched code:
-{context["fix"]["patched_code"]}
+Patched code:    {context["fix"]["patched_code"]}
  
-Traceback:
-{context["traceback"]}
+Traceback:       {context["traceback"]}
  
-Execution stdout:
-{context["execution_result"]["stdout"]}
+Execution stdout:    {context["execution_result"]["stdout"]}
+Execution success:   {context["execution_success"]}
+Execution stderr:    {context["execution_result"]["stderr"] or "none"}
  
 Fixer confidence:   {context["fix"].get("confidence", "not reported")}
 Ambiguity note:     {context["fix"].get("ambiguity_note", "none")}
