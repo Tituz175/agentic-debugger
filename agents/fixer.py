@@ -1,3 +1,5 @@
+import re
+
 from agents.base_agent import BaseAgent
 from utils.logger import setup_logger
 
@@ -34,6 +36,17 @@ Avoid:
     
     def __init__(self, llm):
         super().__init__(llm)
+
+
+    @staticmethod
+    def _strip_docstring(code: str) -> str:
+        """Remove triple-quoted docstrings to reduce token count."""
+        return re.sub(
+            r'(""".*?"""|\'\'\'.*?\'\'\')',
+            '""" ... """',
+            code,
+            flags=re.DOTALL
+        )
 
     # ------------------------------------------------------------------
     # Prompt construction
@@ -133,7 +146,7 @@ Failing Line:
 {context["analysis"]["error_line"]}
 
 Original Code:
-{context["code"]}
+{self._strip_docstring(context["code"])}
 
 {retry_section}
 """.strip()
