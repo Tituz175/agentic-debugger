@@ -1,3 +1,4 @@
+import re
 import time
 import uuid
 
@@ -11,6 +12,16 @@ from agents.analyzer import AnalyzerAgent
 from agents.evaluator import EvaluatorAgent
 
 logger = setup_logger()
+
+
+def _strip_docstring(code: str) -> str:
+    """Remove triple-quoted docstrings to shorten fixer prompt."""
+    return re.sub(
+        r'(def\s+\w+[^:]*:)\s*""".*?"""',
+        r'\1',
+        code,
+        flags=re.DOTALL,
+    )
 
 
 class DebugOrchestrator:
@@ -152,12 +163,17 @@ class DebugOrchestrator:
                 not fix.get("parse_success")
                 or not fix.get("patched_code")
             ):
-
-                logger.error(
-                    f"[Run {run_id}] Fix generation failed"
+                logger.warning(
+                    f"[Run {run_id}] Fix generation failed on attempt "
+                    f"{attempt + 1} — retrying with stripped prompt"
                 )
-
-                break
+                # Strip docstring from code to shorten the prompt
+                # and give the fixer a better chance on retry
+                if attempt == 0:
+                    context["code"] = _strip_docstring(context["code"])
+                    continue
+                else:
+                    break
 
             # ----------------------------------------------------------
             # Stage 3: Execute
