@@ -1,3 +1,4 @@
+import re
 from agents.base_agent import BaseAgent
 from utils.logger import setup_logger
 
@@ -18,18 +19,21 @@ class FixerAgent(BaseAgent):
     max_retries = 2
 
     _SYSTEM_PROMPT = """
-You are an advanced autonomous Python debugging agent.
+You are an expert Python program repair agent.
 
 Your goal is to minimally repair buggy Python programs.
 
-Preserve original intent whenever possible.
+Requirements:
+- Preserve original intent.
+- Make the smallest possible change.
+- Return ONLY valid JSON.
 
-Avoid:
-- arbitrary values
-- unnecessary rewrites
-- defensive programming
-- try/except blocks
-- fallback logic
+Never:
+- add try/except blocks
+- invent values
+- add defensive programming
+- introduce fallback logic
+- perform unnecessary refactors
 """.strip()
     
     def __init__(self, llm):
@@ -76,39 +80,55 @@ Forbidden behaviors:
         
         
         return f"""
-Fix the Python program below.
+You are repairing a buggy Python program.
 
-Return ONLY:
+Your task is to generate the SMALLEST possible fix that resolves the bug
+while preserving the original program intent.
 
-<json>
+Return ONLY valid JSON.
+
+Required format:
+
 {{
-  "patched_code": "...",
-  "explanation": "..."
+  "patched_code": "<FULL corrected Python program>",
+  "explanation": "<brief explanation>"
 }}
-</json>
 
-RULES:
-- patched_code must contain the FULL corrected program.
-- Make the SMALLEST possible change.
+Example:
+
+{{
+  "patched_code": "def add(a, b):\\n    return a + b",
+  "explanation": "Replaced subtraction with addition."
+}}
+
+STRICT OUTPUT RULES:
+
+- Output ONLY a JSON object.
+- Do NOT use markdown.
+- Do NOT use code fences.
+- Do NOT wrap JSON in <json> tags.
+- Do NOT include commentary before or after the JSON.
+- patched_code must contain the ENTIRE corrected program.
+- explanation must be a single concise sentence.
+
+REPAIR RULES:
+
+- Make the smallest possible change.
 - Preserve original intent.
-- Do not add try/except.
 - Do not invent arbitrary values.
-- Do not add fallback behavior.
+- Do not add try/except.
+- Do not add fallback logic.
+- Do not suppress the error.
 - Do not refactor unrelated code.
+- Do not rewrite the entire solution.
 
-IMPORTANT:
-- Output valid JSON only.
-- Do not use markdown.
-- Do not include commentary outside the JSON block.
+==================================================
+BUG INFORMATION
+==================================================
 
-Bug Type:
-{context["analysis"]["root_cause"]}
-
-Reason:
-{context["analysis"]["reasoning"]}
-
-Failing Line:
-{context["analysis"]["error_line"]}
+Bug Type:       {context["analysis"]["root_cause"]}
+Reason:         {context["analysis"]["reasoning"]}
+Failing Line:   {context["analysis"]["error_line"]}
 
 Original Code:
 {context["code"]}
@@ -121,26 +141,69 @@ Original Code:
     # ------------------------------------------------------------------
 
     def _parse(self, raw: str, latency: float) -> dict:
-        parsed = self.extract_json(raw)
+        """
+        Parse fixer output.
 
-        required = {"patched_code", "explanation"}
-        missing = required - parsed.keys()
-        if missing:
-            raise ValueError(f"Missing keys in fixer output: {missing}")
+        Expected format:
+
+        {
+            "patched_code": "...",
+            "explanation": "..."
+        }
+        """
+
+
+        if not raw.strip().endswith("}"):
+            raise ValueError(
+                "Output appears truncated before JSON completed."
+            )
+
+        try:
+            parsed = self.extract_json(raw)
+        except Exception:
+
+            json_match = re.search(
+                r"\{.*\}",
+                raw,
+                re.DOTALL,
+            )
+
+            if not json_match:
+                raise
+
+            parsed = self.extract_json(
+                json_match.group(0)
+            )
+
+        if "patched_code" not in parsed:
+            raise ValueError("Missing 'patched_code' key")
+
+        if "explanation" not in parsed:
+            raise ValueError("Missing 'explanation' key")
 
         patched_code = parsed["patched_code"]
-        if not patched_code or not patched_code.strip():
+
+        if not isinstance(patched_code, str):
+            raise ValueError("patched_code must be a string")
+
+        patched_code = patched_code.strip()
+
+        if not patched_code:
             raise ValueError("patched_code is empty")
 
-        # Compile-check before accepting the patch
         try:
             compile(patched_code, "<patch>", "exec")
         except SyntaxError as e:
-            raise ValueError(f"Patch failed compile check: {e}")
+            raise ValueError(
+                f"Patch failed compile check: {e}"
+            )
 
-        parsed["fixer_latency"] = f"{latency:.4f}s"
-        parsed["parse_success"] = True
-        return parsed
+        return {
+            "patched_code": patched_code,
+            "explanation": parsed["explanation"],
+            "fixer_latency": f"{latency:.4f}s",
+            "parse_success": True,
+        }
 
     # ------------------------------------------------------------------
     # Entry point
@@ -156,6 +219,7 @@ Original Code:
             system_prompt=self._SYSTEM_PROMPT,
             user_prompt=self._build_prompt(context),
             parse_and_validate=self._parse,
+            generate_kwargs={"max_new_tokens": 8192},  # allow longer output for the patch
         )
 
         if result is None:
