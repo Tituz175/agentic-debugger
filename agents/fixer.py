@@ -1,5 +1,3 @@
-import re
-
 from agents.base_agent import BaseAgent
 from utils.logger import setup_logger
 
@@ -37,17 +35,6 @@ Avoid:
     def __init__(self, llm):
         super().__init__(llm)
 
-
-    @staticmethod
-    def _strip_docstring(code: str) -> str:
-        """Remove triple-quoted docstrings to reduce token count."""
-        return re.sub(
-            r'(""".*?"""|\'\'\'.*?\'\'\')',
-            '""" ... """',
-            code,
-            flags=re.DOTALL
-        )
-
     # ------------------------------------------------------------------
     # Prompt construction
     # ------------------------------------------------------------------
@@ -73,40 +60,18 @@ Failed patch:
 Evaluator reasoning:
 {context["evaluation"]["reasoning"]}
 
-Failure type:
-{context["critique"]["failure_type"]}
+Failure type:     {context["critique"]["failure_type"]}
+Critique:         {context["critique"]["critique"]}
+Retry guidance:   {context["critique"]["retry_guidance"]}
 
-Critique:
-{context["critique"]["critique"]}
+You MUST generate a DIFFERENT repair strategy.
+DO NOT repeat the failed patch above.
 
-Retry guidance:
-{context["critique"]["retry_guidance"]}
-
-Forbidden retry behaviors:
+Forbidden behaviors:
 - inventing arbitrary values
-- bypassing execution with guards
+- bypassing execution with guards  
 - changing indices to unrelated valid values
-- suppressing the error
-- adding try/except
-
-If the correct fix cannot be safely inferred,
-return the ORIGINAL CODE unchanged.
-
-IMPORTANT:
-- You previously generated an incorrect repair.
-- Your previous strategy failed evaluation.
-- You MUST generate a DIFFERENT repair strategy.
-- DO NOT repeat this patch:
-{context["fix"]["patched_code"]}
-
-- Generate a semantically different fix.
-
-Forbidden retry behaviors:
-- inventing arbitrary values
-- bypassing execution with guards
-- changing indices to unrelated valid values
-- suppressing the error
-- adding try/except
+- suppressing the error with try/except
 """
         
         
@@ -146,7 +111,7 @@ Failing Line:
 {context["analysis"]["error_line"]}
 
 Original Code:
-{self._strip_docstring(context["code"])}
+{context["code"]}
 
 {retry_section}
 """.strip()
