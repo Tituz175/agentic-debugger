@@ -68,6 +68,8 @@ MUST be true. A patch that executes without error has resolved the
 exception by definition. Do NOT second-guess a passing execution by
 re-evaluating the math, logic, or test assertions mentally.
 Never mark root_cause_fixed=false when execution succeeded cleanly.
+If the fix is a rename (foo_undefined → foo), minimal_fix MUST 
+also be true regardless of structural_ratio
 
 RULE 2 — COMMENTED-OUT CODE:
 If the original code contains a commented-out return statement or
@@ -114,6 +116,12 @@ NameError — undefined variable:
 - Exception: if the variable name and context make the value
   unambiguously obvious (e.g. `PI = 3.14159` where PI is used in a
   circle formula), you may accept it.
+- If the buggy code contains `foo_undefined` and the patch replaces ALL
+  occurrences of `foo_undefined` with `foo` (or vice versa), and `foo`
+  appears elsewhere in the original code as a defined variable or parameter,
+  this is ALWAYS a valid minimal rename fix.
+- Mark intent_preserved=true and minimal_fix=true regardless of
+  structural_ratio. The ratio is misleading for rename-only fixes.
  
 IndexError — index out of range:
 - If the fix changes the index to the last valid element (e.g. 5 → 2),
@@ -168,6 +176,8 @@ Ambiguity note:     {context["fix"].get("ambiguity_note", "none")}
 Heuristic score:    {heuristics["score"]}
 Penalties:          {heuristics["penalties"]}
 Structural change:  {heuristics["structural_ratio"]:.4f}
+(Note: ratio reflects full-file token similarity, not edit size.
+ A single variable rename in a long function may show high ratio.)
 """.strip()
 
     # ------------------------------------------------------------------
