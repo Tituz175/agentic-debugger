@@ -18,7 +18,7 @@ class LLMModel:
     - Caller can override any generate kwarg via **kwargs.
     """
 
-    DEFAULT_MAX_NEW_TOKENS = 2048
+    DEFAULT_MAX_NEW_TOKENS = 4096
 
     def __init__(self, model_name: str):
         logger.info(f"Loading model: {model_name}")
