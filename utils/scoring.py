@@ -21,10 +21,28 @@ _LARGE_CHANGE_THRESHOLD = 0.30
 
 
 def _token_ratio(original: str, patched: str) -> float:
-    """SequenceMatcher ratio over whitespace-split tokens."""
-    a = original.split()
-    b = patched.split()
-    return difflib.SequenceMatcher(None, a, b).ratio()
+    """Only compare lines that actually changed."""
+    orig_lines    = original.strip().splitlines()
+    patched_lines = patched.strip().splitlines()
+    
+    # Find lines that differ
+    changed_orig    = []
+    changed_patched = []
+    for o, p in zip(orig_lines, patched_lines):
+        if o != p:
+            changed_orig.append(o)
+            changed_patched.append(p)
+    
+    # Also catch added/removed lines
+    len_diff = abs(len(orig_lines) - len(patched_lines))
+    
+    if not changed_orig and len_diff == 0:
+        return 1.0  # identical
+    
+    # Ratio of changed tokens vs total tokens
+    total_tokens   = sum(len(l.split()) for l in orig_lines) or 1
+    changed_tokens = sum(len(l.split()) for l in changed_orig) + len_diff
+    return 1.0 - (changed_tokens / total_tokens)
 
 
 def compute_heuristic_score(
