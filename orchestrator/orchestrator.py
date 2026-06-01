@@ -225,6 +225,22 @@ class DebugOrchestrator:
             })
 
             # ----------------------------------------------------------
+            # Stall Detection
+            # ----------------------------------------------------------
+
+            if len(context["repair_history"]) >= 2:
+                prev_score = context["repair_history"][-2]["evaluation"]["score"]
+                curr_score = context["repair_history"][-1]["evaluation"]["score"]
+                if curr_score == prev_score:
+                    logger.info(
+                        f"[Run {run_id}] Score stalled at "
+                        f"{curr_score:.3f} after "
+                        f"{len(context['repair_history'])} attempts "
+                        f"— stopping retries"
+                    )
+                    break
+
+            # ----------------------------------------------------------
             # Retry Decision
             # ----------------------------------------------------------
 
@@ -236,6 +252,24 @@ class DebugOrchestrator:
                 )
 
                 break
+
+
+        # Guarantee evaluation key always exists even if repair loop
+        # exited early due to fix generation failure
+        if "evaluation" not in context:
+            context["evaluation"] = {
+                "passed": False,
+                "score":  0.0,
+                "reasoning": "Pipeline exited before evaluation — fix generation failed.",
+            }
+
+        if "execution_result" not in context:
+            context["execution_result"] = {
+                "success": False,
+                "stdout":  "",
+                "stderr":  "Fix generation failed — execution never ran.",
+            }
+            context["execution_success"] = False
 
         # ==============================================================
         # Metrics
@@ -260,7 +294,7 @@ class DebugOrchestrator:
 
         logger.info(
             f"[Run {run_id}] Orchestration completed — "
-            f"passed={context['evaluation'].get('passed')}"
+            f"passed={context.get('evaluation', {}).get('passed')}"
         )
 
         return context
