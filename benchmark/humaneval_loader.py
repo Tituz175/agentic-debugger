@@ -1,32 +1,15 @@
 """
 humaneval_loader.py
 
-Loads the openai/openai_humaneval dataset, introduces bugs via the mutator,
-executes the buggy code to capture real tracebacks, and yields benchmark
-cases in the format your DebugOrchestrator expects.
+Loads openai/openai_humaneval, mutates each problem, executes against
+the test harness, and captures ANY failure — runtime exceptions OR
+AssertionError from wrong output — as a valid debugging case.
 
-Each yielded case has:
-    task_id         : str   — "HumanEval/N"
-    buggy_code      : str   — full executable Python with one bug
-    original_code   : str   — correct version (for reference / future eval)
-    traceback       : str   — real traceback from running the buggy code
-    bug_type        : str   — exception class the mutation targets
-    mutation_desc   : str   — what was changed
-    test_code       : str   — HumanEval assert block (for pass@k eval later)
-    entry_point     : str   — function name
-
-Usage
------
-    from benchmark.humaneval_loader import HumanEvalLoader
-
-    loader = HumanEvalLoader(max_cases=20, seed=42)
-    for case in loader.load():
-        result = orchestrator.run(case["buggy_code"], case["traceback"])
+This gives ~120-150 cases from the full 164-problem dataset.
 """
 
 import sys
 import textwrap
-import traceback as tb
 import subprocess
 import tempfile
 import os
@@ -40,14 +23,18 @@ logger = setup_logger()
 
 
 # ---------------------------------------------------------------------------
-# Execution helper (reuses your SandboxRunner logic inline so this module
-# has no circular import on SandboxRunner)
+# Execution
 # ---------------------------------------------------------------------------
 
 def _execute_and_capture(code: str, timeout: int = 5) -> tuple[bool, str]:
     """
-    Run code in a subprocess.  Returns (crashed, traceback_string).
-    crashed=True means the code raised an exception we can use.
+    Run code in a subprocess.
+    Returns (failed, traceback_string).
+
+    Captures:
+    - Runtime exceptions (TypeError, NameError, IndexError, etc.)
+    - AssertionError from the HumanEval test harness (wrong output)
+    - Any non-zero exit code with useful stderr or stdout
     """
     temp_path = None
     try:
@@ -64,16 +51,22 @@ def _execute_and_capture(code: str, timeout: int = 5) -> tuple[bool, str]:
             timeout=timeout,
         )
 
-        if result.returncode != 0 and result.stderr.strip():
-            # Extract just the exception line(s) — drop internal path noise
-            stderr = result.stderr.strip()
-            lines  = stderr.split('\n')
-            # Keep from the first 'Traceback' line onward
+        if result.returncode != 0:
+            # Prefer stderr (runtime exceptions), fall back to stdout
+            raw = result.stderr.strip() or result.stdout.strip()
+            if not raw:
+                return False, ""
+
+            # Clean up: keep from first Traceback / Error / Assert line
+            lines = raw.split("\n")
             for i, line in enumerate(lines):
-                if line.startswith('Traceback') or 'Error' in line:
-                    stderr = '\n'.join(lines[i:])
+                if (line.startswith("Traceback")
+                        or "Error" in line
+                        or "AssertionError" in line):
+                    raw = "\n".join(lines[i:])
                     break
-            return True, stderr
+
+            return True, raw
 
         return False, ""
 
@@ -88,24 +81,79 @@ def _execute_and_capture(code: str, timeout: int = 5) -> tuple[bool, str]:
 
 def _build_executable(buggy_code: str, test_code: str, entry_point: str) -> str:
     """
-    Combine the buggy function with a minimal call so it actually executes
-    and raises the bug.  HumanEval functions are usually pure — we call them
-    with trivial arguments derived from the test harness.
+    Run the buggy function through the full HumanEval test harness.
+    AssertionErrors are now propagated (not silenced) so wrong-output
+    mutations are also captured as valid failures.
     """
-    # The HumanEval test block uses check(candidate) where candidate is the fn.
-    # We run check(entry_point) to trigger the bug under realistic conditions.
-    runner = textwrap.dedent(f"""
+    return textwrap.dedent(f"""
 {buggy_code}
 
 # --- HumanEval test harness ---
 {test_code}
 
-try:
-    check({entry_point})
-except AssertionError:
-    pass  # wrong output, not a crash — we only want exception tracebacks
-""")
-    return runner
+# Run — let ALL exceptions propagate including AssertionError
+check({entry_point})
+""").strip()
+
+
+def _try_all_strategies(
+    task_id: str,
+    prompt: str,
+    canonical: str,
+    test_code: str,
+    entry_point: str,
+    base_seed: int,
+    bug_types: set | None,
+) -> dict | None:
+    """
+    Try multiple seeds per problem so we find a crashable mutation
+    even when the first seed picks a strategy that doesn't produce
+    a runtime failure.
+    """
+    # Try up to 8 different seeds per problem before giving up
+    for attempt in range(8):
+        mutation = mutate(
+            task_id=task_id,
+            prompt=prompt,
+            canonical_solution=canonical,
+            test=test_code,
+            entry_point=entry_point,
+            seed=base_seed + attempt * 1000,
+        )
+
+        if mutation is None:
+            continue
+
+        if bug_types and mutation.bug_type not in bug_types:
+            continue
+
+        executable = _build_executable(
+            mutation.buggy_code, test_code, entry_point
+        )
+        failed, traceback_str = _execute_and_capture(executable)
+
+        if failed and traceback_str:
+            # Determine the real bug type from the actual traceback
+            actual_bug_type = mutation.bug_type
+            for exc in ("AssertionError", "TypeError", "NameError",
+                        "IndexError", "ValueError", "AttributeError",
+                        "ZeroDivisionError", "KeyError", "RecursionError"):
+                if exc in traceback_str:
+                    actual_bug_type = exc
+                    break
+
+            return {
+                "task_id":       task_id,
+                "buggy_code":    mutation.buggy_code,
+                "original_code": mutation.original_code,
+                "traceback":     traceback_str,
+                "bug_type":      actual_bug_type,
+                "mutation_desc": mutation.mutation_desc,
+                "test_code":     test_code,
+                "entry_point":   entry_point,
+            }
+
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -114,15 +162,11 @@ except AssertionError:
 
 class HumanEvalLoader:
     """
-    Loads HumanEval problems, mutates them, and filters to cases that
-    produce real tracebacks when executed.
-
     Parameters
     ----------
-    max_cases   : maximum number of valid cases to yield (None = all)
-    seed        : random seed for mutation reproducibility
-    bug_types   : if set, only yield cases with these bug types
-                  e.g. ["TypeError", "NameError"]
+    max_cases  : max cases to return (None = all that are crashable)
+    seed       : base random seed
+    bug_types  : filter to specific exception types
     """
 
     DATASET_NAME = "openai/openai_humaneval"
@@ -139,79 +183,45 @@ class HumanEvalLoader:
         self.bug_types = set(bug_types) if bug_types else None
 
     def load(self) -> list[dict]:
-        """
-        Returns a list of benchmark case dicts ready for DebugOrchestrator.
-        Logs a summary at the end.
-        """
         logger.info(f"Loading {self.DATASET_NAME} ...")
         dataset = load_dataset(self.DATASET_NAME, split=self.SPLIT)
         logger.info(f"Loaded {len(dataset)} HumanEval problems")
 
-        cases    = []
-        skipped  = {"no_mutation": 0, "no_crash": 0, "wrong_type": 0}
+        cases   = []
+        skipped = 0
 
         for i, problem in enumerate(dataset):
             if self.max_cases and len(cases) >= self.max_cases:
                 break
 
-            task_id        = problem["task_id"]
-            prompt         = problem["prompt"]
-            canonical      = problem["canonical_solution"]
-            test_code      = problem["test"]
-            entry_point    = problem["entry_point"]
+            task_id     = problem["task_id"]
+            prompt      = problem["prompt"]
+            canonical   = problem["canonical_solution"]
+            test_code   = problem["test"]
+            entry_point = problem["entry_point"]
 
-            # --- Mutate ---
-            mutation = mutate(
+            case = _try_all_strategies(
                 task_id=task_id,
                 prompt=prompt,
-                canonical_solution=canonical,
-                test=test_code,
+                canonical=canonical,
+                test_code=test_code,
                 entry_point=entry_point,
-                seed=self.seed + i,
+                base_seed=self.seed + i,
+                bug_types=self.bug_types,
             )
 
-            if mutation is None:
-                logger.debug(f"[{task_id}] No mutation found — skipping")
-                skipped["no_mutation"] += 1
+            if case is None:
+                logger.debug(f"[{task_id}] No crashable mutation found — skipping")
+                skipped += 1
                 continue
 
-            # --- Filter by bug type if requested ---
-            if self.bug_types and mutation.bug_type not in self.bug_types:
-                skipped["wrong_type"] += 1
-                continue
-
-            # --- Execute to get a real traceback ---
-            executable = _build_executable(
-                mutation.buggy_code, test_code, entry_point
-            )
-            crashed, traceback_str = _execute_and_capture(executable)
-
-            if not crashed or not traceback_str:
-                logger.debug(
-                    f"[{task_id}] Mutation '{mutation.mutation_desc}' "
-                    f"did not raise — skipping"
-                )
-                skipped["no_crash"] += 1
-                continue
-
-            case = {
-                "task_id":       task_id,
-                "buggy_code":    mutation.buggy_code,
-                "original_code": mutation.original_code,
-                "traceback":     traceback_str,
-                "bug_type":      mutation.bug_type,
-                "mutation_desc": mutation.mutation_desc,
-                "test_code":     test_code,
-                "entry_point":   entry_point,
-            }
             cases.append(case)
             logger.info(
-                f"[{task_id}] ✓ {mutation.bug_type}: {mutation.mutation_desc}"
+                f"[{task_id}] ✓ {case['bug_type']}: {case['mutation_desc']}"
             )
 
         logger.info(
-            f"HumanEval loader done — "
-            f"{len(cases)} cases ready | "
-            f"skipped: {skipped}"
+            f"HumanEval loader done — {len(cases)} cases ready "
+            f"| {skipped} skipped"
         )
         return cases
