@@ -42,16 +42,25 @@ IMPORTANT:
         Extract and parse JSON wrapped in <json>...</json> tags.
         Raises ValueError if the block is missing or malformed.
         """
-        match = re.search(r"<json>(.*?)</json>", text, re.DOTALL)
+        text = text.strip()
+
+        # Raw JSON
+        if text.startswith("{"):
+            return json.loads(text)
+
+        # Legacy <json> wrapper
+        match = re.search(
+            r"<json>(.*?)</json>",
+            text,
+            re.DOTALL
+        )
+
         if not match:
             raise ValueError(
-                f"No <json> block found in output:\n{text[:300]}"
+                f"No JSON object found in output:\n{text[:300]}"
             )
-        raw = match.group(1).strip()
-        try:
-            return json.loads(raw)
-        except json.JSONDecodeError as e:
-            raise ValueError(f"JSON parse error: {e}\nRaw content:\n{raw}")
+
+        return json.loads(match.group(1).strip())
 
     def _timed_generate(self, run_id: str, label: str, **kwargs) -> tuple[str, float]:
         """
