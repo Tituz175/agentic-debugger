@@ -163,17 +163,20 @@ class DebugOrchestrator:
                 not fix.get("parse_success")
                 or not fix.get("patched_code")
             ):
-                logger.warning(
-                    f"[Run {run_id}] Fix generation failed on attempt "
-                    f"{attempt + 1} — retrying with stripped prompt"
+                logger.error(
+                    f"[Run {run_id}] Fix generation failed on attempt {attempt + 1}"
                 )
-                # Strip docstring from code to shorten the prompt
-                # and give the fixer a better chance on retry
                 if attempt == 0:
-                    context["code"] = _strip_docstring(context["code"])
+                    # Strip docstring to shorten prompt and retry
+                    logger.info(f"[Run {run_id}] Retrying with stripped docstring")
+                    context["code"] = re.sub(
+                        r'(def\s+\w+[^:]*:)\s*""".*?"""',
+                        r'\1',
+                        context["code"],
+                        flags=re.DOTALL,
+                    )
                     continue
-                else:
-                    break
+                break
 
             # ----------------------------------------------------------
             # Stage 3: Execute
