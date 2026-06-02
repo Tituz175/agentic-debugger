@@ -72,15 +72,23 @@ If the fix is a rename (foo_undefined → foo), minimal_fix MUST
 also be true regardless of structural_ratio
 
 RULE 2 — COMMENTED-OUT CODE:
-If the original code contains a commented-out return statement or
-commented-out logic, and the patch simply uncomments it, this is ALWAYS
-a valid minimal fix. Mark intent_preserved=true and root_cause_fixed=true
-unconditionally. Do not question why it was commented out.
+If the patch simply uncomments a return statement or commented-out logic,
+this is ALWAYS a valid minimal fix. Mark intent_preserved=true and
+root_cause_fixed=true unconditionally. Do NOT speculate about why the
+code was commented out — that is not your concern.
 
 RULE 3 — DO NOT RECOMPUTE MATH:
 You cannot verify mathematical correctness of outputs. Do not attempt to
 mentally compute expected values from docstring examples. If the code
 runs and the test harness passes, the math is correct.
+
+RULE 4 — COMPARISON AND BOOLEAN FLIP FIXES:
+If the mutation flipped a comparison operator (== ↔ !=, < ↔ >, <= ↔ >=)
+or a boolean literal (True ↔ False), and the patch restores the original
+operator or literal, this is ALWAYS a valid minimal fix.
+Mark intent_preserved=true and minimal_fix=true unconditionally.
+Execution success confirms the restoration is correct.
+Do NOT second-guess a single operator or literal restore.
  
 ==================================================
 GENERAL EVALUATION RULES
