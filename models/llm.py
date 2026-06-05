@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-from utils.logger import setup_logger
+from computation.logger import setup_logger
 
 logger = setup_logger()
 

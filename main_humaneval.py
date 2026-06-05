@@ -18,9 +18,9 @@ import argparse
 from orchestrator.orchestrator import DebugOrchestrator
 from benchmark.humaneval_loader import HumanEvalLoader
 from benchmark.humaneval_reporter import report
-from utils.display import print_banner, print_case_result, print_final_report
-from utils.dashboard import generate_dashboard
-from utils.logger import setup_logger
+from computation.display import print_banner, print_case_result, print_final_report
+from computation.dashboard import generate_dashboard
+from computation.logger import setup_logger
 
 logger = setup_logger()
 
@@ -43,7 +43,7 @@ def main():
 
     # Strip all ANSI if --no-color
     if args.no_color:
-        import utils.display as _d
+        import computation.display as _d
         for attr in dir(_d):
             if attr.isupper() and isinstance(getattr(_d, attr), str):
                 setattr(_d, attr, "")

@@ -3,7 +3,7 @@ import time
 import uuid
 
 from models.llm import LLMModel
-from utils.logger import setup_logger
+from computation.logger import setup_logger
 from sandbox.runner import SandboxRunner
 
 from agents.fixer import FixerAgent

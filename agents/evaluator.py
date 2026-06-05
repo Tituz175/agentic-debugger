@@ -1,5 +1,5 @@
 from agents.base_agent import BaseAgent
-from utils.logger import setup_logger
+from computation.logger import setup_logger
 from utils.scoring import (
     compute_heuristic_score,
     compute_final_score,

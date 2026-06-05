@@ -1,2 +1,7 @@
 venv\
 benchmark_results.html
+__pycache__/
+agents/__pycache__/
+models/__pycache__/
+orchestrator/__pycache__/
+sandbox/__pycache__/

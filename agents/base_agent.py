@@ -2,7 +2,7 @@ import json
 import re
 import time
 
-from utils.logger import setup_logger
+from computation.logger import setup_logger
 
 logger = setup_logger()
 

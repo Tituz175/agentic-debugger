@@ -17,7 +17,7 @@ import os
 from datasets import load_dataset
 
 from benchmark.mutator import mutate, MutationResult
-from utils.logger import setup_logger
+from computation.logger import setup_logger
 
 logger = setup_logger()
 
