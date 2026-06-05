@@ -74,8 +74,10 @@ also be true regardless of structural_ratio
 RULE 2 — COMMENTED-OUT CODE:
 If the patch simply uncomments a return statement or commented-out logic,
 this is ALWAYS a valid minimal fix. Mark intent_preserved=true and
-root_cause_fixed=true unconditionally. Do NOT speculate about why the
-code was commented out — that is not your concern.
+root_cause_fixed=true unconditionally.
+Do NOT speculate about why the code was commented out.
+Do NOT question whether the uncommenting addresses the "real" problem.
+If execution succeeds after uncommenting, the fix is correct by definition.
 
 RULE 3 — DO NOT RECOMPUTE MATH:
 You cannot verify mathematical correctness of outputs. Do not attempt to
