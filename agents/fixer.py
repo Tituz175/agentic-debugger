@@ -71,6 +71,14 @@ Retry guidance:   {context["critique"]["retry_guidance"]}
 You MUST generate a DIFFERENT repair strategy.
 DO NOT repeat the failed patch above.
 
+CRITICAL RULE:
+When the error is caused by a wrong operator, wrong variable name, or
+wrong boolean/comparison value, the ONLY correct fix is to restore the
+original operator/name/value. Do NOT change surrounding code to work
+around the bad value. Do NOT change loop ranges, conditions, or logic
+to avoid the error — find the one character/token that is wrong and
+fix ONLY that.
+
 Forbidden behaviors:
 - inventing arbitrary values
 - bypassing execution with guards  
