@@ -425,9 +425,9 @@ If you use this framework or benchmark in your research, please cite:
 ```bibtex
 @misc{agentic-debugger-2025,
   title   = {Agentic Debugger: Automated Program Repair through Collaborative AI Agents},
-  author  = {Your Name},
+  author  = {Tobi Oyekanmi},
   year    = {2025},
-  url     = {https://github.com/your-username/agentic-debugger}
+  url     = {https://github.com/tituz175/agentic-debugger}
 }
 ```
 
